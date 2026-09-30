@@ -3,6 +3,26 @@
 The Pulsus Platform marketing site. One self-contained static page — no build
 step, no dependencies, no image assets.
 
+## Product facts these pages must respect
+
+Standing constraints, recorded here so every new page inherits them rather
+than rediscovering them:
+
+- **Every application is multi-tenant.** Each interface should show its scope
+  — an entity, business-unit or perspective selector — because that is what a
+  multi-tenant product looks like in use. Tenants are strictly separated.
+- **No institution is ever named.** The institution in the source material is
+  fictional and on a public page would read as a real client. Scope selectors
+  say "All entities" and similar. The footer states that the imagery is
+  illustrative.
+- **Base currency in illustrative data is USD.** No figure appears without a
+  unit, and the currency is stated once per screen rather than repeated on
+  every number.
+- **A drawn screenshot must agree with itself.** Plotted series resolve to the
+  figures beside them, periods match their filters, totals sum, and countdowns
+  agree with the dates they count down to. A buyer for this product reads
+  dashboards for a living and checks exactly these things first.
+
 ## Structure
 
 `index.html` is the whole site. Everything is inline:
