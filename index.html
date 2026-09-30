@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulsus Platform — Every application. One institutional pulse.</title>
+<meta name="description" content="Pulsus connects operational workflows, controls, exceptions and reporting so leadership can see what is happening, what needs attention and what comes next.">
+<meta name="theme-color" content="#071a33">
+<meta property="og:title" content="Pulsus Platform">
+<meta property="og:description" content="One operational platform. One trusted picture of how your institution is actually running.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── Tokens ─────────────────────────────────────────────────────────────────
+   Taken from the product itself (red #e4012b, ink #1c1416, warm paper #faf7f5)
+   so the site and the app it sells look like one company. */
+:root{
+  --red:#e4012b; --red-deep:#b80022;
+  --navy:#071a33; --navy-2:#0c2748; --navy-3:#143257;
+  --ink:#1c1416; --muted:#6e625e; --line:#e6ded9;
+  --paper:#faf7f5; --white:#fff;
+  --on-dark:#eaf1fa; --on-dark-dim:#9fb4cd;
+  --sora:'Sora',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --plex:'IBM Plex Sans',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --wrap:1180px; --gut:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--plex);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,.wordmark{font-family:var(--sora);letter-spacing:-0.02em;line-height:1.1;margin:0}
+h2{font-size:clamp(28px,4vw,40px);font-weight:800}
+h3{font-size:17px;font-weight:700;letter-spacing:-0.01em}
+p{margin:0 0 14px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.eyebrow{font:600 11.5px/1 var(--plex);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.dark .eyebrow{color:#7d9dc4}
+section{padding:clamp(56px,8vw,96px) 0}
+.dark{background:var(--navy);color:var(--on-dark)}
+.dark p{color:var(--on-dark-dim)}
+.lede{font-size:clamp(16px,1.6vw,17.5px);max-width:60ch}
+
+/* ── Wordmark ─────────────────────────────────────────────────────────────── */
+.wordmark{display:inline-block}
+.wordmark .wm{font-weight:800;font-size:19px;letter-spacing:.18em;display:flex;align-items:baseline;gap:1px}
+.wordmark .dot{width:5px;height:5px;border-radius:50%;background:var(--red);display:inline-block;margin:0 1px 11px}
+.wordmark small{display:block;font:600 8.5px/1 var(--plex);letter-spacing:.4em;opacity:.62;margin-top:3px}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:9px;border-radius:999px;padding:13px 22px;
+  font:700 14.5px var(--plex);text-decoration:none;border:1px solid transparent;cursor:pointer;
+  transition:transform .12s ease, background .12s ease, border-color .12s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:var(--red-deep)}
+.btn-ghost{background:transparent;color:var(--on-dark);border-color:rgba(255,255,255,.28)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.55)}
+.btn .arw{transition:transform .12s ease}
+.btn:hover .arw{transform:translateX(3px)}
+
+/* ── Nav ──────────────────────────────────────────────────────────────────── */
+header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{display:flex;align-items:center;gap:28px;height:76px}
+.nav .wordmark{color:#fff;text-decoration:none}
+.nav nav{display:flex;gap:26px;margin-left:18px}
+.nav nav a{font:500 14.5px var(--plex);color:#cfe0f2;text-decoration:none}
+.nav nav a:hover{color:#fff}
+.nav .sp{flex:1}
+@media(max-width:860px){ .nav nav{display:none} }
+
+/* ── Hero ─────────────────────────────────────────────────────────────────── */
+.hero{position:relative;overflow:hidden;
+  background:radial-gradient(110% 80% at 80% 0%, #1a4d80 0%, rgba(12,39,72,.55) 42%, transparent 72%),
+             linear-gradient(165deg,#08203c 0%,#071a33 55%,#050f1f 100%)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.028) 0 1px,transparent 1px 64px)}
+/* A soft bokeh field, in place of the city-at-night photograph in the concept:
+   it carries the same mood at a few hundred bytes and never blocks on an asset. */
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:
+    radial-gradient(circle 3px at 12% 72%, rgba(255,196,120,.5), transparent 60%),
+    radial-gradient(circle 5px at 22% 84%, rgba(255,170,90,.32), transparent 60%),
+    radial-gradient(circle 4px at 34% 66%, rgba(150,200,255,.3), transparent 60%),
+    radial-gradient(circle 7px at 46% 88%, rgba(255,210,150,.22), transparent 60%),
+    radial-gradient(circle 3px at 58% 74%, rgba(190,220,255,.34), transparent 60%),
+    radial-gradient(circle 6px at 70% 92%, rgba(255,185,110,.24), transparent 60%),
+    radial-gradient(circle 4px at 86% 78%, rgba(160,205,255,.28), transparent 60%),
+    radial-gradient(circle 9px at 94% 90%, rgba(255,200,140,.16), transparent 60%)}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center;
+  padding-top:clamp(48px,7vw,80px);padding-bottom:clamp(48px,7vw,80px)}
+/* Set in caps: the line is short, and the weight suits a statement of what the
+   platform IS rather than a sentence about it. */
+.hero h1{font-size:clamp(30px,4.4vw,50px);font-weight:800;color:#fff;margin:0 0 16px;
+  text-transform:uppercase;letter-spacing:-0.005em;line-height:1.08}
+.hero .sub{font:600 clamp(17px,1.9vw,21px)/1.3 var(--sora);color:#dce8f6;letter-spacing:-0.015em;margin:0 0 20px}
+.hero .kicker{font:600 12px/1 var(--plex);letter-spacing:.2em;text-transform:uppercase;color:#b9cde5;margin:0 0 18px}
+.hero .kicker b{color:var(--red);font-weight:600}
+.hero p{color:#b9cde5;max-width:46ch}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+@media(max-width:900px){ .hero .wrap{grid-template-columns:1fr;gap:34px} }
+
+/* ── Hero dashboard (built in CSS, not a screenshot, so it stays crisp) ────── */
+.shot{border-radius:14px;background:#0f1b2c;border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 40px 90px rgba(0,0,0,.45);overflow:hidden;font-family:var(--plex)}
+.shot-top{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#0b1626;border-bottom:1px solid rgba(255,255,255,.08)}
+.shot-top .search{flex:1;margin-left:auto;max-width:330px;display:flex;align-items:center;gap:6px;
+  background:#132135;border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:4px 9px;
+  font-size:10px;color:#6e87a3}
+.shot-top .av{width:22px;height:22px;border-radius:50%;background:#1d3a5c;display:grid;place-items:center;
+  font:700 9px var(--plex);color:#cfe0f2;flex:0 0 auto}
+.shot-body{display:grid;grid-template-columns:132px 1fr;min-height:340px}
+.shot-side{background:#0b1626;border-right:1px solid rgba(255,255,255,.08);padding:11px 8px}
+.shot-side .brand{color:#fff;padding:0 6px 11px;opacity:.95}
+.shot-side .brand .wm{font-size:13px;letter-spacing:.16em}
+.shot-side .brand .dot{width:3.5px;height:3.5px;margin:0 1px 8px}
+.shot-side .brand small{font-size:6px;letter-spacing:.34em}
+.shot-side a{display:flex;align-items:center;gap:6px;font-size:10.5px;color:#8ea6c2;padding:4.5px 7px;border-radius:6px;text-decoration:none}
+.shot-side a svg{flex:0 0 auto;opacity:.75}
+.shot-side a.on{background:rgba(228,1,43,.14);color:#fff;font-weight:600}
+.shot-side a.on svg{opacity:1;color:var(--red)}
+.shot-main{padding:13px}
+.shot-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:11px}
+.shot-h{font:700 14px var(--sora);color:#fff;margin:0 0 2px}
+.shot-sub{font-size:10.5px;color:#7f97b4;margin:0}
+.shot-date{margin-left:auto;font-size:10px;color:#8ea6c2;white-space:nowrap}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:9px}
+.kpi{background:#132135;border:1px solid rgba(255,255,255,.09);border-radius:9px;padding:8px 9px}
+.kpi .lb{font-size:9px;color:#8ea6c2;text-transform:uppercase;letter-spacing:.07em}
+.kpi .vl{font:800 19px var(--sora);color:#fff;margin-top:2px;line-height:1.05}
+.kpi .dl{font-size:9px;margin-top:1px;color:#4ec98a}
+.kpi .dl.dim{color:#8ea6c2}
+.kpi .ok{font-size:9px;color:#4ec98a;display:flex;align-items:center;gap:4px;margin-top:3px}
+.kpi .ok i{width:5px;height:5px;border-radius:50%;background:#4ec98a;display:block}
+/* Mini bar rows under the exception / risk counters — pure CSS, no chart library. */
+.bars{display:flex;align-items:flex-end;gap:1.5px;height:15px;margin-top:5px}
+.bars i{flex:1;border-radius:1px;display:block;background:var(--red);opacity:.85}
+.bars.amber i{background:#e8b84b}
+.meter{height:3px;border-radius:2px;background:rgba(255,255,255,.12);margin-top:8px;overflow:hidden}
+.meter i{display:block;height:100%;width:100%;background:#4ec98a}
+.panels{display:grid;grid-template-columns:1.5fr 1fr;gap:8px}
+.panel{background:#132135;border:1px solid rgba(255,255,255,.09);border-radius:9px;padding:9px 10px}
+.panel .pt{display:flex;align-items:center;gap:6px;font-size:10px;color:#a9c0da;margin-bottom:7px;font-weight:600}
+.panel .pt .more{margin-left:auto;font-weight:500;color:#5b9be0;font-size:9.5px}
+.chips{margin-left:auto;display:flex;gap:3px}
+.chips i{font-style:normal;font-size:8px;color:#7f97b4;padding:2px 5px;border-radius:4px;background:rgba(255,255,255,.05)}
+.chips i.on{background:#2f6fb5;color:#fff}
+.chartwrap{display:flex;gap:5px}
+.yax{display:flex;flex-direction:column;justify-content:space-between;font-size:7px;color:#5b7391}
+.spark{display:block;width:100%;height:74px}
+.legend{display:flex;gap:11px;margin-top:6px;font-size:8.5px;color:#8ea6c2;flex-wrap:wrap}
+.legend b{display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.alert{display:flex;gap:7px;align-items:flex-start;font-size:10px;color:#c3d5e9;padding:3.5px 0}
+.alert b{width:6px;height:6px;border-radius:50%;margin-top:4px;flex:0 0 auto;background:var(--red)}
+.alert.amber b{background:#e8b84b}
+.alert span{margin-left:auto;color:#6e87a3;font-size:9px;white-space:nowrap}
+@media(max-width:620px){ .shot-body{grid-template-columns:1fr} .shot-side{display:none} .kpis{grid-template-columns:repeat(2,1fr)} .panels{grid-template-columns:1fr} .shot-top .search{display:none} }
+
+/* ── Split (challenge / with pulsus) ──────────────────────────────────────── */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--white);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.split > div{padding:clamp(34px,5vw,58px) clamp(24px,4vw,52px)}
+.split .right{background:linear-gradient(135deg,#f3ede9 0%,#e9e0da 55%,#dfd3ca 100%);border-left:1px solid var(--line)}
+.split h2{font-size:clamp(24px,3vw,32px);margin-bottom:16px}
+@media(max-width:860px){ .split{grid-template-columns:1fr} .split .right{border-left:0;border-top:1px solid var(--line)} }
+
+/* A section heading with a secondary note or link pushed to the right. */
+.headrow{display:flex;align-items:flex-end;gap:28px;justify-content:space-between;flex-wrap:wrap}
+.morelink{font:600 13.5px var(--plex);color:var(--red);text-decoration:none;white-space:nowrap;padding-bottom:4px}
+.morelink:hover .arw{display:inline-block;transform:translateX(3px)}
+.morelink .arw{transition:transform .12s ease;display:inline-block}
+.dark .headrow p{color:var(--on-dark-dim);text-align:right;max-width:34ch}
+
+/* ── Cards ────────────────────────────────────────────────────────────────── */
+.grid6{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:34px}
+.card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px}
+.card .ic{color:#7fb0e8;margin-bottom:12px}
+.card h3{color:#fff;margin-bottom:7px}
+.card p{font-size:13.5px;margin:0;color:#9fb4cd;line-height:1.55}
+@media(max-width:1000px){ .grid6{grid-template-columns:repeat(3,1fr)} }
+@media(max-width:640px){ .grid6{grid-template-columns:repeat(2,1fr)} }
+
+/* ── Capability tiles ─────────────────────────────────────────────────────── */
+.caps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:30px}
+.cap{position:relative;background:var(--white);border:1px solid var(--line);border-radius:11px;
+  padding:16px 14px;text-decoration:none;display:block;transition:border-color .12s ease,transform .12s ease}
+.cap:hover{border-color:#c9bcb4;transform:translateY(-2px)}
+.cap .ic{color:var(--red);margin-bottom:10px}
+.cap b{display:block;font:700 14px var(--sora);letter-spacing:-.01em}
+.cap span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+.flag{position:absolute;top:10px;right:10px;background:#fdecef;color:var(--red);
+  font:700 8.5px var(--plex);letter-spacing:.09em;padding:3px 6px;border-radius:4px}
+@media(max-width:1000px){ .caps{grid-template-columns:repeat(3,1fr)} }
+@media(max-width:560px){ .caps{grid-template-columns:repeat(2,1fr)} }
+
+/* ── The fan: twelve applications converging into one Executive Brief ──────
+   Drawn rather than described. The dotted paths all terminate at the same
+   point, which is the whole argument of the platform in one image. */
+.fan{margin-top:40px}
+.fanbrief{max-width:430px;margin:0 auto;background:linear-gradient(160deg,#12304f 0%,#0d2440 100%);
+  border:1px solid rgba(127,176,232,.34);border-radius:13px;padding:17px 19px;
+  box-shadow:0 22px 60px rgba(0,0,0,.42);display:flex;align-items:center;gap:18px}
+.fanbrief .ring{position:relative;flex:0 0 auto;width:78px;height:78px}
+.fanbrief .ring svg{transform:rotate(-90deg)}
+.fanbrief .ring span{position:absolute;inset:0;display:grid;place-items:center;
+  font:800 23px var(--sora);color:#fff}
+.fanbrief h3{color:#fff;font-size:16px;margin-bottom:3px}
+.fanbrief p{font-size:11.5px;color:#9fb4cd;margin:0 0 9px;line-height:1.45}
+.fanbrief .rows i{display:block;height:4px;border-radius:2px;margin-bottom:4px;background:#2f6fb5}
+.fanbrief .rows i:nth-child(2){width:76%;background:#e4012b}
+.fanbrief .rows i:nth-child(3){width:52%;background:#4ec98a}
+.fanlines{display:block;width:100%;height:86px}
+.fanapps{display:grid;grid-template-columns:repeat(12,1fr);gap:4px}
+.fanapp{text-align:center;color:#7fb0e8}
+.fanapp .bx{width:34px;height:34px;margin:0 auto 7px;border-radius:9px;display:grid;place-items:center;
+  background:rgba(255,255,255,.055);border:1px solid rgba(127,176,232,.3)}
+.fanapp em{display:block;font-style:normal;font-size:10px;color:#9fb4cd;line-height:1.25}
+@media(max-width:900px){ .fanapps{grid-template-columns:repeat(6,1fr);gap:12px} .fanlines{height:54px} }
+@media(max-width:560px){ .fanapps{grid-template-columns:repeat(4,1fr)} .fanbrief{gap:13px;padding:15px}
+  .fanbrief .ring{width:62px;height:62px} .fanbrief .ring span{font-size:19px} }
+
+/* ── Governance ───────────────────────────────────────────────────────────── */
+.govrow{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center}
+.govs{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:28px}
+.gov{text-align:center}
+.gov .ic{color:var(--ink);opacity:.8;display:grid;place-items:center;height:30px}
+.gov span{display:block;font-size:11.5px;color:var(--muted);line-height:1.35;margin-top:7px}
+.pyr{display:flex;flex-direction:column;align-items:center;gap:3px}
+.tier{color:#fff;text-align:center;padding:9px 8px;border-radius:3px;width:100%}
+.tier b{display:block;font:700 12.5px var(--sora)}
+.tier span{display:block;font-size:10.5px;opacity:.85}
+@media(max-width:1000px){ .govs{grid-template-columns:repeat(4,1fr)} }
+@media(max-width:860px){ .govrow{grid-template-columns:1fr;gap:32px} }
+@media(max-width:520px){ .govs{grid-template-columns:repeat(2,1fr)} }
+
+/* ── Close + footer ───────────────────────────────────────────────────────── */
+.close{background:linear-gradient(150deg,#0d2b4c 0%,#071a33 58%,#12243a 100%);position:relative;overflow:hidden}
+.close::before{content:"";position:absolute;inset:auto -10% -40% -10%;height:70%;
+  background:radial-gradient(60% 100% at 50% 100%, rgba(228,1,43,.18), transparent 70%)}
+.closerow{position:relative;z-index:1;display:grid;grid-template-columns:1.3fr 1fr;gap:44px;align-items:end}
+.closerow h2{color:#fff;margin-bottom:12px}
+.fbrand{border-left:1px solid rgba(255,255,255,.16);padding-left:26px}
+.fbrand .wordmark{color:#fff}
+.fbrand p{font-size:13px;margin:16px 0 14px}
+.flinks{display:flex;gap:16px;font-size:13px}
+.flinks a{color:#9fb4cd;text-decoration:none}
+.flinks a:hover{color:#fff}
+@media(max-width:860px){ .closerow{grid-template-columns:1fr} .fbrand{border-left:0;padding-left:0;
+  border-top:1px solid rgba(255,255,255,.16);padding-top:24px} }
+.legal{border-top:1px solid rgba(255,255,255,.1);padding:18px 0;font-size:12px;color:#6e87a3}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="wordmark"><span class="wm">PUL<span class="dot"></span>SUS</span><small>PLATFORM</small></a>
+    <nav>
+      <a href="#platform">Platform</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#institutions">For Institutions</a>
+      <a href="#about">About</a>
+    </nav>
+    <span class="sp"></span>
+    <a class="btn btn-primary" href="#contact">Request a conversation <span class="arw">→</span></a>
+  </div>
+</header>
+
+<!-- ── Hero ─────────────────────────────────────────────────────────────── -->
+<section class="hero dark" id="top">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Live. <b>Signal.</b> Clarity.</p>
+      <h1>Every application.<br>One institutional pulse.</h1>
+      <p class="sub">The operating system for how modern business runs.</p>
+      <p class="lede">One operational platform. One trusted picture of how your institution is actually running.</p>
+      <p class="lede">Pulsus connects operational workflows, controls, exceptions and reporting so leadership can see
+        what is happening, what needs attention and what comes next.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#contact">Request a conversation <span class="arw">→</span></a>
+        <a class="btn btn-ghost" href="#platform">Explore the platform</a>
+      </div>
+    </div>
+
+    <!-- A styled representation of the Executive Brief, drawn in CSS rather than
+         shipped as a screenshot: it stays sharp on every display, weighs nothing,
+         and cannot go stale when the product's UI moves on. -->
+    <div class="shot" role="img" aria-label="The Pulsus Executive Brief: service health 98%, 12 exceptions requiring action, 3 elevated operational risks, regulatory reporting 100% complete, an institutional performance chart and a list of key alerts.">
+      <div class="shot-top">
+        <div class="search"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.3-4.3"/></svg>Search</div>
+        <div class="av">NA</div>
+      </div>
+      <div class="shot-body">
+        <div class="shot-side">
+          <div class="brand"><span class="wm">PUL<span class="dot"></span>SUS</span><small>PLATFORM</small></div>
+          <a class="on"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Executive Brief</a>
+          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>Panorama</a>
+          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg>Cash</a>
+          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 2v6h-6M3 22v-6h6"/><path d="M20 12a8 8 0 0 1-13.7 5.7M4 12a8 8 0 0 1 13.7-5.7"/></svg>Recon</a>
+          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Settlement</a>
+          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="8" r="3"/><path d="M2 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/></svg>Connect</a>
+          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Credit Insight</a>
+          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Risk</a>
+          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>Quality</a>
+          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 12 8 8"/></svg>Ops</a>
+          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>Talent</a>
+          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>Communiqué</a>
+          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Reports</a>
+        </div>
+        <div class="shot-main">
+          <div class="shot-head">
+            <div>
+              <p class="shot-h">Executive Brief</p>
+              <p class="shot-sub">A live view across your institution.</p>
+            </div>
+            <!-- Rendered from the browser clock so the weekday and the date can
+                 never disagree the way a hard-coded pair can. -->
+            <div class="shot-date" id="shotDate">Wed 12 Aug 2026</div>
+          </div>
+          <div class="kpis">
+            <div class="kpi"><div class="lb">Service health</div><div class="vl">98%</div><div class="dl">↑ 2% vs last week</div></div>
+            <div class="kpi"><div class="lb">Exceptions</div><div class="vl">12</div><div class="dl dim">Require action</div>
+              <div class="bars"><i style="height:38%"></i><i style="height:62%"></i><i style="height:45%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:70%"></i><i style="height:48%"></i><i style="height:88%"></i><i style="height:60%"></i><i style="height:74%"></i><i style="height:52%"></i><i style="height:66%"></i></div></div>
+            <div class="kpi"><div class="lb">Operational risk</div><div class="vl">3</div><div class="dl dim">Elevated items</div>
+              <div class="bars amber"><i style="height:30%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:68%"></i><i style="height:50%"></i><i style="height:84%"></i><i style="height:46%"></i><i style="height:72%"></i><i style="height:58%"></i><i style="height:64%"></i><i style="height:40%"></i><i style="height:76%"></i></div></div>
+            <div class="kpi"><div class="lb">Regulatory</div><div class="ok"><i></i>On track</div><div class="vl">100%</div><div class="dl dim">Reporting complete</div>
+              <div class="meter"><i></i></div></div>
+          </div>
+          <div class="panels">
+            <div class="panel">
+              <div class="pt">Institutional performance
+                <span class="chips"><i>7D</i><i class="on">30D</i><i>90D</i><i>12M</i></span>
+              </div>
+              <div class="chartwrap">
+                <div class="yax"><span>100</span><span>80</span><span>60</span><span>40</span><span>20</span></div>
+                <svg class="spark" viewBox="0 0 300 74" preserveAspectRatio="none" aria-hidden="true">
+                  <polyline fill="none" stroke="#4d9bf0" stroke-width="2" points="0,50 30,44 60,48 90,32 120,38 150,25 180,31 210,19 240,25 270,15 300,19"/>
+                  <polyline fill="none" stroke="#e4012b" stroke-width="2" points="0,60 30,56 60,62 90,54 120,58 150,48 180,54 210,46 240,50 270,42 300,45"/>
+                  <polyline fill="none" stroke="#4ec98a" stroke-width="2" points="0,35 30,31 60,33 90,27 120,29 150,21 180,25 210,17 240,21 270,13 300,16"/>
+                </svg>
+              </div>
+              <div class="legend">
+                <span><b style="background:#4d9bf0"></b>Transactions</span>
+                <span><b style="background:#e4012b"></b>Exceptions</span>
+                <span><b style="background:#4ec98a"></b>Service availability</span>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="pt">Key alerts<span class="more">View all</span></div>
+              <div class="alert"><b></b>Settlement discrepancy<span>3h ago</span></div>
+              <div class="alert"><b></b>Cash replenishment delay<span>4h ago</span></div>
+              <div class="alert amber"><b></b>Division quality threshold<span>1d ago</span></div>
+              <div class="alert amber"><b></b>Tech EOL risk (2 systems)<span>1d ago</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Challenge / With Pulsus ──────────────────────────────────────────── -->
+<div class="split" id="platform">
+  <div>
+    <p class="eyebrow">The challenge</p>
+    <h2>Operations shouldn’t have to be reconstructed.</h2>
+    <p>Across institutions, critical operations still live across spreadsheets, emails, disconnected systems
+      and manually assembled reports.</p>
+    <p>By the time leadership gets the picture, the picture has already changed.</p>
+  </div>
+  <div class="right">
+    <p class="eyebrow">With Pulsus</p>
+    <h2>Entered once. Reconciled continuously.</h2>
+    <p>Exceptions surfaced when they occur.</p>
+    <p>One operating picture for leadership.</p>
+    <p>Operations, controls and risk teams working from the same trusted view.</p>
+  </div>
+</div>
+
+<!-- ── Outcomes ─────────────────────────────────────────────────────────── -->
+<section class="dark" id="institutions">
+  <div class="wrap">
+    <p class="eyebrow">Institutional outcomes</p>
+    <div class="headrow">
+      <h2 style="color:#fff;max-width:22ch">From operational activity to institutional advantage.</h2>
+      <p style="margin:0;font-size:13.5px">Real-time visibility. Stronger control. A more resilient institution.</p>
+    </div>
+    <div class="grid6">
+      <div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Operational oversight</h3><p>See performance across functions and divisions continuously.</p></div>
+      <div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <h3>Less manual work</h3><p>Reduce repetitive reconciliation, exception detection and report preparation.</p></div>
+      <div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+        <h3>Faster decisions</h3><p>Give leadership one synthesised operating picture.</p></div>
+      <div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg></div>
+        <h3>Audit readiness</h3><p>Maintain evidence of activity, approvals and accountability.</p></div>
+      <div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Regulatory readiness</h3><p>Generate reporting from the operating record itself.</p></div>
+      <div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></div>
+        <h3>Earlier risk visibility</h3><p>Surface exceptions while they can still be acted upon.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Capabilities ─────────────────────────────────────────────────────── -->
+<section id="capabilities">
+  <div class="wrap">
+    <p class="eyebrow">One platform</p>
+    <div class="headrow">
+      <h2>One platform, twelve capabilities.</h2>
+      <a class="morelink" href="#contact">Explore all capabilities <span class="arw">→</span></a>
+    </div>
+    <div class="caps">
+      <a class="cap" href="#contact"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg></div><b>Panorama</b><span>Strategy &amp; scorecard</span></a>
+      <a class="cap" href="#contact"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><path d="M2 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2M17 7a3 3 0 0 1 0 6"/></svg></div><b>Connect</b><span>Customer payments</span></a>
+      <a class="cap" href="#contact"><span class="flag">FLAGSHIP</span><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div><b>Cash</b><span>Cash &amp; tills</span></a>
+      <a class="cap" href="#contact"><span class="flag">FLAGSHIP</span><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 2v6h-6M3 22v-6h6"/><path d="M20 12a8 8 0 0 1-13.7 5.7L3 16M4 12a8 8 0 0 1 13.7-5.7L21 8"/></svg></div><b>Recon</b><span>Reconciliation monitor</span></a>
+      <a class="cap" href="#contact"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><b>Settlement</b><span>Settlement reconciliations</span></a>
+      <a class="cap" href="#contact"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><b>Risk</b><span>Op-risk &amp; audit</span></a>
+      <a class="cap" href="#contact"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg></div><b>Quality</b><span>Division defects</span></a>
+      <a class="cap" href="#contact"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></div><b>Talent</b><span>Staff appraisals</span></a>
+      <a class="cap" href="#contact"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22a10 10 0 1 0-10-10"/><path d="M12 12 8 8"/></svg></div><b>Ops</b><span>SLA monitor</span></a>
+      <a class="cap" href="#contact"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="3" width="20" height="6" rx="2"/><rect x="2" y="11" width="20" height="6" rx="2"/><path d="M6 6h.01M6 14h.01"/></svg></div><b>Tech</b><span>Technology risks</span></a>
+      <a class="cap" href="#contact"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div><b>Communiqué</b><span>Letter generation</span></a>
+      <a class="cap" href="#contact"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><b>Credit Insight</b><span>Credit &amp; loans</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Twelve applications → one Executive Brief ────────────────────────── -->
+<section class="dark" id="brief">
+  <div class="wrap">
+    <div class="headrow">
+      <div>
+        <p class="eyebrow">From operations to executive intelligence</p>
+        <h2 style="color:#fff;max-width:20ch">The operating picture is already waiting when leadership arrives.</h2>
+      </div>
+      <p style="margin:0;font-size:13.5px">Each application keeps its own workflow and its own data. Pulsus
+        reads across them — surfacing exceptions, patterns and matters requiring attention without leadership
+        assembling separate reports.</p>
+    </div>
+
+    <div class="fan" role="img" aria-label="Twelve Pulsus applications — Panorama, Connect, Cash, Recon, Settlement, Credit Insight, Risk, Quality, Ops, Talent, Tech and Communiqué — each sending its operational pulse upward into a single Executive Brief showing an institutional health score of 98.">
+      <div class="fanbrief">
+        <div class="ring">
+          <svg width="78" height="78" viewBox="0 0 78 78" aria-hidden="true">
+            <circle cx="39" cy="39" r="33" fill="none" stroke="rgba(255,255,255,.13)" stroke-width="6"/>
+            <!-- 98% of a 2πr = 207.3 circumference. -->
+            <circle cx="39" cy="39" r="33" fill="none" stroke="#4ec98a" stroke-width="6"
+                    stroke-linecap="round" stroke-dasharray="203.2 207.3"/>
+          </svg>
+          <span>98</span>
+        </div>
+        <div>
+          <h3>Executive Brief</h3>
+          <p>One institutional picture, assembled from every application.</p>
+          <div class="rows"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+
+      <svg class="fanlines" viewBox="0 0 1200 86" preserveAspectRatio="none" aria-hidden="true">
+        <g fill="none" stroke="#3d6b9c" stroke-width="1.4" stroke-dasharray="3 4">
+          <path d="M50 86C50 48 600 48 600 4"/>
+          <path d="M150 86C150 48 600 48 600 4"/>
+          <path d="M250 86C250 48 600 48 600 4"/>
+          <path d="M350 86C350 48 600 48 600 4"/>
+          <path d="M450 86C450 48 600 48 600 4"/>
+          <path d="M550 86C550 48 600 48 600 4"/>
+          <path d="M650 86C650 48 600 48 600 4"/>
+          <path d="M750 86C750 48 600 48 600 4"/>
+          <path d="M850 86C850 48 600 48 600 4"/>
+          <path d="M950 86C950 48 600 48 600 4"/>
+          <path d="M1050 86C1050 48 600 48 600 4"/>
+          <path d="M1150 86C1150 48 600 48 600 4"/>
+        </g>
+        <path d="M600 16 L594 26 L606 26 Z" fill="#e4012b"/>
+      </svg>
+
+      <div class="fanapps">
+        <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg></div><em>Panorama</em></div>
+        <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><path d="M2 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/></svg></div><em>Connect</em></div>
+        <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg></div><em>Cash</em></div>
+        <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 2v6h-6M3 22v-6h6"/><path d="M20 12a8 8 0 0 1-13.7 5.7M4 12a8 8 0 0 1 13.7-5.7"/></svg></div><em>Recon</em></div>
+        <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><em>Settlement</em></div>
+        <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><em>Credit Insight</em></div>
+        <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><em>Risk</em></div>
+        <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg></div><em>Quality</em></div>
+        <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 12 8 8"/></svg></div><em>Ops</em></div>
+        <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></div><em>Talent</em></div>
+        <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="3" width="20" height="6" rx="2"/><rect x="2" y="11" width="20" height="6" rx="2"/><path d="M6 6h.01M6 14h.01"/></svg></div><em>Tech</em></div>
+        <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div><em>Communiqué</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Governance ───────────────────────────────────────────────────────── -->
+<section id="about">
+  <div class="wrap govrow">
+    <div>
+      <p class="eyebrow">Governance by design</p>
+      <h2>Built for institutions where control matters.</h2>
+      <div class="govs">
+        <div class="gov"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><span>Role-based access</span></div>
+        <div class="gov"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M2 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/><path d="m17 11 2 2 4-4"/></svg></div><span>Maker-checker controls</span></div>
+        <div class="gov"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6m-9 7 2 2 4-4"/></svg></div><span>Controlled approvals</span></div>
+        <div class="gov"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div><span>Audit trails</span></div>
+        <div class="gov"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><span>Enterprise authentication</span></div>
+        <div class="gov"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div><span>Data isolation</span></div>
+        <div class="gov"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="12" cy="5" r="3"/><path d="M12 8v4m0 0-4 3m4-3 4 3"/></svg></div><span>Institution-controlled deployment options</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow" style="text-align:right">One operating record. Every level of reporting.</p>
+      <div class="pyr">
+        <div class="tier" style="background:#0d2a4a;width:58%"><b>Regulatory reporting</b><span>Automated, consistent and complete</span></div>
+        <div class="tier" style="background:#164a80;width:72%"><b>Board intelligence</b><span>A trusted picture for the board</span></div>
+        <div class="tier" style="background:#2f7ac0;width:86%"><b>Management reporting</b><span>Timely and accurate</span></div>
+        <div class="tier" style="background:#79b2e4;width:100%;color:#08203c"><b>Daily operations</b><span>The operational record, as it happens</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Close ────────────────────────────────────────────────────────────── -->
+<section class="close dark" id="contact">
+  <div class="wrap closerow">
+    <div>
+      <p class="eyebrow">Let’s talk</p>
+      <h2>See your institution as it is actually running.</h2>
+      <p>Pulsus turns operational activity into continuous institutional intelligence.</p>
+      <a class="btn btn-primary" style="margin-top:18px" href="mailto:support@pulsus.tech?subject=Pulsus%20Platform%20%E2%80%94%20request%20a%20conversation">Talk to Tumblehill Labs <span class="arw">→</span></a>
+    </div>
+    <div class="fbrand">
+      <span class="wordmark"><span class="wm">PUL<span class="dot"></span>SUS</span><small>PLATFORM</small></span>
+      <p>Pulsus is developed by Tumblehill Labs,<br>the product studio of Tumblehill Holdings LLC.</p>
+      <div class="flinks">
+        <a href="mailto:support@pulsus.tech">Contact</a>
+        <a href="https://executive.pulsus.tech/legal">Privacy</a>
+        <a href="https://executive.pulsus.tech/legal">Legal</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap legal" style="margin-top:38px">© <span id="yr">2026</span> Tumblehill Holdings LLC. All rights reserved.</div>
+</section>
+
+<script>
+  document.getElementById("yr").textContent = new Date().getFullYear();
+  // Render the mock's date from the clock so the weekday and date always agree.
+  (function () {
+    var el = document.getElementById("shotDate");
+    if (!el) return;
+    var d = new Date();
+    var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    var mons = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    el.textContent = days[d.getDay()] + " " + d.getDate() + " " + mons[d.getMonth()] + " " + d.getFullYear();
+  })();
+</script>
+</body>
+</html>
