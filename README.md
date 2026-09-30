@@ -27,6 +27,9 @@ sells look like one company.
 Vercel project `pulsus-about`, serving `about.pulsus.tech`. No framework, no
 build command, no output directory: Vercel serves `index.html` from the root.
 
+The project is connected to this repository, so a push to `main` deploys to
+production. Nothing needs to be uploaded by hand.
+
 ## Editing
 
 Edit `index.html` and push. Before pushing, it is worth checking that the CSS
