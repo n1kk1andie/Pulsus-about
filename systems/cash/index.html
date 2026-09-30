@@ -62,7 +62,7 @@
         <span class="sp"></span>
         <div class="as-search"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.3-4.3"/></svg>Search…</div>
         <span class="as-pill on">● Live</span>
-        <span class="as-pill">Last 7 days ▾</span>
+        <span class="as-pill">Last 30 days ▾</span>
         <span class="as-av">NA</span>
       </div>
 
@@ -79,10 +79,10 @@
         </div>
 
         <div class="as-main">
-          <div class="as-h"><b>Cash overview</b></div>
+          <div class="as-h"><b>Cash overview</b><span class="as-asat">Base currency JMD · as at 09:41</span></div>
 
           <div class="as-grid4">
-            <div class="as-card as-kpi"><div class="lb">Total cash on hand</div><div class="vl">12.4M</div><div class="dl up">▲ 2.1% vs last week</div></div>
+            <div class="as-card as-kpi"><div class="lb">Total cash on hand</div><div class="vl">J$12.4M</div><div class="dl up">▲ 2.1% vs last week</div></div>
             <div class="as-card as-kpi"><div class="lb">Tills</div><div class="vl">1.8M</div><div class="dl">32 locations</div></div>
             <div class="as-card as-kpi"><div class="lb">Vaults</div><div class="vl">6.1M</div><div class="dl">4 vaults</div></div>
             <div class="as-card as-kpi"><div class="lb">Treasury</div><div class="vl">4.5M</div><div class="dl">Consolidated</div></div>
@@ -91,19 +91,26 @@
           <div class="as-cols">
             <div class="as-card">
               <div class="as-t">Cash position <span class="mini">(last 30 days)</span></div>
-              <svg class="as-chart" viewBox="0 0 320 118" preserveAspectRatio="none" aria-hidden="true">
-                <g stroke="#eef1f5" stroke-width="1">
-                  <line x1="0" y1="8" x2="320" y2="8"/><line x1="0" y1="44" x2="320" y2="44"/>
-                  <line x1="0" y1="80" x2="320" y2="80"/><line x1="0" y1="112" x2="320" y2="112"/>
-                </g>
-                <polyline fill="none" stroke="#4d9bf0" stroke-width="2.2" points="0,92 32,88 64,90 96,80 128,84 160,72 192,76 224,64 256,68 288,56 320,58"/>
-                <polyline fill="none" stroke="#e4012b" stroke-width="2.2" points="0,58 32,54 64,60 96,48 128,52 160,40 192,46 224,34 256,38 288,26 320,30"/>
-                <polyline fill="none" stroke="#4ec98a" stroke-width="2.2" points="0,102 32,100 64,103 96,97 128,99 160,94 192,96 224,90 256,92 288,86 320,88"/>
-              </svg>
+              <!-- Scale: y=112 is zero, y=8 is 12M. Each line resolves to its KPI
+                   card — vaults 6.1M at y=59, treasury 4.5M at y=73, tills 1.8M at
+                   y=96 — so the chart cannot contradict the figures above it. -->
+              <div class="as-plot">
+                <div class="as-yax"><span>12M</span><span>8M</span><span>4M</span><span>0</span></div>
+                <svg class="as-chart" viewBox="0 0 320 118" preserveAspectRatio="none" aria-hidden="true">
+                  <g stroke="#eef1f5" stroke-width="1">
+                    <line x1="0" y1="8" x2="320" y2="8"/><line x1="0" y1="43" x2="320" y2="43"/>
+                    <line x1="0" y1="77" x2="320" y2="77"/><line x1="0" y1="112" x2="320" y2="112"/>
+                  </g>
+                  <polyline fill="none" stroke="#e4012b" stroke-width="2.2" points="0,70 32,68 64,72 96,64 128,66 160,61 192,64 224,58 256,60 288,56 320,59"/>
+                  <polyline fill="none" stroke="#4ec98a" stroke-width="2.2" points="0,82 32,80 64,83 96,78 128,80 160,76 192,78 224,74 256,76 288,72 320,73"/>
+                  <polyline fill="none" stroke="#4d9bf0" stroke-width="2.2" points="0,99 32,98 64,100 96,97 128,98 160,96 192,97 224,95 256,96 288,94 320,96"/>
+                </svg>
+              </div>
+              <div class="as-xax"><span>14 Jul</span><span>21 Jul</span><span>28 Jul</span><span>4 Aug</span><span>12 Aug</span></div>
               <div class="as-legend">
-                <span><i style="background:#4d9bf0"></i>Tills</span>
                 <span><i style="background:#e4012b"></i>Vaults</span>
                 <span><i style="background:#4ec98a"></i>Treasury</span>
+                <span><i style="background:#4d9bf0"></i>Tills</span>
               </div>
             </div>
 

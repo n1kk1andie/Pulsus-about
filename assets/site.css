@@ -128,6 +128,14 @@ header{background:var(--navy);border-bottom:1px solid rgba(255,255,255,.09)}
 .as-t{font:700 11.5px var(--plex);color:#0d2440;margin-bottom:9px;display:flex;align-items:center;gap:8px}
 .as-t .sp{flex:1}
 .as-t .mini{font:600 10px var(--plex);color:#8794a5}
+.as-asat{margin-left:auto;font:500 10.5px var(--plex);color:#8794a5;white-space:nowrap}
+/* A plotted series is only credible if it agrees with the figures beside it,
+   so the chart carries a real axis and every line resolves to its KPI value. */
+.as-plot{display:flex;gap:7px}
+.as-yax{display:flex;flex-direction:column;justify-content:space-between;font:500 9px var(--plex);
+  color:#9aa7b6;text-align:right;flex:0 0 auto;padding:1px 0 13px}
+.as-xax{display:flex;justify-content:space-between;font:500 9px var(--plex);color:#9aa7b6;
+  margin:4px 0 0 30px}
 .as-chart{display:block;width:100%;height:118px}
 .as-legend{display:flex;gap:12px;margin-top:7px;font-size:10px;color:#8794a5}
 .as-legend i{width:7px;height:7px;border-radius:2px;display:inline-block;margin-right:5px;vertical-align:middle}
