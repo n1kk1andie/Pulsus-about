@@ -190,6 +190,22 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 @media(max-width:1000px){ .grid6{grid-template-columns:repeat(3,1fr)} }
 @media(max-width:640px){ .grid6{grid-template-columns:repeat(2,1fr)} }
 
+/* ── In use: real screens from the demo Command Center ─────────────────── */
+.inuse{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,auto);gap:clamp(32px,5vw,72px);align-items:center}
+.inuse .lede{margin-bottom:22px}
+.inuse ul{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:12px}
+.inuse li{padding-left:22px;position:relative;font-size:15px}
+.inuse li::before{content:"";position:absolute;left:2px;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--red)}
+.inuse li b{font-weight:600}
+.phones{display:flex;gap:20px;align-items:flex-start}
+.phones figure{margin:0;width:260px}
+.phone{background:#121212;border-radius:30px;padding:9px;box-shadow:0 24px 50px -26px rgba(28,20,22,.55)}
+.phone img{width:100%;height:auto;border-radius:22px;background:#f5f2f0}
+.phones figcaption{font-size:13px;color:var(--muted);margin-top:12px;text-align:center}
+.phones figure:last-child{margin-top:56px}
+@media(max-width:960px){ .inuse{grid-template-columns:1fr} .phones{justify-content:center} }
+@media(max-width:600px){ .phones{gap:12px} .phones figure{width:auto;flex:1 1 0;min-width:0} .phones figure:last-child{margin-top:32px} .phone{border-radius:22px;padding:6px} .phone img{border-radius:17px} }
+
 /* ── Capability tiles ─────────────────────────────────────────────────────── */
 .caps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:30px}
 .cap{position:relative;background:var(--white);border:1px solid var(--line);border-radius:11px;
@@ -436,6 +452,34 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
       <a class="cap has-page" href="/systems/tech/"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="3" width="20" height="6" rx="2"/><rect x="2" y="11" width="20" height="6" rx="2"/><path d="M6 6h.01M6 14h.01"/></svg></div><b>Tech</b><span>Technology risks</span><span class="more">Learn more <span class="arw">→</span></span></a>
       <a class="cap" href="/demo/"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div><b>Communiqué</b><span>Letter generation</span><span class="more">See it in a demo <span class="arw">→</span></span></a>
       <a class="cap" href="/demo/"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><b>Credit Insight</b><span>Credit &amp; loans</span><span class="more">See it in a demo <span class="arw">→</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── In use ───────────────────────────────────────────────────────────── -->
+<section id="in-use" style="padding-top:0">
+  <div class="wrap inuse">
+    <div>
+      <p class="eyebrow">In use</p>
+      <h2>The whole institution, in your pocket.</h2>
+      <p class="lede" style="margin-top:16px">These are screens from the Pulsus demo Command Center, as they appear on a phone.</p>
+      <ul>
+        <li><b>Every system, one sign-in.</b> Operations systems are grouped the way the institution works, each showing whether it is live.</li>
+        <li><b>Signals from your own systems.</b> Strategy, cash and credit findings arrive already summarised, each traced to its source.</li>
+      </ul>
+      <a class="morelink" href="/demo/">See it in a demo <span class="arw">→</span></a>
+    </div>
+    <div class="phones">
+      <figure>
+        <div class="phone"><img src="/img/app-systems.webp" width="780" height="1454" loading="lazy" decoding="async"
+          alt="Pulsus on a phone: Operations Systems, 14 of 17 live, grouped into Monitoring (Ops, Tech, Panorama), Risk &amp; Control (Risk, Quality) and Operations (Recon)."></div>
+        <figcaption>Operations systems</figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><img src="/img/app-signals.webp" width="780" height="964" loading="lazy" decoding="async"
+          alt="Pulsus Signals on a phone: findings from Pulsus Panorama, Pulsus Cash and Pulsus Credit-Insight, each with its source."></div>
+        <figcaption>Signals from your systems</figcaption>
+      </figure>
     </div>
   </div>
 </section>
