@@ -1,0 +1,43 @@
+# Takes product screenshots of the demo Command Center for the website.
+# Run by hand (Actions → Product screenshots → Run workflow). Signs in with the
+# DEMO_EMAIL / DEMO_PASSWORD repository secrets and commits the images to the
+# `screenshots` branch, never to main, so nothing deploys until they are chosen.
+name: Product screenshots
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: Demo Command Center to capture
+        default: https://demo-executive.pulsus.tech
+
+permissions:
+  contents: write
+
+jobs:
+  shoot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm i --no-save --no-audit --no-fund playwright@1.56.1 && npx playwright install --with-deps chromium
+      - name: Capture
+        env:
+          BASE_URL: ${{ inputs.url }}
+          DEMO_EMAIL: ${{ secrets.DEMO_EMAIL }}
+          DEMO_PASSWORD: ${{ secrets.DEMO_PASSWORD }}
+        run: node .github/screenshots/shoot.mjs out
+      - name: Commit to the screenshots branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin screenshots || true
+          git switch screenshots 2>/dev/null || git switch --orphan screenshots
+          git rm -rq --ignore-unmatch . || true
+          mkdir -p shots && cp -r out/* shots/
+          git add shots
+          git commit -m "Product screenshots from ${{ inputs.url }}" || echo "No changes"
+          git push origin screenshots
