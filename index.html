@@ -109,61 +109,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
 @media(max-width:900px){ .hero .wrap{grid-template-columns:1fr;gap:34px} }
 
-/* ── Hero dashboard (built in CSS, not a screenshot, so it stays crisp) ────── */
-.shot{border-radius:14px;background:#0f1b2c;border:1px solid rgba(255,255,255,.14);
-  box-shadow:0 40px 90px rgba(0,0,0,.45);overflow:hidden;font-family:var(--plex)}
-.shot-top{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#0b1626;border-bottom:1px solid rgba(255,255,255,.08)}
-.shot-top .search{flex:1;margin-left:auto;max-width:330px;display:flex;align-items:center;gap:6px;
-  background:#132135;border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:4px 9px;
-  font-size:10px;color:#6e87a3}
-.shot-top .av{width:22px;height:22px;border-radius:50%;background:#1d3a5c;display:grid;place-items:center;
-  font:700 9px var(--plex);color:#cfe0f2;flex:0 0 auto}
-.shot-body{display:grid;grid-template-columns:132px 1fr;min-height:340px}
-.shot-side{background:#0b1626;border-right:1px solid rgba(255,255,255,.08);padding:11px 8px}
-.shot-side .brand{color:#fff;padding:0 6px 11px;opacity:.95}
-.shot-side .brand .wm{font-size:13px;letter-spacing:.16em}
-.shot-side .brand small{font-size:6px;letter-spacing:.34em}
-.shot-side a{display:flex;align-items:center;gap:6px;font-size:10.5px;color:#8ea6c2;padding:4.5px 7px;border-radius:6px;text-decoration:none}
-.shot-side a svg{flex:0 0 auto;opacity:.75}
-.shot-side a.on{background:rgba(228,1,43,.14);color:#fff;font-weight:600}
-.shot-side a.on svg{opacity:1;color:var(--red)}
-.shot-main{padding:13px}
-.shot-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:11px}
-.shot-h{font:700 14px var(--sora);color:#fff;margin:0 0 2px}
-.shot-sub{font-size:10.5px;color:#7f97b4;margin:0}
-.shot-date{margin-left:auto;font-size:10px;color:#8ea6c2;white-space:nowrap}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:9px}
-.kpi{background:#132135;border:1px solid rgba(255,255,255,.09);border-radius:9px;padding:8px 9px}
-.kpi .lb{font-size:9px;color:#8ea6c2;text-transform:uppercase;letter-spacing:.07em}
-.kpi .vl{font:800 19px var(--sora);color:#fff;margin-top:2px;line-height:1.05}
-.kpi .dl{font-size:9px;margin-top:1px;color:#4ec98a}
-.kpi .dl.dim{color:#8ea6c2}
-.kpi .ok{font-size:9px;color:#4ec98a;display:flex;align-items:center;gap:4px;margin-top:3px}
-.kpi .ok i{width:5px;height:5px;border-radius:50%;background:#4ec98a;display:block}
-/* Mini bar rows under the exception / risk counters — pure CSS, no chart library. */
-.bars{display:flex;align-items:flex-end;gap:1.5px;height:15px;margin-top:5px}
-.bars i{flex:1;border-radius:1px;display:block;background:var(--red);opacity:.85}
-.bars.amber i{background:#e8b84b}
-.meter{height:3px;border-radius:2px;background:rgba(255,255,255,.12);margin-top:8px;overflow:hidden}
-.meter i{display:block;height:100%;width:100%;background:#4ec98a}
-.panels{display:grid;grid-template-columns:1.5fr 1fr;gap:8px}
-.panel{background:#132135;border:1px solid rgba(255,255,255,.09);border-radius:9px;padding:9px 10px}
-.panel .pt{display:flex;align-items:center;gap:6px;font-size:10px;color:#a9c0da;margin-bottom:7px;font-weight:600}
-.panel .pt .more{margin-left:auto;font-weight:500;color:#5b9be0;font-size:9.5px}
-.chips{margin-left:auto;display:flex;gap:3px}
-.chips i{font-style:normal;font-size:8px;color:#7f97b4;padding:2px 5px;border-radius:4px;background:rgba(255,255,255,.05)}
-.chips i.on{background:#2f6fb5;color:#fff}
-.chartwrap{display:flex;gap:5px}
-.yax{display:flex;flex-direction:column;justify-content:space-between;font-size:7px;color:#5b7391}
-.spark{display:block;width:100%;height:74px}
-.legend{display:flex;gap:11px;margin-top:6px;font-size:8.5px;color:#8ea6c2;flex-wrap:wrap}
-.legend b{display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:4px;vertical-align:middle}
-.alert{display:flex;gap:7px;align-items:flex-start;font-size:10px;color:#c3d5e9;padding:3.5px 0}
-.alert b{width:6px;height:6px;border-radius:50%;margin-top:4px;flex:0 0 auto;background:var(--red)}
-.alert.amber b{background:#e8b84b}
-.alert span{margin-left:auto;color:#6e87a3;font-size:9px;white-space:nowrap}
-@media(max-width:620px){ .shot-body{grid-template-columns:1fr} .shot-side{display:none} .kpis{grid-template-columns:repeat(2,1fr)} .panels{grid-template-columns:1fr} .shot-top .search{display:none} }
-
 /* ── Split (challenge / with pulsus) ──────────────────────────────────────── */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--white);
   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -190,16 +135,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 @media(max-width:1000px){ .grid6{grid-template-columns:repeat(3,1fr)} }
 @media(max-width:640px){ .grid6{grid-template-columns:repeat(2,1fr)} }
 
-/* ── In use: real screens from the demo Command Center ───────────────────
+/* ── Hero devices: real screens from the demo Command Center ───────────────────
    Two phones in realistic frames, layered at slight angles over a soft
    branded glow. Everything is sized in % of the stage so the composition
    scales as one piece from desktop down to a phone. */
-.inuse{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,5vw,72px);align-items:center}
-.inuse .lede{margin-bottom:22px}
-.inuse ul{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:12px}
-.inuse li{padding-left:22px;position:relative;font-size:15px}
-.inuse li::before{content:"";position:absolute;left:2px;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--red)}
-.inuse li b{font-weight:600}
 
 .stage{position:relative;width:100%;max-width:600px;margin:0 auto;aspect-ratio:1/1.02;container-type:inline-size}
 .stage::before{content:"";position:absolute;inset:7% 2% 0;border-radius:32px;
@@ -246,7 +185,15 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 .chip .dot.red{background:var(--red);box-shadow:0 0 0 .8cqw rgba(228,1,43,.14)}
 .chip.c1{left:0;top:72%}
 .chip.c2{right:0;top:3%}
-@media(max-width:960px){ .inuse{grid-template-columns:1fr} .stage{max-width:520px} }
+@media(max-width:900px){ .stage{max-width:500px} }
+
+/* In the dark hero the stage drops its paper panel: the devices float on a
+   glow instead, so the composition reads as part of the hero, not a card. */
+.hero .stage::before{inset:4% 0 0;border:0;border-radius:40px;
+  background:radial-gradient(46% 40% at 64% 44%,rgba(228,1,43,.30),transparent 72%),
+             radial-gradient(55% 55% at 30% 62%,rgba(86,140,210,.30),transparent 74%)}
+.hero .stage::after{inset:4% 0 0;opacity:.35;background-image:radial-gradient(rgba(255,255,255,.35) 1px,transparent 1.2px)}
+.hero .chip{background:rgba(255,255,255,.88)}
 
 /* ── Capability tiles ─────────────────────────────────────────────────────── */
 .caps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:30px}
@@ -361,79 +308,21 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
       </div>
     </div>
 
-    <!-- A styled representation of the Executive Brief, drawn in CSS rather than
-         shipped as a screenshot: it stays sharp on every display, weighs nothing,
-         and cannot go stale when the product's UI moves on. -->
-    <div class="shot" role="img" aria-label="The Pulsus Executive Brief: service health 98%, 12 exceptions requiring action, 3 elevated operational risks, regulatory reporting 100% complete, an institutional performance chart and a list of key alerts.">
-      <div class="shot-top">
-        <div class="search"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.3-4.3"/></svg>Search</div>
-        <div class="av">NA</div>
-      </div>
-      <div class="shot-body">
-        <div class="shot-side">
-          <div class="brand"><span class="wm">PULS<span class="u">U</span>S</span><small>PLATFORM</small></div>
-          <a class="on"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Executive Brief</a>
-          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>Panorama</a>
-          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg>Cash</a>
-          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 2v6h-6M3 22v-6h6"/><path d="M20 12a8 8 0 0 1-13.7 5.7M4 12a8 8 0 0 1 13.7-5.7"/></svg>Recon</a>
-          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Settlement</a>
-          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="8" r="3"/><path d="M2 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/></svg>Connect</a>
-          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Credit Insight</a>
-          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Risk</a>
-          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>Quality</a>
-          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 12 8 8"/></svg>Ops</a>
-          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>Talent</a>
-          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>Communiqué</a>
-          <a><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Reports</a>
-        </div>
-        <div class="shot-main">
-          <div class="shot-head">
-            <div>
-              <p class="shot-h">Executive Brief</p>
-              <p class="shot-sub">A live view across your institution.</p>
-            </div>
-            <!-- Rendered from the browser clock so the weekday and the date can
-                 never disagree the way a hard-coded pair can. -->
-            <div class="shot-date" id="shotDate">Wed 12 Aug 2026</div>
-          </div>
-          <div class="kpis">
-            <div class="kpi"><div class="lb">Service health</div><div class="vl">98%</div><div class="dl">↑ 2% vs last week</div></div>
-            <div class="kpi"><div class="lb">Exceptions</div><div class="vl">12</div><div class="dl dim">Require action</div>
-              <div class="bars"><i style="height:38%"></i><i style="height:62%"></i><i style="height:45%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:70%"></i><i style="height:48%"></i><i style="height:88%"></i><i style="height:60%"></i><i style="height:74%"></i><i style="height:52%"></i><i style="height:66%"></i></div></div>
-            <div class="kpi"><div class="lb">Operational risk</div><div class="vl">3</div><div class="dl dim">Elevated items</div>
-              <div class="bars amber"><i style="height:30%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:68%"></i><i style="height:50%"></i><i style="height:84%"></i><i style="height:46%"></i><i style="height:72%"></i><i style="height:58%"></i><i style="height:64%"></i><i style="height:40%"></i><i style="height:76%"></i></div></div>
-            <div class="kpi"><div class="lb">Regulatory</div><div class="ok"><i></i>On track</div><div class="vl">100%</div><div class="dl dim">Reporting complete</div>
-              <div class="meter"><i></i></div></div>
-          </div>
-          <div class="panels">
-            <div class="panel">
-              <div class="pt">Institutional performance
-                <span class="chips"><i>7D</i><i class="on">30D</i><i>90D</i><i>12M</i></span>
-              </div>
-              <div class="chartwrap">
-                <div class="yax"><span>100</span><span>80</span><span>60</span><span>40</span><span>20</span></div>
-                <svg class="spark" viewBox="0 0 300 74" preserveAspectRatio="none" aria-hidden="true">
-                  <polyline fill="none" stroke="#4d9bf0" stroke-width="2" points="0,50 30,44 60,48 90,32 120,38 150,25 180,31 210,19 240,25 270,15 300,19"/>
-                  <polyline fill="none" stroke="#e4012b" stroke-width="2" points="0,60 30,56 60,62 90,54 120,58 150,48 180,54 210,46 240,50 270,42 300,45"/>
-                  <polyline fill="none" stroke="#4ec98a" stroke-width="2" points="0,35 30,31 60,33 90,27 120,29 150,21 180,25 210,17 240,21 270,13 300,16"/>
-                </svg>
-              </div>
-              <div class="legend">
-                <span><b style="background:#4d9bf0"></b>Transactions</span>
-                <span><b style="background:#e4012b"></b>Exceptions</span>
-                <span><b style="background:#4ec98a"></b>Service availability</span>
-              </div>
-            </div>
-            <div class="panel">
-              <div class="pt">Key alerts<span class="more">View all</span></div>
-              <div class="alert"><b></b>Settlement discrepancy<span>3h ago</span></div>
-              <div class="alert"><b></b>Cash replenishment delay<span>4h ago</span></div>
-              <div class="alert amber"><b></b>Division quality threshold<span>1d ago</span></div>
-              <div class="alert amber"><b></b>Tech EOL risk (2 systems)<span>1d ago</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="stage" role="img" aria-label="Two phones showing the Pulsus demo Command Center: Signals from the institution's own systems, and the Operations Systems list with 14 of 17 systems live.">
+      <div class="device back"><div class="screen">
+        <div class="status"><span>9:41</span><span class="bars"><span class="sig"></span><span class="bat"></span></span></div><span class="island"></span>
+        <img src="/img/screen-signals.webp" width="780" height="1052" alt="" loading="lazy" decoding="async">
+        <div class="fill"></div>
+        <img src="/img/screen-nav.webp" width="780" height="102" alt="" loading="lazy" decoding="async">
+      </div></div>
+      <div class="device front"><div class="screen">
+        <div class="status"><span>9:41</span><span class="bars"><span class="sig"></span><span class="bat"></span></span></div><span class="island"></span>
+        <img src="/img/screen-systems.webp" width="780" height="1353" alt="" loading="lazy" decoding="async">
+        <div class="fill"></div>
+        <img src="/img/screen-nav.webp" width="780" height="102" alt="" loading="lazy" decoding="async">
+      </div></div>
+      <div class="chip c1"><span class="dot red"></span><span>Signals, traced to source<small>Panorama · Cash · Credit-Insight</small></span></div>
+      <div class="chip c2"><span class="dot"></span><span>14 of 17 systems live<small>One sign-in, every application</small></span></div>
     </div>
   </div>
 </section>
@@ -507,38 +396,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
     <div class="caps addins">
       <a class="cap" href="https://home.geoatm.app/" target="_blank" rel="noopener"><div class="ic"><img src="/img/icons/geoatm.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>GeoATM</b><span>Nearby cash &amp; ATM availability</span><span class="more">Visit GeoATM <span class="arw">↗</span></span></a>
       <a class="cap" href="#contact"><div class="ic"><img src="/img/icons/glovebox.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Glove Box</b><span>Auto insurance &amp; collateral protection</span><span class="more">Ask about it <span class="arw">→</span></span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ── In use ───────────────────────────────────────────────────────────── -->
-<section id="in-use" style="padding-top:0">
-  <div class="wrap inuse">
-    <div>
-      <p class="eyebrow">In use</p>
-      <h2>The whole institution, in your pocket.</h2>
-      <p class="lede" style="margin-top:16px">These are screens from the Pulsus demo Command Center, as they appear on a phone.</p>
-      <ul>
-        <li><b>Every system, one sign-in.</b> Operations systems are grouped the way the institution works, each showing whether it is live.</li>
-        <li><b>Signals from your own systems.</b> Strategy, cash and credit findings arrive already summarised, each traced to its source.</li>
-      </ul>
-      <a class="morelink" href="/demo/">See it in a demo <span class="arw">→</span></a>
-    </div>
-    <div class="stage" role="img" aria-label="Two phones showing the Pulsus demo Command Center: Signals from the institution's own systems, and the Operations Systems list with 14 of 17 systems live.">
-      <div class="device back"><div class="screen">
-        <div class="status"><span>9:41</span><span class="bars"><span class="sig"></span><span class="bat"></span></span></div><span class="island"></span>
-        <img src="/img/screen-signals.webp" width="780" height="1052" alt="" loading="lazy" decoding="async">
-        <div class="fill"></div>
-        <img src="/img/screen-nav.webp" width="780" height="102" alt="" loading="lazy" decoding="async">
-      </div></div>
-      <div class="device front"><div class="screen">
-        <div class="status"><span>9:41</span><span class="bars"><span class="sig"></span><span class="bat"></span></span></div><span class="island"></span>
-        <img src="/img/screen-systems.webp" width="780" height="1353" alt="" loading="lazy" decoding="async">
-        <div class="fill"></div>
-        <img src="/img/screen-nav.webp" width="780" height="102" alt="" loading="lazy" decoding="async">
-      </div></div>
-      <div class="chip c1"><span class="dot red"></span><span>Signals, traced to source<small>Panorama · Cash · Credit-Insight</small></span></div>
-      <div class="chip c2"><span class="dot"></span><span>14 of 17 systems live<small>One sign-in, every application</small></span></div>
     </div>
   </div>
 </section>
@@ -662,15 +519,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 
 <script>
   document.getElementById("yr").textContent = new Date().getFullYear();
-  // Render the mock's date from the clock so the weekday and date always agree.
-  (function () {
-    var el = document.getElementById("shotDate");
-    if (!el) return;
-    var d = new Date();
-    var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    var mons = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    el.textContent = days[d.getDay()] + " " + d.getDate() + " " + mons[d.getMonth()] + " " + d.getFullYear();
-  })();
 </script>
 </body>
 </html>
