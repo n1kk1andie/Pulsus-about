@@ -1,7 +1,7 @@
 # about.pulsus.tech
 
-The Pulsus Platform marketing site. One self-contained static page — no build
-step, no dependencies, no image assets.
+The Pulsus Platform marketing site. Plain static pages — no build step, no
+dependencies, no image assets beyond `favicon.svg`.
 
 ## Product facts these pages must respect
 
@@ -25,7 +25,10 @@ than rediscovering them:
 
 ## Structure
 
-`index.html` is the whole site. Everything is inline:
+`index.html` is the homepage and carries its own inline styles. The product
+pages (`systems/*/`) and the demo page (`demo/`) share `assets/site.css`.
+`favicon.svg` is the U-and-dot mark from the logo. On the homepage everything
+is inline:
 
 - **Fonts** — Sora and IBM Plex Sans, from Google Fonts.
 - **The Executive Brief mock** in the hero is drawn in CSS and SVG rather than
@@ -37,6 +40,10 @@ than rediscovering them:
   of the circle's circumference, not an eyeballed dash value.
 - **The dashboard date** renders from the browser clock, so the weekday and the
   date can never contradict each other.
+
+The wordmark is live text, `PULS<span class="u">U</span>S`, with the logo's
+red dot drawn inside the second U by `.wm .u::after`. It is defined in both
+`index.html` and `assets/site.css`; change the two together.
 
 Brand tokens live in `:root` and are taken from the product itself — red
 `#e4012b`, ink `#1c1416`, warm paper `#faf7f5` — so the site and the apps it
@@ -78,8 +85,11 @@ All three should come back empty or zero.
   behind the hero, boardroom behind "With Pulsus", mountain skyline behind the
   close) are not present. There are no image assets in this repo; the hero uses
   a CSS bokeh field in place of the first, and the other two are gradients.
-- Capability tiles and the "Explore all capabilities" link all point at
-  `#contact`. There are no per-capability pages yet.
+- Five of the twelve capabilities have their own page under `systems/`
+  (Panorama, Connect, Cash, Talent, Tech). The other seven tiles (Recon,
+  Settlement, Risk, Quality, Ops, Communiqué, Credit Insight) send visitors to
+  the demo page with "See it in a demo" until their pages exist. The "Explore
+  all capabilities" link still points at `#contact`.
 - There is no About section content beyond the footer attribution.
 
 ---
