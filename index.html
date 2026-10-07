@@ -190,21 +190,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 @media(max-width:1000px){ .grid6{grid-template-columns:repeat(3,1fr)} }
 @media(max-width:640px){ .grid6{grid-template-columns:repeat(2,1fr)} }
 
-/* ── In use: real screens from the product ────────────────────────────────
-   Shown no larger than their source size so they stay sharp. The phone crops
-   end at the bottom of the source image, so their lower edge fades out. */
-.inuse{display:grid;grid-template-columns:minmax(0,620px) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:center;margin-top:34px}
-.inuse figure{margin:0}
-.screen{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 18px 40px -22px rgba(28,20,22,.35)}
-.screen img{border-radius:9px;width:100%;height:auto}
-.phones{display:flex;gap:18px;justify-content:center}
-.phones img{flex:1 1 0;min-width:0;width:100%;max-width:236px;height:auto;
-  -webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent)}
-.inuse figcaption{font-size:13.5px;color:var(--muted);margin-top:14px;max-width:46ch}
-.phones-fig figcaption{text-align:center;margin-left:auto;margin-right:auto}
-@media(max-width:900px){ .inuse{grid-template-columns:1fr} .inuse .screen{max-width:620px} }
-@media(max-width:420px){ .phones{gap:10px} }
-
 /* ── Capability tiles ─────────────────────────────────────────────────────── */
 .caps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:30px}
 .cap{position:relative;background:var(--white);border:1px solid var(--line);border-radius:11px;
@@ -451,33 +436,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
       <a class="cap has-page" href="/systems/tech/"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="3" width="20" height="6" rx="2"/><rect x="2" y="11" width="20" height="6" rx="2"/><path d="M6 6h.01M6 14h.01"/></svg></div><b>Tech</b><span>Technology risks</span><span class="more">Learn more <span class="arw">→</span></span></a>
       <a class="cap" href="/demo/"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div><b>Communiqué</b><span>Letter generation</span><span class="more">See it in a demo <span class="arw">→</span></span></a>
       <a class="cap" href="/demo/"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><b>Credit Insight</b><span>Credit &amp; loans</span><span class="more">See it in a demo <span class="arw">→</span></span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ── In use ───────────────────────────────────────────────────────────── -->
-<section id="in-use" style="padding-top:0">
-  <div class="wrap">
-    <p class="eyebrow">In use</p>
-    <div class="headrow">
-      <h2>On the desk and in the pocket.</h2>
-      <a class="morelink" href="/demo/">See it in a demo <span class="arw">→</span></a>
-    </div>
-    <div class="inuse">
-      <figure>
-        <div class="screen"><img src="/img/launcher.webp" width="619" height="600" loading="lazy" decoding="async"
-          alt="The Pulsus launcher: platform add-ins such as Connect, Communiqué and GeoATM, and operations applications such as Recon, Settlement and Cash, each one tap away."></div>
-        <figcaption>The launcher. Every application your teams use, behind one sign-in, grouped the way the institution works.</figcaption>
-      </figure>
-      <figure class="phones-fig">
-        <div class="phones">
-          <img src="/img/phone-ops.webp" width="236" height="382" loading="lazy" decoding="async"
-            alt="Pulsus on a phone: the Operations list showing Recon, Settlement and Cash as live.">
-          <img src="/img/phone-risk.webp" width="238" height="382" loading="lazy" decoding="async"
-            alt="Pulsus on a phone: Risk and Quality under Risk &amp; Control, then Connect, Communiqué and GeoATM.">
-        </div>
-        <figcaption>The same platform on a phone, with each application's live status at a glance.</figcaption>
-      </figure>
     </div>
   </div>
 </section>
