@@ -245,6 +245,31 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 @media(max-width:560px){ .fanapps{grid-template-columns:repeat(4,1fr)} .fanbrief{gap:13px;padding:15px}
   .fanbrief .ring{width:62px;height:62px} .fanbrief .ring span{font-size:19px} }
 
+/* ── Method: how the brief is built ───────────────────────────────────────
+   Five steps on one rail. Numbers sit on the rail; on narrow screens the rail
+   turns vertical and runs down the left. */
+.steps{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;position:relative;counter-reset:step}
+.steps::before{content:"";position:absolute;left:4%;right:4%;top:21px;height:2px;
+  background:linear-gradient(90deg,var(--line),#e9a3ae 50%,var(--line))}
+.step{position:relative;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:58px 18px 20px;
+  box-shadow:0 14px 30px -24px rgba(28,20,22,.35)}
+.step .num{position:absolute;top:0;left:18px;transform:translateY(0);width:44px;height:44px;border-radius:50%;
+  display:grid;place-items:center;background:var(--paper);border:2px solid var(--red);color:var(--red);font:800 14px var(--sora)}
+.step .num{top:-1px}
+.step .ic{position:absolute;top:13px;right:16px;color:#b9aaa3}
+.step h3{margin:0 0 8px}
+.step p{font-size:14px;color:var(--muted);margin:0;line-height:1.55}
+.step.ai{border-color:#f0b9c3;background:linear-gradient(180deg,#fff 0%,#fff6f7 100%)}
+.step .tag{display:inline-block;margin-top:12px;font:700 9.5px var(--plex);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--red);background:#fdecef;padding:4px 7px;border-radius:5px}
+.method-note{margin-top:26px;font-size:13.5px;color:var(--muted);max-width:70ch}
+@media(max-width:1000px){
+  .steps{grid-template-columns:1fr;gap:14px;padding-left:58px}
+  .steps::before{left:21px;right:auto;top:10px;bottom:10px;width:2px;height:auto;background:linear-gradient(180deg,var(--line),#e9a3ae 50%,var(--line))}
+  .step{padding:18px 18px 18px}
+  .step .num{left:-58px;top:12px}
+}
+
 /* ── Governance ───────────────────────────────────────────────────────────── */
 .govrow{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center}
 .govs{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:28px}
@@ -464,6 +489,32 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
         <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div><em>Communiqué</em></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ── How the brief is built ───────────────────────────────────────────── -->
+<section id="method">
+  <div class="wrap">
+    <div class="headrow">
+      <div>
+        <p class="eyebrow">How the brief is built</p>
+        <h2 style="max-width:18ch">Judgement you can check.</h2>
+      </div>
+      <p class="lede" style="margin:0;max-width:46ch">Every reading in the brief comes from fixed rules over your own systems' data.
+        The same data always gives the same answer, so any figure can be traced back and re-derived.</p>
+    </div>
+    <ol class="steps">
+      <li class="step"><span class="num">01</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/></svg>
+        <h3>Read</h3><p>Pulsus reads each system's own data and changes nothing in it. A system that can't be reached is reported as a blind spot, never quietly left out.</p></li>
+      <li class="step"><span class="num">02</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3v18M5 7h14M7 7l-3 7a4 4 0 0 0 6 0zM17 7l-3 7a4 4 0 0 0 6 0z"/></svg>
+        <h3>Judge</h3><p>Written rules, not guesswork: spot the trend, weigh it, rank what matters. Thresholds for "healthy" and "critical" are set by your institution.</p></li>
+      <li class="step"><span class="num">03</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5l2.2 8M15.5 7.5l-2.2 8M9 6h6"/></svg>
+        <h3>Connect</h3><p>When the same branch or unit is flagged by two or more systems, it surfaces as one issue, not scattered alerts in separate reports.</p></li>
+      <li class="step ai"><span class="num">04</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Phrase</h3><p>AI only rewords what the rules computed. If it adds any number that isn't in the facts, its version is rejected and the plain text stands.</p><span class="tag">Grounded AI</span></li>
+      <li class="step"><span class="num">05</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+        <h3>Learn</h3><p>Recommended actions are followed up. Pulsus measures whether each one actually helped, and weighs future advice by what worked.</p></li>
+    </ol>
   </div>
 </section>
 
