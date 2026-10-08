@@ -232,6 +232,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 .cap .more{display:block;margin-top:9px;font:700 12px var(--plex);color:var(--red)}
 .cap:hover .arw{display:inline-block;transform:translateX(3px)}
 .cap .arw{transition:transform .12s ease;display:inline-block}
+/* The flagship tile: first in the grid, with a red edge. */
+.cap.lead{border-color:#f0b9c3;box-shadow:inset 3px 0 0 var(--red)}
+.cap.lead:hover{border-color:#e48a9a}
 .flag{position:absolute;top:10px;right:10px;background:#fdecef;color:var(--red);
   font:700 8.5px var(--plex);letter-spacing:.09em;padding:3px 6px;border-radius:4px}
 /* Platform add-ins: separate products that sit alongside the twelve. Same
@@ -406,8 +409,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
         <h3>Operational oversight</h3><p>See performance across functions and divisions continuously.</p></div>
       <div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
         <h3>Less manual work</h3><p>Reduce repetitive reconciliation, exception detection and report preparation.</p></div>
-      <div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
-        <h3>Faster decisions</h3><p>Give leadership one synthesised operating picture.</p></div>
+      <div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h12M13 6l6 6-6 6"/><circle cx="5" cy="12" r="1.6"/></svg></div>
+        <h3>Recommended action</h3><p>Know what needs attention and the next step to take, not just what happened.</p></div>
       <div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg></div>
         <h3>Audit readiness</h3><p>Maintain evidence of activity, approvals and accountability.</p></div>
       <div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
@@ -429,9 +432,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
       <a class="morelink" href="/demo/">See them in a demo <span class="arw">→</span></a>
     </div>
     <div class="caps">
+      <a class="cap has-page lead" href="/systems/cash/"><span class="flag">FLAGSHIP</span><div class="ic"><img src="/img/icons/cash.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Cash</b><span>End-to-end cash, liquidity and reconciliation</span><span class="more">Learn more <span class="arw">→</span></span></a>
       <a class="cap has-page" href="/systems/panorama/"><div class="ic"><img src="/img/icons/panorama.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Panorama</b><span>Strategy &amp; scorecard</span><span class="more">Learn more <span class="arw">→</span></span></a>
-      <a class="cap has-page" href="/systems/connect/"><span class="flag">FLAGSHIP</span><div class="ic"><img src="/img/icons/connect.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Connect</b><span>Customer payments</span><span class="more">Learn more <span class="arw">→</span></span></a>
-      <a class="cap has-page" href="/systems/cash/"><span class="flag">FLAGSHIP</span><div class="ic"><img src="/img/icons/cash.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Cash</b><span>Cash &amp; tills</span><span class="more">Learn more <span class="arw">→</span></span></a>
+      <a class="cap has-page" href="/systems/connect/"><div class="ic"><img src="/img/icons/connect.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Connect</b><span>Customer payments</span><span class="more">Learn more <span class="arw">→</span></span></a>
       <a class="cap" href="/demo/"><div class="ic"><img src="/img/icons/recon.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Recon</b><span>Reconciliation monitor</span><span class="more">See it in a demo <span class="arw">→</span></span></a>
       <a class="cap" href="/demo/"><div class="ic"><img src="/img/icons/settlement.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Settlement</b><span>Settlement reconciliations</span><span class="more">See it in a demo <span class="arw">→</span></span></a>
       <a class="cap" href="/demo/"><div class="ic"><img src="/img/icons/risk.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Risk</b><span>Op-risk &amp; audit</span><span class="more">See it in a demo <span class="arw">→</span></span></a>
