@@ -263,6 +263,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 .step .tag{display:inline-block;margin-top:12px;font:700 9.5px var(--plex);letter-spacing:.1em;text-transform:uppercase;
   color:var(--red);background:#fdecef;padding:4px 7px;border-radius:5px}
 .method-note{margin-top:26px;font-size:13.5px;color:var(--muted);max-width:70ch}
+.patent{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:5px 10px;border-radius:999px;
+  border:1px solid #f0b9c3;background:#fff6f7;color:var(--red);font:700 11px var(--plex);letter-spacing:.08em;text-transform:uppercase}
 @media(max-width:1000px){
   .steps{grid-template-columns:1fr;gap:14px;padding-left:58px}
   .steps::before{left:21px;right:auto;top:10px;bottom:10px;width:2px;height:auto;background:linear-gradient(180deg,var(--line),#e9a3ae 50%,var(--line))}
@@ -499,6 +501,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
       <div>
         <p class="eyebrow">How the brief is built</p>
         <h2 style="max-width:18ch">Judgement you can check.</h2>
+        <span class="patent"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg>Patent pending</span>
       </div>
       <p class="lede" style="margin:0;max-width:46ch">Every reading in the brief comes from fixed rules over your own systems' data.
         The same data always gives the same answer, so any figure can be traced back and re-derived.</p>
