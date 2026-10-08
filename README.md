@@ -89,8 +89,8 @@ All three should come back empty or zero.
 - Five of the twelve capabilities have their own page under `systems/`
   (Panorama, Connect, Cash, Talent, Tech). The other seven tiles (Recon,
   Settlement, Risk, Quality, Ops, Communiqué, Credit Insight) send visitors to
-  the demo page with "See it in a demo" until their pages exist. The "Explore
-  all capabilities" link still points at `#contact`.
+  the demo page with "See it in a demo" until their pages exist, as does the
+  "See them in a demo" link above the tiles.
 - There is no About section content beyond the footer attribution.
 
 ## Demo enquiry form
