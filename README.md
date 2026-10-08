@@ -83,14 +83,30 @@ All three should come back empty or zero.
 
 - The three photographic backgrounds in the original concept (city at night
   behind the hero, boardroom behind "With Pulsus", mountain skyline behind the
-  close) are not present. There are no image assets in this repo; the hero uses
-  a CSS bokeh field in place of the first, and the other two are gradients.
+  close) are not present. The hero uses a CSS bokeh field in place of the
+  first, and the other two are gradients. The only images are the demo
+  screenshots in the hero and the app icons on the capability tiles (`img/`).
 - Five of the twelve capabilities have their own page under `systems/`
   (Panorama, Connect, Cash, Talent, Tech). The other seven tiles (Recon,
   Settlement, Risk, Quality, Ops, Communiqué, Credit Insight) send visitors to
   the demo page with "See it in a demo" until their pages exist. The "Explore
   all capabilities" link still points at `#contact`.
 - There is no About section content beyond the footer attribution.
+
+## Demo enquiry form
+
+The Book a demo page (`demo/`) posts to a small Vercel function, `api/enquiry.js`,
+which emails the request through Resend. Set these in the Vercel project's
+environment variables:
+
+| Variable | Needed | Default |
+| --- | --- | --- |
+| `RESEND_API_KEY` | yes | none; without it the form opens the visitor's email instead |
+| `ENQUIRY_TO` | no | `support@pulsus.tech` |
+| `ENQUIRY_FROM` | no | `Pulsus Platform <support@pulsus.tech>` |
+
+The sending domain must be verified in Resend (pulsus.tech already is, since
+the Command Center sends from it). Replies go straight to the visitor.
 
 ---
 
