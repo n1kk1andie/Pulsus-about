@@ -86,8 +86,10 @@ All three should come back empty or zero.
   close) are not present. The hero uses a CSS bokeh field in place of the
   first, and the other two are gradients. The only images are the demo
   screenshots in the hero and the app icons on the capability tiles (`img/`).
-- Five of the twelve capabilities have their own page under `systems/`
-  (Panorama, Connect, Cash, Talent, Tech). The other seven tiles (Recon,
+- Four of the twelve capabilities have their own page under `systems/`
+  (Panorama, Connect, Cash, Talent). Tech has its own site,
+  https://abouttech.pulsus.tech/ (repo HomePulsusTech); its tile links there,
+  and `/systems/tech/` redirects there (`vercel.json`). The other seven tiles (Recon,
   Settlement, Risk, Quality, Ops, Communiqué, Credit Insight) send visitors to
   the demo page with "See it in a demo" until their pages exist, as does the
   "See them in a demo" link above the tiles.

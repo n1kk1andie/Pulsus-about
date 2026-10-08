@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/systems/tech", "destination": "https://abouttech.pulsus.tech/", "permanent": true },
+    { "source": "/systems/tech/", "destination": "https://abouttech.pulsus.tech/", "permanent": true }
+  ]
+}
