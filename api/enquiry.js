@@ -4,7 +4,7 @@
 //   RESEND_API_KEY   required; without it the endpoint answers 503 and the page
 //                    falls back to its plain email link
 //   ENQUIRY_TO       where enquiries go       (default support@pulsus.tech)
-//   ENQUIRY_FROM     the sending address      (default Pulsus Platform <support@pulsus.tech>)
+//   ENQUIRY_FROM     the sending address      (default Pulsus Intelligence Suite <support@pulsus.tech>)
 //
 // Spam: a hidden "website" field that people never fill, and a minimum time
 // between the page loading and the form being sent. Both fail quietly with a
@@ -46,7 +46,7 @@ module.exports = async (req, res) => {
   const key = clean(process.env.RESEND_API_KEY);
   if (!key) return res.status(503).json({ ok: false, error: "unconfigured" });
   const to = clean(process.env.ENQUIRY_TO) || "support@pulsus.tech";
-  const from = clean(process.env.ENQUIRY_FROM) || "Pulsus Platform <support@pulsus.tech>";
+  const from = clean(process.env.ENQUIRY_FROM) || "Pulsus Intelligence Suite <support@pulsus.tech>";
 
   const rows = [
     ["Name", name],
@@ -65,7 +65,7 @@ module.exports = async (req, res) => {
     )
     .join("");
   const html = `<div style="font-family:Arial,Helvetica,sans-serif;max-width:560px;color:#1C1416">
-    <div style="background:#E4012B;color:#fff;padding:14px 18px;border-radius:10px 10px 0 0;font-weight:bold">Pulsus Platform: demo request</div>
+    <div style="background:#E4012B;color:#fff;padding:14px 18px;border-radius:10px 10px 0 0;font-weight:bold">Pulsus Intelligence Suite: demo request</div>
     <div style="border:1px solid #eee;border-top:none;padding:16px 18px;border-radius:0 0 10px 10px">
       <table style="border-collapse:collapse;font-size:14px">${rows}</table>
       <p style="font-size:12px;color:#6E625E;margin-top:16px">Sent from the Book a demo page on about.pulsus.tech. Reply to answer ${esc(name)} directly.</p>
