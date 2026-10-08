@@ -205,13 +205,13 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 /* Tablet + phone: the brief on a tablet at the back, the systems list on a
    phone in front of its lower-right corner. */
 .stage.tab{aspect-ratio:1.18/1}
-.tablet{position:absolute;z-index:1;left:0;top:9%;width:90%;aspect-ratio:1.53;border-radius:4.4% / 6.7%;padding:2.3%;
+.tablet{position:absolute;z-index:1;left:0;top:9%;width:90%;border-radius:4.4% / 6.7%;padding:2.3%;
   background:linear-gradient(145deg,#3a3f47 0%,#121418 38%,#24282e 70%,#0c0d10 100%);
   box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 3.5px #08090b,
     0 60px 90px -45px rgba(0,0,0,.7),0 24px 44px -24px rgba(0,0,0,.5);transform:rotate(-2deg)}
 .tablet .cam{position:absolute;top:1%;left:50%;width:.9%;aspect-ratio:1;border-radius:50%;background:#2c3139;transform:translateX(-50%)}
-.tablet .screen{border-radius:2.2% / 3.4%}
-.tablet .screen img{height:100%;object-fit:cover;object-position:top}
+.tablet .screen{height:auto;display:block;border-radius:2.2% / 3.4%}
+.tablet .screen img{width:100%;height:auto}
 .stage.tab .device.front{width:29%;right:0;left:auto;top:auto;bottom:0;transform:rotate(3deg)}
 .stage.tab .status{font-size:1.4cqw}
 .stage.tab .status .sig{width:1.9cqw;height:1cqw}
