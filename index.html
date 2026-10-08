@@ -107,6 +107,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 .hero .kicker b{color:var(--red);font-weight:600}
 .hero p{color:#b9cde5;max-width:46ch}
 .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.close .cta{display:flex;gap:12px;flex-wrap:wrap}
+/* One line under the buttons that tells the two apart. */
+.cta-note{margin:12px 0 0;font-size:13px;color:#9fb4cd;max-width:none !important}
 @media(max-width:900px){ .hero .wrap{grid-template-columns:1fr;gap:34px} }
 
 /* ── Split (challenge / with pulsus) ──────────────────────────────────────── */
@@ -349,8 +352,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
       <p class="sub">An integrated platform for cash, settlement, risk, quality and performance across your institution.</p>
       <div class="cta">
         <a class="btn btn-primary" href="/demo/">Book a demo <span class="arw">→</span></a>
-        <a class="btn btn-ghost" href="#platform">Explore the platform</a>
+        <a class="btn btn-ghost" href="mailto:support@pulsus.tech?subject=Pulsus%20Platform%20%E2%80%94%20request%20a%20conversation&amp;body=Institution%3A%20%0ARole%3A%20%0AWhat%20you%27d%20like%20to%20discuss%3A%20%0A">Request a conversation</a>
       </div>
+      <p class="cta-note">See it working in 45 minutes, or start with a conversation by email.</p>
     </div>
 
     <div class="stage tab" role="img" aria-label="The Pulsus demo Command Center on a tablet, showing the Executive Brief and its findings, with a phone in front showing the Operations Systems list, 14 of 17 systems live.">
@@ -575,7 +579,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
       <h2>See your institution as it is actually running.</h2>
       <p style="max-width:58ch">Discover how Pulsus brings your operations, performance, risk and controls into one continuous
         picture of institutional health, with the intelligence to identify what needs attention and recommend what to do next.</p>
-      <a class="btn btn-primary" style="margin-top:18px" href="/demo/">Request a demonstration <span class="arw">→</span></a>
+      <div class="cta" style="margin-top:20px">
+        <a class="btn btn-primary" href="/demo/">Book a demo <span class="arw">→</span></a>
+        <a class="btn btn-ghost" href="mailto:support@pulsus.tech?subject=Pulsus%20Platform%20%E2%80%94%20request%20a%20conversation&amp;body=Institution%3A%20%0ARole%3A%20%0AWhat%20you%27d%20like%20to%20discuss%3A%20%0A">Request a conversation</a>
+      </div>
+      <p class="cta-note">Not ready for a demo? Send a note about your institution and we'll reply personally.</p>
     </div>
     <div class="fbrand">
       <span class="wordmark"><span class="wm">PULS<span class="u">U</span>S</span><small>PLATFORM</small></span>
