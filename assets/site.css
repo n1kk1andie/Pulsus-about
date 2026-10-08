@@ -35,14 +35,14 @@ p{margin:0 0 14px}
 
 /* ── Wordmark ─────────────────────────────────────────────────────────────── */
 .wordmark{display:inline-block;text-decoration:none}
-.wordmark .wm{font-weight:800;font-size:22px;letter-spacing:.17em;display:flex;align-items:baseline;gap:1px;line-height:1}
+.wordmark .wm{font-weight:800;font-size:22.5px;letter-spacing:.17em;display:flex;align-items:baseline;gap:1px;line-height:1}
 /* The red dot sits inside the second U, as in the logo. It is placed from the
    glyph's vertical centre so line-height cannot move it, and pulled left by
    half the trailing letter-spacing. */
 .wm .u{position:relative}
 .wm .u::after{content:"";position:absolute;left:calc(50% - .085em);top:50%;width:.2em;height:.2em;
   margin:-.12em 0 0 -.1em;border-radius:50%;background:var(--red)}
-.wordmark small{display:block;font:600 9px/1 var(--plex);letter-spacing:.42em;opacity:.7;margin-top:5px}
+.wordmark small{display:block;font:600 9px/1 var(--plex);letter-spacing:.24em;opacity:.7;margin-top:5px;white-space:nowrap}
 
 /* ── Buttons ──────────────────────────────────────────────────────────────── */
 .btn{display:inline-flex;align-items:center;gap:10px;border-radius:8px;padding:14px 24px;

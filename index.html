@@ -46,14 +46,14 @@ section{padding:clamp(56px,8vw,96px) 0}
 
 /* ── Wordmark ─────────────────────────────────────────────────────────────── */
 .wordmark{display:inline-block}
-.wordmark .wm{font-weight:800;font-size:19px;letter-spacing:.18em;display:flex;align-items:baseline;gap:1px}
+.wordmark .wm{font-weight:800;font-size:22.5px;letter-spacing:.18em;display:flex;align-items:baseline;gap:1px}
 /* The red dot sits inside the second U, as in the logo. It is placed from the
    glyph's vertical centre so line-height cannot move it, and pulled left by
    half the trailing letter-spacing. */
 .wm .u{position:relative}
 .wm .u::after{content:"";position:absolute;left:calc(50% - .085em);top:50%;width:.2em;height:.2em;
   margin:-.12em 0 0 -.1em;border-radius:50%;background:var(--red)}
-.wordmark small{display:block;font:600 8.5px/1 var(--plex);letter-spacing:.4em;opacity:.62;margin-top:3px}
+.wordmark small{display:block;font:600 9px/1 var(--plex);letter-spacing:.24em;opacity:.7;margin-top:5px;white-space:nowrap}
 
 /* ── Buttons ──────────────────────────────────────────────────────────────── */
 .btn{display:inline-flex;align-items:center;gap:9px;border-radius:999px;padding:13px 22px;
@@ -331,7 +331,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 
 <header>
   <div class="wrap nav">
-    <a href="#top" class="wordmark"><span class="wm">PULS<span class="u">U</span>S</span><small>PLATFORM</small></a>
+    <a href="#top" class="wordmark"><span class="wm">PULS<span class="u">U</span>S</span><small>INTELLIGENCE SUITE</small></a>
     <nav>
       <a href="#platform">Platform</a>
       <a href="#capabilities">Capabilities</a>
@@ -349,7 +349,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
     <div>
       <p class="kicker">Live. <b>Signal.</b> Clarity.</p>
       <h1>Live operations.<br>Clear signals.<br><span class="hl">Confident decisions.</span></h1>
-      <p class="sub">The operations platform for financial institutions: cash, settlement, risk, quality and performance in one live picture.</p>
+      <p class="sub">Exceptions found late. Reports assembled by hand. Risks seen only once they have cost money.</p>
+      <p class="lede">Pulsus gives financial institutions one live picture of cash, settlement, risk, quality and
+        performance, so problems are caught while they can still be fixed.</p>
       <div class="cta">
         <a class="btn btn-primary" href="/demo/">Book a demo <span class="arw">→</span></a>
         <a class="btn btn-ghost" href="mailto:support@pulsus.tech?subject=Pulsus%20Platform%20%E2%80%94%20request%20a%20conversation&amp;body=Institution%3A%20%0ARole%3A%20%0AWhat%20you%27d%20like%20to%20discuss%3A%20%0A">Request a conversation</a>
@@ -586,7 +588,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
       <p class="cta-note">Not ready for a demo? Send a note about your institution and we'll reply personally.</p>
     </div>
     <div class="fbrand">
-      <span class="wordmark"><span class="wm">PULS<span class="u">U</span>S</span><small>PLATFORM</small></span>
+      <span class="wordmark"><span class="wm">PULS<span class="u">U</span>S</span><small>INTELLIGENCE SUITE</small></span>
       <p>Pulsus is developed by Tumblehill Labs,<br>the product studio of Tumblehill Holdings LLC.</p>
     </div>
   </div>
