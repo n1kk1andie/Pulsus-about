@@ -126,6 +126,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 /* Once the row wraps, the paragraph sits under the heading and reads left. */
 @media(max-width:760px){ .dark .headrow > p{text-align:left} }
 
+/* A quiet closing line under the outcome cards. */
+.beyond{margin:30px 0 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:14.5px;color:var(--on-dark-dim);max-width:none}
+.beyond b{color:#fff;font-weight:600}
+
 /* ── Cards ────────────────────────────────────────────────────────────────── */
 .grid6{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:34px}
 .card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px}
@@ -405,6 +409,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
       <div class="card"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></div>
         <h3>Earlier risk visibility</h3><p>Surface exceptions while they can still be acted upon.</p></div>
     </div>
+    <p class="beyond"><b>Built in financial services.</b> The engine works wherever operations run across many systems,
+      sites and service levels.</p>
   </div>
 </section>
 
