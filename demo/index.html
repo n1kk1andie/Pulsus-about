@@ -171,6 +171,13 @@
   var f = document.getElementById("enq");
   if (!f) return;
   var started = Date.now();
+  // A link can pre-choose the application, e.g. /demo/?app=Tech from the Pulsus Tech page.
+  try {
+    var want = new URLSearchParams(location.search).get("app");
+    var sel = f.querySelector("select[name=application]");
+    if (want && sel) for (var i = 0; i < sel.options.length; i++)
+      if (sel.options[i].text.toLowerCase() === want.toLowerCase()) { sel.selectedIndex = i; break; }
+  } catch (e) {}
   var msg = f.querySelector(".enq-msg");
   var btn = f.querySelector("button");
   var mail = f.querySelector(".enq-alt a").getAttribute("href");
