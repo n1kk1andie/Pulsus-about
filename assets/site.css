@@ -186,6 +186,11 @@ footer{background:var(--navy);color:var(--on-dark-dim);padding:44px 0 0}
 .flinks{display:flex;gap:18px;font-size:13px;flex-wrap:wrap;justify-content:flex-end}
 .flinks a{color:#9fb4cd;text-decoration:none}
 .flinks a:hover{color:#fff}
+/* Social links (footer) */
+.socials{display:flex;gap:10px;margin-top:16px}
+.socials a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;color:#fff}
+.socials a:hover{background:var(--red)}
+.socials svg{width:16px;height:16px}
 .legal{border-top:1px solid rgba(255,255,255,.1);margin-top:32px;padding:18px 0;font-size:12px;color:#6e87a3}
 @media(max-width:760px){ .frow{grid-template-columns:1fr;gap:22px} .flinks{justify-content:flex-start} }
 
