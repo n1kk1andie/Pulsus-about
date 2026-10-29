@@ -84,7 +84,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 .nav nav a{font:500 16px var(--plex);color:#e6ecf7;text-decoration:none}
 .nav nav a:hover{color:#fff}
 .nav .sp{flex:1}
-@media(max-width:860px){ .nav nav{display:none} }
+@media(max-width:1100px){ .nav nav{gap:24px;margin-right:8px} .nav nav a{font-size:15px} }
+@media(max-width:760px){ .nav nav{display:none} }
 
 /* ── Hero ─────────────────────────────────────────────────────────────────── */
 .hero{position:relative;overflow:hidden;
@@ -105,7 +106,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 /* One line under the buttons that tells the two apart. */
 .cta-note{margin:12px 0 0;font-size:13px;color:#9fb4cd;max-width:none !important}
 .wave-space{min-height:clamp(300px,32vw,430px)}
-@media(max-width:900px){ .hero .wrap{grid-template-columns:minmax(0,1fr);gap:0} .wave-space{min-height:460px} }
+/* Tablets in portrait and anything narrower: the words on top, the wave
+   underneath at full width. */
+@media(max-width:1100px){ .hero .wrap{grid-template-columns:minmax(0,1fr);gap:0} .hero p{max-width:46ch}
+  .wave-space{min-height:clamp(380px,52vw,520px)} }
 
 /* The signal wave: two bundles of fine strands, red where issues emerge and
    blue where the picture comes together, crossing as they travel. The script
@@ -696,7 +700,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
     function layout() {
       var hr = hero.getBoundingClientRect(), sr = space.getBoundingClientRect();
       W = hr.width; H = hr.height; c.width = W * dpr; c.height = H * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var wide = W > 900;
+      var wide = W > 1100;
       X0 = wide ? sr.left - hr.left - sr.width * 0.42 : 0; X1 = W;
       CY = sr.top - hr.top + sr.height * (wide ? 0.52 : 0.66); R = Math.min(sr.height * (wide ? 0.24 : 0.17), 130);
     }
@@ -732,7 +736,17 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
       place(T);
       if (!still) requestAnimationFrame(draw);
     }
-    layout(); window.addEventListener("resize", layout); requestAnimationFrame(draw);
+    // Re-measure whenever the hero changes size: a window resize, an iPad
+    // rotating, or text reflowing. Rotation can report the old size on the
+    // resize event itself, so the observer and a delayed second pass catch
+    // the settled layout.
+    var queued = false;
+    function relayout() { if (queued) return; queued = true; requestAnimationFrame(function () { queued = false; layout(); if (still) draw(0); }); }
+    layout();
+    if (window.ResizeObserver) new ResizeObserver(relayout).observe(hero);
+    window.addEventListener("resize", relayout);
+    window.addEventListener("orientationchange", function () { relayout(); setTimeout(relayout, 350); });
+    requestAnimationFrame(draw);
   })();
 </script>
 </body>
