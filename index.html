@@ -173,6 +173,83 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 @media(max-width:1000px){ .grid6{grid-template-columns:repeat(3,1fr)} }
 @media(max-width:640px){ .grid6{grid-template-columns:repeat(2,1fr)} }
 
+/* ── Device stage: real screens from the demo Command Center ──────────────────
+   Two phones in realistic frames, layered at slight angles over a soft
+   branded glow. Everything is sized in % of the stage so the composition
+   scales as one piece from desktop down to a phone. */
+
+.stage{position:relative;width:100%;max-width:600px;margin:0 auto;aspect-ratio:1/1.02;container-type:inline-size}
+.stage::before{content:"";position:absolute;inset:7% 2% 0;border-radius:32px;
+  background:radial-gradient(48% 42% at 66% 46%,rgba(228,1,43,.24),transparent 72%),
+             radial-gradient(55% 55% at 28% 64%,rgba(20,50,87,.30),transparent 74%),
+             linear-gradient(160deg,#fff 0%,#f3ece8 100%);
+  border:1px solid var(--line)}
+.stage::after{content:"";position:absolute;inset:7% 2% 0;border-radius:32px;opacity:.5;
+  background-image:radial-gradient(rgba(28,20,22,.14) 1px,transparent 1.2px);background-size:18px 18px;
+  -webkit-mask-image:radial-gradient(70% 60% at 50% 50%,#000,transparent);mask-image:radial-gradient(70% 60% at 50% 50%,#000,transparent)}
+
+.device{position:absolute;z-index:1;width:40%;aspect-ratio:9/19.2;border-radius:13.5% / 6.3%;padding:2.4%;
+  background:linear-gradient(145deg,#3a3f47 0%,#121418 38%,#24282e 70%,#0c0d10 100%);
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 3.5px #08090b,
+    0 50px 80px -40px rgba(7,26,51,.55),0 22px 40px -22px rgba(0,0,0,.45)}
+.device::before,.device::after{content:"";position:absolute;width:1.4%;border-radius:2px;background:#2a2e35}
+.device::before{left:-1%;top:22%;height:7%}
+.device::after{right:-1%;top:28%;height:11%}
+.screen{position:relative;height:100%;border-radius:11.6% / 5.4%;overflow:hidden;background:#f6f3f1;display:flex;flex-direction:column}
+.screen img{width:100%;height:auto;display:block}
+.screen .fill{flex:1}
+.status{flex:none;height:6.6%;display:flex;align-items:center;justify-content:space-between;padding:0 9% 0 11%;
+  font:600 1.9cqw/1 -apple-system,"SF Pro Text",system-ui,sans-serif;color:#111}
+.status .bars{display:flex;gap:.7cqw;align-items:center}
+.status .sig{display:block;width:2.6cqw;height:1.3cqw;background:linear-gradient(90deg,#111 0 18%,transparent 18% 27%,#111 27% 45%,transparent 45% 54%,#111 54% 72%,transparent 72% 81%,#111 81%);-webkit-mask:linear-gradient(to top right,#000 50%,transparent 50%);mask:linear-gradient(to top right,#000 50%,transparent 50%)}
+.status .bat{display:block;width:3.2cqw;height:1.5cqw;border:.22cqw solid #111;border-radius:.45cqw;padding:.18cqw;opacity:.9}
+.status .bat::before{content:"";display:block;height:100%;width:70%;background:#111;border-radius:.2cqw}
+.island{position:absolute;z-index:2;top:2.1%;left:50%;transform:translateX(-50%);width:31%;height:3.4%;background:#000;border-radius:999px}
+.screen::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(118deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 32%)}
+
+.device.back{left:12%;top:4%;transform:rotate(-7deg);z-index:1}
+.device.back .screen{filter:saturate(.92)}
+.device.front{right:10%;top:11%;transform:rotate(4deg);z-index:2;
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 3.5px #08090b,
+    0 70px 90px -40px rgba(7,26,51,.65),0 30px 50px -26px rgba(0,0,0,.5)}
+
+.chip{position:absolute;z-index:3;display:flex;align-items:center;gap:1.8cqw;padding:1.9cqw 2.6cqw;border-radius:2.4cqw;
+  background:rgba(255,255,255,.78);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.9);box-shadow:0 18px 36px -18px rgba(7,26,51,.45);
+  font:600 2.35cqw/1.25 var(--plex);color:var(--ink);white-space:nowrap}
+.chip small{display:block;font-weight:500;font-size:1.9cqw;color:var(--muted)}
+.chip .dot{width:1.6cqw;height:1.6cqw;border-radius:50%;background:#12a150;box-shadow:0 0 0 .8cqw rgba(18,161,80,.16)}
+.chip .dot.red{background:var(--red);box-shadow:0 0 0 .8cqw rgba(228,1,43,.14)}
+.chip.c1{left:0;top:72%}
+.chip.c2{right:0;top:3%}
+@media(max-width:900px){ .stage{max-width:500px} }
+
+/* Tablet + phone: the brief on a tablet at the back, the systems list on a
+   phone in front of its lower-right corner. */
+.stage.tab{aspect-ratio:1.18/1}
+.tablet{position:absolute;z-index:1;left:0;top:9%;width:90%;border-radius:4.4% / 6.7%;padding:2.3%;
+  background:linear-gradient(145deg,#3a3f47 0%,#121418 38%,#24282e 70%,#0c0d10 100%);
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 3.5px #08090b,
+    0 60px 90px -45px rgba(0,0,0,.7),0 24px 44px -24px rgba(0,0,0,.5);transform:rotate(-2deg)}
+.tablet .cam{position:absolute;top:1%;left:50%;width:.9%;aspect-ratio:1;border-radius:50%;background:#2c3139;transform:translateX(-50%)}
+.tablet .screen{height:auto;display:block;border-radius:2.2% / 3.4%}
+.tablet .screen img{width:100%;height:auto}
+.stage.tab .device.front{width:29%;right:0;left:auto;top:auto;bottom:0;transform:rotate(3deg)}
+.stage.tab .status{font-size:1.4cqw}
+.stage.tab .status .sig{width:1.9cqw;height:1cqw}
+.stage.tab .status .bat{width:2.3cqw;height:1.1cqw;border-width:.16cqw}
+.stage.tab .chip.c1{left:3%;top:0;bottom:auto}
+.stage.tab .chip.c2{right:auto;left:30%;top:auto;bottom:4%}
+
+/* Capabilities: the stage beside the twelve modules. */
+.caps-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:40px;align-items:start;margin-top:30px}
+/* The stage stays in view while the taller list of modules scrolls past it. */
+.caps-split > .stage{position:sticky;top:130px}
+.caps-split .caps{grid-template-columns:repeat(3,1fr);margin-top:0}
+@media(max-width:1000px){ .caps-split{grid-template-columns:minmax(0,1fr);gap:28px} .caps-split > .stage{position:relative;top:auto} }
+@media(max-width:560px){ .caps-split .caps{grid-template-columns:repeat(2,1fr)} }
+
 /* ── Capability tiles ─────────────────────────────────────────────────────── */
 .caps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:30px}
 .cap{position:relative;background:var(--white);border:1px solid var(--line);border-radius:11px;
@@ -387,7 +464,21 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
       <h2>One platform, twelve capabilities.</h2>
       <a class="morelink" href="/demo/">See them in a demo <span class="arw">→</span></a>
     </div>
-    <div class="caps">
+    <div class="caps-split">
+      <div class="stage tab" role="img" aria-label="The Pulsus demo Command Center on a tablet, showing the Executive Brief and its findings, with a phone in front showing the Operations Systems list, 14 of 17 systems live.">
+        <div class="tablet"><span class="cam"></span><div class="screen">
+          <img src="/img/screen-brief.webp" width="1600" height="1000" alt="" loading="lazy" decoding="async">
+        </div></div>
+        <div class="device front"><div class="screen">
+          <div class="status"><span>9:41</span><span class="bars"><span class="sig"></span><span class="bat"></span></span></div><span class="island"></span>
+          <img src="/img/screen-systems.webp" width="780" height="1353" alt="" decoding="async">
+          <div class="fill"></div>
+          <img src="/img/screen-nav.webp" width="780" height="102" alt="" decoding="async">
+        </div></div>
+        <div class="chip c1"><span class="dot red"></span><span>The Executive Brief<small>Ready before leadership arrives</small></span></div>
+        <div class="chip c2"><span class="dot"></span><span>14 of 17 systems live<small>One sign-in, every application</small></span></div>
+      </div>
+      <div class="caps">
       <a class="cap has-page lead" href="/systems/cash/"><span class="flag">FLAGSHIP</span><div class="ic"><img src="/img/icons/cash.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Cash</b><span>End-to-end cash operations&nbsp;· tills, vaults &amp; ATMs&nbsp;· teller liquidity management</span><span class="more">Learn more <span class="arw">→</span></span></a>
       <a class="cap has-page" href="/systems/panorama/"><div class="ic"><img src="/img/icons/panorama.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Panorama</b><span>Balanced scorecard&nbsp;· strategic intelligence&nbsp;· enterprise trends</span><span class="more">Learn more <span class="arw">→</span></span></a>
       <a class="cap has-page" href="/systems/connect/"><div class="ic"><img src="/img/icons/connect.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Connect</b><span>Payment orchestration&nbsp;· settlement visibility&nbsp;· a public payment tracker for customers</span><span class="more">Learn more <span class="arw">→</span></span></a>
@@ -400,6 +491,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
       <a class="cap has-page" href="https://abouttech.pulsus.tech/"><div class="ic"><img src="/img/icons/tech.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Tech</b><span>Enterprise architecture&nbsp;· technology lifecycle&nbsp;· system health</span><span class="more">Learn more <span class="arw">→</span></span></a>
       <a class="cap" href="/demo/"><div class="ic"><img src="/img/icons/communique.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Communiqué</b><span>Customer communications&nbsp;· document generation</span><span class="more">See it in a demo <span class="arw">→</span></span></a>
       <a class="cap" href="/demo/"><div class="ic"><img src="/img/icons/credit.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Credit Insight</b><span>Delinquency intelligence&nbsp;· predictive insights&nbsp;· portfolio performance&nbsp;· arrears management</span><span class="more">See it in a demo <span class="arw">→</span></span></a>
+    </div>
     </div>
     <div class="addins-head"><b>Platform add-ins</b><span>Separate products that work alongside the platform.</span></div>
     <div class="caps addins">
