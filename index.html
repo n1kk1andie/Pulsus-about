@@ -50,8 +50,8 @@ section{padding:clamp(56px,8vw,96px) 0}
 /* The red dot sits inside the second U, as in the logo. It is placed from the
    glyph's vertical centre so line-height cannot move it, and pulled left by
    half the trailing letter-spacing. */
-.wm .u{position:relative}
-.wm .u::after{content:"";position:absolute;left:calc(50% - .085em);top:50%;width:.2em;height:.2em;
+.wm .u,.lockup .u{position:relative}
+ .wm .u::after,.lockup .u::after{content:"";position:absolute;left:calc(50% - .085em);top:50%;width:.2em;height:.2em;
   margin:-.12em 0 0 -.1em;border-radius:50%;background:var(--red)}
 .wordmark small{display:block;font:600 9px/1 var(--plex);letter-spacing:.24em;opacity:.7;margin-top:5px;white-space:nowrap}
 
@@ -68,49 +68,80 @@ section{padding:clamp(56px,8vw,96px) 0}
 .btn:hover .arw{transform:translateX(3px)}
 
 /* ── Nav ──────────────────────────────────────────────────────────────────── */
-header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(255,255,255,.08)}
-.nav{display:flex;align-items:center;gap:28px;height:76px}
+header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-filter:blur(10px)}
+.nav{display:flex;align-items:center;gap:28px;height:96px}
+/* The Pulsus Platform lockup: wordmark, PLATFORM between red rules, strapline. */
+.lockup{display:inline-flex;flex-direction:column;align-items:stretch;color:#fff;text-decoration:none;font-family:var(--sora)}
+.lockup .wm{font-weight:800;font-size:28px;letter-spacing:.2em;display:flex;align-items:baseline;gap:1px;margin-right:-.2em}
+.lockup .plat{display:flex;align-items:center;gap:8px;font:600 10px/1 var(--plex);letter-spacing:.55em;margin:2px 0 6px}
+.lockup .plat::before,.lockup .plat::after{content:"";flex:1;height:1.5px;background:var(--red)}
+.lockup .plat span{margin-right:-.55em}
+.lockup .tag{font:500 11.5px/1 var(--plex);letter-spacing:.06em;text-align:center;color:#e6ecf7}
+.lockup .tag b{color:var(--red);font-weight:500}
+.nav .btn-primary{padding:14px 30px;font-size:16px}
 .nav .wordmark{color:#fff;text-decoration:none}
-.nav nav{display:flex;gap:26px;margin-left:18px}
-.nav nav a{font:500 14.5px var(--plex);color:#cfe0f2;text-decoration:none}
+.nav nav{display:flex;gap:40px;margin-left:auto;margin-right:16px}
+.nav nav a{font:500 16px var(--plex);color:#e6ecf7;text-decoration:none}
 .nav nav a:hover{color:#fff}
 .nav .sp{flex:1}
 @media(max-width:860px){ .nav nav{display:none} }
 
 /* ── Hero ─────────────────────────────────────────────────────────────────── */
 .hero{position:relative;overflow:hidden;
-  background:radial-gradient(110% 80% at 80% 0%, #1a4d80 0%, rgba(12,39,72,.55) 42%, transparent 72%),
-             linear-gradient(165deg,#08203c 0%,#071a33 55%,#050f1f 100%)}
-.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:repeating-linear-gradient(90deg,rgba(255,255,255,.028) 0 1px,transparent 1px 64px)}
-/* A soft bokeh field, in place of the city-at-night photograph in the concept:
-   it carries the same mood at a few hundred bytes and never blocks on an asset. */
-.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
-  background:
-    radial-gradient(circle 3px at 12% 72%, rgba(255,196,120,.5), transparent 60%),
-    radial-gradient(circle 5px at 22% 84%, rgba(255,170,90,.32), transparent 60%),
-    radial-gradient(circle 4px at 34% 66%, rgba(150,200,255,.3), transparent 60%),
-    radial-gradient(circle 7px at 46% 88%, rgba(255,210,150,.22), transparent 60%),
-    radial-gradient(circle 3px at 58% 74%, rgba(190,220,255,.34), transparent 60%),
-    radial-gradient(circle 6px at 70% 92%, rgba(255,185,110,.24), transparent 60%),
-    radial-gradient(circle 4px at 86% 78%, rgba(160,205,255,.28), transparent 60%),
-    radial-gradient(circle 9px at 94% 90%, rgba(255,200,140,.16), transparent 60%)}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center;
-  padding-top:clamp(48px,7vw,80px);padding-bottom:clamp(48px,7vw,80px)}
-/* Three short beats echoing "Live. Signal. Clarity."; the last one, the payoff, in red. */
-.hero h1{font-size:clamp(32px,3.75vw,48px);font-weight:800;color:#fff;margin:0 0 20px;
-  letter-spacing:-0.025em;line-height:1.04}
+  background:radial-gradient(60% 55% at 42% 62%, rgba(228,1,43,.16), transparent 70%),
+             radial-gradient(55% 60% at 92% 18%, rgba(59,110,246,.22), transparent 70%),
+             linear-gradient(170deg,#0d1536 0%,#0a1130 50%,#070b22 100%)}
+.hero > canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center;
+  padding-top:clamp(20px,3vw,40px);padding-bottom:clamp(28px,3.5vw,44px)}
+.hero h1{font-size:clamp(38px,4.6vw,62px);font-weight:800;color:#fff;margin:0 0 24px;letter-spacing:-0.03em;line-height:1.02}
 .hero h1 .hl{color:var(--red)}
-.hero .sub{font:600 clamp(17px,1.9vw,21px)/1.3 var(--sora);color:#dce8f6;letter-spacing:-0.015em;margin:0 0 20px}
-.hero .kicker{font:600 12px/1.6 var(--plex);letter-spacing:.2em;text-transform:uppercase;color:#b9cde5;margin:0 0 18px}
-.hero .kicker b{color:var(--red);font-weight:600}
-.hero p{color:#b9cde5;max-width:46ch}
-.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero p{color:#e6ecf7;max-width:30ch;font-size:clamp(17px,1.7vw,21px);line-height:1.5;
+  text-shadow:0 1px 14px rgba(7,11,34,.85)}
+.hero .cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:30px}
+.hero .btn{font-size:16px;padding:16px 28px}
+.hero .btn-ghost{border:2px solid rgba(255,255,255,.55);color:#fff;background:rgba(7,11,34,.35)}
 .close .cta{display:flex;gap:12px;flex-wrap:wrap}
 /* One line under the buttons that tells the two apart. */
 .cta-note{margin:12px 0 0;font-size:13px;color:#9fb4cd;max-width:none !important}
-@media(max-width:900px){ .hero .wrap{grid-template-columns:1fr;gap:34px} }
+.wave-space{min-height:clamp(300px,32vw,430px)}
+@media(max-width:900px){ .hero .wrap{grid-template-columns:minmax(0,1fr);gap:0} .wave-space{min-height:460px} }
+
+/* The signal wave: two bundles of fine strands, red where issues emerge and
+   blue where the picture comes together, crossing as they travel. The script
+   at the foot of the page draws them and places the three callouts on the
+   strands themselves, so the stems always land on the wave. */
+.callout{position:absolute;z-index:2;display:flex;gap:12px;align-items:flex-start;color:#fff;pointer-events:none;
+  font:600 17px/1.25 var(--plex);white-space:nowrap;text-shadow:0 1px 10px rgba(7,11,34,.9);opacity:0;transition:opacity .4s ease}
+.callout.on{opacity:1}
+.callout small{display:block;font-weight:400;color:#d5deee;font-size:16px}
+.callout i{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+  box-shadow:0 0 0 5px rgba(255,255,255,.10),0 0 22px currentColor}
+.callout i svg{width:14px;height:14px}
+.callout::before{content:"";position:absolute;left:13.25px;top:30px;width:1.5px;height:var(--stem,120px);background:currentColor;opacity:.9}
+.callout::after{content:"";position:absolute;left:10px;top:calc(30px + var(--stem,120px) - 4px);width:8px;height:8px;border-radius:50%;
+  background:currentColor;box-shadow:0 0 12px currentColor}
+.callout.c-red{color:#ff1f4b} .callout.c-red i{background:#ff1f4b}
+.callout.c-blue{color:#3b82f6} .callout.c-blue i{background:#3b82f6}
+.callout.c-amber{color:#f6b23a} .callout.c-amber i{background:#f6b23a}
+.callout span{color:#fff}
+/* A callout too close to the right edge puts its label on the left of the marker. */
+.callout.flip{flex-direction:row-reverse;text-align:right}
+.callout.flip::before{left:auto;right:13.25px} .callout.flip::after{left:auto;right:10px}
+@media(max-width:560px){ .callout{font-size:14px} .callout small{font-size:13px} .callout i{width:22px;height:22px} .callout::before{left:10.25px;top:24px} .callout::after{left:7px;top:calc(24px + var(--stem,120px) - 4px)}
+  .callout.flip::before{left:auto;right:10.25px} .callout.flip::after{left:auto;right:7px} }
+
+/* Four pillars on a light strip under the hero. */
+.pillars{position:relative;z-index:2;background:linear-gradient(180deg,#ffffff 0%,#eef1f6 100%);color:#0f1a33;border-radius:16px;
+  display:grid;grid-template-columns:repeat(4,1fr);box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.pillars a{display:flex;flex-direction:column;align-items:center;gap:14px;padding:30px 12px 28px;text-decoration:none;
+  font:600 clamp(16px,1.6vw,20px) var(--sora);letter-spacing:-.01em}
+.pillars a + a{border-left:1px solid #dde2ea}
+.pillars svg{width:48px;height:48px;color:#0f1a33}
+.pillars a:hover svg{color:var(--red)}
+.hero .pillars-wrap{display:block;padding-top:0;padding-bottom:clamp(48px,6vw,72px)}
+@media(max-width:700px){ .pillars{grid-template-columns:repeat(2,1fr)}
+  .pillars a:nth-child(3){border-left:0} .pillars a:nth-child(n+3){border-top:1px solid #dde2ea} .pillars svg{width:40px;height:40px} }
 
 /* ── Split (challenge / with pulsus) ──────────────────────────────────────── */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--white);
@@ -142,28 +173,17 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 @media(max-width:1000px){ .grid6{grid-template-columns:repeat(3,1fr)} }
 @media(max-width:640px){ .grid6{grid-template-columns:repeat(2,1fr)} }
 
-/* ── Hero devices: real screens from the demo Command Center ───────────────────
-   Two phones in realistic frames, layered at slight angles over a soft
-   branded glow. Everything is sized in % of the stage so the composition
-   scales as one piece from desktop down to a phone. */
-
-.stage{position:relative;width:100%;max-width:600px;margin:0 auto;aspect-ratio:1/1.02;container-type:inline-size}
-.stage::before{content:"";position:absolute;inset:7% 2% 0;border-radius:32px;
-  background:radial-gradient(48% 42% at 66% 46%,rgba(228,1,43,.24),transparent 72%),
-             radial-gradient(55% 55% at 28% 64%,rgba(20,50,87,.30),transparent 74%),
-             linear-gradient(160deg,#fff 0%,#f3ece8 100%);
-  border:1px solid var(--line)}
-.stage::after{content:"";position:absolute;inset:7% 2% 0;border-radius:32px;opacity:.5;
-  background-image:radial-gradient(rgba(28,20,22,.14) 1px,transparent 1.2px);background-size:18px 18px;
-  -webkit-mask-image:radial-gradient(70% 60% at 50% 50%,#000,transparent);mask-image:radial-gradient(70% 60% at 50% 50%,#000,transparent)}
-
+/* ── Platform intro: laptop and phone on a bright desk ────────────────────────
+   Real screens from the demo Command Center: the Executive Brief on a laptop,
+   the Operations Systems list on a phone in front. Three beats sit to the
+   right, each on its own thread of colour. */
 .device{position:absolute;z-index:1;width:40%;aspect-ratio:9/19.2;border-radius:13.5% / 6.3%;padding:2.4%;
   background:linear-gradient(145deg,#3a3f47 0%,#121418 38%,#24282e 70%,#0c0d10 100%);
   box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 3.5px #08090b,
     0 50px 80px -40px rgba(7,26,51,.55),0 22px 40px -22px rgba(0,0,0,.45)}
 .device::before,.device::after{content:"";position:absolute;width:1.4%;border-radius:2px;background:#2a2e35}
 .device::before{left:-1%;top:22%;height:7%}
-.device::after{right:-1%;top:28%;height:11%}
+.device::after{content:"";position:absolute;width:1.4%;border-radius:2px;background:#2a2e35}
 .screen{position:relative;height:100%;border-radius:11.6% / 5.4%;overflow:hidden;background:#f6f3f1;display:flex;flex-direction:column}
 .screen img{width:100%;height:auto;display:block}
 .screen .fill{flex:1}
@@ -176,48 +196,37 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 .island{position:absolute;z-index:2;top:2.1%;left:50%;transform:translateX(-50%);width:31%;height:3.4%;background:#000;border-radius:999px}
 .screen::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(118deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 32%)}
-
-.device.back{left:12%;top:4%;transform:rotate(-7deg);z-index:1}
-.device.back .screen{filter:saturate(.92)}
-.device.front{right:10%;top:11%;transform:rotate(4deg);z-index:2;
-  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 3.5px #08090b,
-    0 70px 90px -40px rgba(7,26,51,.65),0 30px 50px -26px rgba(0,0,0,.5)}
-
-.chip{position:absolute;z-index:3;display:flex;align-items:center;gap:1.8cqw;padding:1.9cqw 2.6cqw;border-radius:2.4cqw;
-  background:rgba(255,255,255,.78);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.9);box-shadow:0 18px 36px -18px rgba(7,26,51,.45);
-  font:600 2.35cqw/1.25 var(--plex);color:var(--ink);white-space:nowrap}
-.chip small{display:block;font-weight:500;font-size:1.9cqw;color:var(--muted)}
-.chip .dot{width:1.6cqw;height:1.6cqw;border-radius:50%;background:#12a150;box-shadow:0 0 0 .8cqw rgba(18,161,80,.16)}
-.chip .dot.red{background:var(--red);box-shadow:0 0 0 .8cqw rgba(228,1,43,.14)}
-.chip.c1{left:0;top:72%}
-.chip.c2{right:0;top:3%}
-@media(max-width:900px){ .stage{max-width:500px} }
-
-/* In the dark hero the stage drops its paper panel: the devices float on a
-   glow instead, so the composition reads as part of the hero, not a card. */
-.hero .stage::before{inset:4% 0 0;border:0;border-radius:40px;
-  background:radial-gradient(46% 40% at 64% 44%,rgba(228,1,43,.30),transparent 72%),
-             radial-gradient(55% 55% at 30% 62%,rgba(86,140,210,.30),transparent 74%)}
-.hero .stage::after{inset:4% 0 0;opacity:.35;background-image:radial-gradient(rgba(255,255,255,.35) 1px,transparent 1.2px)}
-.hero .chip{background:rgba(255,255,255,.88)}
-
-/* Tablet + phone: the brief on a tablet at the back, the systems list on a
-   phone in front of its lower-right corner. */
-.stage.tab{aspect-ratio:1.18/1}
-.tablet{position:absolute;z-index:1;left:0;top:9%;width:90%;border-radius:4.4% / 6.7%;padding:2.3%;
-  background:linear-gradient(145deg,#3a3f47 0%,#121418 38%,#24282e 70%,#0c0d10 100%);
-  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 3.5px #08090b,
-    0 60px 90px -45px rgba(0,0,0,.7),0 24px 44px -24px rgba(0,0,0,.5);transform:rotate(-2deg)}
-.tablet .cam{position:absolute;top:1%;left:50%;width:.9%;aspect-ratio:1;border-radius:50%;background:#2c3139;transform:translateX(-50%)}
-.tablet .screen{height:auto;display:block;border-radius:2.2% / 3.4%}
-.tablet .screen img{width:100%;height:auto}
-.stage.tab .device.front{width:29%;right:0;left:auto;top:auto;bottom:0;transform:rotate(3deg)}
-.stage.tab .status{font-size:1.4cqw}
-.stage.tab .status .sig{width:1.9cqw;height:1cqw}
-.stage.tab .status .bat{width:2.3cqw;height:1.1cqw;border-width:.16cqw}
-.stage.tab .chip.c1{left:3%;top:0;bottom:auto}
-.stage.tab .chip.c2{right:auto;left:30%;top:auto;bottom:4%}
+.intro{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background:radial-gradient(38% 60% at 78% 0%, rgba(255,255,255,.95), transparent 70%),
+             radial-gradient(22% 40% at 96% 30%, rgba(120,150,110,.28), transparent 70%),
+             radial-gradient(18% 30% at 70% 8%, rgba(140,165,120,.20), transparent 70%),
+             linear-gradient(180deg,#f7f3ef 0%,#efe8e2 100%)}
+.intro::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26%;pointer-events:none;
+  background:radial-gradient(60% 100% at 62% 100%,rgba(214,205,196,.55),transparent 75%)}
+.intro-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr) auto;gap:28px;align-items:center;
+  padding-top:clamp(44px,6vw,72px);padding-bottom:clamp(28px,4vw,48px)}
+.intro .kicker{font:600 12px/1 var(--plex);letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin:0 0 14px}
+.intro .kicker b{color:var(--red);font-weight:600}
+.intro h2{font-size:clamp(30px,3.5vw,50px);line-height:1.02;letter-spacing:-.03em;margin:0 0 18px}
+.intro h2 .hl{color:var(--red)}
+.intro p{color:#4a4044;font-size:clamp(16px,1.4vw,18px);max-width:44ch}
+.intro .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+.intro .btn-ghost{color:var(--ink);border:1.5px solid var(--ink)}
+.scene{position:relative;container-type:inline-size;aspect-ratio:1.25/1}
+.scene .lap{position:absolute;left:0;top:2%;width:86%;transform:perspective(1600px) rotateY(-8deg);transform-origin:50% 100%}
+.scene .lap .lid{background:#111418;border-radius:3.2% / 4.8%;padding:2.2%;box-shadow:inset 0 0 0 1.5px #2f343b,0 40px 60px -30px rgba(40,30,25,.45)}
+.scene .lap .lid img{width:100%;height:auto;display:block;border-radius:1.4% / 2.2%}
+.scene .lap .base{height:4.2cqw;margin:0 -7%;background:linear-gradient(#e3e5e8,#9ea4ab);border-radius:0 0 3cqw 3cqw;box-shadow:0 26px 40px -20px rgba(40,30,25,.45)}
+.scene .device{width:31%;left:auto;right:6%;top:14%;transform:rotate(3deg)}
+.beats{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:clamp(34px,4.5vw,64px);position:relative;z-index:2}
+.beats li{display:flex;align-items:center;gap:14px;font:600 16px/1.25 var(--plex);color:var(--ink);white-space:nowrap}
+.beats li small{display:block;font-weight:400;font-size:15px;color:#4a4044}
+.beats i{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:0 10px 22px -8px currentColor}
+.beats i svg{width:22px;height:22px}
+.beats .r i{background:var(--red)} .beats .b i{background:#2f6bdd} .beats .a i{background:#e9a531}
+.threads{position:absolute;right:0;top:0;width:34%;height:100%;pointer-events:none;z-index:1}
+@media(max-width:1100px){ .intro-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} .beats{grid-column:1 / -1;flex-direction:row;flex-wrap:wrap;gap:18px 34px} .threads{display:none} }
+@media(max-width:760px){ .intro-grid{grid-template-columns:minmax(0,1fr)} .beats{flex-direction:column;gap:16px} }
 
 /* ── Capability tiles ─────────────────────────────────────────────────────── */
 .caps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:30px}
@@ -339,47 +348,44 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 
 <header>
   <div class="wrap nav">
-    <a href="#top" class="wordmark"><span class="wm">PULS<span class="u">U</span>S</span><small>INTELLIGENCE SUITE</small></a>
+    <a href="#top" class="lockup" aria-label="Pulsus Platform"><span class="wm">PULS<span class="u">U</span>S</span><span class="plat"><span>PLATFORM</span></span><span class="tag">Live. <b>Signal</b>. Clarity.</span></a>
     <nav>
-      <a href="#platform">Platform</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#institutions">For Institutions</a>
+      <a href="#capabilities">Products</a>
+      <a href="#institutions">Solutions</a>
+      <a href="#brief">Insights</a>
       <a href="#about">About</a>
     </nav>
-    <span class="sp"></span>
-    <a class="btn btn-primary" href="/demo/">Book a demo <span class="arw">→</span></a>
+    <a class="btn btn-primary" href="/demo/">Get started</a>
   </div>
 </header>
 
 <!-- ── Hero ─────────────────────────────────────────────────────────────── -->
 <section class="hero dark" id="top">
+  <canvas id="wave" aria-hidden="true"></canvas>
+  <div class="callout c-red" data-band="red" data-t=".30" data-stem=".62"><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2c.7 5 2.3 7.3 8 10-5.7 2.7-7.3 5-8 10-.7-5-2.3-7.3-8-10 5.7-2.7 7.3-5 8-10z"/></svg></i><span>Detect<small>emerging issues</small></span></div>
+  <div class="callout c-blue" data-band="blue" data-t=".58" data-stem=".55"><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2c.7 5 2.3 7.3 8 10-5.7 2.7-7.3 5-8 10-.7-5-2.3-7.3-8-10 5.7-2.7 7.3-5 8-10z"/></svg></i><span>Understand<small>the bigger picture</small></span></div>
+  <div class="callout c-amber" data-band="red" data-t=".78" data-stem=".52"><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2c.7 5 2.3 7.3 8 10-5.7 2.7-7.3 5-8 10-.7-5-2.3-7.3-8-10 5.7-2.7 7.3-5 8-10z"/></svg></i><span>Take<small>the right action</small></span></div>
+
   <div class="wrap">
     <div>
-      <p class="kicker">Live. <b>Signal.</b> Clarity.</p>
-      <h1>Live operations.<br>Clear signals.<br><span class="hl">Confident decisions.</span></h1>
-      <p class="sub">Exceptions found late. Reports assembled by hand. Risks seen only once they have cost money.</p>
-      <p class="lede">Pulsus gives financial institutions one live picture of cash, settlement, risk, quality and
-        performance, so problems are caught while they can still be fixed.</p>
+      <h1>Operational<br>intelligence<br>for <span class="hl">what’s next.</span></h1>
+      <p>Pulsus connects your people, processes and data so you can detect issues earlier, respond faster and
+        deliver better outcomes.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="/demo/">Book a demo <span class="arw">→</span></a>
-        <a class="btn btn-ghost" href="mailto:support@pulsus.tech?subject=Pulsus%20Platform%20%E2%80%94%20request%20a%20conversation&amp;body=Institution%3A%20%0ARole%3A%20%0AWhat%20you%27d%20like%20to%20discuss%3A%20%0A">Request a conversation</a>
+        <a class="btn btn-primary" href="/demo/">Explore the platform <span class="arw">→</span></a>
+        <a class="btn btn-ghost" href="#method">See how it works</a>
       </div>
-      <p class="cta-note">See it working in 45 minutes, or start with a conversation by email.</p>
     </div>
+    <div class="wave-space" role="img" aria-label="Two flowing bundles of signal lines, red and blue, crossing as they travel, marked Detect emerging issues, Understand the bigger picture, and Take the right action."></div>
+  </div>
 
-    <div class="stage tab" role="img" aria-label="The Pulsus demo Command Center on a tablet, showing the Executive Brief and its findings, with a phone in front showing the Operations Systems list, 14 of 17 systems live.">
-      <div class="tablet"><span class="cam"></span><div class="screen">
-        <img src="/img/screen-brief.webp" width="1600" height="1000" alt="" decoding="async" fetchpriority="high">
-      </div></div>
-      <div class="device front"><div class="screen">
-        <div class="status"><span>9:41</span><span class="bars"><span class="sig"></span><span class="bat"></span></span></div><span class="island"></span>
-        <img src="/img/screen-systems.webp" width="780" height="1353" alt="" decoding="async">
-        <div class="fill"></div>
-        <img src="/img/screen-nav.webp" width="780" height="102" alt="" decoding="async">
-      </div></div>
-      <div class="chip c1"><span class="dot red"></span><span>The Executive Brief<small>Ready before leadership arrives</small></span></div>
-      <div class="chip c2"><span class="dot"></span><span>14 of 17 systems live<small>One sign-in, every application</small></span></div>
-    </div>
+  <div class="wrap pillars-wrap">
+    <nav class="pillars" aria-label="What Pulsus covers">
+      <a href="#capabilities"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 26h8l4-10 5 20 5-26 5 22 4-10 3 4h8"/></svg>People</a>
+      <a href="#capabilities"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M10.3 2.5h3.4l.5 2.6 1.9.8 2.2-1.5 2.4 2.4-1.5 2.2.8 1.9 2.6.5v3.4l-2.6.5-.8 1.9 1.5 2.2-2.4 2.4-2.2-1.5-1.9.8-.5 2.6h-3.4l-.5-2.6-1.9-.8-2.2 1.5-2.4-2.4 1.5-2.2-.8-1.9-2.6-.5v-3.4l2.6-.5.8-1.9-1.5-2.2 2.4-2.4 2.2 1.5 1.9-.8z"/></svg>Operations</a>
+      <a href="#capabilities"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2.5 20 5.5v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10v-6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Compliance</a>
+      <a href="#brief"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="13" width="4" height="7.5" rx=".8"/><rect x="10" y="8.5" width="4" height="12" rx=".8"/><rect x="16.5" y="3.5" width="4" height="17" rx=".8"/></svg>Performance</a>
+    </nav>
   </div>
 </section>
 
@@ -429,11 +435,50 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 </section>
 
 <!-- ── Capabilities ─────────────────────────────────────────────────────── -->
-<section id="capabilities">
-  <div class="wrap">
+<section id="capabilities" style="padding-top:0">
+  <div class="intro">
+    <svg class="threads" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
+      <g fill="none" stroke-width="1.6" stroke-linecap="round">
+        <path d="M0 230 C 60 180, 110 120, 170 110 S 300 140, 400 100" stroke="#e4012b" opacity=".75"/>
+        <path d="M0 250 C 60 220, 110 250, 170 240 S 300 230, 400 260" stroke="#2f6bdd" opacity=".7"/>
+        <path d="M0 270 C 70 300, 120 360, 180 360 S 300 330, 400 380" stroke="#e9a531" opacity=".75"/>
+        <path d="M0 240 C 80 260, 140 300, 200 290 S 320 250, 400 300" stroke="#e4012b" opacity=".35"/>
+        <path d="M0 260 C 70 230, 130 190, 200 200 S 320 220, 400 180" stroke="#2f6bdd" opacity=".3"/>
+      </g>
+      <g fill="#2f6bdd" opacity=".6"><circle cx="320" cy="222" r="2.4"/><circle cx="360" cy="246" r="2"/><circle cx="250" cy="236" r="2"/></g>
+      <g fill="#e4012b" opacity=".6"><circle cx="240" cy="112" r="2.4"/><circle cx="300" cy="128" r="2"/></g>
+    </svg>
+    <div class="wrap intro-grid">
+      <div>
+        <p class="kicker">Live. <b>Signal.</b> Clarity.</p>
+        <h2>Live operations.<br>Clear signals.<br><span class="hl">Confident decisions.</span></h2>
+        <p>Pulsus gives institutions one live picture of cash, settlement, risk, quality and performance, so problems
+          are caught while they can still be fixed.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="/demo/">Book a demo <span class="arw">→</span></a>
+          <a class="btn btn-ghost" href="mailto:support@pulsus.tech?subject=Pulsus%20Platform%20%E2%80%94%20request%20a%20conversation&amp;body=Institution%3A%20%0ARole%3A%20%0AWhat%20you%27d%20like%20to%20discuss%3A%20%0A">Request a conversation</a>
+        </div>
+      </div>
+      <div class="scene" role="img" aria-label="The Pulsus demo Command Center on a laptop, showing the Executive Brief and its findings, with a phone in front showing the Operations Systems list.">
+        <div class="lap"><div class="lid"><img src="/img/screen-brief.webp" width="1600" height="1000" alt="" loading="lazy" decoding="async"></div><div class="base"></div></div>
+          <div class="device"><div class="screen">
+            <div class="status"><span>9:41</span><span class="bars"><span class="sig"></span><span class="bat"></span></span></div><span class="island"></span>
+            <img src="/img/screen-systems.webp" width="780" height="1353" alt="" loading="lazy" decoding="async">
+            <div class="fill"></div>
+            <img src="/img/screen-nav.webp" width="780" height="102" alt="" loading="lazy" decoding="async">
+          </div></div>
+      </div>
+      <ul class="beats">
+        <li class="r"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-5 4 10 3-7 2 2h5"/></svg></i><span>Detect<small>emerging issues early</small></span></li>
+        <li class="b"><i><svg viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="12" width="4" height="8" rx="1"/><rect x="10" y="7" width="4" height="13" rx="1"/><rect x="16" y="3" width="4" height="17" rx="1"/></svg></i><span>Understand<small>the bigger picture</small></span></li>
+        <li class="a"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M12 2.5 20 5.5v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10v-6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></i><span>Take<small>the right action</small></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap" style="padding-top:clamp(40px,5vw,60px)">
     <p class="eyebrow">One platform</p>
     <div class="headrow">
-      <h2>One platform, twelve capabilities.</h2>
+      <h2>One platform, many capabilities.</h2>
       <a class="morelink" href="/demo/">See them in a demo <span class="arw">→</span></a>
     </div>
     <div class="caps">
@@ -610,6 +655,85 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 
 <script>
   document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // The hero signal wave. Two bundles of fine strands, one red and one blue,
+  // follow centre lines that cross twice; each strand fans out from its centre
+  // and pinches in where the bundles meet. Particles ride the strands. The
+  // three callouts are placed on the strands, so their stems land on the wave.
+  // Still for anyone who prefers reduced motion.
+  (function () {
+    var hero = document.getElementById("top"), c = document.getElementById("wave"), space = hero && hero.querySelector(".wave-space");
+    if (!c || !c.getContext || !space) return;
+    var g = c.getContext("2d"), dpr = Math.min(window.devicePixelRatio || 1, 2), W, H, X0, X1, CY, R;
+    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var calls = [].slice.call(hero.querySelectorAll(".callout"));
+    function rnd(seed) { return function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+    var r = rnd(7), STR = [], DOTS = [];
+    for (var i = 0; i < 150; i++) STR.push({ band: i % 2 ? "blue" : "red", u: (r() * 2 - 1), w: r(), ph: r() * 6.28 });
+    for (var j = 0; j < 520; j++) DOTS.push({ s: STR[(r() * STR.length) | 0], t: r(), z: r(), tw: r() * 6.28 });
+    // Centre lines as key points (t across the band, offset in units of R,
+    // positive is down), joined by a Catmull-Rom curve. Red crests early, dips
+    // through the blue and settles low on the right; blue starts low, crosses
+    // twice and sweeps up into the top-right corner.
+    var KEY = {
+      red:  [[0, .35], [.2, -1.0], [.41, .62], [.56, -.28], [.77, .85], [1, 1.05]],
+      blue: [[0, .95], [.2, .45], [.41, .62], [.58, -.18], [.75, .75], [.9, -.45], [1, -1.75]]
+    };
+    function spline(K, t) {
+      var i = 1; while (i < K.length - 1 && t > K[i][0]) i++;
+      var p0 = K[Math.max(0, i - 2)], p1 = K[i - 1], p2 = K[i], p3 = K[Math.min(K.length - 1, i + 1)];
+      var u = (t - p1[0]) / (p2[0] - p1[0]), u2 = u * u, u3 = u2 * u;
+      return 0.5 * ((2 * p1[1]) + (-p0[1] + p2[1]) * u + (2 * p0[1] - 5 * p1[1] + 4 * p2[1] - p3[1]) * u2 + (-p0[1] + 3 * p1[1] - 3 * p2[1] + p3[1]) * u3);
+    }
+    function centre(band, t, T) { return CY + R * (spline(KEY[band], t) + 0.08 * Math.sin(t * 7 + T * 6 + (band === "red" ? 0 : 2))); }
+    // Strands fan out where the bundles are apart and pinch where they cross.
+    function spread(t, T) { return R * Math.min(0.85, 0.12 + 0.42 * Math.abs(centre("red", t, T) - centre("blue", t, T)) / R); }
+    function y(s, t, T) { return centre(s.band, t, T) + s.u * spread(t, T) + R * 0.05 * Math.sin(t * 9 + s.ph + T * 2); }
+    function colour(band, t, a) {
+      return band === "red" ? "rgba(255," + (30 + 40 * t | 0) + "," + (70 + 40 * t | 0) + "," + a + ")"
+                            : "rgba(" + (60 + 90 * (1 - Math.abs(t - .55) * 2) | 0) + "," + (110 - 30 * (1 - Math.abs(t - .55) * 2) | 0) + ",255," + a + ")";
+    }
+    function layout() {
+      var hr = hero.getBoundingClientRect(), sr = space.getBoundingClientRect();
+      W = hr.width; H = hr.height; c.width = W * dpr; c.height = H * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var wide = W > 900;
+      X0 = wide ? sr.left - hr.left - sr.width * 0.42 : 0; X1 = W;
+      CY = sr.top - hr.top + sr.height * (wide ? 0.52 : 0.66); R = Math.min(sr.height * (wide ? 0.24 : 0.17), 130);
+    }
+    function place(T) {
+      calls.forEach(function (el) {
+        var t = +el.dataset.t, x = X0 + t * (X1 - X0), yy = centre(el.dataset.band, t, T);
+        var stem = Math.max(60, R * 2 * +el.dataset.stem + 40), top = yy - stem - 30;
+        el.style.setProperty("--stem", stem + "px"); el.style.top = top + "px";
+        var flip = x - 14 + el.offsetWidth > W - 8; el.classList.toggle("flip", flip);
+        el.style.left = (flip ? x + 14 - el.offsetWidth : x - 14) + "px"; el.classList.add("on");
+      });
+    }
+    function draw(time) {
+      var T = still ? 0 : time * 0.00012;
+      g.clearRect(0, 0, W, H); g.globalCompositeOperation = "lighter";
+      var N = Math.max(120, (X1 - X0) / 6 | 0);
+      STR.forEach(function (s) {
+        g.beginPath();
+        for (var i = 0; i <= N; i++) { var t = i / N, x = X0 + t * (X1 - X0), yy = y(s, t, T); i ? g.lineTo(x, yy) : g.moveTo(x, yy); }
+        var grad = g.createLinearGradient(X0, 0, X1, 0), a = 0.10 + 0.22 * (1 - Math.abs(s.u));
+        grad.addColorStop(0, colour(s.band, 0, 0)); grad.addColorStop(0.12, colour(s.band, .1, a));
+        grad.addColorStop(0.55, colour(s.band, .55, a)); grad.addColorStop(1, colour(s.band, 1, a * 0.8));
+        g.strokeStyle = grad; g.lineWidth = 0.6 + 0.7 * s.w; g.stroke();
+      });
+      DOTS.forEach(function (d) {
+        var t = d.t, x = X0 + t * (X1 - X0), yy = y(d.s, t, T), fade = Math.min(1, t * 8) * (0.4 + 0.6 * Math.abs(Math.sin(time * 0.002 + d.tw)));
+        var rad = 0.6 + 1.8 * d.z;
+        g.fillStyle = colour(d.s.band, t, (0.35 + 0.6 * d.z) * fade);
+        g.beginPath(); g.arc(x, yy, rad, 0, 6.2832); g.fill();
+        if (d.z > 0.86) { g.fillStyle = colour(d.s.band, t, 0.12 * fade); g.beginPath(); g.arc(x, yy, rad * 4, 0, 6.2832); g.fill(); }
+      });
+      g.globalCompositeOperation = "source-over";
+      place(T);
+      if (!still) requestAnimationFrame(draw);
+    }
+    layout(); window.addEventListener("resize", layout); requestAnimationFrame(draw);
+  })();
 </script>
 </body>
 </html>
