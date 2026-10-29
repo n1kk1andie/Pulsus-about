@@ -96,21 +96,52 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
     radial-gradient(circle 6px at 70% 92%, rgba(255,185,110,.24), transparent 60%),
     radial-gradient(circle 4px at 86% 78%, rgba(160,205,255,.28), transparent 60%),
     radial-gradient(circle 9px at 94% 90%, rgba(255,200,140,.16), transparent 60%)}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center;
-  padding-top:clamp(48px,7vw,80px);padding-bottom:clamp(48px,7vw,80px)}
-/* Three short beats echoing "Live. Signal. Clarity."; the last one, the payoff, in red. */
-.hero h1{font-size:clamp(32px,3.75vw,48px);font-weight:800;color:#fff;margin:0 0 20px;
-  letter-spacing:-0.025em;line-height:1.04}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:40px;align-items:center;
+  padding-top:clamp(56px,8vw,96px);padding-bottom:clamp(40px,5vw,64px)}
+.hero h1{font-size:clamp(36px,4.6vw,60px);font-weight:800;color:#fff;margin:0 0 22px;
+  letter-spacing:-0.03em;line-height:1.02}
 .hero h1 .hl{color:var(--red)}
-.hero .sub{font:600 clamp(17px,1.9vw,21px)/1.3 var(--sora);color:#dce8f6;letter-spacing:-0.015em;margin:0 0 20px}
-.hero .kicker{font:600 12px/1.6 var(--plex);letter-spacing:.2em;text-transform:uppercase;color:#b9cde5;margin:0 0 18px}
-.hero .kicker b{color:var(--red);font-weight:600}
-.hero p{color:#b9cde5;max-width:46ch}
-.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero p{color:#b9cde5;max-width:44ch;font-size:clamp(16px,1.5vw,18px)}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 .close .cta{display:flex;gap:12px;flex-wrap:wrap}
 /* One line under the buttons that tells the two apart. */
 .cta-note{margin:12px 0 0;font-size:13px;color:#9fb4cd;max-width:none !important}
-@media(max-width:900px){ .hero .wrap{grid-template-columns:1fr;gap:34px} }
+@media(max-width:900px){ .hero .wrap{grid-template-columns:minmax(0,1fr);gap:18px} .wave{min-height:0;aspect-ratio:1.15/1} }
+
+/* The signal wave: thousands of points drawn on a canvas, red where issues
+   emerge, blue where the picture comes together. Three callouts sit on it,
+   each with a stem down to the wave. */
+.wave{position:relative;width:100%;aspect-ratio:1.45/1;min-height:300px}
+.wave canvas{position:absolute;inset:0;width:100%;height:100%}
+.wave .pt{position:absolute;display:flex;gap:10px;align-items:flex-start;color:#fff;
+  font:600 15px/1.25 var(--plex);white-space:nowrap}
+.wave .pt small{display:block;font-weight:400;color:#b9cde5;font-size:14px}
+.wave .pt i{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+  box-shadow:0 0 0 6px rgba(255,255,255,.06),0 0 18px currentColor}
+.wave .pt i svg{width:12px;height:12px}
+.wave .pt::before{content:"";position:absolute;left:10px;top:26px;width:1.5px;height:var(--stem);
+  background:linear-gradient(currentColor,transparent);opacity:.85}
+.wave .p1{left:22%;top:6%;color:var(--red)}  .wave .p1 i{background:var(--red)}
+.wave .p2{left:58%;top:22%;color:#3b82f6}    .wave .p2 i{background:#3b82f6}
+.wave .p3{left:66%;top:56%;color:#f59e0b}    .wave .p3 i{background:#f59e0b}
+.wave .pt span{color:#fff;text-shadow:0 1px 8px rgba(5,15,31,.9)}
+@media(max-width:560px){ .wave .pt{font-size:13px} .wave .pt small{font-size:12px} .wave .p1{left:8%} .wave .p2{left:46%} .wave .p3{left:40%;top:70%} }
+
+/* Four pillars on a white strip under the hero. */
+.pillars{position:relative;z-index:1;background:#fff;color:var(--ink);border-radius:18px;
+  display:grid;grid-template-columns:repeat(4,1fr);margin:0 auto;box-shadow:0 30px 60px -30px rgba(0,0,0,.55)}
+.pillars a{display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 12px 24px;text-decoration:none;
+  font:600 16px var(--sora);letter-spacing:-.01em;transition:background .12s ease}
+.pillars a + a{border-left:1px solid var(--line)}
+.pillars a:hover{background:#faf7f5}
+.pillars a:first-child{border-radius:18px 0 0 18px} .pillars a:last-child{border-radius:0 18px 18px 0}
+.pillars svg{width:34px;height:34px;color:var(--ink)}
+.pillars small{font:400 13px/1.4 var(--plex);color:var(--muted);text-align:center;max-width:22ch}
+.hero .pillars-wrap{display:block;padding-top:0;padding-bottom:clamp(48px,6vw,72px)}
+@media(max-width:700px){ .pillars{grid-template-columns:repeat(2,1fr)}
+  .pillars a:nth-child(3){border-left:0} .pillars a:nth-child(n+3){border-top:1px solid var(--line)}
+  .pillars a:first-child{border-radius:18px 0 0 0} .pillars a:nth-child(2){border-radius:0 18px 0 0}
+  .pillars a:nth-child(3){border-radius:0 0 0 18px} .pillars a:last-child{border-radius:0 0 18px 0} }
 
 /* ── Split (challenge / with pulsus) ──────────────────────────────────────── */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--white);
@@ -141,83 +172,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 .card p{font-size:13.5px;margin:0;color:#9fb4cd;line-height:1.55}
 @media(max-width:1000px){ .grid6{grid-template-columns:repeat(3,1fr)} }
 @media(max-width:640px){ .grid6{grid-template-columns:repeat(2,1fr)} }
-
-/* ── Hero devices: real screens from the demo Command Center ───────────────────
-   Two phones in realistic frames, layered at slight angles over a soft
-   branded glow. Everything is sized in % of the stage so the composition
-   scales as one piece from desktop down to a phone. */
-
-.stage{position:relative;width:100%;max-width:600px;margin:0 auto;aspect-ratio:1/1.02;container-type:inline-size}
-.stage::before{content:"";position:absolute;inset:7% 2% 0;border-radius:32px;
-  background:radial-gradient(48% 42% at 66% 46%,rgba(228,1,43,.24),transparent 72%),
-             radial-gradient(55% 55% at 28% 64%,rgba(20,50,87,.30),transparent 74%),
-             linear-gradient(160deg,#fff 0%,#f3ece8 100%);
-  border:1px solid var(--line)}
-.stage::after{content:"";position:absolute;inset:7% 2% 0;border-radius:32px;opacity:.5;
-  background-image:radial-gradient(rgba(28,20,22,.14) 1px,transparent 1.2px);background-size:18px 18px;
-  -webkit-mask-image:radial-gradient(70% 60% at 50% 50%,#000,transparent);mask-image:radial-gradient(70% 60% at 50% 50%,#000,transparent)}
-
-.device{position:absolute;z-index:1;width:40%;aspect-ratio:9/19.2;border-radius:13.5% / 6.3%;padding:2.4%;
-  background:linear-gradient(145deg,#3a3f47 0%,#121418 38%,#24282e 70%,#0c0d10 100%);
-  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 3.5px #08090b,
-    0 50px 80px -40px rgba(7,26,51,.55),0 22px 40px -22px rgba(0,0,0,.45)}
-.device::before,.device::after{content:"";position:absolute;width:1.4%;border-radius:2px;background:#2a2e35}
-.device::before{left:-1%;top:22%;height:7%}
-.device::after{right:-1%;top:28%;height:11%}
-.screen{position:relative;height:100%;border-radius:11.6% / 5.4%;overflow:hidden;background:#f6f3f1;display:flex;flex-direction:column}
-.screen img{width:100%;height:auto;display:block}
-.screen .fill{flex:1}
-.status{flex:none;height:6.6%;display:flex;align-items:center;justify-content:space-between;padding:0 9% 0 11%;
-  font:600 1.9cqw/1 -apple-system,"SF Pro Text",system-ui,sans-serif;color:#111}
-.status .bars{display:flex;gap:.7cqw;align-items:center}
-.status .sig{display:block;width:2.6cqw;height:1.3cqw;background:linear-gradient(90deg,#111 0 18%,transparent 18% 27%,#111 27% 45%,transparent 45% 54%,#111 54% 72%,transparent 72% 81%,#111 81%);-webkit-mask:linear-gradient(to top right,#000 50%,transparent 50%);mask:linear-gradient(to top right,#000 50%,transparent 50%)}
-.status .bat{display:block;width:3.2cqw;height:1.5cqw;border:.22cqw solid #111;border-radius:.45cqw;padding:.18cqw;opacity:.9}
-.status .bat::before{content:"";display:block;height:100%;width:70%;background:#111;border-radius:.2cqw}
-.island{position:absolute;z-index:2;top:2.1%;left:50%;transform:translateX(-50%);width:31%;height:3.4%;background:#000;border-radius:999px}
-.screen::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(118deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 32%)}
-
-.device.back{left:12%;top:4%;transform:rotate(-7deg);z-index:1}
-.device.back .screen{filter:saturate(.92)}
-.device.front{right:10%;top:11%;transform:rotate(4deg);z-index:2;
-  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 3.5px #08090b,
-    0 70px 90px -40px rgba(7,26,51,.65),0 30px 50px -26px rgba(0,0,0,.5)}
-
-.chip{position:absolute;z-index:3;display:flex;align-items:center;gap:1.8cqw;padding:1.9cqw 2.6cqw;border-radius:2.4cqw;
-  background:rgba(255,255,255,.78);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.9);box-shadow:0 18px 36px -18px rgba(7,26,51,.45);
-  font:600 2.35cqw/1.25 var(--plex);color:var(--ink);white-space:nowrap}
-.chip small{display:block;font-weight:500;font-size:1.9cqw;color:var(--muted)}
-.chip .dot{width:1.6cqw;height:1.6cqw;border-radius:50%;background:#12a150;box-shadow:0 0 0 .8cqw rgba(18,161,80,.16)}
-.chip .dot.red{background:var(--red);box-shadow:0 0 0 .8cqw rgba(228,1,43,.14)}
-.chip.c1{left:0;top:72%}
-.chip.c2{right:0;top:3%}
-@media(max-width:900px){ .stage{max-width:500px} }
-
-/* In the dark hero the stage drops its paper panel: the devices float on a
-   glow instead, so the composition reads as part of the hero, not a card. */
-.hero .stage::before{inset:4% 0 0;border:0;border-radius:40px;
-  background:radial-gradient(46% 40% at 64% 44%,rgba(228,1,43,.30),transparent 72%),
-             radial-gradient(55% 55% at 30% 62%,rgba(86,140,210,.30),transparent 74%)}
-.hero .stage::after{inset:4% 0 0;opacity:.35;background-image:radial-gradient(rgba(255,255,255,.35) 1px,transparent 1.2px)}
-.hero .chip{background:rgba(255,255,255,.88)}
-
-/* Tablet + phone: the brief on a tablet at the back, the systems list on a
-   phone in front of its lower-right corner. */
-.stage.tab{aspect-ratio:1.18/1}
-.tablet{position:absolute;z-index:1;left:0;top:9%;width:90%;border-radius:4.4% / 6.7%;padding:2.3%;
-  background:linear-gradient(145deg,#3a3f47 0%,#121418 38%,#24282e 70%,#0c0d10 100%);
-  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 3.5px #08090b,
-    0 60px 90px -45px rgba(0,0,0,.7),0 24px 44px -24px rgba(0,0,0,.5);transform:rotate(-2deg)}
-.tablet .cam{position:absolute;top:1%;left:50%;width:.9%;aspect-ratio:1;border-radius:50%;background:#2c3139;transform:translateX(-50%)}
-.tablet .screen{height:auto;display:block;border-radius:2.2% / 3.4%}
-.tablet .screen img{width:100%;height:auto}
-.stage.tab .device.front{width:29%;right:0;left:auto;top:auto;bottom:0;transform:rotate(3deg)}
-.stage.tab .status{font-size:1.4cqw}
-.stage.tab .status .sig{width:1.9cqw;height:1cqw}
-.stage.tab .status .bat{width:2.3cqw;height:1.1cqw;border-width:.16cqw}
-.stage.tab .chip.c1{left:3%;top:0;bottom:auto}
-.stage.tab .chip.c2{right:auto;left:30%;top:auto;bottom:4%}
 
 /* ── Capability tiles ─────────────────────────────────────────────────────── */
 .caps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:30px}
@@ -341,13 +295,13 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
   <div class="wrap nav">
     <a href="#top" class="wordmark"><span class="wm">PULS<span class="u">U</span>S</span><small>INTELLIGENCE SUITE</small></a>
     <nav>
-      <a href="#platform">Platform</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#institutions">For Institutions</a>
+      <a href="#capabilities">Products</a>
+      <a href="#institutions">Solutions</a>
+      <a href="#brief">Insights</a>
       <a href="#about">About</a>
     </nav>
     <span class="sp"></span>
-    <a class="btn btn-primary" href="/demo/">Book a demo <span class="arw">→</span></a>
+    <a class="btn btn-primary" href="/demo/">Get started <span class="arw">→</span></a>
   </div>
 </header>
 
@@ -355,31 +309,30 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 <section class="hero dark" id="top">
   <div class="wrap">
     <div>
-      <p class="kicker">Live. <b>Signal.</b> Clarity.</p>
-      <h1>Live operations.<br>Clear signals.<br><span class="hl">Confident decisions.</span></h1>
-      <p class="sub">Exceptions found late. Reports assembled by hand. Risks seen only once they have cost money.</p>
-      <p class="lede">Pulsus gives financial institutions one live picture of cash, settlement, risk, quality and
-        performance, so problems are caught while they can still be fixed.</p>
+      <h1>Operational<br>intelligence<br>for <span class="hl">what’s next.</span></h1>
+      <p>Pulsus connects your people, processes and data so you can detect issues earlier, respond faster and
+        deliver better outcomes.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="/demo/">Book a demo <span class="arw">→</span></a>
-        <a class="btn btn-ghost" href="mailto:support@pulsus.tech?subject=Pulsus%20Platform%20%E2%80%94%20request%20a%20conversation&amp;body=Institution%3A%20%0ARole%3A%20%0AWhat%20you%27d%20like%20to%20discuss%3A%20%0A">Request a conversation</a>
+        <a class="btn btn-primary" href="/demo/">Explore the platform <span class="arw">→</span></a>
+        <a class="btn btn-ghost" href="#method">See how it works</a>
       </div>
-      <p class="cta-note">See it working in 45 minutes, or start with a conversation by email.</p>
     </div>
 
-    <div class="stage tab" role="img" aria-label="The Pulsus demo Command Center on a tablet, showing the Executive Brief and its findings, with a phone in front showing the Operations Systems list, 14 of 17 systems live.">
-      <div class="tablet"><span class="cam"></span><div class="screen">
-        <img src="/img/screen-brief.webp" width="1600" height="1000" alt="" decoding="async" fetchpriority="high">
-      </div></div>
-      <div class="device front"><div class="screen">
-        <div class="status"><span>9:41</span><span class="bars"><span class="sig"></span><span class="bat"></span></span></div><span class="island"></span>
-        <img src="/img/screen-systems.webp" width="780" height="1353" alt="" decoding="async">
-        <div class="fill"></div>
-        <img src="/img/screen-nav.webp" width="780" height="102" alt="" decoding="async">
-      </div></div>
-      <div class="chip c1"><span class="dot red"></span><span>The Executive Brief<small>Ready before leadership arrives</small></span></div>
-      <div class="chip c2"><span class="dot"></span><span>14 of 17 systems live<small>One sign-in, every application</small></span></div>
+    <div class="wave" role="img" aria-label="A flowing wave of signal points, red where issues emerge and blue where the picture comes together, marked Detect emerging issues, Understand the bigger picture, and Take the right action.">
+      <canvas id="wave" aria-hidden="true"></canvas>
+      <div class="pt p1" style="--stem:150px"><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3v10M12 17v4" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></i><span>Detect<small>emerging issues</small></span></div>
+      <div class="pt p2" style="--stem:96px"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><circle cx="12" cy="12" r="5"/></svg></i><span>Understand<small>the bigger picture</small></span></div>
+      <div class="pt p3" style="--stem:70px"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M5 12h12M13 7l5 5-5 5"/></svg></i><span>Take<small>the right action</small></span></div>
     </div>
+  </div>
+
+  <div class="wrap pillars-wrap">
+    <nav class="pillars" aria-label="What Pulsus covers">
+      <a href="#capabilities"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-5 4 10 3-7 2 2h5"/></svg>People<small>Performance, readiness and workforce</small></a>
+      <a href="#capabilities"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>Operations<small>Cash, settlement and service levels</small></a>
+      <a href="#capabilities"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 2.5 20 5.5v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10v-6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Compliance<small>Controls, quality and risk</small></a>
+      <a href="#brief"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 20v-6M10 20V9M15 20v-9M20 20V4"/></svg>Performance<small>One brief for leadership</small></a>
+    </nav>
   </div>
 </section>
 
@@ -610,6 +563,45 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,26,51,.9);backdrop-fil
 
 <script>
   document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // The hero signal wave. Rows of points ride a few summed sine waves; colour
+  // runs red to violet to blue across the width. Additive blending on the dark
+  // hero gives the glow. Still for anyone who prefers reduced motion.
+  (function () {
+    var c = document.getElementById("wave"); if (!c || !c.getContext) return;
+    var g = c.getContext("2d"), W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function size() { var r = c.getBoundingClientRect(); W = r.width; H = r.height; c.width = W * dpr; c.height = H * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0); }
+    function col(t) { // red on the left, violet through the middle, blue on the right
+      var S = [[0, 236, 0, 59], [.42, 236, 20, 70], [.62, 139, 92, 246], [1, 59, 130, 246]];
+      for (var k = 1; k < S.length; k++) if (t <= S[k][0]) {
+        var p = S[k - 1], q = S[k], u = (t - p[0]) / (q[0] - p[0]);
+        return [p[1] + (q[1] - p[1]) * u | 0, p[2] + (q[2] - p[2]) * u | 0, p[3] + (q[3] - p[3]) * u | 0];
+      }
+      return [59, 130, 246];
+    }
+    function draw(time) {
+      g.clearRect(0, 0, W, H); g.globalCompositeOperation = "lighter";
+      var rows = 56, cols = Math.max(140, W / 3 | 0), T = time * 0.00018;
+      for (var r = 0; r < rows; r++) {
+        var f = r / (rows - 1), twist = Math.sin(f * Math.PI);
+        for (var i = 0; i < cols; i++) {
+          var t = i / (cols - 1), x = t * W, env = Math.sin(t * Math.PI);
+          // a ribbon that swells in the middle and twists as it travels
+          var spread = H * 0.20 * (0.25 + env) * Math.cos(t * 4.1 + T * 5 + f * 0.0) * (f - .5) * 2;
+          var y = H * 0.56 + spread +
+                  H * 0.16 * Math.sin(t * 4.6 + T * 6) * env +
+                  H * 0.06 * Math.sin(t * 11 - T * 9 + f * 2.2);
+          var a = env * (0.30 + 0.70 * twist), cc = col(t);
+          g.fillStyle = "rgba(" + cc[0] + "," + cc[1] + "," + cc[2] + "," + (0.18 + 0.72 * a).toFixed(3) + ")";
+          var s = 0.8 + 1.9 * a; g.fillRect(x, y, s, s);
+        }
+      }
+      g.globalCompositeOperation = "source-over";
+      if (!still) requestAnimationFrame(draw);
+    }
+    size(); window.addEventListener("resize", size); requestAnimationFrame(draw);
+  })();
 </script>
 </body>
 </html>

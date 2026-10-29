@@ -31,9 +31,11 @@ pages (`systems/*/`) and the demo page (`demo/`) share `assets/site.css`.
 is inline:
 
 - **Fonts** — Sora and IBM Plex Sans, from Google Fonts.
-- **The Executive Brief mock** in the hero is drawn in CSS and SVG rather than
-  shipped as a screenshot. It stays sharp on every display, weighs nothing, and
-  cannot go stale when the product's UI moves on.
+- **The hero signal wave** is drawn on a `<canvas>` by the inline script at the
+  foot of the page: rows of points riding summed sine waves, red to violet to
+  blue across the width, with three callouts (Detect, Understand, Take) placed
+  over it. It weighs nothing, stays sharp on every display, and holds still for
+  visitors who ask for reduced motion.
 - **The convergence diagram** ("twelve applications → one Executive Brief") is
   inline SVG. The twelve dotted paths terminate at a single point; that is the
   platform's argument in one image. The health ring's arc is a real percentage
