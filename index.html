@@ -173,28 +173,17 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 @media(max-width:1000px){ .grid6{grid-template-columns:repeat(3,1fr)} }
 @media(max-width:640px){ .grid6{grid-template-columns:repeat(2,1fr)} }
 
-/* ── Device stage: real screens from the demo Command Center ──────────────────
-   Two phones in realistic frames, layered at slight angles over a soft
-   branded glow. Everything is sized in % of the stage so the composition
-   scales as one piece from desktop down to a phone. */
-
-.stage{position:relative;width:100%;max-width:600px;margin:0 auto;aspect-ratio:1/1.02;container-type:inline-size}
-.stage::before{content:"";position:absolute;inset:7% 2% 0;border-radius:32px;
-  background:radial-gradient(48% 42% at 66% 46%,rgba(228,1,43,.24),transparent 72%),
-             radial-gradient(55% 55% at 28% 64%,rgba(20,50,87,.30),transparent 74%),
-             linear-gradient(160deg,#fff 0%,#f3ece8 100%);
-  border:1px solid var(--line)}
-.stage::after{content:"";position:absolute;inset:7% 2% 0;border-radius:32px;opacity:.5;
-  background-image:radial-gradient(rgba(28,20,22,.14) 1px,transparent 1.2px);background-size:18px 18px;
-  -webkit-mask-image:radial-gradient(70% 60% at 50% 50%,#000,transparent);mask-image:radial-gradient(70% 60% at 50% 50%,#000,transparent)}
-
+/* ── Platform intro: laptop and phone on a bright desk ────────────────────────
+   Real screens from the demo Command Center: the Executive Brief on a laptop,
+   the Operations Systems list on a phone in front. Three beats sit to the
+   right, each on its own thread of colour. */
 .device{position:absolute;z-index:1;width:40%;aspect-ratio:9/19.2;border-radius:13.5% / 6.3%;padding:2.4%;
   background:linear-gradient(145deg,#3a3f47 0%,#121418 38%,#24282e 70%,#0c0d10 100%);
   box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 3.5px #08090b,
     0 50px 80px -40px rgba(7,26,51,.55),0 22px 40px -22px rgba(0,0,0,.45)}
 .device::before,.device::after{content:"";position:absolute;width:1.4%;border-radius:2px;background:#2a2e35}
 .device::before{left:-1%;top:22%;height:7%}
-.device::after{right:-1%;top:28%;height:11%}
+.device::after{content:"";position:absolute;width:1.4%;border-radius:2px;background:#2a2e35}
 .screen{position:relative;height:100%;border-radius:11.6% / 5.4%;overflow:hidden;background:#f6f3f1;display:flex;flex-direction:column}
 .screen img{width:100%;height:auto;display:block}
 .screen .fill{flex:1}
@@ -207,48 +196,37 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 .island{position:absolute;z-index:2;top:2.1%;left:50%;transform:translateX(-50%);width:31%;height:3.4%;background:#000;border-radius:999px}
 .screen::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(118deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 32%)}
-
-.device.back{left:12%;top:4%;transform:rotate(-7deg);z-index:1}
-.device.back .screen{filter:saturate(.92)}
-.device.front{right:10%;top:11%;transform:rotate(4deg);z-index:2;
-  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 3.5px #08090b,
-    0 70px 90px -40px rgba(7,26,51,.65),0 30px 50px -26px rgba(0,0,0,.5)}
-
-.chip{position:absolute;z-index:3;display:flex;align-items:center;gap:1.8cqw;padding:1.9cqw 2.6cqw;border-radius:2.4cqw;
-  background:rgba(255,255,255,.78);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.9);box-shadow:0 18px 36px -18px rgba(7,26,51,.45);
-  font:600 2.35cqw/1.25 var(--plex);color:var(--ink);white-space:nowrap}
-.chip small{display:block;font-weight:500;font-size:1.9cqw;color:var(--muted)}
-.chip .dot{width:1.6cqw;height:1.6cqw;border-radius:50%;background:#12a150;box-shadow:0 0 0 .8cqw rgba(18,161,80,.16)}
-.chip .dot.red{background:var(--red);box-shadow:0 0 0 .8cqw rgba(228,1,43,.14)}
-.chip.c1{left:0;top:72%}
-.chip.c2{right:0;top:3%}
-@media(max-width:900px){ .stage{max-width:500px} }
-
-/* Tablet + phone: the brief on a tablet at the back, the systems list on a
-   phone in front of its lower-right corner. */
-.stage.tab{aspect-ratio:1.18/1}
-.tablet{position:absolute;z-index:1;left:0;top:9%;width:90%;border-radius:4.4% / 6.7%;padding:2.3%;
-  background:linear-gradient(145deg,#3a3f47 0%,#121418 38%,#24282e 70%,#0c0d10 100%);
-  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18),inset 0 0 0 3.5px #08090b,
-    0 60px 90px -45px rgba(0,0,0,.7),0 24px 44px -24px rgba(0,0,0,.5);transform:rotate(-2deg)}
-.tablet .cam{position:absolute;top:1%;left:50%;width:.9%;aspect-ratio:1;border-radius:50%;background:#2c3139;transform:translateX(-50%)}
-.tablet .screen{height:auto;display:block;border-radius:2.2% / 3.4%}
-.tablet .screen img{width:100%;height:auto}
-.stage.tab .device.front{width:29%;right:0;left:auto;top:auto;bottom:0;transform:rotate(3deg)}
-.stage.tab .status{font-size:1.4cqw}
-.stage.tab .status .sig{width:1.9cqw;height:1cqw}
-.stage.tab .status .bat{width:2.3cqw;height:1.1cqw;border-width:.16cqw}
-.stage.tab .chip.c1{left:3%;top:0;bottom:auto}
-.stage.tab .chip.c2{right:auto;left:30%;top:auto;bottom:4%}
-
-/* Capabilities: the stage beside the twelve modules. */
-.caps-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:40px;align-items:start;margin-top:30px}
-/* The stage stays in view while the taller list of modules scrolls past it. */
-.caps-split > .stage{position:sticky;top:130px}
-.caps-split .caps{grid-template-columns:repeat(3,1fr);margin-top:0}
-@media(max-width:1000px){ .caps-split{grid-template-columns:minmax(0,1fr);gap:28px} .caps-split > .stage{position:relative;top:auto} }
-@media(max-width:560px){ .caps-split .caps{grid-template-columns:repeat(2,1fr)} }
+.intro{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background:radial-gradient(38% 60% at 78% 0%, rgba(255,255,255,.95), transparent 70%),
+             radial-gradient(22% 40% at 96% 30%, rgba(120,150,110,.28), transparent 70%),
+             radial-gradient(18% 30% at 70% 8%, rgba(140,165,120,.20), transparent 70%),
+             linear-gradient(180deg,#f7f3ef 0%,#efe8e2 100%)}
+.intro::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26%;pointer-events:none;
+  background:radial-gradient(60% 100% at 62% 100%,rgba(214,205,196,.55),transparent 75%)}
+.intro-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr) auto;gap:28px;align-items:center;
+  padding-top:clamp(44px,6vw,72px);padding-bottom:clamp(28px,4vw,48px)}
+.intro .kicker{font:600 12px/1 var(--plex);letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin:0 0 14px}
+.intro .kicker b{color:var(--red);font-weight:600}
+.intro h2{font-size:clamp(30px,3.5vw,50px);line-height:1.02;letter-spacing:-.03em;margin:0 0 18px}
+.intro h2 .hl{color:var(--red)}
+.intro p{color:#4a4044;font-size:clamp(16px,1.4vw,18px);max-width:44ch}
+.intro .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+.intro .btn-ghost{color:var(--ink);border:1.5px solid var(--ink)}
+.scene{position:relative;container-type:inline-size;aspect-ratio:1.25/1}
+.scene .lap{position:absolute;left:0;top:2%;width:86%;transform:perspective(1600px) rotateY(-8deg);transform-origin:50% 100%}
+.scene .lap .lid{background:#111418;border-radius:3.2% / 4.8%;padding:2.2%;box-shadow:inset 0 0 0 1.5px #2f343b,0 40px 60px -30px rgba(40,30,25,.45)}
+.scene .lap .lid img{width:100%;height:auto;display:block;border-radius:1.4% / 2.2%}
+.scene .lap .base{height:4.2cqw;margin:0 -7%;background:linear-gradient(#e3e5e8,#9ea4ab);border-radius:0 0 3cqw 3cqw;box-shadow:0 26px 40px -20px rgba(40,30,25,.45)}
+.scene .device{width:31%;left:auto;right:6%;top:14%;transform:rotate(3deg)}
+.beats{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:clamp(34px,4.5vw,64px);position:relative;z-index:2}
+.beats li{display:flex;align-items:center;gap:14px;font:600 16px/1.25 var(--plex);color:var(--ink);white-space:nowrap}
+.beats li small{display:block;font-weight:400;font-size:15px;color:#4a4044}
+.beats i{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:0 10px 22px -8px currentColor}
+.beats i svg{width:22px;height:22px}
+.beats .r i{background:var(--red)} .beats .b i{background:#2f6bdd} .beats .a i{background:#e9a531}
+.threads{position:absolute;right:0;top:0;width:34%;height:100%;pointer-events:none;z-index:1}
+@media(max-width:1100px){ .intro-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} .beats{grid-column:1 / -1;flex-direction:row;flex-wrap:wrap;gap:18px 34px} .threads{display:none} }
+@media(max-width:760px){ .intro-grid{grid-template-columns:minmax(0,1fr)} .beats{flex-direction:column;gap:16px} }
 
 /* ── Capability tiles ─────────────────────────────────────────────────────── */
 .caps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:30px}
@@ -457,28 +435,53 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 </section>
 
 <!-- ── Capabilities ─────────────────────────────────────────────────────── -->
-<section id="capabilities">
-  <div class="wrap">
+<section id="capabilities" style="padding-top:0">
+  <div class="intro">
+    <svg class="threads" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
+      <g fill="none" stroke-width="1.6" stroke-linecap="round">
+        <path d="M0 230 C 60 180, 110 120, 170 110 S 300 140, 400 100" stroke="#e4012b" opacity=".75"/>
+        <path d="M0 250 C 60 220, 110 250, 170 240 S 300 230, 400 260" stroke="#2f6bdd" opacity=".7"/>
+        <path d="M0 270 C 70 300, 120 360, 180 360 S 300 330, 400 380" stroke="#e9a531" opacity=".75"/>
+        <path d="M0 240 C 80 260, 140 300, 200 290 S 320 250, 400 300" stroke="#e4012b" opacity=".35"/>
+        <path d="M0 260 C 70 230, 130 190, 200 200 S 320 220, 400 180" stroke="#2f6bdd" opacity=".3"/>
+      </g>
+      <g fill="#2f6bdd" opacity=".6"><circle cx="320" cy="222" r="2.4"/><circle cx="360" cy="246" r="2"/><circle cx="250" cy="236" r="2"/></g>
+      <g fill="#e4012b" opacity=".6"><circle cx="240" cy="112" r="2.4"/><circle cx="300" cy="128" r="2"/></g>
+    </svg>
+    <div class="wrap intro-grid">
+      <div>
+        <p class="kicker">Live. <b>Signal.</b> Clarity.</p>
+        <h2>Live operations.<br>Clear signals.<br><span class="hl">Confident decisions.</span></h2>
+        <p>Pulsus gives institutions one live picture of cash, settlement, risk, quality and performance, so problems
+          are caught while they can still be fixed.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="/demo/">Book a demo <span class="arw">→</span></a>
+          <a class="btn btn-ghost" href="mailto:support@pulsus.tech?subject=Pulsus%20Platform%20%E2%80%94%20request%20a%20conversation&amp;body=Institution%3A%20%0ARole%3A%20%0AWhat%20you%27d%20like%20to%20discuss%3A%20%0A">Request a conversation</a>
+        </div>
+      </div>
+      <div class="scene" role="img" aria-label="The Pulsus demo Command Center on a laptop, showing the Executive Brief and its findings, with a phone in front showing the Operations Systems list.">
+        <div class="lap"><div class="lid"><img src="/img/screen-brief.webp" width="1600" height="1000" alt="" loading="lazy" decoding="async"></div><div class="base"></div></div>
+          <div class="device"><div class="screen">
+            <div class="status"><span>9:41</span><span class="bars"><span class="sig"></span><span class="bat"></span></span></div><span class="island"></span>
+            <img src="/img/screen-systems.webp" width="780" height="1353" alt="" loading="lazy" decoding="async">
+            <div class="fill"></div>
+            <img src="/img/screen-nav.webp" width="780" height="102" alt="" loading="lazy" decoding="async">
+          </div></div>
+      </div>
+      <ul class="beats">
+        <li class="r"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-5 4 10 3-7 2 2h5"/></svg></i><span>Detect<small>emerging issues early</small></span></li>
+        <li class="b"><i><svg viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="12" width="4" height="8" rx="1"/><rect x="10" y="7" width="4" height="13" rx="1"/><rect x="16" y="3" width="4" height="17" rx="1"/></svg></i><span>Understand<small>the bigger picture</small></span></li>
+        <li class="a"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M12 2.5 20 5.5v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10v-6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></i><span>Take<small>the right action</small></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap" style="padding-top:clamp(40px,5vw,60px)">
     <p class="eyebrow">One platform</p>
     <div class="headrow">
-      <h2>One platform, twelve capabilities.</h2>
+      <h2>One platform, many capabilities.</h2>
       <a class="morelink" href="/demo/">See them in a demo <span class="arw">→</span></a>
     </div>
-    <div class="caps-split">
-      <div class="stage tab" role="img" aria-label="The Pulsus demo Command Center on a tablet, showing the Executive Brief and its findings, with a phone in front showing the Operations Systems list, 14 of 17 systems live.">
-        <div class="tablet"><span class="cam"></span><div class="screen">
-          <img src="/img/screen-brief.webp" width="1600" height="1000" alt="" loading="lazy" decoding="async">
-        </div></div>
-        <div class="device front"><div class="screen">
-          <div class="status"><span>9:41</span><span class="bars"><span class="sig"></span><span class="bat"></span></span></div><span class="island"></span>
-          <img src="/img/screen-systems.webp" width="780" height="1353" alt="" decoding="async">
-          <div class="fill"></div>
-          <img src="/img/screen-nav.webp" width="780" height="102" alt="" decoding="async">
-        </div></div>
-        <div class="chip c1"><span class="dot red"></span><span>The Executive Brief<small>Ready before leadership arrives</small></span></div>
-        <div class="chip c2"><span class="dot"></span><span>14 of 17 systems live<small>One sign-in, every application</small></span></div>
-      </div>
-      <div class="caps">
+    <div class="caps">
       <a class="cap has-page lead" href="/systems/cash/"><span class="flag">FLAGSHIP</span><div class="ic"><img src="/img/icons/cash.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Cash</b><span>End-to-end cash operations&nbsp;· tills, vaults &amp; ATMs&nbsp;· teller liquidity management</span><span class="more">Learn more <span class="arw">→</span></span></a>
       <a class="cap has-page" href="/systems/panorama/"><div class="ic"><img src="/img/icons/panorama.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Panorama</b><span>Balanced scorecard&nbsp;· strategic intelligence&nbsp;· enterprise trends</span><span class="more">Learn more <span class="arw">→</span></span></a>
       <a class="cap has-page" href="/systems/connect/"><div class="ic"><img src="/img/icons/connect.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Connect</b><span>Payment orchestration&nbsp;· settlement visibility&nbsp;· a public payment tracker for customers</span><span class="more">Learn more <span class="arw">→</span></span></a>
@@ -491,7 +494,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
       <a class="cap has-page" href="https://abouttech.pulsus.tech/"><div class="ic"><img src="/img/icons/tech.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Tech</b><span>Enterprise architecture&nbsp;· technology lifecycle&nbsp;· system health</span><span class="more">Learn more <span class="arw">→</span></span></a>
       <a class="cap" href="/demo/"><div class="ic"><img src="/img/icons/communique.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Communiqué</b><span>Customer communications&nbsp;· document generation</span><span class="more">See it in a demo <span class="arw">→</span></span></a>
       <a class="cap" href="/demo/"><div class="ic"><img src="/img/icons/credit.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Credit Insight</b><span>Delinquency intelligence&nbsp;· predictive insights&nbsp;· portfolio performance&nbsp;· arrears management</span><span class="more">See it in a demo <span class="arw">→</span></span></a>
-    </div>
     </div>
     <div class="addins-head"><b>Platform add-ins</b><span>Separate products that work alongside the platform.</span></div>
     <div class="caps addins">
