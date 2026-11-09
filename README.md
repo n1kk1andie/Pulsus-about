@@ -93,8 +93,9 @@ All three should come back empty or zero.
 - Four of the twelve capabilities have their own page under `systems/`
   (Panorama, Connect, Cash, Talent). Tech has its own site,
   https://abouttech.pulsus.tech/ (repo HomePulsusTech); its tile links there,
-  and `/systems/tech/` redirects there (`vercel.json`). The other seven tiles (Recon,
-  Settlement, Risk, Quality, Ops, Communiqué, Credit Insight) send visitors to
+  and `/systems/tech/` redirects there (`vercel.json`). Communiqué's tile links
+  to its home page, https://letters.pulsus.tech/welcome. The other six tiles
+  (Recon, Settlement, Risk, Quality, Ops, Credit Insight) send visitors to
   the demo page with "See it in a demo" until their pages exist, as does the
   "See them in a demo" link above the tiles.
 - There is no About section content beyond the footer attribution.
