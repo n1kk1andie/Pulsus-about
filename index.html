@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<title>Pulsus Intelligence Suite — Live operations. Clear signals. Confident decisions.</title>
-<meta name="description" content="Pulsus connects operational workflows, controls, exceptions and reporting so leadership can see what is happening, what needs attention and what comes next.">
+<title>Pulsus Intelligence Suite — Enterprise intelligence for what’s next.</title>
+<meta name="description" content="Pulsus reads an organisation’s own data, diagnoses what is wrong, recommends what to do and measures whether it worked. Use its applications, connect your own systems, or both.">
 <meta name="theme-color" content="#071a33">
 <meta property="og:title" content="Pulsus Intelligence Suite">
-<meta property="og:description" content="One operational platform. One trusted picture of how your institution is actually running.">
+<meta property="og:description" content="Enterprise intelligence: organisational health assessed from your own data, causes diagnosed, treatments recommended and measured.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -346,6 +346,38 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 .socials a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;color:#fff}
 .socials a:hover{background:var(--red)}
 .socials svg{width:16px;height:16px}
+
+/* ── Solutions ── */
+.sols{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+.sol{position:relative;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px 20px 20px;display:flex;flex-direction:column}
+.sol .snum{font:700 12px/1 var(--plex);letter-spacing:.12em;color:var(--red);margin-bottom:14px}
+.sol h3{margin:0 0 8px}
+.sol p{font-size:14px;color:var(--muted);margin:0 0 16px;line-height:1.55;flex:1}
+.sol .get{font-size:12.5px;line-height:1.5;color:var(--ink);padding-top:12px;border-top:1px solid var(--line)}
+@media(max-width:1000px){ .sols{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:560px){ .sols{grid-template-columns:1fr} }
+.capsnote{margin:18px 0 0;font-size:15px;color:var(--muted);max-width:none}
+.capsnote b{color:var(--ink);font-weight:700}
+/* ── Brief: engine above every input ── */
+.fanstem{width:2px;height:22px;margin:0 auto;background:#3d6b9c}
+.engine{max-width:620px;margin:0 auto;border:1px solid rgba(78,201,138,.45);background:rgba(78,201,138,.07);border-radius:12px;
+  padding:12px 18px;display:flex;align-items:center;justify-content:center;gap:10px 22px;flex-wrap:wrap}
+.engine b{color:#fff;font-size:14.5px}
+.engine ul{list-style:none;margin:0;padding:0;display:flex;gap:8px;flex-wrap:wrap}
+.engine li{font:600 11px/1 var(--plex);letter-spacing:.08em;text-transform:uppercase;color:#4ec98a;border:1px solid rgba(78,201,138,.4);border-radius:999px;padding:6px 10px}
+.fanlines .own{stroke:#4ec98a}
+.fanin{display:grid;grid-template-columns:880fr 40fr 280fr}
+.fangroup{grid-column:1}
+.fanown{grid-column:3}
+.fanlabel{margin:0 0 10px;font:600 11px/1.3 var(--plex);letter-spacing:.12em;text-transform:uppercase;color:#7d9dc4;text-align:center}
+.fanlabel span{display:block;letter-spacing:.04em;text-transform:none;font-weight:500;color:#9fb4cd;margin-top:3px}
+.fanown .fanlabel{color:#4ec98a}
+.ownbox{border:1px dashed rgba(78,201,138,.6);border-radius:10px;padding:12px;display:flex;gap:10px;align-items:center;color:#4ec98a}
+.ownbox span{font-size:12px;color:#c9d7e8;line-height:1.45}
+.fanin{grid-template-rows:auto}
+.fangroup .fanlabel{order:-1}
+@media(max-width:900px){ .fanin{grid-template-columns:1fr;gap:22px} .fanown{grid-column:1} .fanlines{display:none}
+  .engine{margin-bottom:24px} }
 </style>
 </head>
 <body>
@@ -355,7 +387,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
     <a href="#top" class="lockup" aria-label="Pulsus Platform"><span class="wm">PULS<span class="u">U</span>S</span><span class="plat"><span>PLATFORM</span></span><span class="tag">Live. <b>Signal</b>. Clarity.</span></a>
     <nav>
       <a href="#capabilities">Products</a>
-      <a href="#institutions">Solutions</a>
+      <a href="#solutions">Solutions</a>
       <a href="#brief">Insights</a>
       <a href="#about">About</a>
     </nav>
@@ -372,9 +404,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 
   <div class="wrap">
     <div>
-      <h1>Operational<br>intelligence<br>for <span class="hl">what’s next.</span></h1>
-      <p>Pulsus connects your people, processes and data so you can detect issues earlier, respond faster and
-        deliver better outcomes.</p>
+      <h1>Enterprise<br>intelligence<br>for <span class="hl">what’s next.</span></h1>
+      <p>Pulsus reads your organisation’s own data, diagnoses what is wrong, recommends what to do and measures
+        whether it worked. Use our applications, connect the systems you already have, or both.</p>
       <div class="cta">
         <a class="btn btn-primary" href="https://demo-executive.pulsus.tech/pulse/showcase">Explore the platform <span class="arw">→</span></a>
         <a class="btn btn-ghost" href="#method">See how it works</a>
@@ -404,10 +436,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
   </div>
   <div class="right">
     <p class="eyebrow">With Pulsus</p>
-    <h2>Entered once. Reconciled continuously.</h2>
-    <p>Exceptions surfaced when they occur.</p>
-    <p>One operating picture for leadership.</p>
-    <p>Operations, controls and risk teams working from the same trusted view.</p>
+    <h2>Connect your data. Understand your organisation. Act with evidence.</h2>
+    <p>Organisational health read from the systems you already run, with or without a Pulsus application.</p>
+    <p>Causes diagnosed, not just symptoms reported, and treatments recommended for each one.</p>
+    <p>Every intervention measured until it is shown to work.</p>
   </div>
 </div>
 
@@ -435,6 +467,32 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
     </div>
     <p class="beyond"><b>Built in financial services.</b> The engine works wherever operations run across many systems,
       sites and service levels.</p>
+  </div>
+</section>
+
+<!-- ── Solutions ────────────────────────────────────────────────────────── -->
+<section id="solutions">
+  <div class="wrap">
+    <p class="eyebrow">Solutions</p>
+    <div class="headrow">
+      <h2 style="max-width:26ch">Intelligence you can buy on its own.</h2>
+      <p class="lede" style="margin:0;max-width:44ch">The intelligence engine works on your organisation’s own data.
+        No Pulsus application is required; each one you add simply gives it more to read.</p>
+    </div>
+    <div class="sols">
+      <div class="sol"><span class="snum">01</span><h3>Enterprise health assessment</h3>
+        <p>A full reading of the organisation from the data it already holds: a health score, the causes behind it and a ranked treatment plan.</p>
+        <span class="get">You receive: health score · diagnosis · treatment plan · board pack</span></div>
+      <div class="sol"><span class="snum">02</span><h3>Continuous performance monitoring</h3>
+        <p>Every measure read each month or as it arrives, so leadership sees decline while it can still be reversed, and every reading can be traced back.</p>
+        <span class="get">You receive: live health · history · alerts · monthly board pack</span></div>
+      <div class="sol"><span class="snum">03</span><h3>Transformation oversight</h3>
+        <p>Each initiative tracked as a treatment with an owner and a date, and measured against where it started, so you know which ones are actually working.</p>
+        <span class="get">You receive: treatment tracking · measured results · course corrections</span></div>
+      <div class="sol"><span class="snum">04</span><h3>M&amp;A due diligence</h3>
+        <p>A target’s operational health assessed from its own records, at any point in time, with the causes of weakness and the remediation they would need.</p>
+        <span class="get">You receive: point-in-time health · risk diagnosis · remediation priorities</span></div>
+    </div>
   </div>
 </section>
 
@@ -485,6 +543,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
       <h2>One platform, many capabilities.</h2>
       <a class="morelink" href="https://demo-executive.pulsus.tech/pulse/showcase">See them in the demo <span class="arw">→</span></a>
     </div>
+    <p class="capsnote"><b>Independent applications. Shared intelligence.</b> Use one, combine several, or connect your own data. No application is compulsory: each works on its own, and the intelligence reads whichever you run.</p>
     <div class="caps">
       <a class="cap has-page lead" href="/systems/cash/"><span class="flag">FLAGSHIP</span><div class="ic"><img src="/img/icons/cash.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Cash</b><span>End-to-end cash operations&nbsp;· tills, vaults &amp; ATMs&nbsp;· teller liquidity management</span><span class="more">Learn more <span class="arw">→</span></span></a>
       <a class="cap has-page" href="/systems/panorama/"><div class="ic"><img src="/img/icons/panorama.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Panorama</b><span>Balanced scorecard&nbsp;· strategic intelligence&nbsp;· enterprise trends</span><span class="more">Learn more <span class="arw">→</span></span></a>
@@ -512,16 +571,16 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
   <div class="wrap">
     <div class="headrow">
       <div>
-        <p class="eyebrow">From operations to executive intelligence</p>
-        <h2 style="color:#fff;max-width:20ch">Every application.<br>One institutional pulse.</h2>
+        <p class="eyebrow">From your data to executive intelligence</p>
+        <h2 style="color:#fff;max-width:20ch">Every source.<br>One institutional pulse.</h2>
       </div>
       <p style="margin:0;font-size:13.5px"><b style="color:#fff;font-weight:600">The operating picture is already waiting when leadership arrives.</b>
-        Each application keeps its own workflow and its own data. Pulsus
-        reads across them — surfacing exceptions, patterns and matters requiring attention without leadership
-        assembling separate reports.</p>
+        The intelligence engine sits above every source. It reads Pulsus
+        applications and the systems you already run alike, diagnoses what is wrong and recommends what to do,
+        without leadership assembling separate reports.</p>
     </div>
 
-    <div class="fan" role="img" aria-label="Twelve Pulsus applications — Panorama, Connect, Cash, Recon, Settlement, Credit Insight, Risk, Quality, Ops, Talent, Tech and Communiqué — each sending its operational pulse upward into a single Executive Brief showing an institutional health score of 93.">
+    <div class="fan" role="img" aria-label="Two kinds of input — any of twelve optional Pulsus applications, and your existing systems and data — feed the Pulsus intelligence engine, which assesses, diagnoses, prescribes and measures, and produces a single Executive Brief showing an institutional health score of 93.">
       <div class="fanbrief">
         <div class="ring">
           <svg width="78" height="78" viewBox="0 0 78 78" aria-hidden="true">
@@ -534,29 +593,39 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
         </div>
         <div>
           <h3>Executive Brief</h3>
-          <p>One institutional picture, assembled from every application.</p>
+          <p>One institutional picture, assembled from every source.</p>
           <div class="rows"><i></i><i></i><i></i></div>
         </div>
       </div>
 
+      <div class="fanstem" aria-hidden="true"></div>
+      <div class="engine">
+        <b>Pulsus intelligence engine</b>
+        <ul><li>Assess</li><li>Diagnose</li><li>Prescribe</li><li>Measure</li></ul>
+      </div>
+
       <svg class="fanlines" viewBox="0 0 1200 86" preserveAspectRatio="none" aria-hidden="true">
         <g fill="none" stroke="#3d6b9c" stroke-width="1.4" stroke-dasharray="3 4">
-          <path d="M50 86C50 48 600 48 600 4"/>
-          <path d="M150 86C150 48 600 48 600 4"/>
-          <path d="M250 86C250 48 600 48 600 4"/>
-          <path d="M350 86C350 48 600 48 600 4"/>
-          <path d="M450 86C450 48 600 48 600 4"/>
-          <path d="M550 86C550 48 600 48 600 4"/>
-          <path d="M650 86C650 48 600 48 600 4"/>
-          <path d="M750 86C750 48 600 48 600 4"/>
-          <path d="M850 86C850 48 600 48 600 4"/>
-          <path d="M950 86C950 48 600 48 600 4"/>
-          <path d="M1050 86C1050 48 600 48 600 4"/>
-          <path d="M1150 86C1150 48 600 48 600 4"/>
+          <path d="M36.7 86C36.7 48 600 48 600 4"/>
+          <path d="M110.0 86C110.0 48 600 48 600 4"/>
+          <path d="M183.3 86C183.3 48 600 48 600 4"/>
+          <path d="M256.7 86C256.7 48 600 48 600 4"/>
+          <path d="M330.0 86C330.0 48 600 48 600 4"/>
+          <path d="M403.3 86C403.3 48 600 48 600 4"/>
+          <path d="M476.7 86C476.7 48 600 48 600 4"/>
+          <path d="M550.0 86C550.0 48 600 48 600 4"/>
+          <path d="M623.3 86C623.3 48 600 48 600 4"/>
+          <path d="M696.6 86C696.6 48 600 48 600 4"/>
+          <path d="M770.0 86C770.0 48 600 48 600 4"/>
+          <path d="M843.3 86C843.3 48 600 48 600 4"/>
+          <path class="own" d="M1060 86C1060 48 600 48 600 4"/>
         </g>
         <path d="M600 16 L594 26 L606 26 Z" fill="#e4012b"/>
       </svg>
 
+      <div class="fanin">
+      <div class="fangroup">
+      <p class="fanlabel">Pulsus applications <span>optional · any combination</span></p>
       <div class="fanapps">
         <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg></div><em>Panorama</em></div>
         <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><path d="M2 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/></svg></div><em>Connect</em></div>
@@ -570,6 +639,15 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
         <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></div><em>Talent</em></div>
         <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="3" width="20" height="6" rx="2"/><rect x="2" y="11" width="20" height="6" rx="2"/><path d="M6 6h.01M6 14h.01"/></svg></div><em>Tech</em></div>
         <div class="fanapp"><div class="bx"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div><em>Communiqué</em></div>
+      </div>
+      </div>
+      <div class="fanown">
+        <p class="fanlabel">Your existing systems and data</p>
+        <div class="ownbox">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+          <span>Core systems &amp; ERP · scorecards &amp; spreadsheets · files &amp; APIs</span>
+        </div>
+      </div>
       </div>
     </div>
   </div>
@@ -591,13 +669,13 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
       <li class="step"><span class="num">01</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/></svg>
         <h3>Read</h3><p>Pulsus reads each system's own data and changes nothing in it. A system that can't be reached is reported as a blind spot, never quietly left out.</p></li>
       <li class="step"><span class="num">02</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3v18M5 7h14M7 7l-3 7a4 4 0 0 0 6 0zM17 7l-3 7a4 4 0 0 0 6 0z"/></svg>
-        <h3>Judge</h3><p>Written rules, not guesswork: spot the trend, weigh it, rank what matters. Thresholds for "healthy" and "critical" are set by your institution.</p></li>
+        <h3>Assess</h3><p>Written rules, not guesswork: every measure scored against the thresholds your institution sets for "healthy" and "critical", trends weighed, what matters ranked.</p></li>
       <li class="step"><span class="num">03</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5l2.2 8M15.5 7.5l-2.2 8M9 6h6"/></svg>
-        <h3>Connect</h3><p>When the same branch or unit is flagged by two or more systems, it surfaces as one issue, not scattered alerts in separate reports.</p></li>
+        <h3>Diagnose</h3><p>Finds the cause, not just the symptom. Readings from different systems are linked into a cause chain and traced back to the step the rest follows from, so one root issue surfaces once.</p></li>
       <li class="step ai"><span class="num">04</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
-        <h3>Phrase</h3><p>AI only rewords what the rules computed. If it adds any number that isn't in the facts, its version is rejected and the plain text stands.</p><span class="tag">Grounded AI</span></li>
+        <h3>Prescribe</h3><p>Recommends treatments for each cause, ranked by projected impact, cost and knock-on risk. People decide; AI only rewords what the rules computed, and any added number is rejected.</p><span class="tag">Grounded AI</span></li>
       <li class="step"><span class="num">05</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
-        <h3>Learn</h3><p>Recommended actions are followed up. Pulsus measures whether each one actually helped, and weighs future advice by what worked.</p></li>
+        <h3>Measure</h3><p>Each adopted treatment gets an owner and a date, and Pulsus measures whether it actually worked. Future recommendations are weighed by what worked here.</p></li>
     </ol>
   </div>
 </section>
