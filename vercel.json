@@ -1,6 +1,62 @@
 {
   "redirects": [
-    { "source": "/systems/tech", "destination": "https://abouttech.pulsus.tech/", "permanent": true },
-    { "source": "/systems/tech/", "destination": "https://abouttech.pulsus.tech/", "permanent": true }
+    {
+      "source": "/systems/tech",
+      "destination": "https://abouttech.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/tech/",
+      "destination": "https://abouttech.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/demo",
+      "has": [
+        {
+          "type": "query",
+          "key": "app"
+        }
+      ],
+      "destination": "/walkthrough/",
+      "permanent": false
+    },
+    {
+      "source": "/demo/",
+      "has": [
+        {
+          "type": "query",
+          "key": "app"
+        }
+      ],
+      "destination": "/walkthrough/",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/demo",
+      "destination": "https://demo-executive.pulsus.tech/pulse/showcase"
+    },
+    {
+      "source": "/demo/",
+      "destination": "https://demo-executive.pulsus.tech/pulse/showcase"
+    },
+    {
+      "source": "/demo/report",
+      "destination": "https://demo-executive.pulsus.tech/pulse/showcase/report"
+    },
+    {
+      "source": "/_next/:path*",
+      "destination": "https://demo-executive.pulsus.tech/_next/:path*"
+    },
+    {
+      "source": "/config.js",
+      "destination": "https://demo-executive.pulsus.tech/config.js"
+    },
+    {
+      "source": "/:file(pulsus-[a-z-]+\\.png)",
+      "destination": "https://demo-executive.pulsus.tech/:file"
+    }
   ]
 }
