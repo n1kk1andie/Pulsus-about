@@ -378,6 +378,24 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 .fangroup .fanlabel{order:-1}
 @media(max-width:900px){ .fanin{grid-template-columns:1fr;gap:22px} .fanown{grid-column:1} .fanlines{display:none}
   .engine{margin-bottom:24px} }
+
+/* ── Journey ── */
+.journey{list-style:none;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.journey li{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px}
+.journey .jn{display:block;font:700 12px/1 var(--plex);letter-spacing:.12em;color:var(--red);margin-bottom:12px}
+.journey h3{margin:0 0 6px}
+.journey p{font-size:14px;color:var(--muted);margin:0;line-height:1.55}
+.scores{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px;padding:20px;border-radius:14px;background:linear-gradient(135deg,#f3ede9 0%,#e9e0da 100%);border:1px solid var(--line)}
+.scores b{display:block;font-size:15px;margin-bottom:4px}
+.scores span{font-size:14px;color:var(--muted);line-height:1.55}
+.jfeat{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.jcard{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px}
+.jcard h3{font-size:20px;margin:0 0 10px}
+.jcard p{font-size:14.5px;color:var(--muted);line-height:1.6;margin:0 0 10px}
+.jcard p:last-child{margin-bottom:0}
+@media(max-width:1000px){ .journey{grid-template-columns:repeat(2,1fr)} .scores{grid-template-columns:1fr} }
+@media(max-width:760px){ .jfeat{grid-template-columns:1fr} }
+@media(max-width:520px){ .journey{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -405,11 +423,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
   <div class="wrap">
     <div>
       <h1>Enterprise<br>intelligence<br>for <span class="hl">what’s next.</span></h1>
-      <p>Pulsus reads your organisation’s own data, diagnoses what is wrong, recommends what to do and measures
-        whether it worked. Use our applications, connect the systems you already have, or both.</p>
+      <p>Pulsus reads your organisation’s operational data, assesses institutional health, diagnoses underlying causes,
+        recommends corrective treatments and measures recovery. It also places your organisation’s health within a wider
+        sector and regional landscape. Use Pulsus applications, connect your existing systems, or both.</p>
       <div class="cta">
         <a class="btn btn-primary" href="https://demo-executive.pulsus.tech/pulse/showcase">Explore the platform <span class="arw">→</span></a>
-        <a class="btn btn-ghost" href="#method">See how it works</a>
+        <a class="btn btn-ghost" href="#journey">See how it works</a>
       </div>
     </div>
     <div class="wave-space" role="img" aria-label="Two flowing bundles of signal lines, red and blue, crossing as they travel, marked Detect emerging issues, Understand the bigger picture, and Take the right action."></div>
@@ -543,7 +562,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
       <h2>One platform, many capabilities.</h2>
       <a class="morelink" href="https://demo-executive.pulsus.tech/pulse/showcase">See them in the demo <span class="arw">→</span></a>
     </div>
-    <p class="capsnote"><b>Independent applications. Shared intelligence.</b> Use one, combine several, or connect your own data. No application is compulsory: each works on its own, and the intelligence reads whichever you run.</p>
+    <p class="capsnote"><b>Independent applications. Shared intelligence.</b> Use one, combine several, or connect your own data. No application is compulsory: each works on its own, and the intelligence reads whichever you run. Your other systems connect by API, by CSV upload, or by importing the Excel scorecard you already keep.</p>
     <div class="caps">
       <a class="cap has-page lead" href="/systems/cash/"><span class="flag">FLAGSHIP</span><div class="ic"><img src="/img/icons/cash.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Cash</b><span>End-to-end cash operations&nbsp;· tills, vaults &amp; ATMs&nbsp;· teller liquidity management</span><span class="more">Learn more <span class="arw">→</span></span></a>
       <a class="cap has-page" href="/systems/panorama/"><div class="ic"><img src="/img/icons/panorama.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Panorama</b><span>Balanced scorecard&nbsp;· strategic intelligence&nbsp;· enterprise trends</span><span class="more">Learn more <span class="arw">→</span></span></a>
@@ -645,9 +664,52 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
         <p class="fanlabel">Your existing systems and data</p>
         <div class="ownbox">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
-          <span>Core systems &amp; ERP · scorecards &amp; spreadsheets · files &amp; APIs</span>
+          <span>Connected by API · CSV uploads · Excel scorecards, as you keep them</span>
         </div>
       </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── The customer journey ─────────────────────────────────────────────── -->
+<section id="journey">
+  <div class="wrap">
+    <p class="eyebrow">What you see</p>
+    <div class="headrow">
+      <h2 style="max-width:20ch">Pulse. Diagnose. Treat. Recover. Calibrate. Explore.</h2>
+      <p class="lede" style="margin:0;max-width:44ch">Six views of one organisation, from how healthy it is today to where it stands in its sector.</p>
+    </div>
+    <ol class="journey">
+      <li><span class="jn">01</span><h3>Pulse</h3><p>Operational Health and the Organisational Health Index, with the seven drivers behind them.</p></li>
+      <li><span class="jn">02</span><h3>Diagnose</h3><p>Readings that turned worse, linked into cause chains and traced back to the underlying cause.</p></li>
+      <li><span class="jn">03</span><h3>Treat</h3><p>Treatments for each cause, ranked by projected impact, cost and risk, then adopted with an owner and a deadline.</p></li>
+      <li><span class="jn">04</span><h3>Recover</h3><p>Each treatment monitored against its starting position, so improvement is shown, not assumed.</p></li>
+      <li><span class="jn">05</span><h3>Calibrate</h3><p>Your health placed among institutions by sector, region and size.</p></li>
+      <li><span class="jn">06</span><h3>Explore</h3><p>Sector intelligence: health distributions, regional patterns and trends.</p></li>
+    </ol>
+
+    <div class="scores">
+      <div><b>Operational Health</b><span>How healthy the organisation is now: one score from 0 to 100, built from every system it runs.</span></div>
+      <div><b>Organisational Health Index (OHI)</b><span>How stable it is and where it is heading: whether its momentum is outrunning its disorder.</span></div>
+      <div class="drivers"><b>Seven drivers</b><span>What contributes to that health: Strategy, Risk, Compliance, Quality, Operations, Technology and People.</span></div>
+    </div>
+
+    <div class="jfeat">
+      <div class="jcard">
+        <p class="eyebrow">Treat and Recover</p>
+        <h3>From diagnosis to demonstrated recovery.</h3>
+        <p>Pulsus identifies underlying causes and recommends treatments ranked by projected impact, cost and risk. Each adopted
+          intervention can be assigned an owner and deadline, monitored against its starting position and evaluated to establish
+          whether improvement occurred. What worked, and what did not, informs the next recommendation.</p>
+      </div>
+      <div class="jcard">
+        <p class="eyebrow">Calibrate and Explore</p>
+        <h3>Understand where your institution stands.</h3>
+        <p>Calibrate places your organisation’s operational health within the broader landscape of institutions, sectors and regions.</p>
+        <p>Explore reveals patterns of stability, deterioration and emerging risk across that landscape, using aggregated public
+          information: today banks and credit unions in the United States, Europe’s largest banks, and banks and insurers in Colombia.
+          No institution is named, and comparisons are indicative where underlying measures differ.</p>
       </div>
     </div>
   </div>
@@ -658,12 +720,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
   <div class="wrap">
     <div class="headrow">
       <div>
-        <p class="eyebrow">How the brief is built</p>
+        <p class="eyebrow">Inside the engine</p>
         <h2 style="max-width:18ch">Judgement you can check.</h2>
         <span class="patent"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg>Patent pending</span>
       </div>
-      <p class="lede" style="margin:0;max-width:46ch">Every reading in the brief comes from fixed rules over your own systems' data.
-        The same data always gives the same answer, so any figure can be traced back and re-derived.</p>
+      <p class="lede" style="margin:0;max-width:46ch">The six views above are what you see. Behind them, five steps turn your systems' data
+        into each reading, by fixed rules: the same data always gives the same answer, so any figure can be traced back and re-derived.</p>
     </div>
     <ol class="steps">
       <li class="step"><span class="num">01</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/></svg>
@@ -673,7 +735,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
       <li class="step"><span class="num">03</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5l2.2 8M15.5 7.5l-2.2 8M9 6h6"/></svg>
         <h3>Diagnose</h3><p>Finds the cause, not just the symptom. Readings from different systems are linked into a cause chain and traced back to the step the rest follows from, so one root issue surfaces once.</p></li>
       <li class="step ai"><span class="num">04</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
-        <h3>Prescribe</h3><p>Recommends treatments for each cause, ranked by projected impact, cost and knock-on risk. People decide; AI only rewords what the rules computed, and any added number is rejected.</p><span class="tag">Grounded AI</span></li>
+        <h3>Prescribe</h3><p>Recommends treatments for each cause, ranked by projected impact, cost and knock-on risk. People decide. Where optional AI phrasing is switched on, it only rewords what the rules computed, and any number it adds is rejected; otherwise the plain text stands.</p><span class="tag">Optional grounded AI</span></li>
       <li class="step"><span class="num">05</span><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
         <h3>Measure</h3><p>Each adopted treatment gets an owner and a date, and Pulsus measures whether it actually worked. Future recommendations are weighed by what worked here.</p></li>
     </ol>
