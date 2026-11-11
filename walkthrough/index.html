@@ -145,7 +145,7 @@
         branch power failure in April, the readings it disturbed, the treatments that followed
         and the recovery to a healthy 93. No account, no sign-in.</p>
     </div>
-    <a class="tlink" href="https://demo-executive.pulsus.tech/pulse/showcase">Explore the platform <span class="arw">→</span></a>
+    <a class="tlink" href="/demo">Explore the platform <span class="arw">→</span></a>
   </div>
 </section>
 
@@ -176,7 +176,7 @@
   var f = document.getElementById("enq");
   if (!f) return;
   var started = Date.now();
-  // A link can pre-choose the application, e.g. /demo/?app=Tech from the Pulsus Tech page.
+  // A link can pre-choose the application, e.g. /walkthrough/?app=Tech (old /demo/?app= links are redirected here).
   try {
     var want = new URLSearchParams(location.search).get("app");
     var sel = f.querySelector("select[name=application]");
