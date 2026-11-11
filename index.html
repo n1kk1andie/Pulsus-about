@@ -385,7 +385,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 .journey .jn{display:block;font:700 12px/1 var(--plex);letter-spacing:.12em;color:var(--red);margin-bottom:12px}
 .journey h3{margin:0 0 6px}
 .journey p{font-size:14px;color:var(--muted);margin:0;line-height:1.55}
-.scores{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px;padding:20px;border-radius:14px;background:linear-gradient(135deg,#f3ede9 0%,#e9e0da 100%);border:1px solid var(--line)}
+.scores{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px;padding:20px;border-radius:14px;background:linear-gradient(135deg,#f3ede9 0%,#e9e0da 100%);border:1px solid var(--line)}
 .scores b{display:block;font-size:15px;margin-bottom:4px}
 .scores span{font-size:14px;color:var(--muted);line-height:1.55}
 .jfeat{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
@@ -393,7 +393,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 .jcard h3{font-size:20px;margin:0 0 10px}
 .jcard p{font-size:14.5px;color:var(--muted);line-height:1.6;margin:0 0 10px}
 .jcard p:last-child{margin-bottom:0}
-@media(max-width:1000px){ .journey{grid-template-columns:repeat(2,1fr)} .scores{grid-template-columns:1fr} }
+@media(max-width:1000px){ .journey{grid-template-columns:repeat(2,1fr)} .scores{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:600px){ .scores{grid-template-columns:1fr} }
 @media(max-width:760px){ .jfeat{grid-template-columns:1fr} }
 @media(max-width:520px){ .journey{grid-template-columns:1fr} }
 </style>
@@ -682,7 +683,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
     <ol class="journey">
       <li><span class="jn">01</span><h3>Pulse</h3><p>Operational Health and the System Stability Index, and how both have moved month by month.</p></li>
       <li><span class="jn">02</span><h3>Diagnose</h3><p>Readings that turned worse, linked into cause chains and traced back to the underlying cause.</p></li>
-      <li><span class="jn">03</span><h3>Treat</h3><p>Treatments for each cause, ranked by projected impact, cost and risk, then adopted with an owner and a deadline.</p></li>
+      <li><span class="jn">03</span><h3>Treat</h3><p>Treatments for each cause, ranked by Therapeutic Score (TS), cost and risk, then adopted with an owner and a deadline.</p></li>
       <li><span class="jn">04</span><h3>Recover</h3><p>Each treatment monitored against its starting position, so improvement is shown, not assumed.</p></li>
       <li><span class="jn">05</span><h3>Calibrate</h3><p>Your health placed among institutions by sector, region and size.</p></li>
       <li><span class="jn">06</span><h3>Explore</h3><p>Sector intelligence: health distributions, regional patterns and trends.</p></li>
@@ -691,6 +692,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
     <div class="scores">
       <div><b>Operational Health</b><span>How healthy the organisation is now: one score from 0 to 100, built from every system it runs.</span></div>
       <div><b>System Stability Index (SSI)</b><span>How stable it is and where it is heading: whether its momentum is outrunning its disorder.</span></div>
+      <div><b>Therapeutic Score (TS)</b><span>How much each treatment is expected to help: the points of the gap it should close, sharpened by the results recorded so far.</span></div>
       <div><b>Board Pack</b><span>The whole reading as a print-ready document for the board, as at any month, saved as a PDF in one click.</span></div>
     </div>
 
