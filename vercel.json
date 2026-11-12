@@ -47,6 +47,30 @@
       "destination": "https://demo-executive.pulsus.tech/pulse/showcase/report"
     },
     {
+      "source": "/demo/corporate",
+      "destination": "https://demo-executive.pulsus.tech/pulse/showcase/corporate"
+    },
+    {
+      "source": "/demo/corporate/",
+      "destination": "https://demo-executive.pulsus.tech/pulse/showcase/corporate"
+    },
+    {
+      "source": "/demo/corporate/report",
+      "destination": "https://demo-executive.pulsus.tech/pulse/showcase/corporate/report"
+    },
+    {
+      "source": "/demo/hospital",
+      "destination": "https://demo-executive.pulsus.tech/pulse/showcase/hospital"
+    },
+    {
+      "source": "/demo/hospital/",
+      "destination": "https://demo-executive.pulsus.tech/pulse/showcase/hospital"
+    },
+    {
+      "source": "/demo/hospital/report",
+      "destination": "https://demo-executive.pulsus.tech/pulse/showcase/hospital/report"
+    },
+    {
       "source": "/_next/:path*",
       "destination": "https://demo-executive.pulsus.tech/_next/:path*"
     },
