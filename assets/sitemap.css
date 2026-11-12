@@ -8,3 +8,7 @@
 .sitemap-row .sitemap{justify-content:start}
 @media(max-width:760px){.sitemap{justify-content:start;gap:22px 40px}}
 @media(max-width:560px){.sitemap{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* The home page's closing section has a decorative glow layered over its lower
+   half; it must never catch taps meant for the links. */
+.close::before{pointer-events:none}
+.sitemap-row,.sitemap{position:relative;z-index:1}
