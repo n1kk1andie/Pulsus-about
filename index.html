@@ -340,7 +340,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 .flinks a:hover{color:#fff}
 @media(max-width:860px){ .closerow{grid-template-columns:1fr} .fbrand{border-left:0;padding-left:0;
   border-top:1px solid rgba(255,255,255,.16);padding-top:24px} }
-.legal{border-top:1px solid rgba(255,255,255,.1);padding:18px 0;font-size:12px;color:#6e87a3}
+.legal{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;padding-bottom:18px;font-size:12px;color:#6e87a3}
 /* Social links (footer) */
 .socials{display:flex;gap:10px;margin-top:16px}
 .socials a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;color:#fff}
@@ -398,6 +398,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 @media(max-width:760px){ .jfeat{grid-template-columns:1fr} }
 @media(max-width:520px){ .journey{grid-template-columns:1fr} }
 </style>
+<link rel="stylesheet" href="/assets/sitemap.css">
 </head>
 <body>
 
@@ -795,7 +796,14 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
       </div>
     </div>
   </div>
-  <div class="wrap legal" style="margin-top:38px">© <span id="yr">2026</span> Tumblehill Holdings LLC. All rights reserved.</div>
+  <div class="wrap sitemap-row">
+      <nav class="sitemap" aria-label="Site links">
+        <div><b>Pulsus Platform</b><a href="/explore/">Explore</a><a href="/how-it-works/">How it works</a><a href="/products/">Products</a><a href="/demo/">Try the demo</a></div>
+        <div><b>Solutions</b><a href="/#capabilities">Applications</a><a href="/#solutions">Solutions</a><a href="/#brief">Insights</a></div>
+        <div><b>Company</b><a href="/#about">About</a><a href="/walkthrough/">Book a walkthrough</a><a href="/#contact">Contact</a></div>
+      </nav>
+  </div>
+  <div class="wrap legal" style="margin-top:28px">© <span id="yr">2026</span> Tumblehill Holdings LLC. All rights reserved.</div>
 </section>
 
 <script>
@@ -890,6 +898,5 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
     requestAnimationFrame(draw);
   })();
 </script>
-<script src="/assets/menu.js" defer></script>
 </body>
 </html>

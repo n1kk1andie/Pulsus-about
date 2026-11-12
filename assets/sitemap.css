@@ -1,0 +1,10 @@
+/* The site's links at the bottom of every page (shared by the home page, which has its own inline styles). */
+.sitemap{display:grid;grid-template-columns:repeat(3,minmax(0,auto));justify-content:end;gap:16px 56px}
+.sitemap div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.sitemap b{font:700 11.5px/1 'IBM Plex Sans',system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#7d9dc4;margin-bottom:10px}
+.sitemap a{color:#c3d3e6;text-decoration:none;font-size:14.5px;padding:5px 0}
+.sitemap a:hover{color:#fff}
+.sitemap-row{margin-top:40px;padding-top:30px;border-top:1px solid rgba(255,255,255,.1)}
+.sitemap-row .sitemap{justify-content:start}
+@media(max-width:760px){.sitemap{justify-content:start;gap:22px 40px}}
+@media(max-width:560px){.sitemap{grid-template-columns:repeat(2,minmax(0,1fr))}}
