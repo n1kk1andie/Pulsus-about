@@ -117,5 +117,5 @@ the Command Center sends from it). Replies go straight to the visitor.
 
 ---
 
-Pulsus is developed by Tumblehill Labs, the product studio of Tumblehill
+Pulsus is developed by Tumblehill Labs, a product studio of Tumblehill
 Holdings LLC.
