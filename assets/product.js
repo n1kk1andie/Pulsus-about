@@ -57,19 +57,19 @@
 
   // ── KRI explainer (Risk) ─────────────────────────────────────────────────
   // A loss indicator, where lower is better: at or under target is on target,
-  // then within limit, then below limit (past the limit, inside tolerance),
-  // then breach. These are the bands and labels the product uses.
+  // then within tolerance, then outside tolerance (past tolerance, inside the
+  // limit), then limit breach. These are the statuses Pulsus Risk uses.
   var kri = doc.getElementById("kri");
   if (kri) {
     var input = kri.querySelector("input[type=range]");
     var out = kri.querySelector("[data-val]");
     var chip = kri.querySelector("[data-band]");
-    var T = +kri.getAttribute("data-target"), L = +kri.getAttribute("data-limit"), X = +kri.getAttribute("data-tolerance");
+    var T = +kri.getAttribute("data-target"), TOL = +kri.getAttribute("data-tolerance"), LIM = +kri.getAttribute("data-limit");
     var BANDS = [
-      { max: T, cls: "b-target", label: "On / Ahead of Target" },
-      { max: L, cls: "b-limit", label: "Within Limit" },
-      { max: X, cls: "b-tol", label: "Below Limit" },
-      { max: Infinity, cls: "b-breach", label: "Breach" }
+      { max: T, cls: "b-target", label: "On target" },
+      { max: TOL, cls: "b-limit", label: "Within tolerance" },
+      { max: LIM, cls: "b-tol", label: "Outside tolerance" },
+      { max: Infinity, cls: "b-breach", label: "Limit breach" }
     ];
     var update = function () {
       var v = +input.value, b = BANDS.filter(function (x) { return v <= x.max; })[0];
