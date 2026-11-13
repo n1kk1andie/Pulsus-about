@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Pulsus Risk — Key risk indicators, audit findings and losses in one register</title>
+<meta name="description" content="Pulsus Risk tracks your key risk indicators against target, tolerance and limit, follows every audit finding to closure, and keeps governance measures and losses in the same live register.">
+<link rel="canonical" href="https://about.pulsus.tech/systems/risk/">
+<meta name="theme-color" content="#06142a">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pulsus">
+<meta property="og:title" content="Pulsus Risk — Risk you can see. Findings you can close.">
+<meta property="og:description" content="Key risk indicators banded against your own thresholds, audit findings followed to closure, governance measures and losses, in one live register.">
+<meta property="og:url" content="https://about.pulsus.tech/systems/risk/">
+<meta property="og:image" content="https://about.pulsus.tech/img/risk/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pulsus Risk: Risk you can see. Findings you can close. The operational risk register on a laptop.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pulsus Risk — Risk you can see. Findings you can close.">
+<meta name="twitter:description" content="Key risk indicators banded against your own thresholds, audit findings followed to closure, governance measures and losses, in one live register.">
+<meta name="twitter:image" content="https://about.pulsus.tech/img/risk/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/sitemap.css">
+<link rel="stylesheet" href="/assets/product.css">
+<link rel="preload" as="image" href="/img/risk/health.webp" type="image/webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Pulsus Risk",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Enterprise risk management",
+  "operatingSystem": "Web browser",
+  "url": "https://about.pulsus.tech/systems/risk/",
+  "image": "https://about.pulsus.tech/img/risk/og.jpg",
+  "description": "An operational risk and audit register for banks and credit unions: key risk indicators banded against target, tolerance and limit, audit findings followed to closure, governance measures and potential and fraud losses.",
+  "featureList": ["Key risk indicators with target, tolerance and limit, banded every month", "Audit findings with rating, status, owner, due date and monthly history", "Governance measures: internal and external audit points", "Potential and fraud losses", "Heat-maps", "Workbook upload and download", "In-app edits", "PDF and CSV reports"],
+  "isPartOf": { "@type": "SoftwareApplication", "name": "Pulsus Platform", "url": "https://about.pulsus.tech/" },
+  "publisher": { "@type": "Organization", "name": "Tumblehill Holdings LLC", "url": "https://about.pulsus.tech/" }
+}
+</script>
+</head>
+<body class="prod p-risk">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="phdr">
+  <div class="wrap bar">
+    <a class="pmark" href="/">
+      <span class="wordmark"><span class="wm">PULS<span class="u">U</span>S</span><small>INTELLIGENCE SUITE</small></span>
+      <span class="div" aria-hidden="true"></span>
+      <span class="pn">Pulsus <span>Risk</span></span>
+    </a>
+    <nav class="pnav" aria-label="Pulsus Risk">
+      <a href="#product">Product</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#integrations">Integrations</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="hdr-cta">
+      <a class="signin" href="https://risk.pulsus.tech/login">Sign in</a>
+      <a class="btn btn-primary btn-sm" href="https://demo-risk.pulsus.tech"><span class="hs">Try the live demo</span><span class="ss">Live demo</span></a>
+    </div>
+    <details class="menu">
+      <summary aria-label="Menu">
+        <svg class="i-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="i-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </summary>
+      <nav class="sheet" aria-label="Pulsus Risk, menu">
+        <a href="#product">Product</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#integrations">Integrations</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <div class="row">
+          <a class="btn btn-ghost" href="https://risk.pulsus.tech/login">Sign in</a>
+          <a class="btn btn-primary" href="https://risk.pulsus.tech/signup">Start free trial</a>
+        </div>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+<section class="hero hero-s" aria-labelledby="hero-h">
+  <svg class="signal-svg" viewBox="0 0 1400 120" preserveAspectRatio="none" aria-hidden="true">
+    <path class="ecg-line" fill="none" stroke="#e4012b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+      d="M0 70 H420 l10 0 7 -16 8 34 7 -52 8 80 7 -54 7 26 9 -20 6 2 H860 l10 0 6 -12 7 24 6 -38 7 58 6 -38 6 18 8 -14 5 2 H1400"/>
+  </svg>
+  <div class="wrap">
+    <p class="kicker"><b>Pulsus Risk</b> · Operational risk &amp; audit</p>
+    <h1 id="hero-h">Risk you can see. <span class="r">Findings you can close.</span></h1>
+    <div>
+      <p class="lede">Pulsus Risk keeps your key risk indicators, audit findings, governance measures and losses in one live
+        register, judged against your own thresholds, so management always knows where the institution stands and what is
+        still open.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://demo-risk.pulsus.tech">Try the live demo <span class="arw" aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="https://risk.pulsus.tech/signup">Start free trial</a>
+      </div>
+      <p class="fine">The demo is the real product with a fictional organisation’s data. No sign-up.</p>
+      <p class="tagline">Live. <span class="r">Signal.</span> Clarity.</p>
+    </div>
+    <div class="devices rv">
+      <div class="laptop">
+        <div class="lid">
+          <picture>
+            <source srcset="/img/risk/health.webp" type="image/webp">
+            <img src="/img/risk/health.jpg" width="1440" height="832" fetchpriority="high"
+                 alt="Pulsus Risk operational health as at October 2026: 7 of 15 key risk indicators on or ahead of target and 1 audit point open, with 3 within limit, 4 below target, and 16 audit points resolved.">
+          </picture>
+        </div>
+        <div class="base" aria-hidden="true"></div>
+      </div>
+      <div class="phone">
+        <picture>
+          <source srcset="/img/risk/phone-kri.webp" type="image/webp">
+          <img src="/img/risk/phone-kri.jpg" width="520" height="1039" alt="Key risk indicators on a phone, each marked on target, within limit, below limit or breach.">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-label="What Pulsus Risk covers">
+  <ul>
+    <li>Key risk indicators</li><li>Targets, tolerances &amp; limits</li><li>Audit findings</li><li>Owners &amp; due dates</li><li>Governance measures</li><li>Potential &amp; fraud losses</li><li>Heat-maps</li><li>Board-ready reports</li>
+    <li aria-hidden="true">Key risk indicators</li><li aria-hidden="true">Targets, tolerances &amp; limits</li><li aria-hidden="true">Audit findings</li><li aria-hidden="true">Owners &amp; due dates</li><li aria-hidden="true">Governance measures</li><li aria-hidden="true">Potential &amp; fraud losses</li><li aria-hidden="true">Heat-maps</li><li aria-hidden="true">Board-ready reports</li>
+  </ul>
+</div>
+
+<!-- ── Why ───────────────────────────────────────────────────────────────── -->
+<section class="sec" id="why" aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <p class="kicker">Why Pulsus Risk</p>
+      <h2 class="sec-h" id="why-h">Your risk picture shouldn’t take <span class="r">a month to assemble.</span></h2>
+      <p class="sec-lede">When indicators live in one spreadsheet, findings in another and losses in a third, the board sees
+        last quarter’s risk, not this month’s.</p>
+    </div>
+    <div class="points">
+      <div class="point rv"><span class="n">01</span><h3>Scattered indicators</h3><p>Each team keeps its own figures in its own format, so nobody can say how many are off target today.</p></div>
+      <div class="point rv d1"><span class="n">02</span><h3>Thresholds applied by hand</h3><p>Whether a value is “within limit” depends on who did the sums, and when.</p></div>
+      <div class="point rv d2"><span class="n">03</span><h3>Findings that drift</h3><p>Audit points pass their due date quietly, and the first reminder is the next audit.</p></div>
+      <div class="point rv d3"><span class="n">04</span><h3>Losses out of view</h3><p>Potential and fraud losses sit apart from the risks that caused them.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── What's at stake ───────────────────────────────────────────────────── -->
+<section class="sec alt" id="stakes" aria-labelledby="stakes-h">
+  <div class="wrap split wide-r">
+    <div class="rv">
+      <p class="kicker">What’s at stake</p>
+      <h2 class="sec-h" id="stakes-h">When a limit is breached, <span class="r">someone will ask who knew.</span></h2>
+      <p class="sec-lede">Good risk management is not only knowing the answer. It is being able to show, at any moment, that
+        you knew, that someone owned it, and what was done.</p>
+    </div>
+    <ul class="stakes rv d1" style="margin-top:0">
+      <li><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10M19 21V10M9 21V10M15 21V10M2 10l10-7 10 7z"/></svg></span>
+        <div><b>Examiners and supervisors</b><p>They expect a current view of key risks and a clear record of every finding: who owns it, when it is due, and whether it closed.</p></div></li>
+      <li><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M21.5 18.5c0-2.3-1.7-4-4-4"/></svg></span>
+        <div><b>The board and audit committee</b><p>Directors need the same picture every month, judged the same way, not a new deck with new definitions each time.</p></div></li>
+      <li><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        <div><b>Losses and recoveries</b><p>Every month an indicator sits past its limit is a month of exposure. Seeing it early is cheaper than explaining it later.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── Product ───────────────────────────────────────────────────────────── -->
+<section class="sec room" id="product" aria-labelledby="product-h">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <p class="kicker">Product</p>
+      <h2 class="sec-h" id="product-h">One register. <span class="r">Every lens on risk.</span></h2>
+      <p class="sec-lede">Switch between the whole picture, your audit findings and your enterprise risk indicators. Every
+        screen reads the same data, as at the same month.</p>
+    </div>
+
+    <div class="show">
+      <div class="tabs" role="tablist" aria-label="Pulsus Risk views" aria-orientation="vertical">
+        <button class="tab" role="tab" id="t-hl" aria-controls="p-hl" aria-selected="true">
+          <span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></span>
+          <span><b>Operational health</b><small>The whole position, at a glance</small></span></button>
+        <button class="tab" role="tab" id="t-kri" aria-controls="p-kri" aria-selected="false" tabindex="-1">
+          <span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span>
+          <span><b>Key risk indicators</b><small>Target, tolerance and limit</small></span></button>
+        <button class="tab" role="tab" id="t-hm" aria-controls="p-hm" aria-selected="false" tabindex="-1">
+          <span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16M15 4v16"/></svg></span>
+          <span><b>Risk history</b><small>Heat-maps, month by month</small></span></button>
+        <button class="tab" role="tab" id="t-af" aria-controls="p-af" aria-selected="false" tabindex="-1">
+          <span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></span>
+          <span><b>Audit findings</b><small>Rating, owner, due date, status</small></span></button>
+        <button class="tab" role="tab" id="t-wb" aria-controls="p-wb" aria-selected="false" tabindex="-1">
+          <span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
+          <span><b>Monthly update</b><small>Workbook or in-app edits</small></span></button>
+      </div>
+
+      <div>
+        <div class="panel" role="tabpanel" id="p-hl" aria-labelledby="t-hl" tabindex="0">
+          <div class="ph"><span class="no">01 / 05</span><span class="demo-tag">Demonstration data</span></div>
+          <h3>Operational health</h3>
+          <p>How many indicators are on target, how many audit points are open or past due, and the month’s actual losses,
+            on one screen for the executive team.</p>
+          <div class="browser"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Pulsus Risk · Pulse</span></div>
+            <picture><source srcset="/img/risk/health.webp" type="image/webp"><img src="/img/risk/health.jpg" width="1440" height="832" loading="lazy" decoding="async"
+              alt="Operational health: 7 of 15 indicators on target, 1 audit point open, with counts by band and audit status."></picture></div>
+          <ul class="ticks"><li><b>Indicators by band</b>: on target, within limit, below.</li><li><b>Audit points</b>: past due, open, resolved.</li><li><b>Actual losses</b> for the latest month.</li></ul>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-kri" aria-labelledby="t-kri" tabindex="0">
+          <div class="ph"><span class="no">02 / 05</span><span class="demo-tag">Demonstration data</span></div>
+          <h3>Key risk indicators</h3>
+          <p>Every indicator carries its own target, tolerance and limit. Each month’s value is banded automatically, so
+            “within limit” means the same thing every time, for everyone.</p>
+          <div class="browser"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Pulsus Risk · Enterprise Risk</span></div>
+            <picture><source srcset="/img/risk/kri.webp" type="image/webp"><img src="/img/risk/kri.jpg" width="1440" height="832" loading="lazy" decoding="async"
+              alt="Operational risk measures, each with its latest value, target and band, such as on or ahead of target, within limit, below limit or breach."></picture></div>
+          <ul class="ticks"><li><b>Your thresholds</b>, set per indicator.</li><li><b>Four bands</b>: on target, within limit, below limit, breach.</li><li><b>Loss measures</b> judged the right way round.</li></ul>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-hm" aria-labelledby="t-hm" tabindex="0">
+          <div class="ph"><span class="no">03 / 05</span><span class="demo-tag">Demonstration data</span></div>
+          <h3>Risk history</h3>
+          <p>Every indicator, every month, in a single heat-map. Strong measures settle at the top and the trouble spots
+            gather below, so a worsening trend is obvious before it becomes a breach.</p>
+          <div class="browser"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Pulsus Risk · History</span></div>
+            <picture><source srcset="/img/risk/heatmap.webp" type="image/webp"><img src="/img/risk/heatmap.jpg" width="1440" height="832" loading="lazy" decoding="async"
+              alt="Operational risk performance heat-map: fifteen measures across every month from 2024 to 2026, sorted strongest to weakest."></picture></div>
+          <ul class="ticks"><li><b>Sorted</b> strongest to weakest.</li><li><b>Audit history</b> by month too.</li><li><b>Tap a cell</b> for the month’s value.</li></ul>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-af" aria-labelledby="t-af" tabindex="0">
+          <div class="ph"><span class="no">04 / 05</span><span class="demo-tag">Demonstration data</span></div>
+          <h3>Audit findings</h3>
+          <p>Every finding with its rating, owner, issue date and due date, the recommendation, and a month-by-month record of
+            whether it was open. Status turns to past due on its own when the date passes.</p>
+          <div class="browser"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Pulsus Risk · Audit register</span></div>
+            <picture><source srcset="/img/risk/findings.webp" type="image/webp"><img src="/img/risk/findings.jpg" width="1440" height="832" loading="lazy" decoding="async"
+              alt="The audit register with one finding opened: its project, recommendation, findings, owner, risk rating, issue date, due date, and a strip showing the months it has been open."></picture></div>
+          <ul class="ticks"><li><b>Ratings</b> and owners on every point.</li><li><b>Past due</b> flagged automatically.</li><li><b>Open-month history</b> for each finding.</li></ul>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-wb" aria-labelledby="t-wb" tabindex="0">
+          <div class="ph"><span class="no">05 / 05</span><span class="demo-tag">Demonstration data</span></div>
+          <h3>Monthly update</h3>
+          <p>Keep working in the workbook you know: download it, add the month, upload it, and everyone sees the update. Or
+            open the next month and enter its figures in the app. Every in-app edit is marked and can be reverted.</p>
+          <div class="browser"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Pulsus Risk · Settings</span></div>
+            <picture><source srcset="/img/risk/workbook.webp" type="image/webp"><img src="/img/risk/workbook.jpg" width="1440" height="832" loading="lazy" decoding="async"
+              alt="The data file settings: download the workbook, refresh, upload an updated workbook, open a new period, and step-by-step monthly update instructions."></picture></div>
+          <ul class="ticks"><li><b>Download and upload</b> the workbook.</li><li><b>Enter a month</b> in the app.</li><li><b>PDF and CSV</b> reports for the board.</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── See it in action ──────────────────────────────────────────────────── -->
+<section class="sec" id="action" aria-labelledby="action-h">
+  <div class="wrap split">
+    <div class="rv">
+      <p class="kicker">See it in action</p>
+      <h2 class="sec-h" id="action-h">From target to breach, <span class="r">in plain sight.</span></h2>
+      <p class="sec-lede">Each indicator has three thresholds you set. Move the month’s value and watch how Pulsus Risk reads
+        it, exactly as it does for every indicator, every month.</p>
+      <ul class="readings">
+        <li>Thresholds are yours, set per indicator</li>
+        <li>Loss and failure measures read lower as better</li>
+        <li>The same band, on every screen and in every report</li>
+      </ul>
+    </div>
+    <div class="kri rv d1" id="kri" data-target="25000" data-limit="40000" data-tolerance="60000">
+      <div class="kh">
+        <div><b>Card fraud losses</b><small>Example indicator · lower is better</small></div>
+        <span class="demo-tag" style="color:#a9b8cc;border-color:#2a3d5e">Illustrative</span>
+      </div>
+      <div class="val"><span data-val>$34,000</span><small>this month</small></div>
+      <span class="bandchip b-limit" data-band role="status" aria-live="polite">Within Limit</span>
+      <div class="track" aria-hidden="true"><i class="z1" style="width:27.78%"></i><i class="z2" style="width:16.67%"></i><i class="z3" style="width:22.22%"></i><i class="z4" style="width:33.33%"></i></div>
+      <div class="marks" aria-hidden="true"><span style="left:27.78%">Target<br>$25k</span><span style="left:44.44%">Limit<br>$40k</span><span style="left:66.67%">Tolerance<br>$60k</span></div>
+      <label for="kri-v" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">This month’s card fraud losses</label>
+      <input id="kri-v" type="range" min="0" max="90000" step="1000" value="34000">
+      <div class="legend">
+        <div style="border-color:#0e8a4d"><b>On target</b>At or better than target.</div>
+        <div style="border-color:#e3b341"><b>Within limit</b>Off target, inside the limit.</div>
+        <div style="border-color:#e07b00"><b>Below limit</b>Past the limit, inside tolerance.</div>
+        <div style="border-color:#b5142a"><b>Breach</b>Past tolerance. Act now.</div>
+      </div>
+      <p class="foot">An example indicator for illustration. In your register, every indicator uses its own thresholds.</p>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:clamp(56px,7vw,88px)">
+    <div class="sec-top rv" style="margin-bottom:28px">
+      <h3 class="sec-h" style="font-size:clamp(26px,3vw,38px)">Every finding, <span class="r" style="display:inline">followed to closure.</span></h3>
+    </div>
+    <ol class="life">
+      <li class="rv"><span class="pill" style="background:#e5ecf8;color:#21406e">Raised</span><b>Recorded with an owner</b><p>The finding, its recommendation, rating, owner and due date.</p></li>
+      <li class="rv d1"><span class="pill" style="background:#fbf2dc;color:#7a5a00">Open</span><b>Tracked every month</b><p>Each month it stays open is kept on its history.</p></li>
+      <li class="rv d2"><span class="pill" style="background:#f9e2e5;color:#8e0e1f">Past due</span><b>Flagged on its own</b><p>Once the due date passes, it turns past due on every screen.</p></li>
+      <li class="rv d3"><span class="pill" style="background:#e5f4ec;color:#0b6b3c">Resolved</span><b>Closed on the record</b><p>Marked resolved in the month it closed, and kept for the history.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ── Solutions ─────────────────────────────────────────────────────────── -->
+<section class="sec room" id="solutions" aria-labelledby="sol-h">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <p class="kicker">Solutions</p>
+      <h2 class="sec-h" id="sol-h">Built for the people who <span class="r">answer for risk.</span></h2>
+      <p class="sec-lede">One register, read the same way by everyone who has to stand behind it.</p>
+    </div>
+    <div class="who">
+      <div class="card rv"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span>
+        <h3>Chief risk officer</h3><p>Every indicator against its appetite, and the trend behind each one.</p>
+        <div class="qwrap"><q>Which risks moved past their limit this month?</q></div></div>
+      <div class="card rv d1"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></span>
+        <h3>Internal audit</h3><p>Findings, owners and due dates in one register, with the history kept.</p>
+        <div class="qwrap"><q>What is past due, and with whom?</q></div></div>
+      <div class="card rv d2"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M10 21v-6h4v6"/></svg></span>
+        <h3>COO &amp; operations</h3><p>The service and process indicators their teams are measured on, month by month.</p>
+        <div class="qwrap"><q>Where are we slipping on our own standards?</q></div></div>
+      <div class="card rv d3"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M21.5 18.5c0-2.3-1.7-4-4-4"/></svg></span>
+        <h3>CEO, board &amp; audit committee</h3><p>One honest position each month, and a report ready for the meeting.</p>
+        <div class="qwrap"><q>Are we inside our appetite, and is it improving?</q></div></div>
+    </div>
+    <div class="chips rv"><b>Built in banking.</b> Suited to any regulated institution that answers for its risks:
+      <span>Banks</span><span>Credit unions</span><span>Building societies</span><span>Insurers</span><span>Investment firms</span><span>Microfinance</span></div>
+  </div>
+</section>
+
+<!-- ── Integrations ──────────────────────────────────────────────────────── -->
+<section class="sec alt" id="integrations" aria-labelledby="int-h">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <p class="kicker">Integrations</p>
+      <h2 class="sec-h" id="int-h">Starts with the workbook <span class="r">you already keep.</span></h2>
+      <p class="sec-lede">Your indicators, findings, governance counts and losses come in from one Excel workbook, and go back
+        out the same way.</p>
+    </div>
+    <div class="ints">
+      <div class="int rv"><span class="ii" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3-3 3 3"/></svg></span>
+        <div><h3>Excel workbook <span class="st now">Available</span></h3><p>Upload and download one workbook with four sheets: indicators, audit findings, governance and losses. It is checked before it is saved.</p></div></div>
+      <div class="int rv d1"><span class="ii" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>
+        <div><h3>In-app edits <span class="st now">Available</span></h3><p>Add an indicator or a finding, enter a month’s figures, or update a finding’s status without touching the file.</p></div></div>
+      <div class="int rv d2"><span class="ii" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg></span>
+        <div><h3>PDF and CSV reports <span class="st now">Available</span></h3><p>A formatted PDF of the register for the board, and the full history as CSV for your own analysis.</p></div></div>
+      <div class="int rv"><span class="ii" aria-hidden="true"><svg viewBox="0 0 21 21" aria-hidden="true"><rect x="1" y="1" width="9" height="9" fill="#F25022"/><rect x="11" y="1" width="9" height="9" fill="#7FBA00"/><rect x="1" y="11" width="9" height="9" fill="#00A4EF"/><rect x="11" y="11" width="9" height="9" fill="#FFB900"/></svg></span>
+        <div><h3>Microsoft sign-in <span class="st cfg">On request</span></h3><p>Staff can sign in with their Microsoft work account once your IT team connects your Microsoft Entra ID.</p></div></div>
+      <div class="int rv d1"><span class="ii" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></span>
+        <div><h3>Pulsus Platform <span class="st now">Available</span></h3><p>One sign-in across the Pulsus suite, and your risk readings in the executive view.</p></div></div>
+      <div class="int rv d2"><span class="ii" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></span>
+        <div><h3>API and system connectors <span class="st soon">Coming</span></h3><p>Direct feeds from your other systems are on the roadmap. Today, data arrives by workbook or in-app entry.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Compliance ────────────────────────────────────────────────────────── -->
+<section class="sec" id="assurance" aria-labelledby="as-h">
+  <div class="wrap split">
+    <div class="rv">
+      <p class="kicker">Compliance</p>
+      <h2 class="sec-h" id="as-h">Evidence, ready <span class="r">when the examiner asks.</span></h2>
+      <p class="sec-lede">The register keeps the record as you go, so preparing for an examination is a download, not a project.</p>
+      <p class="statement">A live risk register <span class="r">for the whole institution.</span></p>
+    </div>
+    <div class="assure">
+      <div class="as-item rv"><span class="tag">KRI</span><div><h3>Judged the same way, every time</h3><p>Every value is banded against its own target, tolerance and limit by the system, not by hand.</p></div></div>
+      <div class="as-item rv d1"><span class="tag">AUD</span><div><h3>Findings with a history</h3><p>Each audit point keeps its owner, rating, dates and the months it was open, and turns past due on its own.</p></div></div>
+      <div class="as-item rv d2"><span class="tag">SRC</span><div><h3>Changes you can see</h3><p>Edits made in the app are marked as edits and can be reverted to the source workbook at any time.</p></div></div>
+      <p class="note rv">Pulsus Risk supports your risk and compliance work. It does not certify compliance with any regulation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Platform ──────────────────────────────────────────────────────────── -->
+<section class="sec alt" id="platform" aria-labelledby="pl-h">
+  <div class="wrap split">
+    <div class="rv">
+      <p class="kicker">Part of Pulsus Platform</p>
+      <h2 class="sec-h" id="pl-h">Risk, <span class="r">in the whole picture.</span></h2>
+      <p class="sec-lede">Pulsus Risk is one of the applications behind Pulsus Platform, the executive view of your
+        organisation’s health. Its readings feed the Risk and Compliance drivers, beside quality, operations, technology and
+        people, so a breach shows up where leadership is already looking.</p>
+      <ul class="readings">
+        <li>Risks over their limit</li>
+        <li>Open and overdue audit actions</li>
+        <li>Risks tracked</li>
+      </ul>
+      <p style="margin-top:22px"><a class="tlink" href="/demo/">See it in the Pulsus Platform demo <span class="arw" aria-hidden="true">→</span></a></p>
+    </div>
+    <div class="stack rv d1" role="img" aria-label="Pulsus Risk feeds the Risk and Compliance drivers, which add up to Operational Health in Pulsus Platform.">
+      <div class="lvl"><b>Pulsus Risk</b><small>Risks over limit · open and overdue audit actions</small></div>
+      <div class="arr" aria-hidden="true">↓</div>
+      <div class="drivers"><span class="on">Risk</span><span class="on">Compliance</span><span>Quality</span><span>Operations</span><span>Technology</span><span>People</span><span>Strategy</span></div>
+      <div class="arr" aria-hidden="true">↓</div>
+      <div class="lvl top"><b>Operational Health</b><small>Pulsus Platform · every driver read together</small></div>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:clamp(48px,6vw,80px)">
+    <div class="next rv" id="next" aria-labelledby="next-h" role="region">
+      <p class="kicker">Direction of travel</p>
+      <h3 id="next-h">From risk register to full enterprise risk and compliance.</h3>
+      <p>Pulsus Risk is growing into a complete enterprise risk management and compliance tool. These are in development
+        and not yet available; the live demo shows the product as it is today.</p>
+      <ul>
+        <li><span class="soonlbl">Coming</span><b>A full risk register</b><span>Every risk the institution carries, with its owner, rating and appetite.</span></li>
+        <li><span class="soonlbl">Coming</span><b>Controls</b><span>Each risk linked to the controls that manage it, and how well they work.</span></li>
+        <li><span class="soonlbl">Coming</span><b>One findings register</b><span>Internal audit, external audit, regulator and compliance points in one place, with follow-up that goes beyond TeamCentral.</span></li>
+        <li><span class="soonlbl">Coming</span><b>Compliance obligations</b><span>What the institution must do, who owns it, and the evidence that it was done.</span></li>
+        <li><span class="soonlbl">Coming</span><b>Incidents</b><span>Record, investigate and learn from what went wrong, beside the risks it touched.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Pricing ───────────────────────────────────────────────────────────── -->
+<section class="sec" id="pricing" aria-labelledby="pr-h">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <p class="kicker">Pricing</p>
+      <h2 class="sec-h" id="pr-h">Talk to us <span class="r">about pricing.</span></h2>
+      <p class="sec-lede">Tell us about your institution and who will use it, and we’ll come back with a price. Or start a
+        free trial and see your own register first.</p>
+    </div>
+    <div class="price">
+      <div class="pcard rv">
+        <p class="kicker">Pulsus Risk</p>
+        <p class="big">Priced for your institution.</p>
+        <p>Pulsus Risk is priced on its own, for the size of your institution and the people who will use it.</p>
+        <ul>
+          <li>Key risk indicators, audit findings, governance and losses</li>
+          <li>Heat-maps, in-app edits and workbook upload</li>
+          <li>PDF and CSV reports</li>
+          <li>Readings in Pulsus Platform’s Operational Health</li>
+        </ul>
+        <div class="cta">
+          <a class="btn btn-primary" href="/walkthrough/?app=Risk#ask">Talk to us about pricing <span class="arw" aria-hidden="true">→</span></a>
+          <a class="tlink" href="https://risk.pulsus.tech/signup">Start free trial <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="pcard dark rv d1">
+        <p class="kicker">How to start</p>
+        <h3>See it first. Decide after.</h3>
+        <p>There is no project to start and nothing to install.</p>
+        <ol class="steps">
+          <li><b>Open the live demo</b>Explore a fictional institution’s indicators and findings. No sign-up.</li>
+          <li><b>Start a free trial</b>Upload your workbook, or add your indicators and findings in the app.</li>
+          <li><b>Talk to us</b>We’ll walk your team through it and agree a price that fits.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ───────────────────────────────────────────────────────────────── -->
+<section class="sec alt" id="faq" aria-labelledby="faq-h">
+  <div class="wrap faq">
+    <div class="sec-top">
+      <p class="kicker">FAQ</p>
+      <h2 class="sec-h" id="faq-h">Frequently asked <span class="r">questions.</span></h2>
+      <p class="sec-lede">Something else on your mind? <a href="/walkthrough/?app=Risk">Ask us directly.</a></p>
+    </div>
+    <div class="qa">
+      <details><summary>What does Pulsus Risk do?</summary><div class="ans">
+        <p>It keeps your operational risk and audit register in one place: key risk indicators judged against your own
+          target, tolerance and limit each month; audit findings with their rating, owner, due date and status; governance
+          measures; and potential and fraud losses. Heat-maps and reports show how each has moved over time.</p></div></details>
+      <details><summary>Who uses it?</summary><div class="ans">
+        <p>The chief risk officer and risk team maintain it. Internal audit follows findings to closure. Executives, the board
+          and the audit committee read the position each month. Updating the register is limited to administrators.</p></div></details>
+      <details><summary>Is our data secure?</summary><div class="ans">
+        <p>Your workbook is processed on the server, never in the browser. Uploads and edits require an administrator
+          sign-in, sessions are signed and checked on the server, and each organisation’s data is kept separate from
+          every other’s.</p>
+        <p>We are happy to take your information-security team through the detail.</p></div></details>
+      <details><summary>Where is our data stored?</summary><div class="ans">
+        <p>Pulsus Risk is a cloud service, and it is also built to run on Microsoft Azure for institutions that need it. If
+          your regulator or policy requires data to stay in a particular country or region, talk to us before you start and
+          we will confirm where your data will be held.</p></div></details>
+      <details><summary>How does our data get in?</summary><div class="ans">
+        <p>Upload the Excel workbook with your indicators, findings, governance counts and losses, and Pulsus Risk checks it
+          and builds the register. After that, update it each month by workbook or straight in the app. Direct connections to
+          other systems are coming.</p></div></details>
+      <details><summary>How long does it take to set up?</summary><div class="ans">
+        <p>If you already keep a risk workbook, you can be looking at your register the day you upload it. If not, add your
+          indicators and their thresholds in the app, then your open findings. There is no implementation project.</p></div></details>
+      <details><summary>Will it satisfy our regulators?</summary><div class="ans">
+        <p>It gives examiners what they usually ask for: a current view of your key risks against appetite, and a record of
+          every finding with its owner, dates and status. Pulsus Risk supports your compliance work; it does not certify
+          compliance with any regulation.</p></div></details>
+      <details><summary>Does it cover controls, compliance obligations and incidents?</summary><div class="ans">
+        <p>Not yet. Today Pulsus Risk covers key risk indicators, audit findings, governance measures and losses. A full risk
+          register with controls, one findings register for internal audit, external audit, regulator and compliance points,
+          compliance obligations and incidents is in development.</p></div></details>
+      <details><summary>Is there a separate audit product?</summary><div class="ans">
+        <p>No. Audit findings live inside Pulsus Risk, beside the indicators and losses they relate to, so risk and audit read
+          from one register. The findings register that is coming will extend this to external audit, regulator and
+          compliance points, all within Pulsus Risk.</p></div></details>
+      <details><summary>How much does it cost?</summary><div class="ans">
+        <p>Pulsus Risk is priced for your institution, based on its size and who will use it.
+          <a href="/walkthrough/?app=Risk#ask">Talk to us about pricing</a>, or start a free trial first.</p></div></details>
+      <details><summary>Can we try it before we buy?</summary><div class="ans">
+        <p>Yes. The <a href="https://demo-risk.pulsus.tech">live demo</a> is open to anyone, with no sign-up. When you are
+          ready, <a href="https://risk.pulsus.tech/signup">start a free trial</a> with your own data.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ── Closing call to action ────────────────────────────────────────────── -->
+<section class="close-cta" aria-labelledby="close-h">
+  <div class="wrap">
+    <p class="kicker">See it working</p>
+    <h2 id="close-h">Know your position. <span class="r">Every month.</span></h2>
+    <p>Open the live demo now, or start a free trial with your own register. Prefer a conversation?
+      <a href="/walkthrough/?app=Risk">Book a walkthrough</a>.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://demo-risk.pulsus.tech">Try the live demo <span class="arw" aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost" href="https://risk.pulsus.tech/signup">Start free trial</a>
+    </div>
+    <p class="tagline">Live. <span class="r">Signal.</span> Clarity.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div>
+        <span class="wordmark"><span class="wm">PULS<span class="u">U</span>S</span><small>INTELLIGENCE SUITE</small></span>
+        <p>Pulsus is developed by Tumblehill Labs,<br>a product studio of Tumblehill Holdings LLC.</p>
+        <div class="socials" aria-label="Social links">
+          <a href="https://www.facebook.com/profile.php?id=61595043167041" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1Z"/></svg></a>
+          <a href="https://www.instagram.com/tumblehill.labs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.linkedin.com/company/tumblehillholdings/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.5 8H4v11h2.5V8ZM5.2 3.5A1.5 1.5 0 1 0 5.2 6.5 1.5 1.5 0 0 0 5.2 3.5ZM20 19h-2.5v-5.5c0-1.4-.9-2-1.7-2s-1.8.6-1.8 2V19H11.5V8H14v1.3c.4-.7 1.5-1.5 2.9-1.5 2 0 3.1 1.4 3.1 4V19Z"/></svg></a>
+        </div>
+      </div>
+      <nav class="sitemap" aria-label="Site links">
+        <div><b>Pulsus Platform</b><a href="/explore/">Explore</a><a href="/how-it-works/">How it works</a><a href="/products/">Products</a><a href="/demo/">Try the demo</a></div>
+        <div><b>Pulsus Risk</b><a href="https://demo-risk.pulsus.tech">Live demo</a><a href="https://risk.pulsus.tech/signup">Start free trial</a><a href="https://risk.pulsus.tech/login">Sign in</a><a href="/systems/quality/">Pulsus Quality</a></div>
+        <div><b>Company</b><a href="/#about">About</a><a href="/walkthrough/">Book a walkthrough</a></div>
+      </nav>
+    </div>
+    <div class="legal">© <span id="yr">2026</span> Tumblehill Holdings LLC. All rights reserved. Product screens show a fictional organisation’s demonstration data.</div>
+  </div>
+</footer>
+
+<script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+<script src="/assets/product.js" defer></script>
+</body>
+</html>

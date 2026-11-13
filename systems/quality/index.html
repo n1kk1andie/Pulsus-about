@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Pulsus Quality — Branch quality reviews, defects and corrective actions</title>
+<meta name="description" content="Pulsus Quality shows where quality stands in every branch and process: defect, resolution and recurring rates, an operational standard scorecard, and corrective actions verified to closure.">
+<link rel="canonical" href="https://about.pulsus.tech/systems/quality/">
+<meta name="theme-color" content="#f7f1e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16120f" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pulsus">
+<meta property="og:title" content="Pulsus Quality — Know where quality stands. Every day.">
+<meta property="og:description" content="Branch quality reviews, defect rates, an operational standard scorecard and corrective actions verified to closure, in one view.">
+<meta property="og:url" content="https://about.pulsus.tech/systems/quality/">
+<meta property="og:image" content="https://about.pulsus.tech/img/quality/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pulsus Quality: Know where quality stands. Every day. The Branch Defects dashboard on a laptop and a tablet.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pulsus Quality — Know where quality stands. Every day.">
+<meta name="twitter:description" content="Branch quality reviews, defect rates, an operational standard scorecard and corrective actions verified to closure, in one view.">
+<meta name="twitter:image" content="https://about.pulsus.tech/img/quality/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/sitemap.css">
+<link rel="stylesheet" href="/assets/product.css">
+<link rel="preload" as="image" href="/img/quality/pulse.webp" type="image/webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Pulsus Quality",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Quality assurance",
+  "operatingSystem": "Web browser",
+  "url": "https://about.pulsus.tech/systems/quality/",
+  "image": "https://about.pulsus.tech/img/quality/og.jpg",
+  "description": "Branch quality reviews for banks and credit unions: defect, resolution and recurring rates by branch and process area, an operational standard scorecard with audit grades, and a corrective-action register verified by a second supervisor.",
+  "featureList": ["Branch Defects: defect, resolution and recurring rates by branch, process area and month", "Operational Standard scorecard and audit grades", "Review workflow: submit, approve, publish", "Corrective-action register with independent verification and full history", "History heat-maps", "Branch watchlist and resolution gap insights", "Executive report", "CSV, Excel and PDF exports", "Workbook upload"],
+  "isPartOf": { "@type": "SoftwareApplication", "name": "Pulsus Platform", "url": "https://about.pulsus.tech/" },
+  "publisher": { "@type": "Organization", "name": "Tumblehill Holdings LLC", "url": "https://about.pulsus.tech/" }
+}
+</script>
+</head>
+<body class="prod p-quality">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="phdr">
+  <div class="wrap bar">
+    <a class="pmark" href="/">
+      <span class="wordmark"><span class="wm">PULS<span class="u">U</span>S</span><small>INTELLIGENCE SUITE</small></span>
+      <span class="div" aria-hidden="true"></span>
+      <span class="pn">Pulsus <span>Quality</span></span>
+    </a>
+    <nav class="pnav" aria-label="Pulsus Quality">
+      <a href="#product">Product</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#integrations">Integrations</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="hdr-cta">
+      <a class="signin" href="https://quality.pulsus.tech/login">Sign in</a>
+      <a class="btn btn-primary btn-sm" href="https://demo-quality.pulsus.tech"><span class="hs">Try the live demo</span><span class="ss">Live demo</span></a>
+    </div>
+    <details class="menu">
+      <summary aria-label="Menu">
+        <svg class="i-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="i-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </summary>
+      <nav class="sheet" aria-label="Pulsus Quality, menu">
+        <a href="#product">Product</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#integrations">Integrations</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <div class="row">
+          <a class="btn btn-ghost" href="https://quality.pulsus.tech/login">Sign in</a>
+          <a class="btn btn-primary" href="https://quality.pulsus.tech/signup">Start free trial</a>
+        </div>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+<section class="hero hero-c" aria-labelledby="hero-h">
+  <div class="wrap">
+    <div>
+      <p class="kicker"><b>Pulsus Quality</b> · Branch quality assurance</p>
+      <h1 id="hero-h">Know where quality stands. <span class="r">Every day.</span></h1>
+      <p class="lede">Pulsus Quality turns your branch quality reviews into one live picture: what was checked, what went wrong,
+        what has been fixed and what keeps coming back, branch by branch and process by process.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://demo-quality.pulsus.tech">Try the live demo <span class="arw" aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="https://quality.pulsus.tech/signup">Start free trial</a>
+      </div>
+      <p class="fine">The demo is the real product with a fictional organisation’s data. No sign-up.</p>
+      <p class="tagline">Live. <span class="r">Signal.</span> Clarity.</p>
+    </div>
+    <div class="devices rv">
+      <div class="laptop">
+        <div class="lid">
+          <picture>
+            <source srcset="/img/quality/pulse.webp" type="image/webp">
+            <img src="/img/quality/pulse.jpg" width="1440" height="900" fetchpriority="high"
+                 alt="The Pulsus Quality Branch Defects dashboard: a 3.6% defect rate across all branches in 2026, 7,631 files reviewed, 5,290 defects found, 79.4% resolved and 13.5% recurring, with a monthly trend.">
+          </picture>
+        </div>
+        <div class="base" aria-hidden="true"></div>
+      </div>
+      <div class="phone">
+        <picture>
+          <source srcset="/img/quality/phone-pulse.webp" type="image/webp">
+          <img src="/img/quality/phone-pulse.jpg" width="520" height="928" alt="The same Branch Defects dashboard on a phone.">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-label="What Pulsus Quality covers">
+  <ul>
+    <li>Branch defects</li><li>Resolution rates</li><li>Recurring issues</li><li>Operational standard</li><li>Audit grades</li><li>Corrective actions</li><li>Supervisor sign-off</li><li>Executive report</li>
+    <li aria-hidden="true">Branch defects</li><li aria-hidden="true">Resolution rates</li><li aria-hidden="true">Recurring issues</li><li aria-hidden="true">Operational standard</li><li aria-hidden="true">Audit grades</li><li aria-hidden="true">Corrective actions</li><li aria-hidden="true">Supervisor sign-off</li><li aria-hidden="true">Executive report</li>
+  </ul>
+</div>
+
+<!-- ── Why ───────────────────────────────────────────────────────────────── -->
+<section class="sec" id="why" aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <p class="kicker">Why Pulsus Quality</p>
+      <h2 class="sec-h" id="why-h">What you don’t see <span class="r">becomes your risk.</span></h2>
+      <p class="sec-lede">Small defects, repeat mistakes and missed standards add up quietly: lost time, rework, higher costs
+        and customers who notice before you do.</p>
+    </div>
+    <div class="points">
+      <div class="point rv"><span class="n">01</span><h3>Findings stay in files</h3><p>Review results live in spreadsheets and emails, so nobody sees the whole network at once.</p></div>
+      <div class="point rv d1"><span class="n">02</span><h3>The same errors return</h3><p>A defect fixed in one month reappears the next, because nobody is watching the pattern.</p></div>
+      <div class="point rv d2"><span class="n">03</span><h3>Fixes are claimed, not proven</h3><p>“Done” is taken on trust. Without a second pair of eyes, closed issues quietly reopen.</p></div>
+      <div class="point rv d3"><span class="n">04</span><h3>Leadership gets a story</h3><p>Monthly packs arrive late and in different shapes, so the board hears anecdotes, not a trend.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── What's at stake ───────────────────────────────────────────────────── -->
+<section class="sec alt" id="stakes" aria-labelledby="stakes-h">
+  <div class="wrap split">
+    <div class="rv">
+      <p class="kicker">What’s at stake</p>
+      <h2 class="sec-h" id="stakes-h">Quality isn’t a department. <span class="r">It’s a discipline.</span></h2>
+      <p class="sec-lede">Every file a branch processes is a promise to a customer and a record an examiner may one day read.
+        Consistency across branches is what keeps both.</p>
+      <ul class="stakes">
+        <li><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M21.5 18.5c0-2.3-1.7-4-4-4"/></svg></span>
+          <div><b>Customer confidence</b><p>A name misspelled, a form unsigned or a transfer delayed is felt by a member long before it shows in a report.</p></div></li>
+        <li><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 20 5.5v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10v-6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>
+          <div><b>Audit and examination</b><p>Auditors and regulators expect to see that issues were found, fixed and checked, with a record of who did what.</p></div></li>
+        <li><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+          <div><b>Time and cost</b><p>Rework, follow-up calls and repeated corrections consume the hours your branches should spend serving members.</p></div></li>
+      </ul>
+    </div>
+    <div class="poster rv d1">
+      <picture>
+        <source srcset="/img/quality/poster-discipline.webp" type="image/webp">
+        <img src="/img/quality/poster-discipline.jpg" width="1000" height="910" loading="lazy" decoding="async"
+             alt="Pulsus Quality on a laptop and a phone at a desk in warm morning light, showing the branch defect rate, its monthly trend and a three-year defect history by branch.">
+      </picture>
+    </div>
+  </div>
+</section>
+
+<!-- ── Product ───────────────────────────────────────────────────────────── -->
+<section class="sec" id="product" aria-labelledby="product-h">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <p class="kicker">Product</p>
+      <h2 class="sec-h" id="product-h">Every process. Every measure. <span class="r">One view.</span></h2>
+      <p class="sec-lede">Two complementary views of branch quality, Branch Defects and Operational Standard, with the history,
+        insights, actions and reporting that turn them into decisions.</p>
+    </div>
+
+    <div class="show">
+      <div class="tabs" role="tablist" aria-label="Pulsus Quality views" aria-orientation="vertical">
+        <button class="tab" role="tab" id="t-def" aria-controls="p-def" aria-selected="true">
+          <span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></span>
+          <span><b>Branch Defects</b><small>Defect, resolution and recurring rates</small></span></button>
+        <button class="tab" role="tab" id="t-std" aria-controls="p-std" aria-selected="false" tabindex="-1">
+          <span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"/></svg></span>
+          <span><b>Operational Standard</b><small>A scored scorecard and audit grades</small></span></button>
+        <button class="tab" role="tab" id="t-his" aria-controls="p-his" aria-selected="false" tabindex="-1">
+          <span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16M15 4v16"/></svg></span>
+          <span><b>History</b><small>Heat-maps across years</small></span></button>
+        <button class="tab" role="tab" id="t-ins" aria-controls="p-ins" aria-selected="false" tabindex="-1">
+          <span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V16h8v-1.3A7 7 0 0 0 12 2z"/></svg></span>
+          <span><b>Insights</b><small>Watchlist and resolution gap</small></span></button>
+        <button class="tab" role="tab" id="t-act" aria-controls="p-act" aria-selected="false" tabindex="-1">
+          <span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="m8 12 2.5 2.5L16 9"/></svg></span>
+          <span><b>Actions</b><small>Corrective actions to closure</small></span></button>
+        <button class="tab" role="tab" id="t-rep" aria-controls="p-rep" aria-selected="false" tabindex="-1">
+          <span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>
+          <span><b>Executive report</b><small>Board-ready, with exports</small></span></button>
+      </div>
+
+      <div>
+        <div class="panel" role="tabpanel" id="p-def" aria-labelledby="t-def" tabindex="0">
+          <div class="ph"><span class="no">01 / 06</span><span class="demo-tag">Demonstration data</span></div>
+          <h3>Branch Defects</h3>
+          <p>The defect rate for every branch and process area, month by month, with the share of defects resolved and the
+            share that keep recurring. Filter by year, branch or process area and every figure follows.</p>
+          <div class="browser"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Pulsus Quality · Branch Defects</span></div>
+            <picture><source srcset="/img/quality/pulse.webp" type="image/webp"><img src="/img/quality/pulse.jpg" width="1440" height="900" loading="lazy" decoding="async"
+              alt="Branch Defects: defect rate 3.6%, files reviewed, defects found, defects resolved and recurring, with the 2026 monthly trend."></picture></div>
+          <ul class="ticks"><li><b>Defect rate</b>: defects found against every check performed.</li><li><b>Resolution rate</b>: how much of what was found has been fixed.</li><li><b>Recurring rate</b>: the problems that keep coming back.</li></ul>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-std" aria-labelledby="t-std" tabindex="0">
+          <div class="ph"><span class="no">02 / 06</span><span class="demo-tag">Demonstration data</span></div>
+          <h3>Operational Standard</h3>
+          <p>A scored scorecard for each branch, built from the standards you set, such as service-level and procedure
+            compliance, alongside the audit grade each branch earned month by month.</p>
+          <div class="browser"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Pulsus Quality · Operational Standard</span></div>
+            <picture><source srcset="/img/quality/opstd.webp" type="image/webp"><img src="/img/quality/opstd.jpg" width="1440" height="900" loading="lazy" decoding="async"
+              alt="Operational Standard: an overall score of 87.4, average scores for customer SLA, procurement, procedure compliance and complaints resolved, and the monthly score trend."></picture></div>
+          <ul class="ticks"><li><b>One score</b> per branch, tracked every month.</li><li><b>Audit grades</b> by month, across every branch.</li><li><b>Every standard</b> scored against your own target.</li></ul>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-his" aria-labelledby="t-his" tabindex="0">
+          <div class="ph"><span class="no">03 / 06</span><span class="demo-tag">Demonstration data</span></div>
+          <h3>History</h3>
+          <p>Years of reviews on one screen. Each cell is a branch in a month, coloured by result, so a branch that is
+            slipping stands out long before it reaches the board pack.</p>
+          <div class="browser"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Pulsus Quality · History</span></div>
+            <picture><source srcset="/img/quality/history.webp" type="image/webp"><img src="/img/quality/history.jpg" width="1440" height="900" loading="lazy" decoding="async"
+              alt="Defect rate history: a heat-map of six branches across every month of 2024, 2025 and 2026, with one branch turning red in 2026."></picture></div>
+          <ul class="ticks"><li><b>Defect, resolution and recurring</b> history, one switch apart.</li><li><b>Tap any cell</b> for that branch and month.</li><li><b>Every year</b> or one, side by side.</li></ul>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-ins" aria-labelledby="t-ins" tabindex="0">
+          <div class="ph"><span class="no">04 / 06</span><span class="demo-tag">Demonstration data</span></div>
+          <h3>Insights</h3>
+          <p>Pulsus Quality does the first read for you. A branch watchlist ranks where to focus, the resolution gap shows
+            what was found against what was actually fixed, and repeat defects are traced to the process behind them.</p>
+          <div class="browser"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Pulsus Quality · Insights</span></div>
+            <picture><source srcset="/img/quality/insights.webp" type="image/webp"><img src="/img/quality/insights.jpg" width="1440" height="900" loading="lazy" decoding="async"
+              alt="Insights: a branch watchlist ranked by combined defect rate, unresolved share and recurring, and a resolution gap list of defects found against defects still open."></picture></div>
+          <ul class="ticks"><li><b>Branch watchlist</b>: where to focus first.</li><li><b>Resolution gap</b>: found against fixed.</li><li><b>Systemic repeats</b>: the processes that recur.</li></ul>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-act" aria-labelledby="t-act" tabindex="0">
+          <div class="ph"><span class="no">05 / 06</span><span class="demo-tag">Demonstration data</span></div>
+          <h3>Actions</h3>
+          <p>A corrective-action register for every finding that needs fixing, with a priority, an owner and a due date.
+            The branch submits its fix with a note and evidence; a different supervisor verifies it before it closes.</p>
+          <div class="browser"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Pulsus Quality · Actions</span></div>
+            <picture><source srcset="/img/quality/actions.webp" type="image/webp"><img src="/img/quality/actions.jpg" width="1440" height="900" loading="lazy" decoding="async"
+              alt="The action register: four open actions, none overdue, one awaiting verification and two closed, with each action's branch, priority, owner, due date and status."></picture></div>
+          <ul class="ticks"><li><b>Overdue</b> actions flagged automatically.</li><li><b>Independent sign-off</b>: never the person who submitted.</li><li><b>Full history</b> of every step.</li></ul>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-rep" aria-labelledby="t-rep" tabindex="0">
+          <div class="ph"><span class="no">06 / 06</span><span class="demo-tag">Demonstration data</span></div>
+          <h3>Executive report</h3>
+          <p>A written summary for leadership, the key figures and the performance of every branch, ready to print or save
+            as a PDF. Download the underlying rows as CSV or Excel for any date range.</p>
+          <div class="browser"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>Pulsus Quality · Report</span></div>
+            <picture><source srcset="/img/quality/report.webp" type="image/webp"><img src="/img/quality/report.jpg" width="1440" height="900" loading="lazy" decoding="async"
+              alt="The Branch Defects Report for October 2026: an executive summary, key figures, a defect rate trend and a table of performance by branch."></picture></div>
+          <ul class="ticks"><li><b>Executive summary</b> in plain words.</li><li><b>CSV, Excel and PDF</b> downloads.</li><li><b>Any scope</b>: one branch, one process, or all.</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── See it in action ──────────────────────────────────────────────────── -->
+<section class="sec alt" id="action" aria-labelledby="action-h">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <p class="kicker">See it in action</p>
+      <h2 class="sec-h" id="action-h">Finding the issue is <span class="r">only the beginning.</span></h2>
+      <p class="sec-lede">Every review follows the same path, from the branch file to a verified fix. Nothing counts until a
+        supervisor approves it, and nothing closes until someone else has checked it.</p>
+    </div>
+    <ol class="flow">
+      <li class="rv"><b>Review</b><p>A reviewer samples files in a branch and checks each against your checklist.</p></li>
+      <li class="rv d1"><b>Submit</b><p>The completed review goes to a supervisor, with any supporting evidence attached.</p></li>
+      <li class="rv d2"><b>Approve &amp; publish</b><p>Once approved, the results flow into every dashboard and report at once.</p></li>
+      <li class="rv"><b>Raise an action</b><p>A supervisor raises a corrective action with an owner, priority and due date.</p></li>
+      <li class="rv d1"><b>Fix &amp; evidence</b><p>The branch records what it did and attaches the proof.</p></li>
+      <li class="rv d2 key"><b>Verify &amp; close</b><p>A different supervisor verifies the fix, or sends it back with a note.</p></li>
+    </ol>
+    <div class="action-show rv">
+      <div class="devices">
+        <div class="laptop">
+          <div class="lid">
+            <picture><source srcset="/img/quality/actions.webp" type="image/webp"><img src="/img/quality/actions.jpg" width="1440" height="900" loading="lazy" decoding="async"
+              alt="The Pulsus Quality action register on a laptop, with open, overdue, awaiting verification and closed counts."></picture>
+          </div>
+          <div class="base" aria-hidden="true"></div>
+        </div>
+        <div class="phone">
+          <picture><source srcset="/img/quality/phone-actions.webp" type="image/webp"><img src="/img/quality/phone-actions.jpg" width="520" height="928" loading="lazy" decoding="async"
+            alt="The action register on a phone."></picture>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Solutions ─────────────────────────────────────────────────────────── -->
+<section class="sec" id="solutions" aria-labelledby="sol-h">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <p class="kicker">Solutions</p>
+      <h2 class="sec-h" id="sol-h">Built for the people who <span class="r">answer for quality.</span></h2>
+      <p class="sec-lede">Everyone sees the same figures. Each role sees what it needs to act on.</p>
+    </div>
+    <div class="who">
+      <div class="card rv"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+        <h3>Quality reviewers</h3><p>Key reviews against the checklist, attach evidence, and see their branch’s actions.</p>
+        <div class="qwrap"><q>Which checks failed most this month?</q></div></div>
+      <div class="card rv d1"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 20 5.5v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10v-6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>
+        <h3>Supervisors</h3><p>Approve reviews, raise corrective actions and verify fixes before they close.</p>
+        <div class="qwrap"><q>What is waiting for my sign-off?</q></div></div>
+      <div class="card rv d2"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M10 21v-6h4v6"/></svg></span>
+        <h3>Branch &amp; operations leaders</h3><p>Compare branches, spot the one slipping, and follow every action through.</p>
+        <div class="qwrap"><q>Which branch needs a visit first?</q></div></div>
+      <div class="card rv d3"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"/></svg></span>
+        <h3>Executives &amp; the board</h3><p>One honest trend for the whole network, and a report ready for the meeting.</p>
+        <div class="qwrap"><q>Is quality getting better, and where is it not?</q></div></div>
+    </div>
+    <div class="chips rv"><b>Built in banking.</b> Suited to any organisation that reviews work across many locations:
+      <span>Banks</span><span>Credit unions</span><span>Building societies</span><span>Insurers</span><span>Retail networks</span><span>Service centres</span></div>
+  </div>
+</section>
+
+<!-- ── Integrations ──────────────────────────────────────────────────────── -->
+<section class="sec alt" id="integrations" aria-labelledby="int-h">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <p class="kicker">Integrations</p>
+      <h2 class="sec-h" id="int-h">Works with the spreadsheets <span class="r">you already keep.</span></h2>
+      <p class="sec-lede">Start from the workbook your team maintains today. Nothing to replace on day one.</p>
+    </div>
+    <div class="ints">
+      <div class="int rv"><span class="ii" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3-3 3 3"/></svg></span>
+        <div><h3>Excel workbook upload <span class="st now">Available</span></h3><p>Upload your existing defects or operational standard workbook. Pulsus reads it, checks it and builds the history.</p></div></div>
+      <div class="int rv d1"><span class="ii" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
+        <div><h3>Reviews from Excel <span class="st now">Available</span></h3><p>Download a review template, complete it offline, and upload it as a review for approval.</p></div></div>
+      <div class="int rv d2"><span class="ii" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg></span>
+        <div><h3>CSV, Excel and PDF <span class="st now">Available</span></h3><p>Export any scope and date range for your own analysis, your board pack or your auditors.</p></div></div>
+      <div class="int rv"><span class="ii" aria-hidden="true"><svg viewBox="0 0 21 21" aria-hidden="true"><rect x="1" y="1" width="9" height="9" fill="#F25022"/><rect x="11" y="1" width="9" height="9" fill="#7FBA00"/><rect x="1" y="11" width="9" height="9" fill="#00A4EF"/><rect x="11" y="11" width="9" height="9" fill="#FFB900"/></svg></span>
+        <div><h3>Microsoft sign-in <span class="st cfg">On request</span></h3><p>Staff can sign in with their Microsoft work account once your IT team connects your Microsoft Entra ID.</p></div></div>
+      <div class="int rv d1"><span class="ii" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></span>
+        <div><h3>Pulsus Platform <span class="st now">Available</span></h3><p>One sign-in across the Pulsus suite, and your quality readings in the executive view.</p></div></div>
+      <div class="int rv d2"><span class="ii" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></span>
+        <div><h3>API and system connectors <span class="st soon">Coming</span></h3><p>Direct feeds from core banking and workflow systems are on the roadmap. Today, data arrives by workbook or in-app review.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Compliance ────────────────────────────────────────────────────────── -->
+<section class="sec" id="assurance" aria-labelledby="as-h">
+  <div class="wrap split">
+    <div class="rv">
+      <p class="kicker">Compliance</p>
+      <h2 class="sec-h" id="as-h">From operational evidence <span class="r">to executive insight.</span></h2>
+      <p class="sec-lede">The controls your auditors look for are built into how the work is done, not added afterwards.</p>
+      <p class="statement">Make quality measurable. <span class="r">Make improvement continuous.</span></p>
+    </div>
+    <div class="assure">
+      <div class="as-item rv"><span class="tag">2×</span><div><h3>Maker and checker</h3><p>Reviews count only once a supervisor approves them, and a corrective action closes only when a different supervisor verifies it.</p></div></div>
+      <div class="as-item rv d1"><span class="tag">LOG</span><div><h3>A full history</h3><p>Every action keeps its trail: raised, started, submitted, returned, verified or reopened, with who and when.</p></div></div>
+      <div class="as-item rv d2"><span class="tag">YOU</span><div><h3>Your standards, not ours</h3><p>Each organisation sets its own branches, process areas, checklists and severities, so scores follow your policies.</p></div></div>
+      <p class="note rv">Pulsus Quality supports your quality and compliance work. It does not certify compliance with any regulation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Platform ──────────────────────────────────────────────────────────── -->
+<section class="sec alt" id="platform" aria-labelledby="pl-h">
+  <div class="wrap split">
+    <div class="rv">
+      <p class="kicker">Part of Pulsus Platform</p>
+      <h2 class="sec-h" id="pl-h">Quality, <span class="r">in the whole picture.</span></h2>
+      <p class="sec-lede">Pulsus Quality is one of the applications behind Pulsus Platform, the executive view of your
+        organisation’s health. Its readings feed the Quality and Compliance drivers, beside risk, operations, technology and
+        people, so a slipping branch shows up where leadership is already looking.</p>
+      <ul class="readings">
+        <li>The defect rate for the latest month with published reviews</li>
+        <li>Items reviewed and defects found that month</li>
+      </ul>
+      <p style="margin-top:22px"><a class="tlink" href="/demo/">See it in the Pulsus Platform demo <span class="arw" aria-hidden="true">→</span></a></p>
+    </div>
+    <div class="stack rv d1" role="img" aria-label="Pulsus Quality feeds the Quality and Compliance drivers, which add up to Operational Health in Pulsus Platform.">
+      <div class="lvl"><b>Pulsus Quality</b><small>Defect rate · items reviewed · defects found</small></div>
+      <div class="arr" aria-hidden="true">↓</div>
+      <div class="drivers"><span class="on">Quality</span><span class="on">Compliance</span><span>Risk</span><span>Operations</span><span>Technology</span><span>People</span><span>Strategy</span></div>
+      <div class="arr" aria-hidden="true">↓</div>
+      <div class="lvl top"><b>Operational Health</b><small>Pulsus Platform · every driver read together</small></div>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:clamp(48px,6vw,80px)">
+    <div class="next rv" id="next" aria-labelledby="next-h" role="region">
+      <p class="kicker">What’s coming</p>
+      <h3 id="next-h">Quality reviews, from the branch floor up.</h3>
+      <p>We are building the next generation of Pulsus Quality. These are in development and not yet available.</p>
+      <ul>
+        <li><span class="soonlbl">Coming</span><b>Mobile inspections</b><span>Carry out a review on a phone or tablet, in the branch, as you walk the floor.</span></li>
+        <li><span class="soonlbl">Coming</span><b>Photo evidence</b><span>Attach photos to a check at the moment a defect is found.</span></li>
+        <li><span class="soonlbl">Coming</span><b>Scheduling</b><span>Plan reviews across the network and see what is due, and where.</span></li>
+        <li><span class="soonlbl">Coming</span><b>League tables</b><span>Rank branches side by side, so good practice is easy to find and share.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Pricing ───────────────────────────────────────────────────────────── -->
+<section class="sec" id="pricing" aria-labelledby="pr-h">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <p class="kicker">Pricing</p>
+      <h2 class="sec-h" id="pr-h">Talk to us <span class="r">about pricing.</span></h2>
+      <p class="sec-lede">Tell us how many branches you review and who will use it, and we’ll come back with a price for your
+        institution. Or start a free trial and see it with your own data first.</p>
+    </div>
+    <div class="price">
+      <div class="pcard rv">
+        <p class="kicker">Pulsus Quality</p>
+        <p class="big">Priced for your institution.</p>
+        <p>Pulsus Quality is priced on its own, for the size of your network and the people who will use it.</p>
+        <ul>
+          <li>Branch Defects and Operational Standard</li>
+          <li>Review workflow, actions register and executive report</li>
+          <li>CSV, Excel and PDF exports, and workbook upload</li>
+          <li>Readings in Pulsus Platform’s Operational Health</li>
+        </ul>
+        <div class="cta">
+          <a class="btn btn-primary" href="/walkthrough/?app=Quality#ask">Talk to us about pricing <span class="arw" aria-hidden="true">→</span></a>
+          <a class="tlink" href="https://quality.pulsus.tech/signup">Start free trial <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="pcard dark rv d1">
+        <p class="kicker">How to start</p>
+        <h3>See it first. Decide after.</h3>
+        <p>There is no project to start and nothing to install.</p>
+        <ol class="steps">
+          <li><b>Open the live demo</b>Explore a fictional institution’s branches, reviews and actions. No sign-up.</li>
+          <li><b>Start a free trial</b>Set up your branches, process areas and checklists, or upload the workbook you keep.</li>
+          <li><b>Talk to us</b>We’ll walk your team through it and agree a price that fits.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ───────────────────────────────────────────────────────────────── -->
+<section class="sec alt" id="faq" aria-labelledby="faq-h">
+  <div class="wrap faq">
+    <div class="sec-top">
+      <p class="kicker">FAQ</p>
+      <h2 class="sec-h" id="faq-h">Frequently asked <span class="r">questions.</span></h2>
+      <p class="sec-lede">Something else on your mind? <a href="/walkthrough/?app=Quality">Ask us directly.</a></p>
+    </div>
+    <div class="qa">
+      <details><summary>What does Pulsus Quality do?</summary><div class="ans">
+        <p>It brings your branch quality reviews into one place. You see the defect, resolution and recurring rates for every
+          branch and process area, a scored operational standard with audit grades, and a register of corrective actions
+          followed through to a verified close.</p></div></details>
+      <details><summary>Who uses it?</summary><div class="ans">
+        <p>Quality reviewers key reviews and see their branch’s actions. Supervisors approve reviews, raise actions and
+          verify fixes. Branch and operations leaders compare branches. Executives and the board read the trend and the
+          report. Each role sees what it is allowed to see; officers see only their own branch’s actions.</p></div></details>
+      <details><summary>Is our data secure?</summary><div class="ans">
+        <p>Each organisation’s data is kept in its own private storage area, and no request made for one organisation can
+          read another’s. Files are stored privately, sign-in sessions are signed and checked on the server, and passwords
+          are stored hashed, never in plain text.</p>
+        <p>We are happy to take your information-security team through the detail.</p></div></details>
+      <details><summary>Where is our data stored?</summary><div class="ans">
+        <p>Pulsus Quality is a cloud service, with each organisation’s data held in its own private storage area. If your
+          regulator or policy requires data to stay in a particular country or region, talk to us before you start and we
+          will confirm where your data will be held.</p></div></details>
+      <details><summary>How does our data get in?</summary><div class="ans">
+        <p>Two ways today. Reviewers can key reviews in the app, or complete a review template in Excel and upload it. You
+          can also upload the defects or operational standard workbook you already keep, and Pulsus builds the history from
+          it. Direct connections to other systems are coming.</p></div></details>
+      <details><summary>What is coming next?</summary><div class="ans">
+        <p>Mobile inspections on a phone or tablet with photo evidence, review scheduling across the network, and branch
+          league tables. They are in development and not yet available; the live demo shows the product as it is today.</p></div></details>
+      <details><summary>How long does it take to set up?</summary><div class="ans">
+        <p>There is no implementation project. An administrator sets up your branches, process areas, checklists and
+          severities in the app, starting from a sample checklist if you like, or uploads your workbook. Most of the work is
+          deciding what you want to check.</p></div></details>
+      <details><summary>Will it satisfy our regulators and auditors?</summary><div class="ans">
+        <p>It gives them what they usually ask for: evidence that issues were found, owned, fixed and independently checked,
+          with a history of every step. Pulsus Quality supports your compliance work; it does not certify compliance with any
+          regulation.</p></div></details>
+      <details><summary>Does it work with the rest of Pulsus?</summary><div class="ans">
+        <p>Yes. Pulsus Quality feeds Pulsus Platform’s Quality and Compliance drivers, so its readings appear in your
+          organisation’s Operational Health beside the other applications you run. It also works on its own.</p></div></details>
+      <details><summary>How much does it cost?</summary><div class="ans">
+        <p>Pulsus Quality is priced for your institution, based on the size of your network and who will use it.
+          <a href="/walkthrough/?app=Quality#ask">Talk to us about pricing</a>, or start a free trial first.</p></div></details>
+      <details><summary>Can we try it before we buy?</summary><div class="ans">
+        <p>Yes. The <a href="https://demo-quality.pulsus.tech">live demo</a> is open to anyone, with no sign-up. When you are
+          ready, <a href="https://quality.pulsus.tech/signup">start a free trial</a> with your own branches and data.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ── Closing call to action ────────────────────────────────────────────── -->
+<section class="close-cta" aria-labelledby="close-h">
+  <div class="wrap">
+    <p class="kicker">See it working</p>
+    <h2 id="close-h">Turn findings <span class="r">into action.</span></h2>
+    <p>Open the live demo now, or start a free trial with your own branches. Prefer a conversation?
+      <a href="/walkthrough/?app=Quality">Book a walkthrough</a>.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://demo-quality.pulsus.tech">Try the live demo <span class="arw" aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost" href="https://quality.pulsus.tech/signup">Start free trial</a>
+    </div>
+    <p class="tagline">Live. <span class="r">Signal.</span> Clarity.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div>
+        <span class="wordmark"><span class="wm">PULS<span class="u">U</span>S</span><small>INTELLIGENCE SUITE</small></span>
+        <p>Pulsus is developed by Tumblehill Labs,<br>a product studio of Tumblehill Holdings LLC.</p>
+        <div class="socials" aria-label="Social links">
+          <a href="https://www.facebook.com/profile.php?id=61595043167041" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1Z"/></svg></a>
+          <a href="https://www.instagram.com/tumblehill.labs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.linkedin.com/company/tumblehillholdings/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.5 8H4v11h2.5V8ZM5.2 3.5A1.5 1.5 0 1 0 5.2 6.5 1.5 1.5 0 0 0 5.2 3.5ZM20 19h-2.5v-5.5c0-1.4-.9-2-1.7-2s-1.8.6-1.8 2V19H11.5V8H14v1.3c.4-.7 1.5-1.5 2.9-1.5 2 0 3.1 1.4 3.1 4V19Z"/></svg></a>
+        </div>
+      </div>
+      <nav class="sitemap" aria-label="Site links">
+        <div><b>Pulsus Platform</b><a href="/explore/">Explore</a><a href="/how-it-works/">How it works</a><a href="/products/">Products</a><a href="/demo/">Try the demo</a></div>
+        <div><b>Pulsus Quality</b><a href="https://demo-quality.pulsus.tech">Live demo</a><a href="https://quality.pulsus.tech/signup">Start free trial</a><a href="https://quality.pulsus.tech/login">Sign in</a><a href="/systems/risk/">Pulsus Risk</a></div>
+        <div><b>Company</b><a href="/#about">About</a><a href="/walkthrough/">Book a walkthrough</a></div>
+      </nav>
+    </div>
+    <div class="legal">© <span id="yr">2026</span> Tumblehill Holdings LLC. All rights reserved. Product screens show a fictional organisation’s demonstration data.</div>
+  </div>
+</footer>
+
+<script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+<script src="/assets/product.js" defer></script>
+</body>
+</html>
