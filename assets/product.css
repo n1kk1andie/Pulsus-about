@@ -2,28 +2,16 @@
    Pulsus product pages — /systems/quality and /systems/risk
    Builds on site.css (fonts, wordmark, buttons, footer, sitemap).
 
-   One layout, two art directions. Everything that differs between the products
-   is a token on the <body> class:
-     .p-quality  warm cream and beige paper, deep navy ink, Pulsus red — the
-                 look of the owner's Quality posters.
-     .p-risk     a calm control room: deep navy panels, cool slate paper, the
-                 red kept for signal only.
-   Both follow the reader's light/dark preference.
+   One layout and one look for both products: the Pulsus family look shared
+   with the other product pages and the apps. Cool paper, a deep navy hero and
+   navy feature "rooms", the red kept for signal. Both follow the reader's
+   light/dark preference. .p-risk and .p-quality carry the same tokens.
 
    Contrast: --red (#e4012b) is used only for large type and fills. Small red
    text uses --red-text, which passes 4.5:1 on every background it sits on.
    ───────────────────────────────────────────────────────────────────────────── */
 
-.p-quality{
-  --bg:#f7f1e8; --bg-alt:#efe5d7; --bg-deep:#e8dccb; --surface:#fffdf9; --surface-2:#fbf6ef;
-  --ink:#0d1b33; --ink-2:#4f4740; --ink-3:#6b625a; --line:#e3d6c4; --line-2:#d8c8b2;
-  --red-text:#b5001f; --badge:#fff; --badge-ring:#f1e4d3; --shadow:30,20,10;
-  --hdr:rgba(247,241,232,.86); --hdr-line:rgba(13,27,51,.08);
-  --band:#0d1b33; --band-ink:#f7f1e8; --band-ink-2:#c9c0b4;
-  --dev:#141821; --dev-line:#2b3140; --glow:rgba(228,1,43,.10);
-  color-scheme:light;
-}
-.p-risk{
+.p-risk,.p-quality{
   --bg:#f2f4f8; --bg-alt:#e8ecf3; --bg-deep:#dde3ec; --surface:#fff; --surface-2:#f7f9fc;
   --ink:#0a1830; --ink-2:#44526a; --ink-3:#5d6a80; --line:#dbe1ea; --line-2:#c9d2df;
   --red-text:#b5001f; --badge:#fff; --badge-ring:#e2e8f1; --shadow:6,16,34;
@@ -33,16 +21,7 @@
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
-  .p-quality{
-    --bg:#16120f; --bg-alt:#1d1814; --bg-deep:#241e19; --surface:#211b16; --surface-2:#2a231d;
-    --ink:#f6efe5; --ink-2:#cfc4b6; --ink-3:#b3a796; --line:#3a3129; --line-2:#4a3f35;
-    --red-text:#ff6b80; --badge:#2a231d; --badge-ring:#3a3129; --shadow:0,0,0;
-    --hdr:rgba(22,18,15,.86); --hdr-line:rgba(255,255,255,.07);
-    --band:#0d1b33; --band-ink:#f7f1e8; --band-ink-2:#c9c0b4;
-    --dev:#0c0e13; --dev-line:#2b3140; --glow:rgba(228,1,43,.14);
-    color-scheme:dark;
-  }
-  .p-risk{
+  .p-risk,.p-quality{
     --bg:#050f20; --bg-alt:#081631; --bg-deep:#0b1c3b; --surface:#0c1a33; --surface-2:#10213f;
     --ink:#eef3fa; --ink-2:#b4c2d6; --ink-3:#97a7be; --line:#1d2e4b; --line-2:#2a3d5e;
     --red-text:#ff6b80; --badge:#10213f; --badge-ring:#1d2e4b; --shadow:0,0,0;
@@ -87,13 +66,13 @@ body.prod{background:var(--bg);color:var(--ink);overflow-x:hidden}
 .pmark .div{width:1px;height:28px;background:currentColor;opacity:.18}
 .pmark .pn{font:700 15.5px/1.1 var(--sora);letter-spacing:-.01em;white-space:nowrap}
 .pmark .pn span{color:var(--red-text)}
-.p-risk .pmark .pn span{color:#ff5a72}
-.p-risk .phdr .pmark,.p-risk .phdr .pnav a,.p-risk .phdr .signin{color:#eef3fa}
+.p-risk .pmark .pn span,.p-quality .pmark .pn span{color:#ff5a72}
+.p-risk .phdr .pmark,.p-quality .phdr .pmark,.p-risk .phdr .pnav a,.p-quality .phdr .pnav a,.p-risk .phdr .signin,.p-quality .phdr .signin{color:#eef3fa}
 .pnav{display:flex;gap:4px;margin-left:auto}
 .pnav a{font:500 14.5px var(--plex);color:var(--ink-2);text-decoration:none;padding:8px 12px;border-radius:8px}
 .pnav a:hover{color:var(--ink);background:rgba(127,127,127,.1)}
-.p-risk .pnav a{color:#c3d0e2}
-.p-risk .pnav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.p-risk .pnav a,.p-quality .pnav a{color:#c3d0e2}
+.p-risk .pnav a:hover,.p-quality .pnav a:hover{color:#fff;background:rgba(255,255,255,.08)}
 .hdr-cta{display:flex;align-items:center;gap:8px}
 .signin{font:600 14.5px var(--plex);text-decoration:none;color:var(--ink);padding:8px 12px;border-radius:8px}
 .signin:hover{background:rgba(127,127,127,.12)}
@@ -102,14 +81,14 @@ body.prod{background:var(--bg);color:var(--ink);overflow-x:hidden}
 .prod .btn-primary{box-shadow:0 10px 24px -10px rgba(228,1,43,.6)}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
 .btn-ghost:hover{border-color:var(--ink)}
-.on-dark .btn-ghost,.p-risk .hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.35)}
-.on-dark .btn-ghost:hover,.p-risk .hero .btn-ghost:hover{border-color:#fff}
+.on-dark .btn-ghost,.p-risk .hero .btn-ghost,.p-quality .hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.35)}
+.on-dark .btn-ghost:hover,.p-risk .hero .btn-ghost:hover,.p-quality .hero .btn-ghost:hover{border-color:#fff}
 
 /* Phone menu: a disclosure, so it works with no script at all. */
 .menu{display:none;margin-left:auto}
 .menu summary{list-style:none;cursor:pointer;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
   color:var(--ink);border:1px solid var(--line-2)}
-.p-risk .menu summary{color:#fff;border-color:rgba(255,255,255,.25)}
+.p-risk .menu summary,.p-quality .menu summary{color:#fff;border-color:rgba(255,255,255,.25)}
 .menu summary::-webkit-details-marker{display:none}
 .menu .sheet{position:absolute;left:0;right:0;top:72px;background:var(--surface);border-bottom:1px solid var(--line);
   padding:10px 20px 22px;box-shadow:0 30px 40px -20px rgba(var(--shadow),.35)}
@@ -204,7 +183,7 @@ body.prod{background:var(--bg);color:var(--ink);overflow-x:hidden}
 .poster{border-radius:22px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(var(--shadow),.55);background:var(--bg-deep)}
 .poster img{width:100%;height:auto}
 
-/* Round, soft icon badges (the posters' language). */
+/* Round, soft icon badges. */
 .badge{width:56px;height:56px;border-radius:50%;background:var(--badge);display:grid;place-items:center;color:var(--red);flex:none;
   box-shadow:0 0 0 6px var(--badge-ring),0 12px 24px -12px rgba(var(--shadow),.35)}
 .badge svg{width:24px;height:24px}
@@ -421,66 +400,49 @@ body.prod{background:var(--bg);color:var(--ink);overflow-x:hidden}
 }
 
 /* ═════════════════════════════════════════════════════════════════════════
-   Quality — warm paper
+   The Pulsus family look, shared by Risk and Quality: navy hero and rooms
    ═════════════════════════════════════════════════════════════════════════ */
-.p-quality .hero{background:
-  radial-gradient(60% 70% at 85% 30%,rgba(255,255,255,.75),transparent 70%),
-  radial-gradient(40% 50% at 10% 100%,var(--glow),transparent 70%),
-  linear-gradient(180deg,var(--bg) 0%,var(--bg-alt) 100%)}
-@media(prefers-color-scheme:dark){ .p-quality .hero{background:
-  radial-gradient(60% 70% at 85% 30%,rgba(255,220,180,.06),transparent 70%),
-  radial-gradient(40% 50% at 10% 100%,var(--glow),transparent 70%),
-  linear-gradient(180deg,var(--bg) 0%,var(--bg-alt) 100%)} }
-/* A soft band of window light across the hero, as in the posters. */
-.p-quality .hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:70%;height:140%;pointer-events:none;
-  background:repeating-linear-gradient(115deg,rgba(255,255,255,0) 0 70px,rgba(255,255,255,.22) 70px 120px);
-  mask-image:radial-gradient(60% 60% at 70% 40%,#000,transparent 75%);-webkit-mask-image:radial-gradient(60% 60% at 70% 40%,#000,transparent 75%)}
-@media(prefers-color-scheme:dark){ .p-quality .hero::before{opacity:.12} }
-
-/* ═════════════════════════════════════════════════════════════════════════
-   Risk — the control room
-   ═════════════════════════════════════════════════════════════════════════ */
-.p-risk .phdr{border-bottom-color:rgba(255,255,255,.08)}
-.p-risk .hero,.p-risk .room{background:
+.p-risk .phdr,.p-quality .phdr{border-bottom-color:rgba(255,255,255,.08)}
+.p-risk .hero,.p-quality .hero,.p-risk .room,.p-quality .room{background:
   radial-gradient(70% 80% at 80% 0%,rgba(40,90,160,.32),transparent 60%),
   radial-gradient(50% 60% at 0% 100%,rgba(228,1,43,.14),transparent 70%),
   linear-gradient(180deg,#06142a 0%,#040d1d 100%);color:#eef3fa}
 /* The control-room grid: fine lines that fade toward the edges. */
-.p-risk .hero::before,.p-risk .room::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;
+.p-risk .hero::before,.p-quality .hero::before,.p-risk .room::before,.p-quality .room::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;
   background-image:linear-gradient(rgba(140,170,215,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(140,170,215,.08) 1px,transparent 1px);
   background-size:48px 48px;mask-image:radial-gradient(80% 70% at 60% 40%,#000,transparent 80%);
   -webkit-mask-image:radial-gradient(80% 70% at 60% 40%,#000,transparent 80%)}
-.p-risk .hero h1,.p-risk .room h2,.p-risk .room h3{color:#fff}
-.p-risk .hero h1 .r,.p-risk .room .sec-h .r{color:#ff2d4b}
-.p-risk .hero .lede,.p-risk .room .sec-lede,.p-risk .room p{color:#b6c4d8}
-.p-risk .hero .fine{color:#8fa2bc}
-.p-risk .hero .kicker,.p-risk .room .kicker{color:#ff8396}
-.p-risk .hero .kicker b{color:#fff}
-.p-risk .hero .tagline{color:#fff}
-.p-risk .hero .tagline .r{color:#ff6b80}
-.p-risk .hero .laptop .lid img,.p-risk .hero .phone img{background:#f5f1ec}
-.p-risk .hero .devices::after{content:"";position:absolute;inset:auto 10% -40px 10%;height:80px;background:radial-gradient(closest-side,rgba(80,140,230,.35),transparent);filter:blur(10px);z-index:-1}
+.p-risk .hero h1,.p-quality .hero h1,.p-risk .room h2,.p-quality .room h2,.p-risk .room h3,.p-quality .room h3{color:#fff}
+.p-risk .hero h1 .r,.p-quality .hero h1 .r,.p-risk .room .sec-h .r,.p-quality .room .sec-h .r{color:#ff2d4b}
+.p-risk .hero .lede,.p-quality .hero .lede,.p-risk .room .sec-lede,.p-quality .room .sec-lede,.p-risk .room p,.p-quality .room p{color:#b6c4d8}
+.p-risk .hero .fine,.p-quality .hero .fine{color:#8fa2bc}
+.p-risk .hero .kicker,.p-quality .hero .kicker,.p-risk .room .kicker,.p-quality .room .kicker{color:#ff8396}
+.p-risk .hero .kicker b,.p-quality .hero .kicker b{color:#fff}
+.p-risk .hero .tagline,.p-quality .hero .tagline{color:#fff}
+.p-risk .hero .tagline .r,.p-quality .hero .tagline .r{color:#ff6b80}
+.p-risk .hero .laptop .lid img,.p-quality .hero .laptop .lid img,.p-risk .hero .phone img,.p-quality .hero .phone img{background:#f5f1ec}
+.p-risk .hero .devices::after,.p-quality .hero .devices::after{content:"";position:absolute;inset:auto 10% -40px 10%;height:80px;background:radial-gradient(closest-side,rgba(80,140,230,.35),transparent);filter:blur(10px);z-index:-1}
 .signal-svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:110px;pointer-events:none;opacity:.5}
 @media(max-width:980px){ .signal-svg{opacity:.3} }
-.p-risk .room .card,.p-risk .room .panel,.p-risk .room .tab[aria-selected=true]{background:#0c1a33;border-color:#1d2e4b}
-.p-risk .room .tab{color:#eef3fa}
-.p-risk .room .tab small{color:#97a7be}
-.p-risk .room .tab:hover{background:rgba(255,255,255,.04)}
-.p-risk .room .tab .ti{background:#10213f;border-color:#1d2e4b}
-.p-risk .room .tab[aria-selected=true] .ti{background:var(--red);border-color:var(--red)}
-.p-risk .room .panel .no{color:#97a7be}
-.p-risk .room .ticks li{color:#b6c4d8}.p-risk .room .ticks li b{color:#fff}
-.p-risk .room .browser{border-color:#1d2e4b;background:#0c1a33}
-.p-risk .room .browser .chrome{background:#10213f;border-color:#1d2e4b}
-.p-risk .room .browser .chrome i{background:#2a3d5e}
-.p-risk .room .browser .chrome span{background:#081631;color:#97a7be}
-.p-risk .room .demo-tag{color:#a9b8cc;border-color:#2a3d5e}
-.p-risk .room .card q{color:#eef3fa;border-color:#1d2e4b}
-.p-risk .room .badge{background:#10213f;box-shadow:0 0 0 5px #0f203d}
-.p-risk .room .chips span{background:#0c1a33;border-color:#1d2e4b;color:#b6c4d8}
-.p-risk .room .chips b{color:#fff}
-.p-risk .room{position:relative;overflow:hidden}
-.p-risk .room>.wrap{position:relative;z-index:1}
+.p-risk .room .card,.p-quality .room .card,.p-risk .room .panel,.p-quality .room .panel,.p-risk .room .tab[aria-selected=true],.p-quality .room .tab[aria-selected=true]{background:#0c1a33;border-color:#1d2e4b}
+.p-risk .room .tab,.p-quality .room .tab{color:#eef3fa}
+.p-risk .room .tab small,.p-quality .room .tab small{color:#97a7be}
+.p-risk .room .tab:hover,.p-quality .room .tab:hover{background:rgba(255,255,255,.04)}
+.p-risk .room .tab .ti,.p-quality .room .tab .ti{background:#10213f;border-color:#1d2e4b}
+.p-risk .room .tab[aria-selected=true] .ti,.p-quality .room .tab[aria-selected=true] .ti{background:var(--red);border-color:var(--red)}
+.p-risk .room .panel .no,.p-quality .room .panel .no{color:#97a7be}
+.p-risk .room .ticks li,.p-quality .room .ticks li{color:#b6c4d8}.p-risk .room .ticks li b,.p-quality .room .ticks li b{color:#fff}
+.p-risk .room .browser,.p-quality .room .browser{border-color:#1d2e4b;background:#0c1a33}
+.p-risk .room .browser .chrome,.p-quality .room .browser .chrome{background:#10213f;border-color:#1d2e4b}
+.p-risk .room .browser .chrome i,.p-quality .room .browser .chrome i{background:#2a3d5e}
+.p-risk .room .browser .chrome span,.p-quality .room .browser .chrome span{background:#081631;color:#97a7be}
+.p-risk .room .demo-tag,.p-quality .room .demo-tag{color:#a9b8cc;border-color:#2a3d5e}
+.p-risk .room .card q,.p-quality .room .card q{color:#eef3fa;border-color:#1d2e4b}
+.p-risk .room .badge,.p-quality .room .badge{background:#10213f;box-shadow:0 0 0 5px #0f203d}
+.p-risk .room .chips span,.p-quality .room .chips span{background:#0c1a33;border-color:#1d2e4b;color:#b6c4d8}
+.p-risk .room .chips b,.p-quality .room .chips b{color:#fff}
+.p-risk .room,.p-quality .room{position:relative;overflow:hidden}
+.p-risk .room>.wrap,.p-quality .room>.wrap{position:relative;z-index:1}
 
 /* The KRI explainer: one indicator, its thresholds, and where a value lands. */
 .kri{background:#0c1a33;border:1px solid #1d2e4b;border-radius:22px;padding:clamp(20px,3vw,34px);color:#eef3fa;
@@ -528,3 +490,7 @@ body.prod{background:var(--bg);color:var(--ink);overflow-x:hidden}
 
 /* Text links use the accessible red on every background. */
 .prod main .tlink{color:var(--red-text)}
+.p-risk .room .sectors,.p-quality .room .sectors{border-color:#2a3d5e}
+.p-risk .room .sectors li,.p-quality .room .sectors li{background:#0c1a33;border-color:#1d2e4b}
+.p-risk .room .sectors li b,.p-quality .room .sectors li b{color:#fff}
+.p-risk .room .sectors li span,.p-quality .room .sectors li span{color:#b6c4d8}
