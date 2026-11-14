@@ -269,3 +269,7 @@ html[data-theme="dark"] .shot-n { display: block; }
 @media print {
   .hdr, .theme { position: static; }
 }
+
+/* Hero: the headline leads (the header already carries the logo and name) */
+.heroH1 { font-family: Sora, sans-serif; font-weight: 800; font-size: clamp(40px, 5.4vw, 68px); line-height: 1.03; letter-spacing: -0.035em; color: var(--navy); margin: 16px 0 0; }
+.heroH1 .red { color: var(--red); }

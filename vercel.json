@@ -199,6 +199,96 @@
   ],
   "rewrites": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcash.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/cash/index.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutpanorama.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/panorama/index.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutquality.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/quality/index.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutrisk.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/risk/index.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttalent.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/talent/index.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutaccord.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/accord/index.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/cx/index.html"
+    },
+    {
+      "source": "/en",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/cx/en/index.html"
+    },
+    {
+      "source": "/en/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/cx/en/index.html"
+    },
+    {
       "source": "/demo",
       "destination": "https://demo-executive.pulsus.tech/pulse/showcase"
     },
