@@ -273,3 +273,80 @@ html[data-theme="dark"] .shot-n { display: block; }
 /* Hero: the headline leads (the header already carries the logo and name) */
 .heroH1 { font-family: Sora, sans-serif; font-weight: 800; font-size: clamp(40px, 5.4vw, 68px); line-height: 1.03; letter-spacing: -0.035em; color: var(--navy); margin: 16px 0 0; }
 .heroH1 .red { color: var(--red); }
+
+/* ── Devices: laptop, tablet and phone ──────────────────────────────────
+   One design across every Pulsus product site. Real captures of the demo,
+   each shown at its own layout: the desktop screen in the laptop, the tablet
+   layout in the tablet, the phone layout in the phone. */
+.dv-laptop { position: relative; min-width: 0; padding: 0 6%; }
+.dv-lid { position: relative; background: #151925; border-radius: 16px 16px 6px 6px; padding: 2.4% 2.4% 2.8%;
+  box-shadow: inset 0 0 0 1px #2b3140, 0 30px 60px -30px rgba(17, 24, 39, 0.45); }
+.dv-lid::before { content: ""; position: absolute; top: 0.9%; left: 50%; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 99px; background: #343b4d; }
+.dv-lid > .win, .dv-lid > .frame { border: 0; border-radius: 4px; box-shadow: none; }
+.dv-laptop::after { content: ""; display: block; height: 0; padding-top: 3.2%; margin: 0 -6.8%;
+  background: linear-gradient(90deg, transparent 42%, rgba(0, 0, 0, 0.16) 42%, rgba(0, 0, 0, 0.16) 58%, transparent 58%) top / 100% 32% no-repeat,
+    linear-gradient(#eceef2, #b6bbc6);
+  border-radius: 2px 2px 14px 14px / 2px 2px 100% 100%; box-shadow: 0 14px 24px -14px rgba(17, 24, 39, 0.5); }
+.dv-tablet { display: flow-root; position: relative; min-width: 0; background: #151925; border-radius: 8% / 5.6%; padding: 0;
+  box-shadow: inset 0 0 0 1px #2b3140, 0 28px 56px -22px rgba(11, 18, 48, 0.55); }
+.dv-tablet.is-land { border-radius: 5.6% / 8%; }
+/* Bezels are image margins: a percentage margin follows the device's own width. */
+.dv-tablet img { width: 91%; height: auto; margin: 4.5%; border-radius: 3% / 2.1%; }
+.dv-tablet.is-land img { width: 93.6%; margin: 3.2%; border-radius: 2.1% / 3%; }
+.dv-phone { display: flow-root; position: relative; min-width: 0; background: #0b0f1a; border-radius: 16% / 7.8%; padding: 0;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 26px 50px -18px rgba(11, 18, 48, 0.55); }
+.dv-phone img { width: 91%; margin: 4.5%; height: auto; aspect-ratio: 420 / 715; object-fit: cover; object-position: top; border-radius: 12.5% / 7.3%; }
+html[data-theme="dark"] .dv-lid, html[data-theme="dark"] .dv-tablet, html[data-theme="dark"] .dv-phone { background: #1c2550;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16), 0 30px 60px -24px rgba(0, 0, 0, 0.7); }
+html[data-theme="dark"] .dv-lid::before { background: #39437a; }
+html[data-theme="dark"] .dv-laptop::after { background: linear-gradient(90deg, transparent 42%, rgba(0, 0, 0, 0.25) 42%, rgba(0, 0, 0, 0.25) 58%, transparent 58%) top / 100% 32% no-repeat,
+  linear-gradient(#56608c, #2c3459); box-shadow: 0 14px 24px -14px rgba(0, 0, 0, 0.8); }
+
+/* Two-sentence headline: balanced lines, no single-word orphan. */
+.heroH1 { font-size: clamp(34px, 4.4vw, 60px); text-wrap: balance; }
+.heroH1 > .red { display: block; text-wrap: balance; }
+
+/* Hero: laptop in the middle, tablet on its left edge, phone on its right. */
+.shots.dv-hero { position: relative; padding: 0 0 13%; min-width: 0; }
+.dv-hero > .dv-laptop { margin: 0 4% 0 10%; }
+.dv-hero > .dv-tablet { position: absolute; left: 0; bottom: 0; width: 27%; }
+.dv-hero > .dv-phone { position: absolute; right: 0; bottom: 0; width: 18%; }
+.heroShots { min-width: 0; }
+.heroShots .caption { padding-right: 0; }
+
+/* Pairs in the feature sections. */
+.dv-pair { position: relative; padding: 0 0 10%; min-width: 0; }
+.dv-pair > :first-child { width: 86%; }
+.dv-pair > :nth-child(2) { position: absolute; right: 0; bottom: 0; }
+.dv-lp > .dv-phone { width: 22%; }
+.dv-tp > .dv-tablet { width: 80%; }
+.dv-tp > .dv-phone { width: 25%; }
+.dv-lt > .dv-tablet { width: 44%; }
+/* In a gallery row the device areas share one height, so the captions line up. */
+.gal > .dv-pair { aspect-ratio: 10 / 7.2; display: flex; flex-direction: column; justify-content: flex-end; }
+
+/* "One account, every screen" */
+.dv-head { text-align: center; max-width: 720px; margin: 0 auto 40px; }
+.dv-head .h2, .dv-head .lede { margin-left: auto; margin-right: auto; }
+.dv-trio { position: relative; max-width: 940px; margin: 0 auto; padding: 0 0 9%; }
+.dv-trio > .dv-laptop { width: 76%; margin: 0 auto; }
+.dv-trio > .dv-tablet { position: absolute; left: 0; bottom: 0; width: 36%; }
+.dv-trio > .dv-phone { position: absolute; right: 1%; bottom: 0; width: 15%; }
+.dv-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 940px; margin: 40px auto 0 !important; padding: 0 !important; list-style: none; }
+.dv-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--mute); line-height: 1.45; list-style: none; }
+.dv-list b { display: block; font-family: Sora, sans-serif; color: var(--ink); font-size: 16px; }
+.dv-list .ico { color: var(--red); margin-top: 2px; }
+
+@media (max-width: 860px) {
+  .dv-list { grid-template-columns: minmax(0, 1fr); max-width: 420px; gap: 12px; }
+}
+@media (max-width: 560px) {
+  .shots.dv-hero { padding-bottom: 12%; }
+  .dv-hero > .dv-laptop { margin: 0 12% 0 0; padding: 0 5%; }
+  .dv-hero > .dv-tablet { display: none; }
+  .dv-hero > .dv-phone { width: 27%; }
+  .dv-lid { border-radius: 10px 10px 4px 4px; }
+  .dv-trio > .dv-laptop { width: 82%; }
+  .dv-trio > .dv-tablet { width: 40%; }
+  .dv-trio > .dv-phone { width: 19%; }
+}
