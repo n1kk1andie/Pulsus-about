@@ -31,6 +31,141 @@
       ],
       "destination": "/walkthrough/",
       "permanent": false
+    },
+    {
+      "source": "/demo",
+      "has": [
+        {
+          "type": "query",
+          "key": "view",
+          "value": "(?<view>operational|executive)"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "pz_demo"
+        }
+      ],
+      "destination": "https://executive.pulsus.tech/demo/register?app=platform&next=https%3A%2F%2Fabout.pulsus.tech%2Fdemo%2F%3Fview%3D:view",
+      "permanent": false
+    },
+    {
+      "source": "/demo/",
+      "has": [
+        {
+          "type": "query",
+          "key": "view",
+          "value": "(?<view>operational|executive)"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "pz_demo"
+        }
+      ],
+      "destination": "https://executive.pulsus.tech/demo/register?app=platform&next=https%3A%2F%2Fabout.pulsus.tech%2Fdemo%2F%3Fview%3D:view",
+      "permanent": false
+    },
+    {
+      "source": "/demo",
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "pz_demo"
+        }
+      ],
+      "destination": "https://executive.pulsus.tech/demo/register?app=platform&next=https%3A%2F%2Fabout.pulsus.tech%2Fdemo%2F",
+      "permanent": false
+    },
+    {
+      "source": "/demo/",
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "pz_demo"
+        }
+      ],
+      "destination": "https://executive.pulsus.tech/demo/register?app=platform&next=https%3A%2F%2Fabout.pulsus.tech%2Fdemo%2F",
+      "permanent": false
+    },
+    {
+      "source": "/demo/report",
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "pz_demo"
+        }
+      ],
+      "destination": "https://executive.pulsus.tech/demo/register?app=platform&next=https%3A%2F%2Fabout.pulsus.tech%2Fdemo%2Freport",
+      "permanent": false
+    },
+    {
+      "source": "/demo/corporate",
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "pz_demo"
+        }
+      ],
+      "destination": "https://executive.pulsus.tech/demo/register?app=platform&next=https%3A%2F%2Fabout.pulsus.tech%2Fdemo%2Fcorporate",
+      "permanent": false
+    },
+    {
+      "source": "/demo/corporate/",
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "pz_demo"
+        }
+      ],
+      "destination": "https://executive.pulsus.tech/demo/register?app=platform&next=https%3A%2F%2Fabout.pulsus.tech%2Fdemo%2Fcorporate%2F",
+      "permanent": false
+    },
+    {
+      "source": "/demo/corporate/report",
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "pz_demo"
+        }
+      ],
+      "destination": "https://executive.pulsus.tech/demo/register?app=platform&next=https%3A%2F%2Fabout.pulsus.tech%2Fdemo%2Fcorporate%2Freport",
+      "permanent": false
+    },
+    {
+      "source": "/demo/hospital",
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "pz_demo"
+        }
+      ],
+      "destination": "https://executive.pulsus.tech/demo/register?app=platform&next=https%3A%2F%2Fabout.pulsus.tech%2Fdemo%2Fhospital",
+      "permanent": false
+    },
+    {
+      "source": "/demo/hospital/",
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "pz_demo"
+        }
+      ],
+      "destination": "https://executive.pulsus.tech/demo/register?app=platform&next=https%3A%2F%2Fabout.pulsus.tech%2Fdemo%2Fhospital%2F",
+      "permanent": false
+    },
+    {
+      "source": "/demo/hospital/report",
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "pz_demo"
+        }
+      ],
+      "destination": "https://executive.pulsus.tech/demo/register?app=platform&next=https%3A%2F%2Fabout.pulsus.tech%2Fdemo%2Fhospital%2Freport",
+      "permanent": false
     }
   ],
   "rewrites": [

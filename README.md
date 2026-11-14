@@ -100,6 +100,21 @@ All three should come back empty or zero.
   "See them in a demo" link above the tiles.
 - There is no About section content beyond the footer attribution.
 
+## Try the demo: registration
+
+`/demo` (and `/demo/corporate`, `/demo/hospital`, the `report` pages and
+`?view=`) serves the Pulsus Platform showcase from
+`demo-executive.pulsus.tech/pulse/showcase` (rewrites in `vercel.json`). The
+demos are behind a one-time registration on Pulsus Platform: the `pz_demo`
+cookie (`Domain=.pulsus.tech`). A visitor without it is redirected (the
+`missing` cookie rules in `vercel.json`) to
+`https://executive.pulsus.tech/demo/register?app=platform&next=https://about.pulsus.tech/demo/…`,
+and comes back to the same showcase page here once registered. Links to an
+app's own demo (`https://demo-risk.pulsus.tech`, …) go straight there; each
+demo sends an unregistered visitor to the same register page and back.
+Button labels stay "Try the demo" / "Live demo": the registration page is
+what the click shows.
+
 ## Demo enquiry form
 
 The Book a demo page (`demo/`) posts to a small Vercel function, `api/enquiry.js`,
