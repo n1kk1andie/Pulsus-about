@@ -235,6 +235,10 @@
       "destination": "https://demo-executive.pulsus.tech/pulse/showcase/hospital/report"
     },
     {
+      "source": "/api/showcase/:path*",
+      "destination": "https://demo-executive.pulsus.tech/api/showcase/:path*"
+    },
+    {
       "source": "/_next/:path*",
       "destination": "https://demo-executive.pulsus.tech/_next/:path*"
     },
