@@ -32,6 +32,9 @@
 .panel:focus-visible{outline:3px solid var(--pn-focus);outline-offset:3px}
 .panel picture{display:block}
 .panel img{width:120px;height:120px;object-fit:contain;display:block;margin:0 auto}
+/* Panorama's compass points reach past its circle: a wider box keeps all four
+   points whole while the circle reads the same size as the round emblems. */
+.panel img.pn-wide{width:144px}
 .panel .pn-name{
   display:block;margin-top:16px;white-space:nowrap;
   font:800 clamp(24px,6vw,30px)/1.1 'Sora',system-ui,sans-serif;letter-spacing:-.01em;color:var(--pn-navy);
