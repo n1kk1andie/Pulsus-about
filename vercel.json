@@ -1,5 +1,34 @@
 {
+  "headers": [
+    {
+      "source": "/webby/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        }
+      ]
+    }
+  ],
   "redirects": [
+    {
+      "source": "/webby/:code([A-Za-z0-9_-]{6,40})",
+      "destination": "https://executive.pulsus.tech/demo/webby/:code",
+      "permanent": false
+    },
+    {
+      "source": "/webby/:code([A-Za-z0-9_-]{6,40})/",
+      "destination": "https://executive.pulsus.tech/demo/webby/:code",
+      "permanent": false
+    },
     {
       "source": "/systems/tech",
       "destination": "https://abouttech.pulsus.tech/",
