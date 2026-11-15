@@ -1,0 +1,53 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Suite clusters — four tabs (Treasury, Risk, Customer, Performance), each
+   showing its applications as cards. Static: no auto-rotation. Without
+   JavaScript every cluster is shown, one after the other.
+   ───────────────────────────────────────────────────────────────────────────── */
+.clusters{--cl-navy:#0B1F4D;--cl-red:#C8102E;--cl-ink:#1c2233;--cl-mute:#5a6072;--cl-card:#fff;--cl-line:#e3e6ee;--cl-soft:#f6f7fb;--cl-tint:#fdecef;
+  --cl-shadow:0 1px 2px rgba(11,31,77,.06),0 12px 30px -14px rgba(11,31,77,.22);margin-top:30px}
+.cl-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:900px){.cl-tabs{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}}
+.cl-tab{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:112px;padding:18px 14px 20px;
+  background:var(--cl-card);border:1px solid var(--cl-line);border-radius:16px;box-shadow:var(--cl-shadow);cursor:pointer;
+  font:700 clamp(15px,1.6vw,19px)/1.25 'Sora',system-ui,sans-serif;color:var(--cl-navy);text-align:center;transition:background .2s ease,color .2s ease,transform .15s ease}
+.cl-tab svg{width:34px;height:34px;flex:none}
+.cl-tab:hover{transform:translateY(-2px)}
+.cl-tab::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:3px;border-radius:2px;background:var(--cl-line)}
+.cl-tab[aria-selected="true"]{background:linear-gradient(160deg,#1b2b5c,#0B1F4D);color:#fff;border-color:#0B1F4D}
+.cl-tab[aria-selected="true"]::after{background:var(--cl-red)}
+.cl-tab:focus-visible{outline:3px solid var(--cl-red);outline-offset:3px}
+.cl-panel{margin-top:30px;display:grid;gap:22px;align-items:center;padding:clamp(20px,3vw,34px);background:var(--cl-soft);border:1px solid var(--cl-line);border-radius:20px}
+@media (min-width:1000px){.cl-panel{grid-template-columns:minmax(0,1fr) minmax(0,2.2fr)}}
+.cl-panel[hidden]{display:none}
+.js-cl .cl-panel{animation:cl-in .28s ease}
+@keyframes cl-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.cl-intro .cl-k{font:700 12px/1.2 'Sora',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--cl-red);margin:0}
+.cl-intro h3{font:800 clamp(24px,2.6vw,32px)/1.12 'Sora',system-ui,sans-serif;letter-spacing:-.02em;color:var(--cl-navy);margin:10px 0 0}
+.cl-intro p{font:400 16px/1.6 'IBM Plex Sans',system-ui,sans-serif;color:var(--cl-mute);margin:12px 0 0;max-width:30em}
+.cl-cards{list-style:none;margin:0;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.cl-card{height:100%;display:flex;flex-direction:column;padding:20px;background:var(--cl-card);border:1px solid var(--cl-line);border-radius:16px;box-shadow:var(--cl-shadow);
+  text-decoration:none;color:var(--cl-ink);transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+.cl-card:hover{transform:translateY(-3px);border-color:#d7b9c0}
+.cl-card:focus-visible{outline:3px solid var(--cl-red);outline-offset:3px}
+.cl-card img{width:56px;height:56px;object-fit:contain;display:block}
+.cl-card b{display:block;margin-top:12px;font:800 19px/1.2 'Sora',system-ui,sans-serif;color:var(--cl-navy)}
+.cl-card b span{color:var(--cl-red)}
+.cl-card .cl-d{display:block;margin-top:6px;font:400 14.5px/1.5 'IBM Plex Sans',system-ui,sans-serif;color:var(--cl-mute)}
+.cl-card .cl-more{display:block;margin-top:auto;padding-top:14px;font:700 14px/1.2 'IBM Plex Sans',system-ui,sans-serif;color:var(--cl-red)}
+.cl-card .arw{display:inline-block;transition:transform .15s ease}
+.cl-card:hover .arw{transform:translateX(3px)}
+.cl-base{margin-top:22px;display:grid;gap:14px}
+@media (min-width:800px){.cl-base{grid-template-columns:1fr 1fr}}
+.cl-base a{display:flex;align-items:center;gap:16px;padding:18px 22px;background:var(--cl-card);border:1px solid var(--cl-line);border-radius:16px;box-shadow:var(--cl-shadow);text-decoration:none;color:var(--cl-ink)}
+.cl-base a:focus-visible{outline:3px solid var(--cl-red);outline-offset:3px}
+.cl-base img{width:44px;height:44px;object-fit:contain;flex:none}
+.cl-base .cl-t{flex:1;min-width:0}
+.cl-base b{display:block;font:800 18px/1.2 'Sora',system-ui,sans-serif;color:var(--cl-navy)}
+.cl-base b span{color:var(--cl-red)}
+.cl-base .cl-d{display:block;font:400 14px/1.45 'IBM Plex Sans',system-ui,sans-serif;color:var(--cl-mute)}
+.cl-base .cl-more{font:700 14px/1.2 'IBM Plex Sans',system-ui,sans-serif;color:var(--cl-red);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.cl-tab,.cl-card,.cl-card .arw{transition:none}.js-cl .cl-panel{animation:none}.cl-tab:hover,.cl-card:hover{transform:none}}
+@media (prefers-color-scheme:dark){
+  .clusters{--cl-navy:#f3f4fb;--cl-ink:#e6e8f2;--cl-mute:#b4bad0;--cl-card:#16224a;--cl-line:#2a3768;--cl-soft:#101a3d;--cl-red:#ff5a73}
+  .cl-tab[aria-selected="true"]{background:linear-gradient(160deg,#C8102E,#8f0b21);border-color:#C8102E;color:#fff}
+}
