@@ -1,7 +1,7 @@
 /* ─────────────────────────────────────────────────────────────────────────────
    Suite clusters — four tabs (Treasury, Risk, Customer, Performance), each
-   showing its applications as cards. Static: no auto-rotation. Without
-   JavaScript every cluster is shown, one after the other.
+   showing its applications as cards. Auto-rotates (see clusters.js) with a
+   switch to turn it off. Without JavaScript every cluster is shown in turn.
    ───────────────────────────────────────────────────────────────────────────── */
 .clusters{--cl-navy:#0B1F4D;--cl-red:#C8102E;--cl-ink:#1c2233;--cl-mute:#5a6072;--cl-card:#fff;--cl-line:#e3e6ee;--cl-soft:#f6f7fb;--cl-tint:#fdecef;
   --cl-shadow:0 1px 2px rgba(11,31,77,.06),0 12px 30px -14px rgba(11,31,77,.22);margin-top:30px}
@@ -15,6 +15,24 @@
 .cl-tab::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:3px;border-radius:2px;background:var(--cl-line)}
 .cl-tab[aria-selected="true"]{background:linear-gradient(160deg,#1b2b5c,#0B1F4D);color:#fff;border-color:#0B1F4D}
 .cl-tab[aria-selected="true"]::after{background:var(--cl-red)}
+/* Auto-rotate: the active tab's bar fills over the dwell time */
+.cl-prog{position:absolute;left:0;right:0;bottom:-10px;height:3px;border-radius:2px;overflow:hidden;pointer-events:none}
+.cl-prog i{display:block;height:100%;width:100%;background:var(--cl-red);transform:scaleX(0);transform-origin:left}
+.cl-on .cl-tab[aria-selected="true"] .cl-prog{background:color-mix(in srgb,var(--cl-red) 22%,transparent)}
+.cl-on .cl-tab[aria-selected="true"]::after{opacity:0}
+.cl-on .cl-tab[aria-selected="true"] .cl-prog i{animation:cl-fill var(--cl-dwell,7s) linear forwards}
+.cl-paused .cl-prog i{animation-play-state:paused!important}
+@keyframes cl-fill{to{transform:scaleX(1)}}
+.cl-auto{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin:0 0 12px;font:500 13.5px/1 'IBM Plex Sans',system-ui,sans-serif;color:inherit}
+.cl-auto-s{opacity:.65;min-width:2em}
+.cl-sw{position:relative;width:44px;height:26px;padding:0;border:0;border-radius:13px;background:#c5cad8;cursor:pointer;transition:background .2s ease}
+.cl-sw span{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s ease}
+.cl-sw[aria-checked="true"]{background:var(--cl-red)}
+.cl-sw[aria-checked="true"] span{transform:translateX(18px)}
+.cl-sw:focus-visible{outline:3px solid var(--cl-red);outline-offset:3px}
+.cl-dots{display:flex;justify-content:center;gap:10px;margin-top:18px}
+.cl-dots button{width:10px;height:10px;padding:0;border-radius:50%;border:1.5px solid var(--cl-mute);background:transparent;cursor:pointer;opacity:.7}
+.cl-dots button.on{background:var(--cl-red);border-color:var(--cl-red);opacity:1}
 .cl-tab:focus-visible{outline:3px solid var(--cl-red);outline-offset:3px}
 .cl-panel{margin-top:30px;display:grid;gap:22px;align-items:center;padding:clamp(20px,3vw,34px);background:var(--cl-soft);border:1px solid var(--cl-line);border-radius:20px}
 @media (min-width:1000px){.cl-panel{grid-template-columns:minmax(0,1fr) minmax(0,2.2fr)}}
@@ -46,7 +64,8 @@
 .cl-base b span{color:var(--cl-red)}
 .cl-base .cl-d{display:block;font:400 14px/1.45 'IBM Plex Sans',system-ui,sans-serif;color:var(--cl-mute)}
 .cl-base .cl-more{font:700 14px/1.2 'IBM Plex Sans',system-ui,sans-serif;color:var(--cl-red);white-space:nowrap}
-@media (prefers-reduced-motion:reduce){.cl-tab,.cl-card,.cl-card .arw{transition:none}.js-cl .cl-panel{animation:none}.cl-tab:hover,.cl-card:hover{transform:none}}
+.cl-dots button{position:relative}.cl-dots button::before{content:"";position:absolute;inset:-8px}
+@media (prefers-reduced-motion:reduce){.cl-sw,.cl-sw span,.cl-tab,.cl-card,.cl-card .arw{transition:none}.js-cl .cl-panel{animation:none}.cl-tab:hover,.cl-card:hover{transform:none}}
 @media (prefers-color-scheme:dark){
   .clusters{--cl-navy:#f3f4fb;--cl-ink:#e6e8f2;--cl-mute:#b4bad0;--cl-card:#16224a;--cl-line:#2a3768;--cl-soft:#101a3d;--cl-red:#ff5a73}
   .cl-tab[aria-selected="true"]{background:linear-gradient(160deg,#C8102E,#8f0b21);border-color:#C8102E;color:#fff}
