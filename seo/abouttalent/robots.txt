@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abouttalent.pulsus.tech/sitemap.xml

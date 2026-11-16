@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aboutaccord.pulsus.tech/sitemap.xml

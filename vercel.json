@@ -205,6 +205,56 @@
       "source": "/systems/connect",
       "destination": "/#contact",
       "permanent": false
+    },
+    {
+      "source": "/systems/quality",
+      "destination": "https://aboutquality.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/quality/",
+      "destination": "https://aboutquality.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/risk",
+      "destination": "https://aboutrisk.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/risk/",
+      "destination": "https://aboutrisk.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/cash",
+      "destination": "https://aboutcash.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/cash/",
+      "destination": "https://aboutcash.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/panorama",
+      "destination": "https://aboutpanorama.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/panorama/",
+      "destination": "https://aboutpanorama.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/talent",
+      "destination": "https://abouttalent.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/talent/",
+      "destination": "https://abouttalent.pulsus.tech/",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -679,6 +729,226 @@
     {
       "source": "/:file(pulsus-[a-z-]+\\.png)",
       "destination": "https://demo-executive.pulsus.tech/:file"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "about.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/about/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "about.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/about/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutquality.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutquality/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutquality.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutquality/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcash.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutcash/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcash.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutcash/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutpanorama.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutpanorama/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutpanorama.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutpanorama/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutrisk.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutrisk/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutrisk.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutrisk/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutaccord.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutaccord/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutaccord.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutaccord/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutcx/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutcx/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttalent.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/abouttalent/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttalent.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/abouttalent/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutrecon.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutrecon/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutrecon.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutrecon/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttech.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/abouttech/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttech.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/abouttech/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcommunique.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutcommunique/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcommunique.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutcommunique/sitemap.xml"
     }
   ]
 }

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aboutquality.pulsus.tech/sitemap.xml
