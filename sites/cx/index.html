@@ -282,11 +282,18 @@ table.sh{border-collapse:collapse;width:100%;min-width:640px;font:400 13px/1.3 '
 
 @media(max-width:900px){.imp,.mfoot,.loop,.after{grid-template-columns:1fr}
  .mrow,.mlabels{grid-template-columns:118px 1fr 74px}.mrow .vs,.mlabels .x{display:none}.mrow .nm{font-size:13.5px}.val{min-width:62px;padding:4px 7px;font-size:13px}}
+/* plans band */
+.pband{margin-top:90px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-left:6px solid var(--red);border-radius:14px;padding:30px 34px;box-shadow:0 30px 60px -40px rgba(11,31,77,.45)}
+.pband h2{font:800 clamp(26px,3vw,38px)/1.1 Sora;letter-spacing:-.02em;color:var(--ink);margin:8px 0 0}.pband h2 span{color:var(--red)}.pband p{margin:8px 0 0}
+.pbcta{display:flex;gap:12px;flex-wrap:wrap}
+@media(max-width:760px){.pband{padding:24px 20px}}
 @media(max-width:520px){.mon{padding:16px 12px}.mrow,.mlabels{grid-template-columns:92px 1fr 64px;gap:8px}.mrow .nm small{display:none}.track .st{font-size:11px}.mlabels .ms span:nth-child(even){visibility:hidden}.mlabels{font-size:10.5px}.case{padding:16px 14px}.sec{padding-top:72px}}
+main{overflow-x:clip}
+@media(max-width:1180px){header nav a:not([href*="plans"]){display:none}}@media(max-width:940px){header nav,header .btn.line{display:none}}header .btn{white-space:nowrap}
 </style></head><body>
 <div class="suitebar"><div class="wrap"><a href="https://about.pulsus.tech/">Parte de <b>Pulsus Intelligence Suite</b> →</a></div></div>
 <header><div class="wrap nav"><a class="lockup" href="/" aria-label="Pulsus CX"><span class="wm">PULS<span class="u">U</span>S</span><span class="prod"><span>CX</span></span><span class="tag">Live. <b>Signal</b>. Clarity.</span></a>
-<nav aria-label="Principal"><a href="#escuchar">Recopilar</a><a href="#canales">Canales</a><a href="#ciclo">Seguimiento</a><a href="#suite-h">La suite</a></nav>
+<nav aria-label="Principal"><a href="#escuchar">Recopilar</a><a href="#canales">Canales</a><a href="#ciclo">Seguimiento</a><a href="#suite-h">La suite</a><a href="/plans/">Planes y funciones</a></nav>
 <span class="langs"><a href="/" hreflang="es" lang="es" aria-current="true">ES</a><span aria-hidden="true">|</span><a href="/en/" hreflang="en" lang="en">EN</a></span>
 <a class="btn line" href="https://cx.pulsus.tech/login">Iniciar sesión</a><a class="btn red" href="https://executive.pulsus.tech/demo/register?app=cx&amp;next=https%3A%2F%2Fdemo-cx.pulsus.tech%2F">Probar demo →</a></div></header>
 <svg class="beat" id="beat" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 13 H640 l14 0 8 -11 10 22 9 -17 7 6 H1440"/></svg>
@@ -377,6 +384,8 @@ table.sh{border-collapse:collapse;width:100%;min-width:640px;font:400 13px/1.3 '
   </div>
  </div>
 </section>
+
+ <section class="pband" aria-labelledby="pband-h"><div><p class="k">Planes y funciones</p><h2 id="pband-h">En piloto. <span>Hable con nosotros.</span></h2><p>Pulsus CX aún no está a la venta de forma general: está en piloto, sin precio publicado. Vea todas sus funciones y escríbanos para conocer el piloto.</p></div><div class="pbcta"><a class="btn red" href="/plans/">Ver planes y funciones →</a><a class="btn line" href="mailto:support@pulsus.tech?subject=Pulsus%20CX">Hable con nosotros</a></div></section>
 
  <section class="suite" aria-labelledby="suite-h">
   <div><p class="k">Parte de Pulsus Intelligence Suite</p>

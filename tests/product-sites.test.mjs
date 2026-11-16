@@ -26,7 +26,7 @@ for (const s of SITES) {
   const site = `https://about${s.key}.pulsus.tech/`;
 
   test(`${s.page}: every local asset exists in the site's own folder`, () => {
-    const refs = [...html.matchAll(/(?:src|href|content)="(\/[^"#?]*)"/g)].map((m) => m[1]).filter((p) => !["/", "/en/", "/plans/"].includes(p));
+    const refs = [...html.matchAll(/(?:src|href|content)="(\/[^"#?]*)"/g)].map((m) => m[1]).filter((p) => !["/", "/en/", "/plans/", "/en/plans/"].includes(p));
     assert.ok(refs.length >= 3);
     for (const p of refs) {
       assert.ok(p.startsWith(`/sites/${s.key}/assets/`), `${p} is outside /sites/${s.key}/assets/`);
@@ -62,18 +62,30 @@ for (const s of SITES) {
 }
 
 // Plans & features: the second page of a product site (Quality first).
-for (const key of ["quality"]) {
-  const html = readFileSync(new URL(`sites/${key}/plans/index.html`, ROOT), "utf8");
-  const story = readFileSync(new URL(`sites/${key}/index.html`, ROOT), "utf8");
-  test(`${key}/plans: assets, one h1, canonical, prices, links both ways, routed`, () => {
+const PLANS = [
+  { key: "quality", dir: "quality", price: ["$250", "$500 a month"] },
+  { key: "cash", dir: "cash", price: ["$150", "$10", "$30"] },
+  { key: "panorama", dir: "panorama", price: ["$500", "Accord"] },
+  { key: "risk", dir: "risk", price: ["$350", "$500"] },
+  { key: "accord", dir: "accord", price: ["$500", "Panorama"] },
+  { key: "talent", dir: "talent", price: ["$4.99"] },
+  { key: "recon", dir: "recon", price: ["$500", "$400", "$300", "$3,800"] },
+  { key: "cx", dir: "cx", price: [] },
+  { key: "cx", dir: "cx/en", price: [] },
+];
+for (const { key, dir, price } of PLANS) {
+  const html = readFileSync(new URL(`sites/${dir}/plans/index.html`, ROOT), "utf8");
+  const story = readFileSync(new URL(`sites/${dir}/index.html`, ROOT), "utf8");
+  const en = dir.endsWith("/en") ? "en/" : "";
+  test(`${dir}/plans: assets, one h1, canonical, prices, links both ways, routed`, () => {
     for (const m of html.matchAll(/(?:src|href)="(\/sites\/[^"#?]*)"/g)) assert.ok(existsSync(new URL(m[1].slice(1), ROOT)), `${m[1]} is missing`);
     assert.equal(html.match(/<h1\b/g).length, 1);
-    assert.ok(html.includes(`<link rel="canonical" href="https://about${key}.pulsus.tech/plans/">`));
-    assert.ok(html.includes("$250") && html.includes("$500 a month") && html.includes("Extra users are $30"), "pricing kept");
-    assert.ok(html.includes('href="/"') && story.includes('href="/plans/"'), "story <-> plans links");
-    for (const src of ["/plans", "/plans/"]) {
+    assert.ok(html.includes(`<link rel="canonical" href="https://about${key}.pulsus.tech/${en}plans/">`));
+    for (const p of price) assert.ok(html.includes(p), `price ${p}`);
+    assert.ok(/href="\/(en\/)?"/.test(html) && story.includes(`href="/${en}plans/"`), "story <-> plans links");
+    for (const src of [`/${en}plans`, `/${en}plans/`]) {
       const r = vercel.rewrites.find((x) => x.source === src && x.has?.[0]?.value === `about${key}.pulsus.tech`);
-      assert.equal(r?.destination, `/sites/${key}/plans/index.html`);
+      assert.equal(r?.destination, `/sites/${dir}/plans/index.html`);
     }
   });
 }

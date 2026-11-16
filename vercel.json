@@ -209,6 +209,26 @@
       "destination": "/sites/cash/index.html"
     },
     {
+      "source": "/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcash.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/cash/plans/index.html"
+    },
+    {
+      "source": "/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcash.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/cash/plans/index.html"
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -217,6 +237,26 @@
         }
       ],
       "destination": "/sites/panorama/index.html"
+    },
+    {
+      "source": "/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutpanorama.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/panorama/plans/index.html"
+    },
+    {
+      "source": "/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutpanorama.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/panorama/plans/index.html"
     },
     {
       "source": "/",
@@ -259,6 +299,26 @@
       "destination": "/sites/risk/index.html"
     },
     {
+      "source": "/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutrisk.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/risk/plans/index.html"
+    },
+    {
+      "source": "/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutrisk.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/risk/plans/index.html"
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -267,6 +327,26 @@
         }
       ],
       "destination": "/sites/talent/index.html"
+    },
+    {
+      "source": "/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttalent.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/talent/plans/index.html"
+    },
+    {
+      "source": "/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttalent.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/talent/plans/index.html"
     },
     {
       "source": "/",
@@ -279,6 +359,26 @@
       "destination": "/sites/accord/index.html"
     },
     {
+      "source": "/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutaccord.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/accord/plans/index.html"
+    },
+    {
+      "source": "/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutaccord.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/accord/plans/index.html"
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -287,6 +387,26 @@
         }
       ],
       "destination": "/sites/recon/index.html"
+    },
+    {
+      "source": "/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutrecon.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/recon/plans/index.html"
+    },
+    {
+      "source": "/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutrecon.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/recon/plans/index.html"
     },
     {
       "source": "/",
@@ -317,6 +437,46 @@
         }
       ],
       "destination": "/sites/cx/en/index.html"
+    },
+    {
+      "source": "/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/cx/plans/index.html"
+    },
+    {
+      "source": "/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/cx/plans/index.html"
+    },
+    {
+      "source": "/en/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/cx/en/plans/index.html"
+    },
+    {
+      "source": "/en/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/cx/en/plans/index.html"
     },
     {
       "source": "/demo",
