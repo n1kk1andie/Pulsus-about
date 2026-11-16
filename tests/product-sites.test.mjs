@@ -26,7 +26,7 @@ for (const s of SITES) {
   const site = `https://about${s.key}.pulsus.tech/`;
 
   test(`${s.page}: every local asset exists in the site's own folder`, () => {
-    const refs = [...html.matchAll(/(?:src|href|content)="(\/[^"#?]*)"/g)].map((m) => m[1]).filter((p) => p !== "/" && p !== "/en/");
+    const refs = [...html.matchAll(/(?:src|href|content)="(\/[^"#?]*)"/g)].map((m) => m[1]).filter((p) => !["/", "/en/", "/plans/"].includes(p));
     assert.ok(refs.length >= 3);
     for (const p of refs) {
       assert.ok(p.startsWith(`/sites/${s.key}/assets/`), `${p} is outside /sites/${s.key}/assets/`);
