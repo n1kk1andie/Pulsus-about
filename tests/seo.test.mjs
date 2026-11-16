@@ -46,9 +46,14 @@ for (const [dir, lang, sub] of PAGES) {
       assert.ok(!/plain (english|language)|noindex/i.test(html));
     });
 
-    test(`${page}: footer keyword line matches the title`, () => {
-      const kw = html.match(/<div class="legal"><span>[^]*?<span class="kw">([^<]*)<\/span><\/span>/)?.[1];
-      assert.equal(unescape(kw ?? ""), `${brand} · ${descriptor}`);
+    test(`${page}: no keyword line in the footer; plans FAQ says what it is`, () => {
+      assert.ok(!html.includes('class="kw"'), "footer stays as designed");
+      if (!plans) return;
+      const q = lang === "es" ? `¿Qué es ${brand}?` : `What is ${brand}?`;
+      const first = text(html.match(/<details[^>]*>\s*<summary[^>]*>(.*?)<\/summary>(.*?)<\/details>/s)?.[0] ?? "");
+      assert.ok(first.startsWith(q), "first FAQ asks what it is");
+      const d = descriptor.replace(/ & /g, lang === "es" ? " y " : " and ").split(/[ ,]/)[0];
+      assert.ok(first.toLowerCase().includes(d.toLowerCase()), `answer names it: ${d}`);
     });
 
     test(`${page}: structured data`, () => {
