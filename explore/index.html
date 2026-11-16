@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <title>Explore — Pulsus Platform</title>
-<meta name="description" content="Free intelligence on how healthy banks, credit unions, insurers and government agencies are, place by place. On the web and on your phone.">
+<meta name="description" content="Free intelligence on how healthy banks, credit unions, insurers, hospitals and government agencies are, place by place. On the web and on your phone.">
 <meta name="theme-color" content="#071a33">
 <meta property="og:title" content="Explore — Pulsus Platform">
-<meta property="og:description" content="Free intelligence on how healthy banks, credit unions, insurers and government agencies are, place by place. On the web and on your phone.">
+<meta property="og:description" content="Free intelligence on how healthy banks, credit unions, insurers, hospitals and government agencies are, place by place. On the web and on your phone.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +17,114 @@
 <link rel="stylesheet" href="/assets/pages.css">
 <link rel="stylesheet" href="/assets/sitemap.css">
 <link rel="canonical" href="https://about.pulsus.tech/explore/">
+<style>
+/* Explore hero showcase: a dot-matrix world with the covered regions pulsing,
+   and the three devices floating in depth over it. The laptop and phone tour
+   the regions; the chips on the map are the controls. All positions are in
+   cqw (stage-width units) so the picture keeps its composition at any size. */
+.xs{--ink:#0b1830;position:relative;max-width:1180px;margin:clamp(26px,3.4vw,44px) auto 0;container-type:inline-size;text-align:left}
+.xs-stage{position:relative;height:62cqw;perspective:1600px}
+.xs{--mx:0cqw;--my:0cqw;--ms:1}
+.xs-clip{position:absolute;inset:0 0 auto;height:56cqw;overflow:hidden}
+.xs-map{position:absolute;left:var(--mx);top:var(--my);width:calc(100cqw*var(--ms));height:calc(49cqw*var(--ms));transition:transform .6s cubic-bezier(.2,.7,.2,1);
+  -webkit-mask:radial-gradient(120% 95% at 50% 40%,#000 62%,transparent 100%);mask:radial-gradient(120% 95% at 50% 40%,#000 62%,transparent 100%)}
+.xs-map img{width:100%;height:100%}
+.xs-glow{position:absolute;left:22cqw;top:20cqw;width:78cqw;height:42cqw;background:radial-gradient(50% 50% at 50% 55%,rgba(228,1,43,.22),rgba(77,155,240,.10) 55%,transparent 75%);filter:blur(10px);pointer-events:none}
+/* pulse points + chips */
+.xs-pt{position:absolute;width:0;height:0;z-index:3;left:calc(var(--mx) + var(--x)*var(--ms)*1cqw);top:calc(var(--my) + var(--y)*var(--ms)*1cqw)}
+.xs-key{position:absolute;left:0;top:0;margin:0;display:flex;gap:16px;font:500 12px/1 var(--plex);color:#8ea6c2;letter-spacing:.02em;z-index:3}
+.xs-key span{display:inline-flex;align-items:center;gap:7px}
+.xs-key i{width:7px;height:7px;border-radius:50%}
+.k-live{background:#a9cbf6;box-shadow:0 0 8px #a9cbf6}
+.k-next{background:#ff6b84;opacity:.7}
+.xs-pt i{position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(228,1,43,.25),0 0 18px 4px rgba(228,1,43,.55)}
+.xs-pt i::before,.xs-pt i::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1.5px solid rgba(255,77,106,.75);animation:xsRing 2.6s cubic-bezier(.2,.6,.3,1) infinite}
+.xs-pt i::after{animation-delay:1.3s}
+.xs-pt i{transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .5s}
+.xs-pt:not(.act):not(.sm) i{opacity:.7}
+.xs-pt.act i{transform:scale(1.35)}
+.xs-pt.act i::before,.xs-pt.act i::after{border-color:#ff5a76;border-width:2px}
+.xs-pt.sm i{left:-3px;top:-3px;width:6px;height:6px;box-shadow:0 0 10px 2px rgba(228,1,43,.45)}
+.xs-pt.sm i::after{display:none}
+@keyframes xsRing{from{transform:scale(1);opacity:.9}to{transform:scale(4.2);opacity:0}}
+.xs-chip{position:absolute;left:12px;top:-15px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;cursor:pointer;
+  font:600 12.5px/1 var(--plex);color:#dce8f6;background:rgba(7,22,44,.78);border:1px solid rgba(156,192,240,.28);border-radius:99px;padding:8px 12px 8px 11px;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:border-color .3s,background .3s,color .3s,transform .3s}
+.xs-chip small{font:500 11.5px/1 var(--plex);color:#8ea6c2;transition:color .3s}
+.xs-chip:hover{border-color:rgba(255,255,255,.6)}
+.xs-chip:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.xs-chip[aria-pressed=true]{background:rgba(228,1,43,.92);border-color:#ff5a76;color:#fff;transform:translateY(-1px)}
+.xs-chip[aria-pressed=true] small{color:#ffe1e6}
+.xs-chip.l{left:auto;right:12px}
+/* devices */
+.xs-rig{position:absolute;inset:0;pointer-events:none;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.xs-dev{position:absolute;transform-style:preserve-3d}
+.xs-float{animation:xsFloat 9s ease-in-out infinite}
+.xs-tab .xs-float{animation-duration:11s;animation-delay:-3s}
+.xs-ph .xs-float{animation-duration:8s;animation-delay:-5s}
+@keyframes xsFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-1cqw)}}
+.xs-lap{left:33cqw;top:19cqw;width:56cqw;transform:translateZ(0)}
+.xs-tab{left:5cqw;top:31cqw;width:20cqw;transform:translateZ(60px) rotateY(9deg)}
+.xs-ph{left:82cqw;top:29.5cqw;width:13.6cqw;transform:translateZ(120px) rotateY(-10deg)}
+.xs-scr{position:relative;overflow:hidden;background:#0a0f24}
+.xs-scr img{display:block;width:100%;height:auto}
+.xs-scr img+img{position:absolute;inset:0}
+.xs-scr img{opacity:0;transition:opacity .9s ease}
+.xs-scr img.on{opacity:1}
+.xs-scr::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.10) 0%,rgba(255,255,255,.03) 28%,transparent 42%)}
+.xs-lid{padding:1.15cqw 1.15cqw 1.5cqw;border-radius:1.5cqw 1.5cqw 0 0;background:linear-gradient(#1b2232,#0e121c);border:1px solid #2e3850;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.xs-lid .xs-scr{border-radius:.3cqw}
+.xs-base{height:1.3cqw;margin:0 -6.5%;border-radius:0 0 1.2cqw 1.2cqw;background:linear-gradient(#d6dbe4,#8a92a1);position:relative;
+  box-shadow:0 2.4cqw 4cqw -1.4cqw rgba(0,0,0,.75),0 0 6cqw -1cqw rgba(228,1,43,.25)}
+.xs-base::before{content:"";position:absolute;left:42%;width:16%;top:0;height:45%;background:#a7aebb;border-radius:0 0 .7cqw .7cqw}
+.xs-tab .xs-body,.xs-ph .xs-body{background:linear-gradient(145deg,#232b3d,#0d111a 60%);border:1px solid #33405a;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),-1.4cqw 2.6cqw 4cqw -1cqw rgba(0,0,0,.7)}
+.xs-tab .xs-body{padding:.9cqw;border-radius:1.9cqw}
+.xs-tab .xs-scr{border-radius:1cqw}
+.xs-ph .xs-body{padding:.6cqw;border-radius:2.3cqw}
+.xs-ph .xs-scr{border-radius:1.75cqw}
+/* caption + pause */
+.xs-foot{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:clamp(10px,1.6vw,20px);min-height:34px}
+.xs-cap{margin:0;font-size:14px;color:#b9cde5;text-align:center}
+.xs-cap b{color:#fff;font-weight:600}
+.xs-pause{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;cursor:pointer;padding:0}
+.xs-pause:hover{border-color:#fff}
+.xs-pause:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.xs-pause svg{width:12px;height:12px}
+.xs-prog{position:absolute;left:14px;right:14px;bottom:3px;height:1.5px;transform-origin:left;transform:scaleX(0);background:#fff;opacity:.85;border-radius:2px}
+.xs.run .xs-chip[aria-pressed=true] .xs-prog{animation:xsProg var(--dwell,6s) linear forwards}
+@keyframes xsProg{to{transform:scaleX(1)}}
+.xs-chip{position:absolute}
+.next{margin-top:28px;padding-top:22px;border-top:1px dashed var(--line)}
+.next ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.next li{font-size:13.5px;color:var(--muted);border:1px dashed #d6cbc6;border-radius:99px;padding:6px 13px}
+.xs.off *,.xs.off *::before,.xs.off *::after{animation-play-state:paused!important}
+@media (max-width:700px){
+  .xs{--mx:-30cqw;--my:-6cqw;--ms:2}
+  .xs-stage{height:121cqw}
+  .xs-clip{height:84cqw}
+  .xs-lap{left:5cqw;top:53cqw;width:78cqw}
+  .xs-tab{left:-1cqw;top:77cqw;width:29cqw}
+  .xs-ph{left:74cqw;top:72cqw;width:23cqw}
+  .xs-glow{left:0;top:50cqw;width:100cqw;height:60cqw}
+  .xs-pt.eu .xs-chip{left:auto;right:9px}
+  .xs-key{font-size:11px;gap:12px}
+  .xs-rig{transform-style:flat}
+  .xs-tab,.xs-ph{transform:none}
+  .xs-lap{z-index:1}.xs-tab{z-index:2}.xs-ph{z-index:3}
+  .xs-pt.sm{display:none}
+  .xs-chip{font-size:11.5px;padding:6px 9px;top:-12px;left:9px}
+  .xs-chip.l{right:9px}
+  .xs-chip small{display:none}
+  .xs-cap{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){
+  .xs-float,.xs-pt i::before,.xs-pt i::after{animation:none}
+  .xs-pt i::before{transform:scale(2.2);opacity:.45}
+  .xs-pt i::after{display:none}
+  .xs-scr img,.xs-rig,.xs-map,.xs-chip{transition:none}
+  .xs-pause,.xs-prog{display:none}
+}
+</style>
 </head>
 <body>
 
@@ -29,7 +137,7 @@
       <a href="/products/">Products</a>
       <a href="/#about">About</a>
     </nav>
-    <a class="btn btn-primary" href="/demo/">Try Demo <span class="arw">→</span></a>
+    <a class="btn btn-primary" href="https://explore.pulsus.tech">Open Explore <span class="arw">→</span></a>
   </div>
 </header>
 
@@ -38,21 +146,49 @@
       <img class="app-logo" src="/img/explore/logo-night.webp" width="530" height="144" alt="Pulsus Explore">
       <p class="kick"><b>Free</b> · Pulsus <span class="red">Platform</span></p>
       <h1>How healthy is your sector, <span>where you are?</span></h1>
-      <p class="lede">Explore turns six data streams into one clear reading of how banks, credit unions, insurers and government agencies are holding up — across the United States, Colombia and Europe, refreshed every quarter, and free to use.</p>
+      <p class="lede">Explore turns a growing set of public data streams into one clear reading of how banks, credit unions, insurers, hospitals and government agencies are holding up — across the United States, Colombia and Europe, refreshed every quarter, and free to use.</p>
       <div class="cta">
         <a class="btn btn-primary" href="https://explore.pulsus.tech">Open Explore <span class="arw">→</span></a>
         <a class="btn btn-outline" href="/how-it-works/">How it works <span class="arw">→</span></a>
       </div>
       <p class="note">No sign-up to look around. Works on any phone, tablet or browser.</p>
-    <div class="dev-row"><div class="laptop"><div class="lid"><img src="/img/shots/l-explore-map.jpg" alt="Explore's world map, with the United States drawn as a grid of states on a laptop." loading="lazy"></div><div class="base"></div></div><div class="tablet"><img src="/img/shots/t-explore-map.jpg" alt="Explore's world map, with the United States drawn as a grid of states on a tablet." loading="lazy"></div><div class="phone"><img src="/img/shots/explore-map.jpg" alt="Explore's world map, with the United States drawn as a grid of states on a phone." loading="lazy"></div></div>
+    <figure class="xs" aria-label="Explore on a laptop, a tablet and a phone, touring the regions it covers">
+      <div class="xs-stage">
+        <div class="xs-clip" aria-hidden="true"><div class="xs-map"><img src="/img/explore/hero/world-dots.svg" width="185" height="91" alt=""></div></div>
+        <p class="xs-key" aria-hidden="true"><span><i class="k-live"></i>Covered today</span><span><i class="k-next"></i>Coming next</span></p>
+        <div class="xs-glow" aria-hidden="true"></div>
+        <span class="xs-pt sm" style="--x:19.8;--y:15.6" aria-hidden="true"><i></i></span>
+        <span class="xs-pt sm" style="--x:29.7;--y:14.6" aria-hidden="true"><i></i></span>
+        <span class="xs-pt sm" style="--x:49;--y:12.4" aria-hidden="true"><i></i></span>
+        <span class="xs-pt sm" style="--x:49.2;--y:15.2" aria-hidden="true"><i></i></span>
+        <span class="xs-pt sm" style="--x:53.4;--y:14.7" aria-hidden="true"><i></i></span>
+                <span class="xs-pt eu act" style="--x:52.6;--y:11.7"><i></i><button type="button" class="xs-chip" aria-pressed="true" data-cap="<b>Europe</b> · the largest banks, from European Banking Authority data">Europe <small>105 banks</small><span class="xs-prog"></span></button></span>
+        <span class="xs-pt" style="--x:29.5;--y:26.9"><i></i><button type="button" class="xs-chip l" aria-pressed="false" data-cap="<b>Latin America</b> · Colombia’s banks and insurers, from its financial supervisor">Colombia <small>74 banks &amp; insurers</small><span class="xs-prog"></span></button></span>
+        <span class="xs-pt" style="--x:24.6;--y:15.4"><i></i><button type="button" class="xs-chip" aria-pressed="false" data-cap="<b>United States</b> · banks, credit unions, hospitals and federal agencies, state by state">United States <small>12,463 organisations</small><span class="xs-prog"></span></button></span>
+        <div class="xs-rig">
+          <div class="xs-dev xs-tab"><div class="xs-float"><div class="xs-body"><div class="xs-scr"><img class="on" src="/img/explore/hero/t-americas.webp" width="620" height="892" alt="Explore on a tablet: the Americas, with every US state scored on a grid and Colombia's banks at 59." decoding="async"></div></div></div></div>
+          <div class="xs-dev xs-lap"><div class="xs-float"><div class="xs-lid"><div class="xs-scr">
+            <img class="on" src="/img/explore/hero/l-europe.webp" width="1440" height="900" alt="Explore on a laptop: Europe's largest banks country by country, with all 105 scored at 77 out of 100." decoding="async">
+            <img src="/img/explore/hero/l-colombia.webp" width="1440" height="900" alt="Explore on a laptop: Colombia's 30 banks, scored 59 out of 100, with their regulatory indicators." decoding="async" loading="lazy" aria-hidden="true">
+            <img src="/img/explore/hero/l-us.webp" width="1440" height="900" alt="Explore on a laptop: US banks state by state, with Texas's 346 banks scored 80 out of 100." decoding="async" loading="lazy" aria-hidden="true">
+          </div></div><div class="xs-base"></div></div></div>
+          <div class="xs-dev xs-ph"><div class="xs-float"><div class="xs-body"><div class="xs-scr">
+            <img class="on" src="/img/explore/hero/p-germany.webp" width="420" height="715" alt="Explore on a phone: Germany's 17 largest banks, scored 57 out of 100." decoding="async">
+            <img src="/img/explore/hero/p-colombia.webp" width="420" height="715" alt="Explore on a phone: Colombia's 44 insurers, scored 58 out of 100." decoding="async" loading="lazy" aria-hidden="true">
+            <img src="/img/explore/hero/p-california.webp" width="420" height="715" alt="Explore on a phone: California's 113 banks, scored 77 out of 100." decoding="async" loading="lazy" aria-hidden="true">
+          </div></div></div></div>
+        </div>
+      </div>
+      <figcaption class="xs-foot"><p class="xs-cap"><b>Europe</b> · the largest banks, from European Banking Authority data</p><button type="button" class="xs-pause" aria-label="Pause the tour" hidden><svg viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M2 1h3v10H2zM7 1h3v10H7z"/></svg></button></figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="stats" aria-label="Explore in numbers">
   <div class="wrap">
-    <div class="stat"><div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div><b>8,746</b><span>Organisations</span><small>Scored on one consistent scale</small></div>
-    <div class="stat"><div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg></div><b>45</b><span>US states</span><small>Plus DC, Colombia and Europe-wide</small></div>
-    <div class="stat"><div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><b>6</b><span>Data streams</span><small>Powering organisational intelligence</small></div>
+    <div class="stat"><div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div><b>12,642</b><span>Organisations</span><small>Scored on one consistent scale</small></div>
+    <div class="stat"><div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg></div><b>50</b><span>US states</span><small>Plus DC, Puerto Rico, Colombia and Europe-wide</small></div>
+    <div class="stat"><div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><b>7</b><span>Public data streams</span><small>And growing, with more on the way</small></div>
     <div class="stat"><div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div><b>5 years</b><span>Of history</span><small>Quarterly readings since Q3 2021</small></div>
   </div>
 </section>
@@ -108,8 +244,8 @@
 <section class="sec">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Data streams</p>
-      <h2>Six data streams. One intelligence engine.</h2>
+      <p class="eyebrow">Data streams · seven today</p>
+      <h2>A growing set of public data streams. One intelligence engine.</h2>
       <p>Pulsus reads every stream through the same fixed rules, so each score and movement can be traced and reproduced. No news or social media — only data published by regulators and governments.</p>
     </div>
     <div class="srcs">
@@ -118,7 +254,17 @@
       <div class="src"><b>Europe's largest banks</b>European Banking Authority</div>
       <div class="src"><b>Colombian banks</b>Superintendencia Financiera de Colombia</div>
       <div class="src"><b>Colombian insurers</b>Superintendencia Financiera de Colombia</div>
+      <div class="src"><b>US hospitals</b>CMS (Medicare cost reports)</div>
       <div class="src"><b>US federal agencies</b>USAspending.gov (US Treasury) and FOIA.gov (US Justice Department)</div>
+    </div>
+    <div class="next">
+      <p class="eyebrow">Coming next</p>
+      <ul>
+        <li>Universities in the United States and the United Kingdom</li>
+        <li>Banks and credit unions in Canada and Australia</li>
+        <li>The UK’s largest banks and insurers</li>
+        <li>Banks in Mexico, Brazil, Chile, Peru and India</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -155,6 +301,66 @@
   </div>
 </footer>
 
+<script>
+(() => {
+  const xs = document.querySelector(".xs"); if (!xs) return;
+  const stage = xs.querySelector(".xs-stage"), rig = xs.querySelector(".xs-rig"), map = xs.querySelector(".xs-map");
+  const chips = [...xs.querySelectorAll(".xs-chip")], pts = chips.map((c) => c.parentElement);
+  const sets = [xs.querySelectorAll(".xs-lap img"), xs.querySelectorAll(".xs-ph img")];
+  const cap = xs.querySelector(".xs-cap"), pause = xs.querySelector(".xs-pause");
+  const still = matchMedia("(prefers-reduced-motion: reduce)");
+  const DWELL = 6500;
+  let at = 0, timer = 0, stopped = false, seen = true;
+
+  function show(n) {
+    at = n;
+    chips.forEach((c, k) => { c.setAttribute("aria-pressed", String(k === n)); pts[k].classList.toggle("act", k === n); });
+    sets.forEach((imgs) => imgs.forEach((im, k) => { im.classList.toggle("on", k === n); if (k === n) im.removeAttribute("aria-hidden"); else im.setAttribute("aria-hidden", "true"); }));
+    cap.innerHTML = chips[n].dataset.cap;
+    xs.classList.remove("run"); void xs.offsetWidth; schedule();
+  }
+  function schedule() {
+    clearTimeout(timer);
+    const go = !stopped && seen && !still.matches && !document.hidden;
+    xs.classList.toggle("run", go);
+    if (go) timer = setTimeout(() => show((at + 1) % chips.length), DWELL);
+  }
+  chips.forEach((c, k) => c.addEventListener("click", () => { stopped = true; setPause(); show(k); }));
+  function setPause() {
+    pause.setAttribute("aria-label", stopped ? "Play the tour" : "Pause the tour");
+    pause.innerHTML = stopped
+      ? '<svg viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M3 1.5v9l7.5-4.5z"/></svg>'
+      : '<svg viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M2 1h3v10H2zM7 1h3v10H7z"/></svg>';
+  }
+  pause.hidden = false;
+  pause.addEventListener("click", () => { stopped = !stopped; setPause(); if (!stopped) show((at + 1) % chips.length); else schedule(); });
+
+  // Pause everything, CSS animations included, while the showcase is off-screen or the tab is hidden.
+  new IntersectionObserver(([e]) => { seen = e.isIntersecting; xs.classList.toggle("off", !seen); schedule(); }, { threshold: 0.15 }).observe(xs);
+  document.addEventListener("visibilitychange", schedule);
+  still.addEventListener?.("change", schedule);
+
+  // A slow tilt toward the pointer; the map drifts the other way, for depth.
+  const hero = xs.closest("section") || xs;
+  let raf = 0;
+  if (matchMedia("(hover:hover) and (pointer:fine)").matches) {
+    hero.addEventListener("pointermove", (e) => {
+      if (still.matches || raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const r = stage.getBoundingClientRect();
+        const dx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 2)));
+        const dy = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height / 1.2)));
+        rig.style.setProperty("--ry", `${(dx * 5).toFixed(2)}deg`);
+        rig.style.setProperty("--rx", `${(-dy * 3).toFixed(2)}deg`);
+        map.style.transform = `translate(${(-dx * 10).toFixed(1)}px,${(-dy * 6).toFixed(1)}px)`;
+      });
+    });
+    hero.addEventListener("pointerleave", () => { rig.style.removeProperty("--ry"); rig.style.removeProperty("--rx"); map.style.transform = ""; });
+  }
+  setPause(); schedule();
+})();
+</script>
 <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
 </body>
 </html>
