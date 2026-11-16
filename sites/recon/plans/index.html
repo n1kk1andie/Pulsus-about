@@ -171,11 +171,19 @@ footer.suitefoot{margin-top:80px;background:#071538;color:#aeb6cf;padding:46px 0
 @media(max-width:600px){.desks,.sectors.s4 ul,.eg2 ol{grid-template-columns:1fr}.bands{font-size:14.5px}.eg ol{font-size:13px}}
 main{overflow-x:clip}
 .cols .np{display:block;color:#aeb6cf;padding:3px 0}
+.mtoggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;margin-left:auto;border:1.5px solid var(--ink,#0b1f4d);border-radius:10px;background:transparent;color:var(--ink,#0b1f4d);cursor:pointer;flex:0 0 auto}
+.mtoggle svg{width:22px;height:22px}.mtoggle:focus-visible{outline:3px solid var(--red,#c8102e);outline-offset:2px}
+header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
+.mnav{border-bottom:1px solid var(--line,#ddd4c2);background:var(--paper,#f7f3ea);box-shadow:0 18px 30px -24px rgba(11,31,77,.5);position:relative;z-index:30}
+.mnav[hidden]{display:none}.mnav .wrap{display:flex;flex-direction:column;padding-top:8px;padding-bottom:16px}
+.mnav a{display:block;padding:13px 4px;border-bottom:1px solid var(--line,#ddd4c2);color:var(--ink,#0b1f4d);font:600 17px 'IBM Plex Sans',sans-serif;text-decoration:none}
+.mnav a[aria-current]{color:var(--red,#c8102e)}.mnav a.msign{border-bottom:0;margin-top:10px;text-align:center;border:1.5px solid var(--ink,#0b1f4d);border-radius:10px}
+.mnav .mlang{display:flex;gap:18px;padding:12px 4px 0}.mnav .mlang a{border:0;padding:6px 0;font-weight:500}
 </style></head><body>
 <div class="suitebar"><div class="wrap"><a href="https://about.pulsus.tech/">Part of the <b>Pulsus Intelligence Suite</b> →</a></div></div>
 <header><div class="wrap nav"><a class="lockup" href="/" aria-label="Pulsus Recon"><span class="wm">PULS<span class="u">U</span>S</span><span class="prod"><span>RECON</span></span><span class="tag">Live. <b>Signal</b>. Clarity.</span></a>
 <nav><a href="/">The story</a><a href="#features">Features</a><a href="#faq">FAQ</a><a href="/plans/" aria-current="page">Plans &amp; features</a></nav>
-<a class="btn line" href="https://recon.pulsus.tech/login">Sign in</a><a class="btn red" href="https://executive.pulsus.tech/demo/register?app=recon&amp;next=https%3A%2F%2Fdemo-recon.pulsus.tech%2F">Try Demo →</a></div></header>
+<a class="btn line" href="https://recon.pulsus.tech/login">Sign in</a><button class="mtoggle" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="btn red" href="https://executive.pulsus.tech/demo/register?app=recon&amp;next=https%3A%2F%2Fdemo-recon.pulsus.tech%2F">Try Demo →</a></div></header>
 <svg class="beat" id="beat" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 13 H640 l14 0 8 -11 10 22 9 -17 7 6 H1440"/></svg>
 
 
@@ -303,6 +311,26 @@ main{overflow-x:clip}
  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{rootMargin:'0px 0px -8% 0px'});
  document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el);});
  setTimeout(()=>{const b=document.getElementById('beat');b.classList.add('pulse');},2800);
+})();
+</script>
+<script>
+(function(){
+ const h=document.querySelector('header'),b=h&&h.querySelector('.mtoggle');if(!b)return;
+ const nav=h.querySelector('nav'),sign=h.querySelector('.btn.line'),langs=h.querySelector('.langs');
+ const m=document.createElement('div');m.id='mnav';m.className='mnav';m.hidden=true;const w=document.createElement('div');w.className='wrap';m.appendChild(w);
+ if(nav)nav.querySelectorAll('a').forEach(a=>{const c=a.cloneNode(true);w.appendChild(c);});
+ if(sign){const c=sign.cloneNode(true);c.className='msign';w.appendChild(c);}
+ if(langs){const l=document.createElement('div');l.className='mlang';langs.querySelectorAll('a').forEach(a=>l.appendChild(a.cloneNode(true)));w.appendChild(l);}
+ const bar=document.getElementById('beat');(bar||h).after(m);
+ const hidden=el=>!el||getComputedStyle(el).display==='none'||(el.tagName==='NAV'?[...el.querySelectorAll('a')].some(a=>getComputedStyle(a).display==='none'):false);
+ function fit(){const need=(nav&&hidden(nav))||(sign&&hidden(sign))||(langs&&hidden(langs));h.classList.toggle('has-m',!!need);if(!need)close();}
+ function open(){m.hidden=false;b.setAttribute('aria-expanded','true');const f=w.querySelector('a');f&&f.focus();}
+ function close(){m.hidden=true;b.setAttribute('aria-expanded','false');}
+ b.addEventListener('click',()=>m.hidden?open():close());
+ w.addEventListener('click',e=>{if(e.target.closest('a'))close();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!m.hidden){close();b.focus();}});
+ document.addEventListener('click',e=>{if(!m.hidden&&!m.contains(e.target)&&!b.contains(e.target))close();});
+ addEventListener('resize',fit);fit();
 })();
 </script>
 </body></html>
