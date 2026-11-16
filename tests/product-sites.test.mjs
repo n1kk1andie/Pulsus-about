@@ -90,6 +90,8 @@ for (const { key, dir, price, gone = [] } of PLANS) {
     assert.ok(html.includes(`<link rel="canonical" href="https://about${key}.pulsus.tech/${en}plans/">`));
     for (const p of price) assert.ok(html.includes(p), `price ${p}`);
     for (const p of gone) assert.ok(!html.includes(p) && !story.includes(p), `old price ${p} still shown`);
+    const band = story.match(/<section class="pband".*?<\/section>/s)?.[0] ?? "";
+    assert.ok(band && !/\$\d/.test(band), "prices belong on the plans page only, not the story page's band");
     assert.ok(/href="\/((en|es)\/)?"/.test(html) && story.includes(`href="/${en}plans/"`), "story <-> plans links");
     for (const src of [`/${en}plans`, `/${en}plans/`]) {
       const r = vercel.rewrites.find((x) => x.source === src && x.has?.[0]?.value === `about${key}.pulsus.tech`);
