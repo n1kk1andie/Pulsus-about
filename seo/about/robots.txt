@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://about.pulsus.tech/sitemap.xml
+Sitemap: https://about.pulsus.tech/sitemap-index.xml
