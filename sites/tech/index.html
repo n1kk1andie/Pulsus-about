@@ -83,19 +83,81 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
 .mnav .mlang{display:flex;gap:18px;padding:12px 4px 0}.mnav .mlang a{border:0;padding:6px 0;font-weight:500}
 @media(max-width:1180px){header nav a:not([href*="plans"]){display:none}}@media(max-width:940px){header nav,header .btn.line{display:none}}header .btn{white-space:nowrap}
 
-/* ── hero: the command center ── */
+/* ── hero: a live map of the technology estate ── */
 .top-k{margin-top:34px}
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:46px;align-items:center;margin-top:8px;position:relative}
+.hero{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:46px;align-items:center;margin-top:8px;position:relative}
 .hero>*{min-width:0;position:relative;z-index:1}
 .hero h1{color:var(--ink);font-size:clamp(40px,4.4vw,56px)}.hero h1 span{display:block;color:var(--red)}
 .lead1{font:600 20px/1.4 'IBM Plex Sans';color:var(--ink);margin:24px 0 0;max-width:520px}
-.hero .lede{margin-top:12px;font-size:18px;max-width:540px}
+.hero .lede{margin-top:12px;font-size:18px;max-width:520px}
 .dnote{font-size:14px;color:var(--mute);margin:12px 0 0}
-.ekg{position:absolute;left:-40px;right:-40px;bottom:-40px;width:calc(100% + 80px);height:150px;opacity:.5;pointer-events:none;z-index:0}
-.ekg path{fill:none;stroke:url(#ekgGrad);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2600;stroke-dashoffset:2600;animation:draw 5.5s ease-in-out infinite}
-@keyframes draw{0%{stroke-dashoffset:2600}55%{stroke-dashoffset:0}100%{stroke-dashoffset:-2600}}
-.console{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 40px 70px -40px rgba(11,31,77,.55);transform:perspective(1600px) rotateX(7deg) rotateY(-5deg);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
-.console.flat,.console:hover{transform:perspective(1600px) rotateX(0)}
+.estate{margin:0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 18px 16px;box-shadow:0 40px 70px -42px rgba(11,31,77,.55)}
+.e-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid #eef0f4;font:500 11.5px/1.2 'IBM Plex Mono';letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.e-head b{font:700 14px Sora;letter-spacing:0;text-transform:none;color:var(--ink)}
+.e-live{display:inline-flex;align-items:center;gap:7px}.e-live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(200,16,46,.5);animation:live 2s ease-out infinite}
+@keyframes live{70%{box-shadow:0 0 0 8px rgba(200,16,46,0)}100%{box-shadow:0 0 0 0 rgba(200,16,46,0)}}
+#estate{display:block;width:100%;height:auto;margin-top:6px;overflow:visible}
+.lay{font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;fill:#8a8f9c;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
+.lrule{stroke:#eef0f4;stroke-width:1}
+.lk{fill:none;stroke:#c4cad6;stroke-width:1.3;transition:stroke .35s,stroke-width .35s,opacity .35s}
+.lk.hot{stroke:var(--red);stroke-width:2.4}.lk.dep{stroke:var(--ink);stroke-width:2.2}.lk.dim{opacity:.25}
+.nd{cursor:pointer;outline:none}.nd .hb{fill:transparent;stroke:none;rx:10}
+.nd:focus-visible .hb{stroke:var(--ink);stroke-width:2;stroke-dasharray:4 3}
+.nd circle.c{fill:#fff;stroke:var(--ink);stroke-width:1.6;transition:fill .3s,stroke .3s}
+.nd text{font:500 12.5px 'IBM Plex Sans',sans-serif;fill:var(--ink);paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round;transition:fill .3s}
+.nd.l0 circle.c{fill:var(--ink)}.nd.l0 text{font-weight:600}
+.nd.l4 circle.c{stroke-dasharray:3 2}
+.nd:hover circle.c{stroke-width:2.6}
+.nd.dim{opacity:.32}.nd{transition:opacity .35s}
+.nd.hit circle.c{fill:var(--red);stroke:var(--red)}.nd.hit text{fill:var(--red);font-weight:600}
+.nd.dep circle.c{fill:var(--ink);stroke:var(--ink)}.nd.dep text{font-weight:600}
+.nd.src circle.c{fill:#fff;stroke:var(--red);stroke-width:3.4}.nd.src text{fill:var(--red);font-weight:600}
+.nd.sel circle.c{stroke-width:3.4}
+.ring{fill:none;stroke:var(--red);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}
+.nd.src .ring,.nd.l0.hit .ring{animation:ring 1.5s ease-out infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.75}100%{transform:scale(2.8);opacity:0}}
+.pd{fill:var(--red);pointer-events:none}
+.e-cap{margin-top:8px;border-top:1px dashed var(--line);padding-top:12px;min-height:132px}
+.e-ev{margin:0;font:500 12.5px/1.4 'IBM Plex Mono',monospace;color:var(--red);letter-spacing:.02em}
+.e-imp{margin:6px 0 0;font:600 16px/1.4 'IBM Plex Sans';color:var(--ink)}
+.e-own{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font:500 13px/1.3 'IBM Plex Sans';color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:5px 12px}
+.e-own::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--green)}
+.e-cap .fade{transition:opacity .4s}.e-cap .off{opacity:0}
+.e-hint{margin:10px 0 0;font-size:13px;color:var(--mute)}.e-ht{display:none}@media(hover:none){.e-hm{display:none}.e-ht{display:inline}}
+@media(max-width:1180px){.e-cap{min-height:152px}}
+@media(max-width:980px){.hero{grid-template-columns:minmax(0,1fr);gap:30px}}
+@media(max-width:600px){.lead1{font-size:18px}.hero .lede{font-size:17px}.estate{padding:12px 12px 14px}.e-imp{font-size:15px}.e-cap{min-height:200px}}
+
+/* ── the so-what band: sourced figures, straight after the hero ── */
+.stakes{margin:56px 0 0;background:var(--ink);color:#c3cae0;padding:60px 0 56px;position:relative;scroll-margin-top:10px}
+.stakes::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--red)}
+.st-in{max-width:1180px;margin:0 auto;padding:0 24px}
+.st-top{display:flex;justify-content:space-between;align-items:end;gap:20px 40px;flex-wrap:wrap}
+.stakes .k{color:#ff5a73}
+.stakes h2{font:800 clamp(30px,3.6vw,46px)/1.06 Sora;letter-spacing:-.025em;color:#fff;margin:10px 0 0}.stakes h2 span{color:#ff5a73}
+.st-note{margin:0;max-width:380px;font-size:15px;color:#aeb6cf}
+.stg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:36px;border-top:1px solid rgba(255,255,255,.14)}
+.sf2{display:flex;flex-direction:column;gap:10px;padding:28px 28px 26px 0;text-decoration:none;color:#dfe4f2;border-bottom:1px solid rgba(255,255,255,.14);transition:background .2s}
+.sf2:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid rgba(255,255,255,.14)}
+.sf2:hover{background:rgba(255,255,255,.04)}.sf2:focus-visible{outline:3px solid #ff5a73;outline-offset:-3px}
+.sf2 b{font:800 clamp(52px,5.6vw,80px)/.95 Sora;letter-spacing:-.04em;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sf2:nth-child(-n+3) b{color:#ff5a73}
+.sf2 span{font-size:15.5px;line-height:1.5}
+.sf2 small{margin-top:auto;padding-top:8px;font-size:12.5px;color:#9aa3c0}
+.st-q{margin:28px 0 0;max-width:860px;font:700 clamp(18px,1.8vw,22px)/1.4 Sora;color:#fff}.st-q a{font:500 14px 'IBM Plex Sans';color:#ff8a9c;white-space:nowrap}
+@media(max-width:960px){.stg{grid-template-columns:repeat(2,minmax(0,1fr))}.sf2,.sf2:not(:nth-child(3n+1)){padding:24px 22px 22px 0;border-left:0}.sf2:nth-child(2n){padding-left:22px;border-left:1px solid rgba(255,255,255,.14)}}
+@media(max-width:600px){.stakes{margin-top:40px;padding:44px 0 40px}.st-in{padding:0 16px}.stg{grid-template-columns:minmax(0,1fr);margin-top:24px}.sf2,.sf2:nth-child(2n){padding:20px 0;border-left:0}.sf2 b{font-size:54px}.st-q a{white-space:normal}}
+#why{padding-top:64px}
+@media(max-width:600px){#why{padding-top:52px}}
+
+/* ── where it comes from (moved from the plans page) ── */
+.pts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:26px}
+.pt{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}.pt .n{font:500 13px 'IBM Plex Mono';color:var(--red)}.pt h3{font:800 19px/1.2 Sora;color:var(--ink);margin:10px 0 0}.pt p{margin:8px 0 0;font-size:15.5px}
+@media(max-width:960px){.pts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.pts{grid-template-columns:minmax(0,1fr)}}
+
+/* ── what your leadership sees: the command center ── */
+.console{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 40px 70px -40px rgba(11,31,77,.55)}
 .c-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:0 2px 12px;border-bottom:1px solid #eef0f4;font:700 14px Sora;color:var(--ink)}
 .c-head i{width:9px;height:9px;border-radius:50%;background:#e2e5ec;display:inline-block;margin-right:5px}
 .c-head span.t{flex:1;margin-left:4px}
@@ -110,7 +172,8 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
 .c-trend{border:1px solid #eef0f4;border-radius:10px;padding:10px 12px}
 .c-trend .t{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 8px;font:500 11px 'IBM Plex Mono';color:var(--mute)}
 .c-trend svg{display:block;width:100%;height:96px;margin-top:10px}
-.ln{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;animation:line 2.6s .4s ease forwards}
+.ln{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600}
+.in .ln{animation:line 2.6s .4s ease forwards}
 @keyframes line{to{stroke-dashoffset:0}}
 .c-feed{border:1px solid #eef0f4;border-radius:10px;padding:2px 12px;height:146px;overflow:hidden;position:relative}
 .c-feed ul{list-style:none;margin:0;padding:0;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
@@ -120,12 +183,7 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
 .c-feed::after{content:"";position:absolute;inset:auto 0 0;height:30px;background:linear-gradient(rgba(255,255,255,0),#fff)}
 .pill{font:600 11px 'IBM Plex Sans';padding:3px 8px;border-radius:99px}
 .p-r{background:#fde4e8;color:#a10d26}.p-a{background:#fff1d6;color:#7a4b00}.p-g{background:#e3f4ea;color:#14603a}
-.ticker{margin-top:56px;border:1px solid var(--line);border-radius:10px;background:var(--paper2);overflow:hidden;white-space:nowrap;padding:14px 0;font:500 13px/1 'IBM Plex Mono';color:var(--ink)}
-.ticker .row{display:inline-flex;gap:40px;padding-left:40px;animation:marq 48s linear infinite}
-.ticker span::before{content:"●";color:var(--red);margin-right:10px;font-size:8px;vertical-align:2px}
-@keyframes marq{to{transform:translateX(-50%)}}
-@media(max-width:980px){.hero{grid-template-columns:minmax(0,1fr);gap:34px}.console{transform:none}}
-@media(max-width:600px){.c-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.c-row{grid-template-columns:minmax(0,1fr)}.console{padding:12px}.lead1{font-size:18px}.hero .lede{font-size:17px}}
+@media(max-width:600px){.c-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.c-row{grid-template-columns:minmax(0,1fr)}.console{padding:12px}}
 
 /* ── shared sections ── */
 .sec{padding:96px 0 0;scroll-margin-top:10px}.sec h2{font:800 clamp(30px,3.6vw,46px)/1.06 Sora;letter-spacing:-.025em;color:var(--ink);margin:10px 0 0;max-width:900px}.sec h2 span{color:var(--red)}
@@ -209,75 +267,66 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
 @media(max-width:640px){.lane,.axis{grid-template-columns:minmax(0,1fr);gap:6px}.axis>span{display:none}.h-stat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;width:100%}.h-stat b{font-size:34px}.h-stat small{font-size:12px;line-height:1.3}}
 
 /* ── 3. seven questions ── */
-.qa2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:44px;margin-top:30px;align-items:start}
-.benefits{list-style:none;padding:0;margin:0}.benefits li{padding:10px 0 10px 32px;position:relative;border-bottom:1px dashed var(--line);color:var(--ink)}
-.benefits li:before{content:"✓";position:absolute;left:0;top:10px;width:20px;height:20px;border:1.5px solid var(--green);border-radius:4px;color:var(--green);font:700 14px/20px Sora;text-align:center}
-.statement{font:800 clamp(22px,2.4vw,30px)/1.15 Sora;color:var(--ink);margin:26px 0 0;letter-spacing:-.015em}.statement span{color:var(--red)}
+.qa2{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;margin-top:30px;align-items:center}
 .qlist{list-style:none;counter-reset:q;margin:0;padding:8px 26px}
 .qlist li{counter-increment:q;display:grid;grid-template-columns:44px 1fr;align-items:baseline;padding:13px 0;border-bottom:1px solid #eef0f4;font:700 clamp(17px,1.7vw,20px)/1.3 Sora;color:var(--ink)}
 .qlist li:last-child{border-bottom:0;color:var(--red)}
 .qlist li::before{content:"0" counter(q);font:500 13px 'IBM Plex Mono';color:var(--red)}
 .qlist .hand{font:700 24px/1.1 Caveat,cursive;color:var(--red);margin:6px 0 4px 44px;display:block}
-@media(max-width:860px){.qa2{grid-template-columns:minmax(0,1fr);gap:26px}.qlist{padding:6px 18px}}
+@media(max-width:980px){.qa2{grid-template-columns:minmax(0,1fr);gap:26px}.qlist{padding:6px 18px}}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}.rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}.ekg path,.ln{stroke-dashoffset:0}.console,.console.flat{transform:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}.ln{stroke-dashoffset:0}}
 </style></head><body>
 <div class="suitebar"><div class="wrap"><a href="https://about.pulsus.tech/">Part of the <b>Pulsus Intelligence Suite</b> →</a></div></div>
 <header><div class="wrap nav"><a class="lockup" href="/" aria-label="Pulsus Tech"><span class="wm">PULS<span class="u">U</span>S</span><span class="prod"><span>TECH</span></span><span class="tag">Live. <b>Signal</b>. Clarity.</span></a>
-<nav><a href="#scenarios">Scenarios</a><a href="#lifecycle">Lifecycle</a><a href="#questions">Seven questions</a><a href="#suite-h">The suite</a><a href="/plans/">Plans &amp; features</a></nav>
+<nav><a href="#stakes">Why it matters</a><a href="#scenarios">Scenarios</a><a href="#lifecycle">Lifecycle</a><a href="#questions">Seven questions</a><a href="/plans/">Plans &amp; features</a></nav>
 <a class="btn line" href="https://tech.pulsus.tech/login">Sign in</a><button class="mtoggle" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="btn red" href="https://executive.pulsus.tech/demo/register?app=tech&amp;next=https%3A%2F%2Fdemo-ict.pulsus.tech%2F">Try Demo →</a></div></header>
 <svg class="beat" id="beat" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 13 H640 l14 0 8 -11 10 22 9 -17 7 6 H1440"/></svg>
 
-<main class="wrap">
+<main>
+<div class="wrap">
  <p class="k top-k">ICT risk intelligence</p>
  <section class="hero" aria-labelledby="hero-h">
-  <svg class="ekg" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
-   <defs><linearGradient id="ekgGrad" x1="0" x2="1"><stop offset="0" stop-color="#c8102e" stop-opacity="0"/><stop offset=".45" stop-color="#c8102e"/><stop offset="1" stop-color="#c8102e" stop-opacity="0"/></linearGradient></defs>
-   <path d="M0 80 H360 l18 -10 l14 10 H470 l14 -62 l16 120 l14 -84 l12 26 H700 l16 -14 l14 14 H900 l14 -62 l16 120 l14 -84 l12 26 H1140 l18 -10 l14 10 H1440"/>
-  </svg>
   <div>
    <h1 id="hero-h">See the risk. <span>Know the impact.</span></h1>
-   <p class="lead1">Your technology estate is interconnected. Your intelligence should be too.</p>
-   <p class="lede">Pulsus Tech brings applications, infrastructure, vendors, incidents and operational dependencies into one connected view, helping leaders identify exposure before it becomes disruption.</p>
+   <p class="lead1">Your technology estate is interconnected. Your risk intelligence should be too.</p>
+   <p class="lede">Pulsus Tech connects your business services to the applications, infrastructure, vendors and vendors’ suppliers they run on, so you see what a single failure would reach, and who owns the fix, before it becomes disruption.</p>
    <div class="cta"><a class="btn red" href="https://executive.pulsus.tech/demo/register?app=tech&amp;next=https%3A%2F%2Fdemo-ict.pulsus.tech%2F">Try Demo →</a><a class="btn line" href="https://tech.pulsus.tech/signup">Start a 14-day free trial</a></div>
-   <p class="dnote">The demo is the real product with example data. <a href="#scenarios" style="color:var(--ink)">Or try a scenario first ↓</a></p>
+   <p class="dnote">The demo is the real product with example data.</p>
   </div>
-  <figure class="console" aria-label="Demonstration: the Pulsus Tech command center, with example figures">
-   <div class="c-head"><span><i></i><i></i><i></i></span><span class="t">Technology Command Center</span><span class="c-demo" title="Example figures, not a real organisation">Demo</span></div>
-   <div class="c-kpis">
-    <div class="kpi"><small>Tech stability</small><b class="g" data-count="94" data-suffix="%">94%</b><span>Stable</span></div>
-    <div class="kpi"><small>Operational risk</small><b class="a">Medium</b><span>Manageable</span></div>
-    <div class="kpi"><small>SLA performance</small><b class="g" data-count="96.2" data-suffix="%" data-dec="1">96.2%</b><span>On track</span></div>
-    <div class="kpi"><small>Open incidents</small><b class="r" data-count="12">12</b><span>Investigating</span></div>
-   </div>
-   <div class="c-row">
-    <div class="c-trend">
-     <div class="t"><span>Stability · 6 months</span><span><span style="color:var(--red)">━</span> Applications &nbsp;<span style="color:#8a90a2">━</span> Network</span></div>
-     <svg viewBox="0 0 400 96" preserveAspectRatio="none" aria-hidden="true">
-      <path class="ln" stroke="#8a90a2" d="M0 62 C40 58 70 66 110 60 S180 50 220 56 S300 46 340 50 S380 44 400 46"/>
-      <path class="ln" stroke="#c8102e" d="M0 70 C40 66 70 74 110 52 S170 60 210 40 S290 46 330 30 S380 34 400 24"/>
-     </svg>
-    </div>
-    <div class="c-feed" aria-hidden="true"><ul id="feed">
-     <li><code>INC-25019</code><span>Core system degraded</span><span class="pill p-r">Major</span></li>
-     <li><code>EOS</code><span>Database cluster: support ends in 41 days</span><span class="pill p-a">High</span></li>
-     <li><code>INC-25017</code><span>Digital channels latency</span><span class="pill p-r">Major</span></li>
-     <li><code>TPR</code><span>Card processor renewal: no exit plan</span><span class="pill p-a">Medium</span></li>
-     <li><code>INC-25012</code><span>Branch network connectivity</span><span class="pill p-a">High</span></li>
-     <li><code>SLA</code><span>Payment gateway back within target</span><span class="pill p-g">Resolved</span></li>
-    </ul></div>
-   </div>
+  <figure class="estate" id="estate-fig" aria-labelledby="e-title">
+   <div class="e-head"><b id="e-title">Your technology estate</b><span class="e-live">Example · live</span></div>
+   <svg id="estate" role="group" aria-label="Map of an example technology estate, from business services down to vendors’ suppliers. Choose any point to see what depends on it."></svg>
+   <figcaption class="e-cap" id="e-cap" aria-live="polite"><p class="e-ev fade" id="e-ev"></p><p class="e-imp fade" id="e-imp"></p><span class="e-own fade off" id="e-own">&nbsp;</span></figcaption>
+   <p class="e-hint"><span class="e-hm">Hover, tap or tab to</span><span class="e-ht">Tap</span> any point to see what depends on it.</p>
   </figure>
  </section>
 
- <div class="ticker" aria-hidden="true"><div class="row">
-  <span>Applications &amp; services</span><span>Networks &amp; incidents</span><span>End of life &amp; end of support</span><span>Outsourcing register</span><span>Fourth parties</span><span>Single points of failure</span><span>Recovery evidence</span><span>Contract gaps</span>
-  <span>Applications &amp; services</span><span>Networks &amp; incidents</span><span>End of life &amp; end of support</span><span>Outsourcing register</span><span>Fourth parties</span><span>Single points of failure</span><span>Recovery evidence</span><span>Contract gaps</span>
- </div></div>
+</div>
+ <section class="stakes" id="stakes" aria-labelledby="st-h"><div class="st-in">
+  <div class="st-top"><div><p class="k">So what · why it matters</p><h2 id="st-h">Technology risk is now <span>a balance-sheet risk.</span></h2></div>
+   <p class="st-note">Not our numbers: the industry’s own annual studies and its supervisors. Every figure links to its source.</p></div>
+  <div class="stg">
+   <a class="sf2" href="https://www.oxfordeconomics.com/resource/the-hidden-costs-of-downtime-2026/" target="_blank" rel="noopener"><b data-to="600" data-pre="$" data-suf="B">$600B</b><span>a year lost to unplanned downtime by the world’s 2,000 largest companies, up 50% in two years.</span><small>Splunk &amp; Oxford Economics, <i>The Hidden Costs of Downtime</i>, 2026 ↗</small></a>
+   <a class="sf2" href="https://parametrixinsurance.com/in-the-news/crowdstrike-to-cost-fortune-500-5-4-billion-insured-loss-range-of-540-million-to-1-08-billion" target="_blank" rel="noopener"><b data-to="5.4" data-dec="1" data-pre="$" data-suf="B">$5.4B</b><span>estimated direct loss to US Fortune 500 companies from one faulty security-software update on 19 July 2024. About 8.5 million Windows devices failed worldwide.</span><small>Parametrix estimate, July 2024 ↗</small></a>
+   <a class="sf2" href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener"><b data-to="6.29" data-dec="2" data-pre="$" data-suf="M">$6.29M</b><span>average cost of a data breach in financial services, against $4.99M across all industries.</span><small>IBM, <i>Cost of a Data Breach Report</i>, 2026 ↗</small></a>
+   <a class="sf2" href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener"><b data-to="48" data-suf="%">48%</b><span>of data breaches involved a third party, up from 30% a year earlier.</span><small>Verizon, <i>Data Breach Investigations Report</i>, 2026 ↗</small></a>
+   <a class="sf2" href="https://intelligence.uptimeinstitute.com/resource/annual-outage-analysis-2026" target="_blank" rel="noopener"><b data-to="57" data-suf="%">57%</b><span>of organisations said their last major outage cost more than $100,000; one in five, more than $1 million.</span><small>Uptime Institute, <i>Annual Outage Analysis</i>, 2026 ↗</small></a>
+   <a class="sf2" href="https://www.esma.europa.eu/press-news/esma-news/european-supervisory-authorities-designate-critical-ict-third-party-providers" target="_blank" rel="noopener"><b data-to="19">19</b><span>technology providers now designated critical to the EU financial system and placed under direct supervision.</span><small>European Supervisory Authorities, under DORA, November 2025 ↗</small></a>
+  </div>
+  <p class="st-q">For European banks, cyber and ICT risk is “by far the most prominent driver of operational risk”. <a href="https://www.eba.europa.eu/publications-and-media/publications/risk-assessment-report-december-2025" target="_blank" rel="noopener">EBA Risk Assessment Report, December 2025 ↗</a></p>
+ </div></section>
+
+<div class="wrap">
+ <section class="sec" id="why" aria-labelledby="why-h"><p class="k">Where it comes from</p>
+  <h2 id="why-h">Fragmented oversight is <span>expensive.</span></h2>
+  <p class="intro">When technology risk lives in spreadsheets, vendor emails and separate monitoring tools, nobody sees the whole picture until something breaks.</p>
+  <div class="pts"><div class="pt"><span class="n">01</span><h3>Hidden exposure</h3><p>Systems past end of life or end of support keep running unnoticed, carrying security and resilience risk that nobody has signed off.</p></div><div class="pt"><span class="n">02</span><h3>Outages</h3><p>Incidents surface through customers and branches first, and the same failures recur because no one sees the pattern behind them.</p></div><div class="pt"><span class="n">03</span><h3>Wasted spend</h3><p>Licences, contracts and renewals for technology no one tracks keep rolling over, and duplicate tools go unchallenged.</p></div><div class="pt"><span class="n">04</span><h3>Unmanaged third-party risk</h3><p>Critical services rest on providers, and their providers, with no view of concentration, materiality or contract gaps.</p></div></div>
+ </section>
 
  <section class="sec" id="scenarios" aria-labelledby="sc-h"><p class="k">See it in action</p>
   <h2 id="sc-h">Choose a technology problem. <span>See what it costs, and what to do.</span></h2>
-  <p class="intro">Each scenario plays out on an example institution: what fails, who is affected, and the decisions management has to take, with an owner and a deadline.</p>
+  <p class="intro">Five problems every institution faces, played out on an example estate: what fails, who is affected, and what management has to decide, with an owner and a deadline.</p>
   <div class="sc-tabs" role="tablist" aria-label="Technology risk scenarios" id="sc-tabs"></div>
   <div class="deps-ui">
    <div class="map card">
@@ -291,7 +340,7 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
 
  <section class="sec" id="lifecycle" aria-labelledby="life-h"><p class="k">See it in action · technology lifecycle</p>
   <h2 id="life-h">Replace ageing technology on <span>your</span> timetable.</h2>
-  <p class="intro">See end-of-life and end-of-support exposure before it becomes an operational, security or resilience problem. Move the horizon to see what ages out.</p>
+  <p class="intro">See end-of-support exposure before it becomes an operational, security or resilience problem. Move the horizon to see what ages out.</p>
   <div class="horizon card">
    <p class="demo-tag">Demonstration · an example estate</p>
    <div class="h-top">
@@ -314,15 +363,35 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
 
  <section class="sec" id="questions" aria-labelledby="qa-h"><p class="k">Seven questions, answered</p>
   <h2 id="qa-h">From technology data to management <span>decisions.</span></h2>
+  <p class="intro">Pulsus Tech turns what your estate is doing into the answers management, audit and the board ask for, in one consolidated view across technology, services, vendors and contracts.</p>
   <div class="qa2">
-   <div><p style="margin:0 0 18px;max-width:520px">Pulsus Tech turns what your technology estate is doing into the answers management, audit and the board actually ask for.</p>
-    <ul class="benefits">
-     <li>One consolidated view across technology, services, vendors and contracts</li>
-     <li>Proactive identification of gaps, exposures and risks</li>
-     <li>Evidence for management, audit and regulatory reporting</li>
-     <li>Built for scale, integration and continuous insight</li>
-    </ul>
-    <p class="statement">A live technology risk intelligence layer <span>for the whole institution.</span></p></div>
+   <div><p class="demo-tag">What your leadership sees · example figures</p>
+   <figure class="console" aria-label="Demonstration: the Pulsus Tech command center, with example figures">
+    <div class="c-head"><span><i></i><i></i><i></i></span><span class="t">Technology Command Center</span><span class="c-demo" title="Example figures, not a real organisation">Demo</span></div>
+    <div class="c-kpis">
+     <div class="kpi"><small>Tech stability</small><b class="g" data-count="94" data-suffix="%">94%</b><span>Stable</span></div>
+     <div class="kpi"><small>Operational risk</small><b class="a">Medium</b><span>Manageable</span></div>
+     <div class="kpi"><small>SLA performance</small><b class="g" data-count="96.2" data-suffix="%" data-dec="1">96.2%</b><span>On track</span></div>
+     <div class="kpi"><small>Open incidents</small><b class="r" data-count="12">12</b><span>Investigating</span></div>
+    </div>
+    <div class="c-row">
+     <div class="c-trend">
+      <div class="t"><span>Stability · 6 months</span><span><span style="color:var(--red)">━</span> Applications &nbsp;<span style="color:#8a90a2">━</span> Network</span></div>
+      <svg viewBox="0 0 400 96" preserveAspectRatio="none" aria-hidden="true">
+       <path class="ln" stroke="#8a90a2" d="M0 62 C40 58 70 66 110 60 S180 50 220 56 S300 46 340 50 S380 44 400 46"/>
+       <path class="ln" stroke="#c8102e" d="M0 70 C40 66 70 74 110 52 S170 60 210 40 S290 46 330 30 S380 34 400 24"/>
+      </svg>
+     </div>
+     <div class="c-feed" aria-hidden="true"><ul id="feed">
+      <li><code>INC-25019</code><span>Core system degraded</span><span class="pill p-r">Major</span></li>
+      <li><code>EOS</code><span>Database cluster: support ends in 41 days</span><span class="pill p-a">High</span></li>
+      <li><code>INC-25017</code><span>Digital channels latency</span><span class="pill p-r">Major</span></li>
+      <li><code>TPR</code><span>Card processor renewal: no exit plan</span><span class="pill p-a">Medium</span></li>
+      <li><code>INC-25012</code><span>Branch network connectivity</span><span class="pill p-a">High</span></li>
+      <li><code>SLA</code><span>Payment gateway back within target</span><span class="pill p-g">Resolved</span></li>
+     </ul></div>
+    </div>
+   </figure></div>
    <ol class="qlist card">
     <li>What is critical?</li>
     <li>What is underperforming?</li>
@@ -343,6 +412,7 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
    <a class="more" href="https://about.pulsus.tech/">Explore the suite →</a> &nbsp; <a class="more" href="https://about.pulsus.tech/demo/">See it in the Pulsus Platform demo →</a></div>
   <ul class="flow"><li class="hl2">Pulsus Tech · availability, end of support, incidents, third parties</li><span class="arr">↓</span><li>Technology driver · read beside service, quality, risk and people</li><span class="arr">↓</span><li>Pulsus Platform · Operational Health</li></ul>
  </section>
+</div>
 </main>
 
 <footer class="suitefoot"><div class="wrap">
@@ -364,12 +434,125 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
  const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target);}}),{rootMargin:'0px 0px -8% 0px'});
  document.querySelectorAll('.rv').forEach((x,i)=>{x.style.transitionDelay=(i%4)*60+'ms';rio.observe(x);});
 
- /* hero console: counting figures, the tilt settling flat, a feed that keeps moving */
- if(!reduce)document.querySelectorAll('[data-count]').forEach(b=>{const to=+b.dataset.count,dec=+(b.dataset.dec||0),suf=b.dataset.suffix||'';const t0=performance.now();
-  const step=t=>{const k=Math.min(1,(t-t0)/1600),e=1-Math.pow(1-k,3);b.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(step);};requestAnimationFrame(step);});
- setTimeout(()=>$('.console').classList.add('flat'),900);
- const feed=$('#feed');let fi=0;
- if(!reduce)setInterval(()=>{fi=(fi+1)%3;feed.style.transform=`translateY(${-fi*36}px)`;},3200);
+ /* hero: a live map of the technology estate. Example data; every link reads "depends on". */
+ (function(){
+  const svg=$('#estate'),fig=$('#estate-fig'),cap=$('#e-cap'),evEl=$('#e-ev'),impEl=$('#e-imp'),ownEl=$('#e-own');
+  const LAY=["Business services","Applications","Infrastructure","Vendors","Fourth parties"],ONE=["business service","application","infrastructure","vendor","fourth party"];
+  // [id, label, layer, column, shown only when there is room]
+  const ND=[["card","Card payments",0,0],["teller","Branch teller",0,1],["online","Online banking",0,2],["mobile","Mobile app",0,3,1],
+   ["pswitch","Payment switch",1,0],["core","Core banking",1,1],["digital","Digital banking",1,2],["fraud","Fraud screening",1,3,1],
+   ["net","Core network",2,0],["db","Database cluster",2,1],["cloud","Cloud hosting",2,2],["dc","Data centre",2,3,1],
+   ["carrier","Telecom carrier",3,0],["proc","Card processor",3,1],["cloudv","Cloud provider",3,2],["dbv","Database vendor",3,3,1],
+   ["fibre","Carrier’s fibre partner",4,0],["proch","Processor’s hosting",4,1],["sub","Vendor’s support partner",4,3,1]];
+  // [a, b]: a depends on b
+  const ED=[["card","pswitch"],["card","fraud"],["teller","core"],["teller","net"],["online","digital"],["mobile","digital"],
+   ["pswitch","net"],["pswitch","db"],["pswitch","proc"],["core","db"],["core","dc"],["digital","db"],["digital","cloud"],["fraud","cloud"],
+   ["net","carrier"],["db","dbv"],["cloud","cloudv"],["proc","proch"],["carrier","fibre"],["dbv","sub"]];
+  const EV=[{src:"proc",t:"Card processor contract expires in 30 days",note:()=>"No second processor and no exit plan: a single point of failure.",own:"Owner: Head of Third-Party Risk · due 14 days"},
+   {src:"db",t:"Database cluster reaches end of support",note:n=>`${n} systems depend on it, and after that date it receives no security fixes.`,own:"Owner: CIO · upgrade plan due 30 days"},
+   {src:"net",t:"Core network: third outage this quarter",note:()=>"Flagged as a repeat outage, so the cause gets fixed, not only the symptom.",own:"Owner: Head of Infrastructure · due 7 days"}];
+  const NAME=Object.fromEntries(ND.map(n=>[n[0],n[1]])),LV=Object.fromEntries(ND.map(n=>[n[0],n[2]]));
+  const list=a=>a.length<2?a.join(''):a.slice(0,-1).join(', ')+' and '+a[a.length-1];
+  const pl=(n,one,many)=>`${n} ${n===1?one:many}`;
+  const wrap=(s,max)=>{const w=s.split(' '),out=[''];w.forEach(x=>{const c=out[out.length-1];if(c&&(c+' '+x).length>max)out.push(x);else out[out.length-1]=c?c+' '+x:x;});return out;};
+  let W=0,nodes={},links=[],dg,timers=[],ei=0,running=false,hold=false,inView=false,raf=0,dots=[],lastSpawn=0;
+
+  function build(){
+   const w=Math.round(svg.getBoundingClientRect().width)||340;if(w===W)return false;W=w;
+   const cols=w>=500?4:3,colW=w/cols,rowH=cols===4?80:90,cy=cols===4?40:42,max=Math.max(10,Math.floor((colW-24)/6.4));
+   const vis=ND.filter(n=>!n[4]||cols===4),ids=new Set(vis.map(n=>n[0])),P={},H=rowH*5;
+   svg.setAttribute('viewBox',`0 0 ${w} ${H}`);svg.setAttribute('height',H);svg.textContent='';nodes={};
+   vis.forEach(n=>{P[n[0]]=[colW*n[3]+14,n[2]*rowH+cy];});
+   LAY.forEach((l,i)=>{if(i)svg.append(el('line',{class:'lrule',x1:0,x2:w,y1:i*rowH+2,y2:i*rowH+2},1));});
+   const COL=Object.fromEntries(ND.map(n=>[n[0],n[3]])),seg=(x1,y1,x2,y2)=>{const m=(y1+y2)/2;return `C${x1} ${m} ${x2} ${m} ${x2} ${y2}`;};
+   links=ED.filter(([a,b])=>ids.has(a)&&ids.has(b)).map(([a,b])=>{const[x1,y1]=P[a],[x2,y2]=P[b];let d=`M${x1} ${y1+8} `,x=x1,y=y1+8;
+    for(let L=LV[a]+1;L<LV[b];L++){const wx=colW*Math.max(COL[a],COL[b])+14-19,wy=L*rowH+cy;d+=seg(x,y,wx,wy)+' ';x=wx;y=wy;}
+    d+=seg(x,y,x2,y2-8);const p=el('path',{class:'lk',d},1);svg.append(p);return{a,b,p};});
+   LAY.forEach((l,i)=>{const t=el('text',{class:'lay',x:0,y:i*rowH+17},1);t.textContent=l;svg.append(t);});
+   dg=el('g',{'aria-hidden':'true'},1);svg.append(dg);dots=[];
+   vis.forEach(([id,label,l])=>{const[x,y]=P[id],lines=wrap(label,max);
+    const g=el('g',{class:`nd l${l}`,tabindex:0,role:'button','aria-label':`${label}, ${ONE[l]}. ${l?'Show what depends on it':'Show what it runs on'}.`},1);
+    g.append(el('rect',{class:'hb',x:x-12,y:y-15,width:colW-6,height:lines.length>1?34:30},1));
+    g.append(el('circle',{class:'ring',cx:x,cy:y,r:7},1));g.append(el('circle',{class:'c',cx:x,cy:y,r:l?6.5:8},1));
+    const t=el('text',{x:x+15,y:lines.length>1?y-3:y+4.5,'aria-hidden':'true'},1);
+    lines.forEach((s,i)=>{const sp=el('tspan',{x:x+15,dy:i?15:0},1);sp.textContent=s;t.append(sp);});g.append(t);
+    g.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')pick(id);});
+    g.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'&&document.activeElement!==g)release();});
+    g.addEventListener('focus',()=>pick(id));g.addEventListener('blur',release);
+    g.addEventListener('click',()=>pick(id));
+    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(id);}if(e.key==='Escape')g.blur();});
+    svg.append(g);nodes[id]=g;});
+   return true;}
+
+  // levels outward from a node: "up" = what depends on it, "down" = what it depends on
+  const walk=(id,dir)=>{const lv=[[id]],seen=new Set([id]);for(;;){const nx=[];for(const c of lv[lv.length-1])for(const k of links){const[f,t]=dir==='up'?[k.b,k.a]:[k.a,k.b];if(f===c&&!seen.has(t)){seen.add(t);nx.push(t);}}if(!nx.length)return lv;lv.push(nx);}};
+  const reset=()=>{Object.values(nodes).forEach(g=>g.classList.remove('src','hit','dep','dim','sel'));links.forEach(k=>k.p.classList.remove('hot','dep','dim'));};
+  const dimAll=()=>{Object.values(nodes).forEach(g=>g.classList.add('dim'));links.forEach(k=>k.p.classList.add('dim'));};
+  const say=(ev,imp,own)=>{evEl.textContent=ev;impEl.innerHTML=imp;ownEl.textContent=own||'\u00a0';ownEl.classList.toggle('off',!own);};
+  const later=(f,ms)=>timers.push(setTimeout(f,ms));
+  const stop=()=>{timers.forEach(clearTimeout);timers=[];};
+  function dot(k,hot){if(reduce||!dg)return;const c=el('circle',{class:'pd',r:hot?4:2.4,opacity:hot?.95:.4},1);dg.append(c);dots.push({c,p:k.p,len:k.p.getTotalLength(),t0:performance.now(),dur:hot?520:1800});}
+  function tick(t){
+   if(t-lastSpawn>700&&!hold&&links.length){lastSpawn=t;dot(links[Math.random()*links.length|0]);}
+   dots=dots.filter(d=>{const k=(t-d.t0)/d.dur;if(k>=1||!d.c.isConnected){d.c.remove();return false;}const q=d.p.getPointAtLength(d.len*(1-k));d.c.setAttribute('cx',q.x.toFixed(1));d.c.setAttribute('cy',q.y.toFixed(1));return true;});
+   raf=requestAnimationFrame(tick);}
+
+  // One event: the fault, then its impact rippling up the chain link by link, then who owns the fix.
+  function ripple(e,instant){
+   reset();dimAll();const lv=walk(e.src,'up'),seen=new Set([e.src]);
+   nodes[e.src].classList.remove('dim');nodes[e.src].classList.add('src');
+   const sys=lv.flat().filter(x=>x!==e.src&&LV[x]>0&&LV[x]<3).length,svcs=lv.flat().filter(x=>LV[x]===0).map(x=>NAME[x]);
+   const step=(L)=>{L.forEach(n=>{nodes[n].classList.remove('dim');nodes[n].classList.add('hit');links.forEach(k=>{if(k.a===n&&seen.has(k.b)){k.p.classList.remove('dim');k.p.classList.add('hot');if(!instant)dot(k,1);}});});L.forEach(n=>seen.add(n));};
+   const imp=`<b>${list(svcs)} at risk.</b> ${e.note(sys)}`;
+   if(instant){lv.slice(1).forEach(step);say('Signal · '+e.t,imp,e.own);return;}
+   say('Signal · '+e.t,'','');
+   const g=900,gap=560;lv.slice(1).forEach((L,i)=>later(()=>step(L),g+i*gap));
+   const end=g+(lv.length-1)*gap;
+   later(()=>{impEl.innerHTML=imp;const b=$('#beat');if(b){b.classList.remove('pulse');void b.getBoundingClientRect();b.classList.add('pulse');}},end);
+   later(()=>{ownEl.textContent=e.own;ownEl.classList.remove('off');},end+1000);
+   later(()=>{reset();},end+5200);
+   later(play,end+6400);}
+  function play(){if(!running||hold)return;stop();cap.setAttribute('aria-live','off');ripple(EV[ei++%EV.length]);}
+  const still=()=>{cap.setAttribute('aria-live','off');ripple(EV[1],true);};
+
+  // Hover, tap or focus: everything that depends on this point (for a business service: what it runs on).
+  function pick(id){
+   hold=true;stop();reset();dimAll();cap.setAttribute('aria-live','polite');
+   const l=LV[id],lv=walk(id,l?'up':'down'),set=new Set(lv.flat()),all=lv.flat().filter(x=>x!==id);
+   set.forEach(n=>{nodes[n].classList.remove('dim');nodes[n].classList.add(l?'hit':'dep');});
+   nodes[id].classList.add('sel');if(l)nodes[id].classList.replace('hit','src');
+   links.forEach(k=>{if(set.has(k.a)&&set.has(k.b)){k.p.classList.remove('dim');k.p.classList.add(l?'hot':'dep');}});
+   if(!l){const c=n=>all.filter(x=>LV[x]===n).length,sys=c(1)+c(2);
+    say(`${NAME[id]} · business service`,`Runs on <b>${pl(sys,'system','systems')}, ${pl(c(3),'vendor','vendors')} and ${pl(c(4),'fourth party','fourth parties')}</b>. A failure in any of them reaches it.`,'');}
+   else{const svcs=all.filter(x=>LV[x]===0).map(x=>NAME[x]);
+    say(`${NAME[id]} · ${ONE[l]}`,svcs.length?`<b>${list(svcs)}</b> depend${svcs.length===1?'s':''} on it, through ${pl(all.length-svcs.length,'other point','other points')} in the chain.`.replace(', through 0 other points in the chain',' directly'):'No business service depends on it in this example.','');}}
+  function release(){if(!hold)return;hold=false;reset();
+   if(reduce){still();return;}say('','','');if(running){stop();later(play,900);}}
+
+  function setRun(){const want=!reduce&&inView&&!document.hidden;if(want===running)return;running=want;
+   if(running){raf=requestAnimationFrame(tick);if(!hold)play();}else{cancelAnimationFrame(raf);stop();if(!hold)reset();}}
+  build();
+  if(reduce)still();
+  new IntersectionObserver(es=>{inView=es[0].isIntersecting;setRun();},{threshold:.15}).observe(fig);
+  document.addEventListener('visibilitychange',setRun);
+  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(!build())return;hold=false;if(reduce)still();else{stop();say('','','');if(running)play();}},200);});
+ })();
+
+ /* the so-what band: figures count up once, when they come into view */
+ const sfs=[...document.querySelectorAll('.sf2 b')];
+ if(!reduce){const fmt=(b,v)=>(b.dataset.pre||'')+v.toFixed(+(b.dataset.dec||0))+(b.dataset.suf||'');
+  sfs.forEach(b=>b.textContent=fmt(b,0));
+  const sio=new IntersectionObserver((es,o)=>{es.forEach(e=>{if(!e.isIntersecting)return;o.unobserve(e.target);const b=e.target,to=+b.dataset.to,t0=performance.now()+(sfs.indexOf(b)%3)*120;
+   const step=t=>{const k=Math.max(0,Math.min(1,(t-t0)/1500)),q=1-Math.pow(1-k,3);b.textContent=fmt(b,to*q);if(k<1)requestAnimationFrame(step);};requestAnimationFrame(step);});},{threshold:.4});
+  sfs.forEach(b=>sio.observe(b));
+ }
+ /* what leadership sees: the command center counts up and its feed moves once it is in view */
+ const con=$('.console'),feed=$('#feed');let fi=0;
+ new IntersectionObserver((es,o)=>{if(!es[0].isIntersecting)return;o.disconnect();con.classList.add('in');
+  if(reduce)return;
+  con.querySelectorAll('[data-count]').forEach(b=>{const to=+b.dataset.count,dec=+(b.dataset.dec||0),suf=b.dataset.suffix||'';const t0=performance.now();
+   const step=t=>{const k=Math.min(1,(t-t0)/1600),e=1-Math.pow(1-k,3);b.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(step);};requestAnimationFrame(step);});
+  setInterval(()=>{if(document.hidden)return;fi=(fi+1)%3;feed.style.transform=`translateY(${-fi*36}px)`;},3200);},{threshold:.3}).observe(con);
  setTimeout(()=>{const b=$('#beat');b.classList.add('pulse');},2800);
 
  /* 1. scenarios on the dependency map */
