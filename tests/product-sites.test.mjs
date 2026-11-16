@@ -66,19 +66,21 @@ for (const s of SITES) {
 
 // Plans & features: the second page of a product site (Quality first).
 const PLANS = [
-  { key: "quality", dir: "quality", price: ["$250", "$500 a month"] },
+  { key: "quality", dir: "quality", price: ["$500 a month", "$50 each", "Assurance", "$1,000 a month"], gone: ["$250", "$30 each"] },
   { key: "cash", dir: "cash", price: ["$407", "$29", "$59"] },
-  { key: "panorama", dir: "panorama", price: ["$500", "Accord"] },
-  { key: "risk", dir: "risk", price: ["$350", "$500"] },
-  { key: "accord", dir: "accord", price: ["$500", "Panorama"] },
+  { key: "panorama", dir: "panorama", price: ["$1,000", "Accord"], gone: ["$500"] },
+  { key: "risk", dir: "risk", price: ["$750 a month", "$75 each", "Assurance", "$1,000 a month"], gone: ["$350", "$40 each", "$500"] },
+  { key: "accord", dir: "accord", price: ["$1,000", "Panorama"], gone: ["$500"] },
   { key: "talent", dir: "talent", price: ["$11"] },
   { key: "recon", dir: "recon", price: ["$500", "$400", "$300", "$3,800"] },
   { key: "cx", dir: "cx", price: [] },
   { key: "cx", dir: "cx/en", price: [] },
-  { key: "panorama", dir: "panorama/es", price: ["US$500"] },
+  { key: "panorama", dir: "panorama/es", price: ["US$1.000"], gone: ["US$500"] },
   { key: "talent", dir: "talent/es", price: ["US$11"] },
+  { key: "tech", dir: "tech", price: ["$750", "$75", "base:750", "extra:75", "$1,275"], gone: ["$500", "$50 each", "base:500"] },
+  { key: "communique", dir: "communique", price: ["$500 a month", "+$50 a month", "$20 a block", "$15 each"], gone: ["$200", "users are $20"] },
 ];
-for (const { key, dir, price } of PLANS) {
+for (const { key, dir, price, gone = [] } of PLANS) {
   const html = readFileSync(new URL(`sites/${dir}/plans/index.html`, ROOT), "utf8");
   const story = readFileSync(new URL(`sites/${dir}/index.html`, ROOT), "utf8");
   const en = dir.includes("/") ? dir.split("/")[1] + "/" : "";
@@ -87,6 +89,7 @@ for (const { key, dir, price } of PLANS) {
     assert.equal(html.match(/<h1\b/g).length, 1);
     assert.ok(html.includes(`<link rel="canonical" href="https://about${key}.pulsus.tech/${en}plans/">`));
     for (const p of price) assert.ok(html.includes(p), `price ${p}`);
+    for (const p of gone) assert.ok(!html.includes(p) && !story.includes(p), `old price ${p} still shown`);
     assert.ok(/href="\/((en|es)\/)?"/.test(html) && story.includes(`href="/${en}plans/"`), "story <-> plans links");
     for (const src of [`/${en}plans`, `/${en}plans/`]) {
       const r = vercel.rewrites.find((x) => x.source === src && x.has?.[0]?.value === `about${key}.pulsus.tech`);
