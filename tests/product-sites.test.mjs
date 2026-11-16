@@ -60,3 +60,20 @@ for (const s of SITES) {
     assert.equal(r.destination, `/sites/${s.page}/index.html`);
   });
 }
+
+// Plans & features: the second page of a product site (Quality first).
+for (const key of ["quality"]) {
+  const html = readFileSync(new URL(`sites/${key}/plans/index.html`, ROOT), "utf8");
+  const story = readFileSync(new URL(`sites/${key}/index.html`, ROOT), "utf8");
+  test(`${key}/plans: assets, one h1, canonical, prices, links both ways, routed`, () => {
+    for (const m of html.matchAll(/(?:src|href)="(\/sites\/[^"#?]*)"/g)) assert.ok(existsSync(new URL(m[1].slice(1), ROOT)), `${m[1]} is missing`);
+    assert.equal(html.match(/<h1\b/g).length, 1);
+    assert.ok(html.includes(`<link rel="canonical" href="https://about${key}.pulsus.tech/plans/">`));
+    assert.ok(html.includes("$250") && html.includes("$500 a month") && html.includes("Extra users are $30"), "pricing kept");
+    assert.ok(html.includes('href="/"') && story.includes('href="/plans/"'), "story <-> plans links");
+    for (const src of ["/plans", "/plans/"]) {
+      const r = vercel.rewrites.find((x) => x.source === src && x.has?.[0]?.value === `about${key}.pulsus.tech`);
+      assert.equal(r?.destination, `/sites/${key}/plans/index.html`);
+    }
+  });
+}

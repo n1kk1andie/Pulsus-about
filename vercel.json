@@ -229,6 +229,26 @@
       "destination": "/sites/quality/index.html"
     },
     {
+      "source": "/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutquality.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/quality/plans/index.html"
+    },
+    {
+      "source": "/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutquality.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/quality/plans/index.html"
+    },
+    {
       "source": "/",
       "has": [
         {
