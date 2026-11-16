@@ -71,12 +71,12 @@ const PLANS = [
   { key: "panorama", dir: "panorama", price: ["$500", "Accord"] },
   { key: "risk", dir: "risk", price: ["$350", "$500"] },
   { key: "accord", dir: "accord", price: ["$500", "Panorama"] },
-  { key: "talent", dir: "talent", price: ["$4.99"] },
+  { key: "talent", dir: "talent", price: ["$11"] },
   { key: "recon", dir: "recon", price: ["$500", "$400", "$300", "$3,800"] },
   { key: "cx", dir: "cx", price: [] },
   { key: "cx", dir: "cx/en", price: [] },
   { key: "panorama", dir: "panorama/es", price: ["US$500"] },
-  { key: "talent", dir: "talent/es", price: ["US$4,99"] },
+  { key: "talent", dir: "talent/es", price: ["US$11"] },
 ];
 for (const { key, dir, price } of PLANS) {
   const html = readFileSync(new URL(`sites/${dir}/plans/index.html`, ROOT), "utf8");
