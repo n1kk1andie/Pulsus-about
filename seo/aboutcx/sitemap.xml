@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://aboutcx.pulsus.tech/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aboutcx.pulsus.tech/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aboutcx.pulsus.tech/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aboutcx.pulsus.tech/"/>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://aboutcx.pulsus.tech/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aboutcx.pulsus.tech/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aboutcx.pulsus.tech/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aboutcx.pulsus.tech/"/>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://aboutcx.pulsus.tech/plans/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aboutcx.pulsus.tech/plans/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aboutcx.pulsus.tech/en/plans/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aboutcx.pulsus.tech/plans/"/>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://aboutcx.pulsus.tech/en/plans/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aboutcx.pulsus.tech/plans/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aboutcx.pulsus.tech/en/plans/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aboutcx.pulsus.tech/plans/"/>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+</urlset>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aboutcx.pulsus.tech/sitemap.xml
