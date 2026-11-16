@@ -259,6 +259,46 @@
       "destination": "/sites/panorama/plans/index.html"
     },
     {
+      "source": "/es",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutpanorama.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/panorama/es/index.html"
+    },
+    {
+      "source": "/es/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutpanorama.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/panorama/es/index.html"
+    },
+    {
+      "source": "/es/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutpanorama.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/panorama/es/plans/index.html"
+    },
+    {
+      "source": "/es/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutpanorama.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/panorama/es/plans/index.html"
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -347,6 +387,46 @@
         }
       ],
       "destination": "/sites/talent/plans/index.html"
+    },
+    {
+      "source": "/es",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttalent.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/talent/es/index.html"
+    },
+    {
+      "source": "/es/",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttalent.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/talent/es/index.html"
+    },
+    {
+      "source": "/es/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttalent.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/talent/es/plans/index.html"
+    },
+    {
+      "source": "/es/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttalent.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/talent/es/plans/index.html"
     },
     {
       "source": "/",
