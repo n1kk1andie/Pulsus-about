@@ -9,7 +9,8 @@ test("product hosts map to their site; every other host passes through", () => {
   assert.equal(siteFor("aboutrecon.pulsus.tech"), "recon");
   assert.equal(siteFor("about.pulsus.tech"), undefined);
   assert.equal(siteFor("pulsus.tech"), undefined);
-  assert.equal(siteFor("abouttech.pulsus.tech"), undefined);
+  assert.equal(siteFor("abouttech.pulsus.tech"), "tech");
+  assert.equal(siteFor("aboutcommunique.pulsus.tech"), "communique");
   assert.equal(siteFor("aboutquality.evil.example"), undefined);
   assert.equal(config.matcher, "/");
 });

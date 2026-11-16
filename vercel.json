@@ -569,6 +569,66 @@
       "destination": "/sites/cx/en/plans/index.html"
     },
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttech.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/tech/index.html"
+    },
+    {
+      "source": "/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttech.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/tech/plans/index.html"
+    },
+    {
+      "source": "/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttech.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/tech/plans/index.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcommunique.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/communique/index.html"
+    },
+    {
+      "source": "/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcommunique.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/communique/plans/index.html"
+    },
+    {
+      "source": "/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcommunique.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/communique/plans/index.html"
+    },
+    {
       "source": "/demo",
       "destination": "https://demo-executive.pulsus.tech/pulse/showcase"
     },

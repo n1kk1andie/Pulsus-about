@@ -14,6 +14,8 @@ const SITES = {
   aboutcx: "cx",
   abouttalent: "talent",
   aboutrecon: "recon",
+  abouttech: "tech",
+  aboutcommunique: "communique",
 };
 
 export function siteFor(hostname) {
