@@ -195,6 +195,16 @@
       ],
       "destination": "https://executive.pulsus.tech/demo/register?app=platform&next=https%3A%2F%2Fabout.pulsus.tech%2Fdemo%2Fhospital%2Freport",
       "permanent": false
+    },
+    {
+      "source": "/systems/connect/",
+      "destination": "/#contact",
+      "permanent": false
+    },
+    {
+      "source": "/systems/connect",
+      "destination": "/#contact",
+      "permanent": false
     }
   ],
   "rewrites": [
