@@ -136,17 +136,42 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
 .stakes .k{color:#ff5a73}
 .stakes h2{font:800 clamp(30px,3.6vw,46px)/1.06 Sora;letter-spacing:-.025em;color:#fff;margin:10px 0 0}.stakes h2 span{color:#ff5a73}
 .st-note{margin:0;max-width:380px;font-size:15px;color:#aeb6cf}
-.stg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:36px;border-top:1px solid rgba(255,255,255,.14)}
-.sf2{display:flex;flex-direction:column;gap:10px;padding:28px 28px 26px 0;text-decoration:none;color:#dfe4f2;border-bottom:1px solid rgba(255,255,255,.14);transition:background .2s}
-.sf2:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid rgba(255,255,255,.14)}
-.sf2:hover{background:rgba(255,255,255,.04)}.sf2:focus-visible{outline:3px solid #ff5a73;outline-offset:-3px}
-.sf2 b{font:800 clamp(52px,5.6vw,80px)/.95 Sora;letter-spacing:-.04em;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
-.sf2:nth-child(-n+3) b{color:#ff5a73}
-.sf2 span{font-size:15.5px;line-height:1.5}
-.sf2 small{margin-top:auto;padding-top:8px;font-size:12.5px;color:#9aa3c0}
-.st-q{margin:28px 0 0;max-width:860px;font:700 clamp(18px,1.8vw,22px)/1.4 Sora;color:#fff}.st-q a{font:500 14px 'IBM Plex Sans';color:#ff8a9c;white-space:nowrap}
-@media(max-width:960px){.stg{grid-template-columns:repeat(2,minmax(0,1fr))}.sf2,.sf2:not(:nth-child(3n+1)){padding:24px 22px 22px 0;border-left:0}.sf2:nth-child(2n){padding-left:22px;border-left:1px solid rgba(255,255,255,.14)}}
-@media(max-width:600px){.stakes{margin-top:40px;padding:44px 0 40px}.st-in{padding:0 16px}.stg{grid-template-columns:minmax(0,1fr);margin-top:24px}.sf2,.sf2:nth-child(2n){padding:20px 0;border-left:0}.sf2 b{font-size:54px}.st-q a{white-space:normal}}
+.meter{margin-top:30px;padding:28px 30px 24px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:linear-gradient(120deg,rgba(200,16,46,.20),rgba(255,255,255,.03) 60%)}
+.m-lead{margin:0;display:flex;align-items:center;gap:10px;font:600 clamp(16px,1.6vw,20px)/1.35 'IBM Plex Sans';color:#fff}
+.m-live{flex:none;width:10px;height:10px;border-radius:50%;background:#ff5a73;animation:live 1s ease-out infinite}
+.m-num{margin:10px 0 0;font:800 clamp(46px,8.4vw,120px)/1 Sora;letter-spacing:-.035em;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+.m-d{color:#ff5a73;margin-right:.04em}
+.m-src{margin:14px 0 0;font-size:14.5px;color:#c3cae0}.m-rate{font-weight:600;color:#fff}
+.m-src a,.vz-s{color:#ff9aaa}
+.vzg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.vz{margin:0;display:flex;flex-direction:column;gap:10px;padding:22px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.035)}
+.vz-w{grid-column:span 2}
+.vz b{font:800 clamp(38px,3.6vw,50px)/1 Sora;letter-spacing:-.03em;color:#fff}
+.vz-t{margin:0;font-size:15px;line-height:1.45;color:#dfe4f2}
+.vz svg{display:block;width:100%;height:auto;margin:6px 0 2px}
+.vz-sq{max-width:230px}
+.vz-key{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font:500 12.5px 'IBM Plex Mono',monospace;color:#c3cae0}
+.vz-key i{font-style:normal;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;margin-right:12px}.vz-key span{width:11px;height:11px;border-radius:3px;display:inline-block}
+.kr{background:#ff5a73}.ko{border:1.5px solid #fff}.kp{background:#ffb3c0;border-radius:50%!important}.kd{background:#e8173a;border-radius:50%!important;box-shadow:0 0 0 1.5px #ffb3c0}
+.vz-note{margin:0;font-size:12.5px;color:#aeb6cf}
+.vz-s{margin-top:auto;padding-top:8px;border-top:1px dashed rgba(255,255,255,.18);font-size:12.5px;text-decoration:none}.vz-s:hover{text-decoration:underline}
+.vz a:focus-visible,.m-src a:focus-visible{outline:2px solid #fff;outline-offset:2px;border-radius:3px}
+/* visual states: set by script, animated once when in view */
+.c0{fill:rgba(255,255,255,.12)}
+.vz .cr{fill:rgba(255,255,255,.12);transition:fill .25s}.go .cr{fill:#ff5a73}
+.vz .co{fill:none;stroke:#fff;stroke-width:1.6;opacity:0;transition:opacity .4s}.go .co{opacity:1}
+.vz .dp{fill:rgba(255,255,255,.12);transition:fill .25s}.go .dp{fill:#ffb3c0}
+.vz .dd{fill:rgba(255,255,255,.12);stroke:transparent;stroke-width:1.6;transition:fill .25s,stroke .25s}.go .dd{fill:#e8173a;stroke:#ffb3c0}
+.vz .br{transform-box:fill-box;transform-origin:left center;transform:scaleX(0);transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}.go .br{transform:none}
+.vz .bl{font:600 12.5px 'IBM Plex Sans';fill:#dfe4f2}.vz .bv{font:800 15px Sora;fill:#fff}.vz .ax{font:500 10.5px 'IBM Plex Mono';fill:#9aa3c0}
+.vz .gl{stroke:rgba(255,255,255,.14);stroke-width:1}
+.vz .dv{fill:#a9bbe8;transition:fill .35s}.go .dv{fill:#5b1a38}
+.vz .nl{fill:none;stroke:rgba(255,154,170,.38);stroke-width:.9;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .9s ease}.go .nl{stroke-dashoffset:0}
+.vz .nf{fill:#c3cae0}.vz .np2{fill:#ff5a73;stroke:#0b1f4d;stroke-width:1.5}
+@media(max-width:960px){.vzg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.vzg{grid-template-columns:minmax(0,1fr)}.vz-w{grid-column:auto}.meter{padding:20px 18px}.vz{padding:18px}.vz-sq{max-width:260px}}
+.st-q{margin:26px 0 0;max-width:860px;font:700 clamp(18px,1.8vw,22px)/1.4 Sora;color:#fff}.st-q a{font:500 14px 'IBM Plex Sans';color:#ff8a9c;white-space:nowrap}
+@media(max-width:600px){.stakes{margin-top:40px;padding:44px 0 40px}.st-in{padding:0 16px}.st-q a{white-space:normal}}
 #why{padding-top:64px}
 @media(max-width:600px){#why{padding-top:52px}}
 
@@ -306,13 +331,31 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
  <section class="stakes" id="stakes" aria-labelledby="st-h"><div class="st-in">
   <div class="st-top"><div><p class="k">So what · why it matters</p><h2 id="st-h">Technology risk is now <span>a balance-sheet risk.</span></h2></div>
    <p class="st-note">Not our numbers: the industry’s own annual studies and its supervisors. Every figure links to its source.</p></div>
-  <div class="stg">
-   <a class="sf2" href="https://www.oxfordeconomics.com/resource/the-hidden-costs-of-downtime-2026/" target="_blank" rel="noopener"><b data-to="600" data-pre="$" data-suf="B">$600B</b><span>a year lost to unplanned downtime by the world’s 2,000 largest companies, up 50% in two years.</span><small>Splunk &amp; Oxford Economics, <i>The Hidden Costs of Downtime</i>, 2026 ↗</small></a>
-   <a class="sf2" href="https://parametrixinsurance.com/in-the-news/crowdstrike-to-cost-fortune-500-5-4-billion-insured-loss-range-of-540-million-to-1-08-billion" target="_blank" rel="noopener"><b data-to="5.4" data-dec="1" data-pre="$" data-suf="B">$5.4B</b><span>estimated direct loss to US Fortune 500 companies from one faulty security-software update on 19 July 2024. About 8.5 million Windows devices failed worldwide.</span><small>Parametrix estimate, July 2024 ↗</small></a>
-   <a class="sf2" href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener"><b data-to="6.29" data-dec="2" data-pre="$" data-suf="M">$6.29M</b><span>average cost of a data breach in financial services, against $4.99M across all industries.</span><small>IBM, <i>Cost of a Data Breach Report</i>, 2026 ↗</small></a>
-   <a class="sf2" href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener"><b data-to="48" data-suf="%">48%</b><span>of data breaches involved a third party, up from 30% a year earlier.</span><small>Verizon, <i>Data Breach Investigations Report</i>, 2026 ↗</small></a>
-   <a class="sf2" href="https://intelligence.uptimeinstitute.com/resource/annual-outage-analysis-2026" target="_blank" rel="noopener"><b data-to="57" data-suf="%">57%</b><span>of organisations said their last major outage cost more than $100,000; one in five, more than $1 million.</span><small>Uptime Institute, <i>Annual Outage Analysis</i>, 2026 ↗</small></a>
-   <a class="sf2" href="https://www.esma.europa.eu/press-news/esma-news/european-supervisory-authorities-designate-critical-ict-third-party-providers" target="_blank" rel="noopener"><b data-to="19">19</b><span>technology providers now designated critical to the EU financial system and placed under direct supervision.</span><small>European Supervisory Authorities, under DORA, November 2025 ↗</small></a>
+  <div class="meter" id="meter">
+   <p class="m-lead"><span class="m-live" aria-hidden="true"></span>Since you opened this page, the world’s 2,000 largest companies have lost</p>
+   <p class="m-num" id="m-num" aria-live="off"><span class="m-d">$</span><span id="m-val">0</span></p>
+   <p class="m-src"><span class="m-rate">≈ $19,000 every second</span> · to unplanned downtime: $600B a year, up 50% in two years. <a href="https://www.oxfordeconomics.com/resource/the-hidden-costs-of-downtime-2026/" target="_blank" rel="noopener">Splunk &amp; Oxford Economics, <i>The Hidden Costs of Downtime</i>, 2026 ↗</a></p>
+  </div>
+  <div class="vzg">
+   <figure class="vz" data-vz="third"><b>48%</b><p class="vz-t">of data breaches involved a third party, up from 30% a year earlier.</p>
+    <svg class="vz-sq" viewBox="0 0 218 218" role="img" aria-label="Grid of 100 data breaches: 48 involved a third party, against 30 a year earlier."></svg>
+    <p class="vz-key"><i><span class="kr"></span>2026: 48 in 100</i><i><span class="ko"></span>a year earlier: 30</i></p>
+    <a class="vz-s" href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener">Verizon, <i>Data Breach Investigations Report</i>, 2026 ↗</a></figure>
+   <figure class="vz" data-vz="outage"><b>57%</b><p class="vz-t">of organisations said their last major outage cost more than $100,000; one in five, more than $1 million.</p>
+    <svg class="vz-sq" viewBox="0 0 218 218" role="img" aria-label="100 organisations: for 57 the last major outage cost more than 100,000 dollars, and for 20 of them more than 1 million dollars."></svg>
+    <p class="vz-key"><i><span class="kp"></span>over $100,000: 57</i><i><span class="kd"></span>over $1 million: 20</i></p>
+    <a class="vz-s" href="https://intelligence.uptimeinstitute.com/resource/annual-outage-analysis-2026" target="_blank" rel="noopener">Uptime Institute, <i>Annual Outage Analysis</i>, 2026 ↗</a></figure>
+   <figure class="vz" data-vz="breach"><b>$6.29M</b><p class="vz-t">average cost of a data breach in financial services, against $4.99M across all industries.</p>
+    <svg class="vz-bar" viewBox="0 0 300 212" role="img" aria-label="Bar chart to scale: average data breach costs 6.29 million dollars in financial services and 4.99 million dollars across all industries."></svg>
+    <a class="vz-s" href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener">IBM, <i>Cost of a Data Breach Report</i>, 2026 ↗</a></figure>
+   <figure class="vz" data-vz="ctpp"><b>19</b><p class="vz-t">technology providers now designated critical to the EU financial system and placed under direct supervision.</p>
+    <svg class="vz-net" viewBox="0 0 300 190" role="img" aria-label="19 critical technology providers, each linked to many financial firms that rely on it."></svg>
+    <p class="vz-note">Illustrative: the firms each provider serves are not drawn to scale.</p>
+    <a class="vz-s" href="https://www.esma.europa.eu/press-news/esma-news/european-supervisory-authorities-designate-critical-ict-third-party-providers" target="_blank" rel="noopener">European Supervisory Authorities, under DORA, November 2025 ↗</a></figure>
+   <figure class="vz vz-w" data-vz="update"><b>$5.4B</b><p class="vz-t">one faulty update · ~8.5 million devices · $5.4B direct loss to US Fortune 500 companies, 19 July 2024.</p>
+    <svg class="vz-dev" viewBox="0 0 500 170" role="img" aria-label="Illustration: 850 squares, each standing for about 10,000 Windows devices, go dark as one faulty security-software update spreads; about 8.5 million devices failed, with an estimated 5.4 billion dollars of direct loss to US Fortune 500 companies."></svg>
+    <p class="vz-note">Illustrative scale: each square ≈ 10,000 devices; 850 squares ≈ 8.5 million. Light squares are working devices; dark red, failed.</p>
+    <a class="vz-s" href="https://parametrixinsurance.com/in-the-news/crowdstrike-to-cost-fortune-500-5-4-billion-insured-loss-range-of-540-million-to-1-08-billion" target="_blank" rel="noopener">Parametrix estimate, July 2024 ↗</a></figure>
   </div>
   <p class="st-q">For European banks, cyber and ICT risk is “by far the most prominent driver of operational risk”. <a href="https://www.eba.europa.eu/publications-and-media/publications/risk-assessment-report-december-2025" target="_blank" rel="noopener">EBA Risk Assessment Report, December 2025 ↗</a></p>
  </div></section>
@@ -538,14 +581,45 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
   let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(!build())return;hold=false;if(reduce)still();else{stop();say('','','');if(running)play();}},200);});
  })();
 
- /* the so-what band: figures count up once, when they come into view */
- const sfs=[...document.querySelectorAll('.sf2 b')];
- if(!reduce){const fmt=(b,v)=>(b.dataset.pre||'')+v.toFixed(+(b.dataset.dec||0))+(b.dataset.suf||'');
-  sfs.forEach(b=>b.textContent=fmt(b,0));
-  const sio=new IntersectionObserver((es,o)=>{es.forEach(e=>{if(!e.isIntersecting)return;o.unobserve(e.target);const b=e.target,to=+b.dataset.to,t0=performance.now()+(sfs.indexOf(b)%3)*120;
-   const step=t=>{const k=Math.max(0,Math.min(1,(t-t0)/1500)),q=1-Math.pow(1-k,3);b.textContent=fmt(b,to*q);if(k<1)requestAnimationFrame(step);};requestAnimationFrame(step);});},{threshold:.4});
-  sfs.forEach(b=>sio.observe(b));
- }
+ /* the so-what band: a live downtime meter, then five figures drawn to scale */
+ (function(){
+  const NS='http://www.w3.org/2000/svg',mk=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.append(e);return e;};
+  // $600B a year (Splunk & Oxford Economics, 2026), spread evenly over the seconds in a year.
+  const RATE=600e9/31536000,t0=performance.now(),val=$('#m-val'),meter=$('#meter');
+  const fmt=n=>Math.floor(n).toLocaleString('en-US');
+  if(reduce){$('#m-num').innerHTML='<span class="m-d">≈ $</span>'+fmt(RATE).replace(/^(\d+),\d+$/,'$1,000')+' <small style="font-size:.32em;letter-spacing:0">every second</small>';}
+  else{let on=false,raf=0;const tick=()=>{val.textContent=fmt(RATE*(performance.now()-t0)/1000);raf=requestAnimationFrame(tick);};
+   const set=v=>{if(v===on)return;on=v;if(on)tick();else cancelAnimationFrame(raf);};
+   let seen=false;new IntersectionObserver(es=>{seen=es[0].isIntersecting;set(seen&&!document.hidden);}).observe(meter);
+   document.addEventListener('visibilitychange',()=>set(seen&&!document.hidden));}
+  const svgOf=k=>$(`[data-vz="${k}"] svg`);
+  // 48%: 100 breaches; 48 involved a third party; outline the 30 of a year earlier.
+  {const s=svgOf('third');for(let i=0;i<100;i++){const x=(i%10)*22,y=Math.floor(i/10)*22;const r=mk(s,'rect',{x:x+1,y:y+1,width:18,height:18,rx:3,class:i<48?'cr':'c0'});if(i<48)r.style.transitionDelay=i*22+'ms';
+   if(i<30){const o=mk(s,'rect',{x:x+1.5,y:y+1.5,width:17,height:17,rx:3,class:'co'});o.style.transitionDelay=1100+'ms';}}}
+  // 57%: 100 organisations; 57 lost over $100,000 on their last major outage, 20 (one in five) over $1 million.
+  {const s=svgOf('outage');for(let i=0;i<100;i++){const c=mk(s,'circle',{cx:(i%10)*22+10,cy:Math.floor(i/10)*22+10,r:7.5,class:i<20?'dd':i<57?'dp':'c0'});if(i<57)c.style.transitionDelay=i*20+'ms';}}
+  // $6.29M vs $4.99M, drawn on one scale from zero.
+  {const s=svgOf('breach'),X=v=>14+v/6.5*272,FS=6.29,ALL=4.99;
+   [0,2,4,6].forEach(v=>{mk(s,'line',{x1:X(v),x2:X(v),y1:8,y2:150,class:'gl'});const t=mk(s,'text',{x:X(v),y:166,'text-anchor':'middle',class:'ax'});t.textContent=v?`$${v}M`:'$0';});
+   [['Financial services',FS,'#ff5a73',6],['All industries',ALL,'#a9bbe8',76]].forEach(([l,v,c,y])=>{const t=mk(s,'text',{x:14,y:y+12,class:'bl'});t.textContent=l;
+    mk(s,'rect',{x:14,y:y+20,width:X(v)-14,height:34,rx:4,fill:c,class:'br'});const tv=mk(s,'text',{x:X(v)-9,y:y+42,'text-anchor':'end',class:'bv'});tv.textContent=`$${v.toFixed(2)}M`;tv.setAttribute('style','fill:#0b1f4d');});
+   // the gap, measured on the same scale
+   mk(s,'path',{d:`M${X(ALL)} 136 V142 H${X(FS)} V136`,fill:'none',stroke:'#ff9aaa','stroke-width':1.4});
+   const gt=mk(s,'text',{x:14,y:188,class:'bv'});gt.textContent=`+$${(FS-ALL).toFixed(2)}M (${Math.round((FS/ALL-1)*100)}%) more per breach`;gt.setAttribute('style','fill:#ff9aaa');const g2=mk(s,'text',{x:14,y:206,class:'bl'});g2.textContent='in financial services than the all-industry average';}
+  // 19 critical providers, each fanning out to the firms that rely on it (illustrative firm counts).
+  {const s=svgOf('ctpp'),F=26,fx=i=>8+i*(284/(F-1)),px=i=>12+i*(276/18);let seed=7;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
+   const lines=[];for(let p=0;p<19;p++){const n=4+Math.floor(rnd()*4);for(let k=0;k<n;k++){const top=rnd()<.5,f=Math.max(0,Math.min(F-1,Math.round(p*(F-1)/18+(rnd()-.5)*9))),y=top?14:176;
+     const l=mk(s,'path',{d:`M${px(p)} 95 C${px(p)} ${top?60:130} ${fx(f)} ${top?50:140} ${fx(f)} ${y}`,class:'nl',pathLength:1});l.style.transitionDelay=(p*45+k*15)+'ms';}}
+   for(let i=0;i<F;i++){mk(s,'circle',{cx:fx(i),cy:14,r:3.2,class:'nf'});mk(s,'circle',{cx:fx(i),cy:176,r:3.2,class:'nf'});}
+   for(let p=0;p<19;p++)mk(s,'circle',{cx:px(p),cy:95,r:5.5,class:'np2'});}
+  // One faulty update: 850 squares (≈10,000 devices each) go dark in a cascade from where it starts.
+  {const s=svgOf('update'),C=50,R=17,ox=6,oy=8;for(let i=0;i<C*R;i++){const c=i%C,r=Math.floor(i/C),d=Math.hypot(c-ox,(r-oy)*1.4)+((i*37)%11)/4;
+    const q=mk(s,'rect',{x:c*10+1,y:r*10+1,width:8,height:8,rx:1.5,class:'dv'});q.style.transitionDelay=Math.round(d*34)+'ms';}}
+  // Animate each visual once, when it comes into view.
+  const vzs=[...document.querySelectorAll('.vz')];
+  if(reduce)vzs.forEach(v=>v.classList.add('go'));
+  else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('go');io.unobserve(e.target);}}),{threshold:.35});vzs.forEach(v=>io.observe(v));}
+ })();
  /* what leadership sees: the command center counts up and its feed moves once it is in view */
  const con=$('.console'),feed=$('#feed');let fi=0;
  new IntersectionObserver((es,o)=>{if(!es[0].isIntersecting)return;o.disconnect();con.classList.add('in');
