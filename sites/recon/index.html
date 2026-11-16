@@ -598,4 +598,107 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
  addEventListener('resize',fit);fit();
 })();
 </script>
+<!-- pulsus-autoplay -->
+<script>
+/* pulsus-autoplay: shared helper, the same on every page. Once a visitor scrolls an
+   interactive section into view it plays what a person would do, at a readable pace.
+   The first click, tap, key, hover or drag hands the section over for good. It pauses
+   out of view and in a hidden tab, never moves focus, keeps live regions quiet while it
+   plays, and does nothing at all with prefers-reduced-motion. */
+(function(){
+ if(window.PulsusAutoplay)return;
+ var RM=matchMedia('(prefers-reduced-motion: reduce)');
+ var CUE=/^es/i.test(document.documentElement.lang)?'Reproduciendo · toque para explorar':'Playing · tap to explore';
+ var HOVER='button,a,input,select,label,[role=tab],[role=button],[role=radio],[role=slider],[role=gridcell],[tabindex]:not([role=tabpanel]),svg g';
+ var css=document.createElement('style');
+ css.textContent='.ap-cue{position:absolute;z-index:5;display:inline-flex;align-items:center;gap:7px;padding:5px 11px 6px;border-radius:999px;background:rgba(255,255,255,.95);border:1px solid var(--line,#e3ded4);color:var(--ink,#0b1f4d);font:600 11.5px/1.2 "IBM Plex Sans",system-ui,sans-serif;letter-spacing:.01em;white-space:nowrap;box-shadow:0 8px 18px -12px rgba(11,31,77,.55);cursor:pointer;overflow:hidden;transition:opacity .4s}'
+  +'.ap-cue b{width:7px;height:7px;border-radius:50%;background:var(--red,#c8102e);flex:none}'
+  +'.ap-cue i{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--red,#c8102e);transform:scaleX(0);transform-origin:0 50%}'
+  +'.ap-cue.ap-off{opacity:0;pointer-events:none}';
+ document.head.appendChild(css);
+ /* run page code without stealing focus or scrolling the page (sideways strips still scroll) */
+ function quiet(fn){
+  var H=HTMLElement.prototype,S=SVGElement.prototype,E=Element.prototype,f1=H.focus,f2=S.focus,sv=E.scrollIntoView,ws=[window.scrollTo,window.scrollBy,window.scroll];
+  H.focus=S.focus=function(){};
+  E.scrollIntoView=function(){var el=this,p=el.parentElement;while(p&&p!==document.body){var o=getComputedStyle(p).overflowX;if((o==='auto'||o==='scroll')&&p.scrollWidth>p.clientWidth){var a=el.getBoundingClientRect(),b=p.getBoundingClientRect();if(a.left<b.left||a.right>b.right)p.scrollLeft+=a.left<b.left?a.left-b.left:a.right-b.right;return;}p=p.parentElement;}};
+  window.scrollTo=window.scrollBy=window.scroll=function(){};
+  try{fn();}catch(e){}
+  H.focus=f1;S.focus=f2;E.scrollIntoView=sv;window.scrollTo=ws[0];window.scrollBy=ws[1];window.scroll=ws[2];
+ }
+ function AP(o){
+  var el=typeof o.el==='string'?document.querySelector(o.el):o.el;
+  if(!el||RM.matches)return null;
+  var watch=(typeof o.watch==='string'?el.querySelector(o.watch):o.watch)||el,
+   hold=typeof o.hold==='string'?el.querySelector(o.hold):o.hold,
+   steps=o.steps,i=0,every=o.every||4200,left=o.first||2600,full=left,t0=0,timer=0,raf=0,on=false,seen=false,dead=false,maxH=0,api={};
+  /* the cue */
+  var host=(typeof o.cue==='string'?el.querySelector(o.cue):o.cue)||watch,cue=document.createElement('span');
+  cue.className='ap-cue';cue.setAttribute('aria-hidden','true');cue.innerHTML='<b></b>'+CUE+'<i></i>';
+  var at=o.at||'above';
+  /* the cue sits in the section, just above (or inside) the block that plays, so nothing moves */
+  if(getComputedStyle(el).position==='static')el.style.position='relative';
+  el.appendChild(cue);
+  /* first free spot: above the block, inside its top corner, below it, then its left side */
+  function clear(x){var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n,q,j,R;
+   function hit(q){return q.width&&q.height&&q.left<x.r&&q.right>x.l&&q.top<x.b&&q.bottom>x.t;}
+   while((n=w.nextNode())){if(!n.nodeValue.trim()||cue.contains(n))continue;R=document.createRange();R.selectNodeContents(n);q=R.getClientRects();for(j=0;j<q.length;j++)if(hit(q[j]))return false;}
+   q=el.querySelectorAll('*');for(j=0;j<q.length;j++){n=q[j];if(cue.contains(n)||n===host||n.contains(host)||!hit(R=n.getBoundingClientRect()))continue;
+    if(/^(IMG|SVG|INPUT|BUTTON|SELECT|CANVAS|VIDEO)$/i.test(n.tagName)||R.height<64&&(n=getComputedStyle(n),parseFloat(n.borderTopWidth)||n.backgroundColor!=='rgba(0, 0, 0, 0)'))return false;}return true;}
+  function place(){var r=host.getBoundingClientRect(),s=el.getBoundingClientRect(),w=cue.offsetWidth,h=cue.offsetHeight,
+    c=[[r.top-h-8,r.right],[r.top+10,r.right-10],[r.bottom+8,r.right],[r.top-h-8,r.left+w],[r.bottom-h-10,r.right-10]],k=0,j;
+   if(at==='in')c.unshift(c[1]);
+   for(j=0;j<c.length;j++)if((j!==2||r.height<innerHeight/2)&&clear({t:c[j][0]-4,b:c[j][0]+h+4,l:c[j][1]-w-2,r:c[j][1]+2})){k=j;break;}
+   cue.style.top=(c[k][0]-s.top)+'px';cue.style.right=(s.right-c[k][1])+'px';}
+  place();addEventListener('resize',place);
+  var bar=cue.querySelector('i');
+  function paint(run){var k=full?1-left/full:1;bar.style.transition='none';bar.style.transform='scaleX('+k+')';if(run){void bar.offsetWidth;bar.style.transition='transform '+left+'ms linear';bar.style.transform='scaleX(1)';}}
+  /* live regions stay quiet while it plays */
+  var lives=[].map.call(el.querySelectorAll('[aria-live],[role=status],[role=alert]'),function(x){var v=x.getAttribute('aria-live');x.setAttribute('aria-live','off');return[x,v];});
+  function go(){if(dead||on||!seen||document.hidden)return;on=true;place();t0=performance.now();paint(true);timer=setTimeout(tick,left);}
+  function pause(){if(!on)return;on=false;clearTimeout(timer);cancelAnimationFrame(raf);left=Math.max(0,left-(performance.now()-t0));paint(false);}
+  function tick(){on=false;var s=steps[i];i=(i+1)%steps.length;if(hold)maxH=Math.max(maxH,hold.offsetHeight);api.count++;quiet(function(){(s.fn||s).call(api,api);});
+   if(hold){var h=hold.offsetHeight;if(h>maxH){maxH=h;}hold.style.minHeight=maxH+'px';}
+   place();full=left=s.ms||every;go();}
+  function stop(){if(dead)return;pause();dead=true;io.disconnect();
+   lives.forEach(function(p){if(p[1]===null)p[0].removeAttribute('aria-live');else p[0].setAttribute('aria-live',p[1]);});
+   if(hold)hold.style.minHeight='';cue.classList.add('ap-off');setTimeout(function(){cue.remove();},450);
+   ['pointerdown','click','keydown','input','change','focusin','pointermove','touchstart','touchmove'].forEach(function(t){el.removeEventListener(t,bye,true);});}
+  var tx=0,ty=0;
+  function bye(e){if(!e.isTrusted)return;var t=e.type;
+   if(t==='pointerdown'&&e.pointerType==='touch')return;
+   if(t==='pointermove'&&(e.pointerType!=='mouse'||!(e.movementX||e.movementY)||!(e.target.closest&&e.target.closest(o.hover||HOVER))))return;
+   if(t==='touchstart'){tx=e.touches[0].clientX;ty=e.touches[0].clientY;return;}
+   if(t==='touchmove'){var dx=Math.abs(e.touches[0].clientX-tx),dy=Math.abs(e.touches[0].clientY-ty);if(dx<14||dx<dy*1.2)return;}
+   stop();}
+  ['pointerdown','click','keydown','input','change','focusin','pointermove','touchstart','touchmove'].forEach(function(t){el.addEventListener(t,bye,{capture:true,passive:true});});
+  addEventListener('resize',function(){if(hold&&!dead){maxH=0;hold.style.minHeight='';}});
+  var io=new IntersectionObserver(function(es){var e=es[es.length-1],need=.4*Math.min(e.boundingClientRect.height,innerHeight);
+   seen=e.isIntersecting&&e.intersectionRect.height>=need-1;seen?go():pause();},{threshold:[0,.05,.1,.15,.2,.25,.3,.35,.4,.45,.5,.6,.7,.8,.9,1]});
+  io.observe(watch);
+  document.addEventListener('visibilitychange',function(){document.hidden?pause():go();});
+  /* glide a range or number input to a value, as a drag would */
+  api.glide=function(inp,to,ms){inp=typeof inp==='string'?document.querySelector(inp):inp;if(!inp)return;
+   var a=+inp.value,st=+inp.step||1,mn=inp.min===''?-1e9:+inp.min,b=Math.max(mn,Math.min(inp.max===''?1e9:+inp.max,to)),T=performance.now(),D=ms||1400,last=a;
+   (function f(n){if(dead)return;var k=Math.min(1,(n-T)/D),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2,v=Math.round((a+(b-a)*e)/st)*st;
+    if(v!==last){last=v;quiet(function(){inp.value=v;inp.dispatchEvent(new Event('input',{bubbles:true}));});}
+    if(k<1)raf=requestAnimationFrame(f);else quiet(function(){inp.dispatchEvent(new Event('change',{bubbles:true}));});})(T);};
+  api.stop=stop;api.count=0;api.el=el;api.watch=watch;api.live=function(){return !dead;};AP.all.push(api);
+  return api;
+ }
+ AP.all=[];
+ /* a step that selects the tab after the one now selected */
+ AP.next=function(sel,attr){return function(){var t=[].slice.call(document.querySelectorAll(sel)),a=attr||'aria-selected',k=-1;
+  t.forEach(function(x,j){if(x.getAttribute(a)==='true')k=j;});if(t.length)t[(k+1)%t.length].click();};};
+ /* a step that clicks the first match that is there and enabled */
+ AP.click=function(){var s=arguments;return function(){for(var j=0;j<s.length;j++){var b=document.querySelector(s[j]);if(b&&!b.disabled&&!b.hidden&&b.offsetParent!==null){b.click();return true;}}return false;};};
+ window.PulsusAutoplay=AP;
+})();
+</script>
+<script>
+(function(){var A=window.PulsusAutoplay;if(!A)return;var $=function(s){return document.querySelector(s);},g=function(s,v){return function(a){a.glide(s,v,1500);};};
+A({el:'#proof',watch:'.proof',steps:[A.click('#dmg'),A.click('#fix'),A.next('#proof [role=tab]')]});
+A({el:'#breaks',watch:'.brk',every:3400,steps:[A.click('.roles [data-role="preparer"]'),A.click('#bc0 [data-t="Timing"]'),A.click('#bc1 [data-t="Adjustment"]'),A.click('#bc2 [data-t="Cleared"]'),A.click('#approve'),A.click('.roles [data-role="reviewer"]'),A.click('#approve'),A.click('#reopen')]});
+})();
+</script>
+<!-- /pulsus-autoplay -->
 </body></html>
