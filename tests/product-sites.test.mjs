@@ -67,7 +67,7 @@ for (const s of SITES) {
 // Plans & features: the second page of a product site (Quality first).
 const PLANS = [
   { key: "quality", dir: "quality", price: ["$250", "$500 a month"] },
-  { key: "cash", dir: "cash", price: ["$150", "$10", "$30"] },
+  { key: "cash", dir: "cash", price: ["$407", "$29", "$59"] },
   { key: "panorama", dir: "panorama", price: ["$500", "Accord"] },
   { key: "risk", dir: "risk", price: ["$350", "$500"] },
   { key: "accord", dir: "accord", price: ["$500", "Panorama"] },
