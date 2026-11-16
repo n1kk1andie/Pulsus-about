@@ -205,6 +205,56 @@
       "source": "/systems/connect",
       "destination": "/#contact",
       "permanent": false
+    },
+    {
+      "source": "/systems/quality",
+      "destination": "https://aboutquality.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/quality/",
+      "destination": "https://aboutquality.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/risk",
+      "destination": "https://aboutrisk.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/risk/",
+      "destination": "https://aboutrisk.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/cash",
+      "destination": "https://aboutcash.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/cash/",
+      "destination": "https://aboutcash.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/panorama",
+      "destination": "https://aboutpanorama.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/panorama/",
+      "destination": "https://aboutpanorama.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/talent",
+      "destination": "https://abouttalent.pulsus.tech/",
+      "permanent": true
+    },
+    {
+      "source": "/systems/talent/",
+      "destination": "https://abouttalent.pulsus.tech/",
+      "permanent": true
     }
   ],
   "rewrites": [
