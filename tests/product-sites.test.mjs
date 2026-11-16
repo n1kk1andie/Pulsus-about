@@ -18,6 +18,8 @@ const SITES = [
   { key: "recon", page: "recon", name: "Recon", signin: "https://recon.pulsus.tech/login", demo: "demo-recon.pulsus.tech" },
   { key: "cx", page: "cx", name: "CX", signin: "https://cx.pulsus.tech/login", demo: "demo-cx.pulsus.tech", es: true },
   { key: "cx", page: "cx/en", name: "CX", signin: "https://cx.pulsus.tech/login", demo: "demo-cx.pulsus.tech" },
+  { key: "panorama", page: "panorama/es", name: "Panorama", signin: "https://panorama.pulsus.tech/login", demo: "demo-panorama.pulsus.tech", es: true },
+  { key: "talent", page: "talent/es", name: "Talent", signin: "https://talent.pulsus.tech/login", demo: "demo-talent.pulsus.tech", es: true },
 ];
 const vercel = JSON.parse(readFileSync(new URL("vercel.json", ROOT), "utf8"));
 
@@ -26,7 +28,7 @@ for (const s of SITES) {
   const site = `https://about${s.key}.pulsus.tech/`;
 
   test(`${s.page}: every local asset exists in the site's own folder`, () => {
-    const refs = [...html.matchAll(/(?:src|href|content)="(\/[^"#?]*)"/g)].map((m) => m[1]).filter((p) => !["/", "/en/", "/plans/", "/en/plans/"].includes(p));
+    const refs = [...html.matchAll(/(?:src|href|content)="(\/[^"#?]*)"/g)].map((m) => m[1]).filter((p) => !["/", "/en/", "/es/", "/plans/", "/en/plans/", "/es/plans/"].includes(p));
     assert.ok(refs.length >= 3);
     for (const p of refs) {
       assert.ok(p.startsWith(`/sites/${s.key}/assets/`), `${p} is outside /sites/${s.key}/assets/`);
@@ -42,12 +44,13 @@ for (const s of SITES) {
 
   test(`${s.page}: one h1, canonical, Open Graph image, footer, zoom allowed`, () => {
     assert.equal(html.match(/<h1\b/g).length, 1);
-    assert.ok(html.includes(`<link rel="canonical" href="${s.page.endsWith("/en") ? site + "en/" : site}">`), "canonical");
+    const sub = s.page.includes("/") ? s.page.split("/")[1] + "/" : "";
+    assert.ok(html.includes(`<link rel="canonical" href="${site}${sub}">`), "canonical");
     const og = html.match(/<meta property="og:image" content="([^"]+)"/)[1];
     assert.ok(og.startsWith(`${site}sites/${s.key}/assets/`));
     assert.ok(existsSync(new URL(og.slice(site.length), ROOT)), "og image exists");
     const footer = s.es
-      ? ["Pulsus CX · Parte de Pulsus Intelligence Suite", "Un producto de Tumblehill Labs, estudio de productos de Tumblehill Holdings LLC."]
+      ? [`Pulsus ${s.name} · Parte de Pulsus Intelligence Suite`, "Un producto de Tumblehill Labs, estudio de productos de Tumblehill Holdings LLC."]
       : [`Pulsus ${s.name} · Part of the Pulsus Intelligence Suite`, "A product of Tumblehill Labs, a product studio of Tumblehill Holdings LLC."];
     for (const line of footer) assert.ok(html.includes(line), line);
     assert.ok(!/user-scalable\s*=\s*no|maximum-scale/i.test(html), "pinch-zoom stays allowed");
@@ -55,7 +58,7 @@ for (const s of SITES) {
   });
 
   test(`${s.page}: the about${s.key} host is routed to the page`, () => {
-    const r = vercel.rewrites.find((x) => x.source === (s.page.endsWith("/en") ? "/en/" : "/") && x.has?.[0]?.value === `about${s.key}.pulsus.tech`);
+    const r = vercel.rewrites.find((x) => x.source === (s.page.includes("/") ? `/${s.page.split("/")[1]}/` : "/") && x.has?.[0]?.value === `about${s.key}.pulsus.tech`);
     assert.ok(r, "host rewrite");
     assert.equal(r.destination, `/sites/${s.page}/index.html`);
   });
@@ -72,17 +75,19 @@ const PLANS = [
   { key: "recon", dir: "recon", price: ["$500", "$400", "$300", "$3,800"] },
   { key: "cx", dir: "cx", price: [] },
   { key: "cx", dir: "cx/en", price: [] },
+  { key: "panorama", dir: "panorama/es", price: ["US$500"] },
+  { key: "talent", dir: "talent/es", price: ["US$4,99"] },
 ];
 for (const { key, dir, price } of PLANS) {
   const html = readFileSync(new URL(`sites/${dir}/plans/index.html`, ROOT), "utf8");
   const story = readFileSync(new URL(`sites/${dir}/index.html`, ROOT), "utf8");
-  const en = dir.endsWith("/en") ? "en/" : "";
+  const en = dir.includes("/") ? dir.split("/")[1] + "/" : "";
   test(`${dir}/plans: assets, one h1, canonical, prices, links both ways, routed`, () => {
     for (const m of html.matchAll(/(?:src|href)="(\/sites\/[^"#?]*)"/g)) assert.ok(existsSync(new URL(m[1].slice(1), ROOT)), `${m[1]} is missing`);
     assert.equal(html.match(/<h1\b/g).length, 1);
     assert.ok(html.includes(`<link rel="canonical" href="https://about${key}.pulsus.tech/${en}plans/">`));
     for (const p of price) assert.ok(html.includes(p), `price ${p}`);
-    assert.ok(/href="\/(en\/)?"/.test(html) && story.includes(`href="/${en}plans/"`), "story <-> plans links");
+    assert.ok(/href="\/((en|es)\/)?"/.test(html) && story.includes(`href="/${en}plans/"`), "story <-> plans links");
     for (const src of [`/${en}plans`, `/${en}plans/`]) {
       const r = vercel.rewrites.find((x) => x.source === src && x.has?.[0]?.value === `about${key}.pulsus.tech`);
       assert.equal(r?.destination, `/sites/${dir}/plans/index.html`);
