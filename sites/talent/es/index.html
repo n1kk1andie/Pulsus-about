@@ -186,9 +186,9 @@ header nav a[href="#feedback"]{display:none}
     <div class="sc"><b id="pSc">3,42</b><span>de 5,00</span></div>
     <span class="pill" id="pBand">Por debajo del estándar</span>
     <div class="sbar"><i id="pBar"></i></div><div class="sbl"><span>0</span><span>estándar 3,50</span><span>5,00</span></div>
-    <div class="box"><b id="pBox">Desempeño irregular</b><p id="pGuide"></p></div>
+    <div class="box"><b id="pBox">Inconsistent player</b><p id="pGuide"></p></div>
     <div class="goal"><div class="gt" id="pGoal"></div><div class="gbar"><i id="pGbar"></i></div><div class="gm"><span id="pGpct">0%</span><span id="pGh">Encaminada</span></div></div>
-    <div class="succ">● En el grupo de sucesores: Estrella, Estrella emergente o Alto desempeño</div>
+    <div class="succ">● En el grupo de sucesores: Star, Emerging star o High performer</div>
    </div>
    <div class="board" id="board">
     <div class="ylab" aria-hidden="true"><span>Potencial →</span></div>
@@ -460,15 +460,15 @@ header nav a[href="#feedback"]{display:none}
 (function(){
  /* the hero: the app's 9-box (lib/talentreview.js) — performance from the rating, potential set by people */
  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
- const NB={1:['Talento en riesgo','risk','Desempeño bajo y potencial limitado. Averigua por qué: encaje en el puesto, carga de trabajo, salud o habilidades.'],
-  2:['Eficaz','core','Cumple lo que pide el puesto y probablemente se mantendrá en este nivel. Conviene mantener su compromiso.'],
-  3:['Profesional de confianza','core','Buen desempeño, con crecimiento dentro del puesto actual. Una persona valiosa que conviene retener.'],
-  4:['Desempeño irregular','watch','Muestra un potencial que aún no se traduce en resultados. Averigua qué lo está frenando.'],
-  5:['Pilar del equipo','core','Cumple el estándar y puede crecer. La base del equipo.'],
-  6:['Alto desempeño','top','Rinde con solidez y podría asumir más. Una opción para un puesto más amplio.'],
-  7:['Diamante en bruto','watch','Alto potencial, pero desempeño bajo: a menudo es alguien nuevo en el puesto o en el puesto equivocado.'],
-  8:['Estrella emergente','top','Alto potencial y buenos resultados. Puede crecer rápido con el reto adecuado.'],
-  9:['Estrella','top','Desempeño máximo y alto potencial: liderazgo de futuro. Mantén el reto y retén a la persona.']};
+ const NB={1:['Talent risk','risk','Desempeño bajo y potencial limitado. Averigua por qué: encaje en el puesto, carga de trabajo, salud o habilidades.'],
+  2:['Effective','core','Cumple lo que pide el puesto y probablemente se mantendrá en este nivel. Conviene mantener su compromiso.'],
+  3:['Trusted professional','core','Buen desempeño, con crecimiento dentro del puesto actual. Una persona valiosa que conviene retener.'],
+  4:['Inconsistent player','watch','Muestra un potencial que aún no se traduce en resultados. Averigua qué lo está frenando.'],
+  5:['Core player','core','Cumple el estándar y puede crecer. La base del equipo.'],
+  6:['High performer','top','Rinde con solidez y podría asumir más. Una opción para un puesto más amplio.'],
+  7:['Rough diamond','watch','Alto potencial, pero desempeño bajo: a menudo es alguien nuevo en el puesto o en el puesto equivocado.'],
+  8:['Emerging star','top','Alto potencial y buenos resultados. Puede crecer rápido con el reto adecuado.'],
+  9:['Star','top','Desempeño máximo y alto potencial: liderazgo de futuro. Mantén el reto y retén a la persona.']};
  const POOL=[9,8,6];
  const BANDS=[[4.5,'Distinguido','#16A34A','#1C1416','#166534','#DCFCE7'],[4,'Supera las expectativas','#22C55E','#1C1416','#15803D','#E8F9EE'],[3.5,'Cumple el estándar','#86EFAC','#1C1416','#3A7148','#EFFDF4'],[2.5,'Por debajo del estándar','#F97316','#1C1416','#C2410C','#FFEDD5'],[0,'Insatisfactorio','#DC2626','#FFFFFF','#B91C1C','#FEE2E2']];
  const band=s=>BANDS.find(b=>s>=b[0]);
