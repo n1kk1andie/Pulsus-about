@@ -128,19 +128,33 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
 @media(max-width:980px){.hero{grid-template-columns:minmax(0,1fr);gap:30px}}
 @media(max-width:600px){.lead1{font-size:18px}.hero .lede{font-size:17px}.estate{padding:12px 12px 14px}.e-imp{font-size:15px}.e-cap{min-height:200px}}
 
-/* ── why it matters (moved from the plans page) ── */
-.pts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:30px}
+/* ── the so-what band: sourced figures, straight after the hero ── */
+.stakes{margin:56px 0 0;background:var(--ink);color:#c3cae0;padding:60px 0 56px;position:relative;scroll-margin-top:10px}
+.stakes::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--red)}
+.st-in{max-width:1180px;margin:0 auto;padding:0 24px}
+.st-top{display:flex;justify-content:space-between;align-items:end;gap:20px 40px;flex-wrap:wrap}
+.stakes .k{color:#ff5a73}
+.stakes h2{font:800 clamp(30px,3.6vw,46px)/1.06 Sora;letter-spacing:-.025em;color:#fff;margin:10px 0 0}.stakes h2 span{color:#ff5a73}
+.st-note{margin:0;max-width:380px;font-size:15px;color:#aeb6cf}
+.stg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:36px;border-top:1px solid rgba(255,255,255,.14)}
+.sf2{display:flex;flex-direction:column;gap:10px;padding:28px 28px 26px 0;text-decoration:none;color:#dfe4f2;border-bottom:1px solid rgba(255,255,255,.14);transition:background .2s}
+.sf2:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid rgba(255,255,255,.14)}
+.sf2:hover{background:rgba(255,255,255,.04)}.sf2:focus-visible{outline:3px solid #ff5a73;outline-offset:-3px}
+.sf2 b{font:800 clamp(52px,5.6vw,80px)/.95 Sora;letter-spacing:-.04em;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sf2:nth-child(-n+3) b{color:#ff5a73}
+.sf2 span{font-size:15.5px;line-height:1.5}
+.sf2 small{margin-top:auto;padding-top:8px;font-size:12.5px;color:#9aa3c0}
+.st-q{margin:28px 0 0;max-width:860px;font:700 clamp(18px,1.8vw,22px)/1.4 Sora;color:#fff}.st-q a{font:500 14px 'IBM Plex Sans';color:#ff8a9c;white-space:nowrap}
+@media(max-width:960px){.stg{grid-template-columns:repeat(2,minmax(0,1fr))}.sf2,.sf2:not(:nth-child(3n+1)){padding:24px 22px 22px 0;border-left:0}.sf2:nth-child(2n){padding-left:22px;border-left:1px solid rgba(255,255,255,.14)}}
+@media(max-width:600px){.stakes{margin-top:40px;padding:44px 0 40px}.st-in{padding:0 16px}.stg{grid-template-columns:minmax(0,1fr);margin-top:24px}.sf2,.sf2:nth-child(2n){padding:20px 0;border-left:0}.sf2 b{font-size:54px}.st-q a{white-space:normal}}
+#why{padding-top:64px}
+@media(max-width:600px){#why{padding-top:52px}}
+
+/* ── where it comes from (moved from the plans page) ── */
+.pts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:26px}
 .pt{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}.pt .n{font:500 13px 'IBM Plex Mono';color:var(--red)}.pt h3{font:800 19px/1.2 Sora;color:var(--ink);margin:10px 0 0}.pt p{margin:8px 0 0;font-size:15.5px}
-.subh{font:800 clamp(22px,2.4vw,30px)/1.15 Sora;letter-spacing:-.015em;color:var(--ink);margin:64px 0 0}.subh span{color:var(--red)}
-.evg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
-.ev{display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;text-decoration:none;color:var(--body);transition:border-color .2s,transform .2s}
-.ev:hover{border-color:var(--red);transform:translateY(-2px)}.ev:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-.ev b{font:800 44px/1 Sora;letter-spacing:-.03em;color:var(--red)}
-.ev span{font-size:15.5px;color:var(--ink)}
-.ev small{margin-top:auto;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;color:var(--mute)}
-.evfoot{margin:22px 0 0;max-width:820px;font:700 19px/1.4 Sora;color:var(--ink)}.evfoot a{font:500 14px 'IBM Plex Sans';color:var(--red);white-space:nowrap}
-@media(max-width:960px){.pts,.evg{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){.pts,.evg{grid-template-columns:minmax(0,1fr)}.ev b{font-size:38px}}
+@media(max-width:960px){.pts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.pts{grid-template-columns:minmax(0,1fr)}}
 
 /* ── what your leadership sees: the command center ── */
 .console{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 40px 70px -40px rgba(11,31,77,.55)}
@@ -265,11 +279,12 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
 </style></head><body>
 <div class="suitebar"><div class="wrap"><a href="https://about.pulsus.tech/">Part of the <b>Pulsus Intelligence Suite</b> →</a></div></div>
 <header><div class="wrap nav"><a class="lockup" href="/" aria-label="Pulsus Tech"><span class="wm">PULS<span class="u">U</span>S</span><span class="prod"><span>TECH</span></span><span class="tag">Live. <b>Signal</b>. Clarity.</span></a>
-<nav><a href="#why">Why it matters</a><a href="#scenarios">Scenarios</a><a href="#lifecycle">Lifecycle</a><a href="#questions">Seven questions</a><a href="/plans/">Plans &amp; features</a></nav>
+<nav><a href="#stakes">Why it matters</a><a href="#scenarios">Scenarios</a><a href="#lifecycle">Lifecycle</a><a href="#questions">Seven questions</a><a href="/plans/">Plans &amp; features</a></nav>
 <a class="btn line" href="https://tech.pulsus.tech/login">Sign in</a><button class="mtoggle" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="btn red" href="https://executive.pulsus.tech/demo/register?app=tech&amp;next=https%3A%2F%2Fdemo-ict.pulsus.tech%2F">Try Demo →</a></div></header>
 <svg class="beat" id="beat" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 13 H640 l14 0 8 -11 10 22 9 -17 7 6 H1440"/></svg>
 
-<main class="wrap">
+<main>
+<div class="wrap">
  <p class="k top-k">ICT risk intelligence</p>
  <section class="hero" aria-labelledby="hero-h">
   <div>
@@ -287,21 +302,26 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
   </figure>
  </section>
 
- <section class="sec" id="why" aria-labelledby="why-h"><p class="k">Why it matters</p>
+</div>
+ <section class="stakes" id="stakes" aria-labelledby="st-h"><div class="st-in">
+  <div class="st-top"><div><p class="k">So what · why it matters</p><h2 id="st-h">Technology risk is now <span>a balance-sheet risk.</span></h2></div>
+   <p class="st-note">Not our numbers: the industry’s own annual studies and its supervisors. Every figure links to its source.</p></div>
+  <div class="stg">
+   <a class="sf2" href="https://www.oxfordeconomics.com/resource/the-hidden-costs-of-downtime-2026/" target="_blank" rel="noopener"><b data-to="600" data-pre="$" data-suf="B">$600B</b><span>a year lost to unplanned downtime by the world’s 2,000 largest companies, up 50% in two years.</span><small>Splunk &amp; Oxford Economics, <i>The Hidden Costs of Downtime</i>, 2026 ↗</small></a>
+   <a class="sf2" href="https://parametrixinsurance.com/in-the-news/crowdstrike-to-cost-fortune-500-5-4-billion-insured-loss-range-of-540-million-to-1-08-billion" target="_blank" rel="noopener"><b data-to="5.4" data-dec="1" data-pre="$" data-suf="B">$5.4B</b><span>estimated direct loss to US Fortune 500 companies from one faulty security-software update on 19 July 2024. About 8.5 million Windows devices failed worldwide.</span><small>Parametrix estimate, July 2024 ↗</small></a>
+   <a class="sf2" href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener"><b data-to="6.29" data-dec="2" data-pre="$" data-suf="M">$6.29M</b><span>average cost of a data breach in financial services, against $4.99M across all industries.</span><small>IBM, <i>Cost of a Data Breach Report</i>, 2026 ↗</small></a>
+   <a class="sf2" href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener"><b data-to="48" data-suf="%">48%</b><span>of data breaches involved a third party, up from 30% a year earlier.</span><small>Verizon, <i>Data Breach Investigations Report</i>, 2026 ↗</small></a>
+   <a class="sf2" href="https://intelligence.uptimeinstitute.com/resource/annual-outage-analysis-2026" target="_blank" rel="noopener"><b data-to="57" data-suf="%">57%</b><span>of organisations said their last major outage cost more than $100,000; one in five, more than $1 million.</span><small>Uptime Institute, <i>Annual Outage Analysis</i>, 2026 ↗</small></a>
+   <a class="sf2" href="https://www.esma.europa.eu/press-news/esma-news/european-supervisory-authorities-designate-critical-ict-third-party-providers" target="_blank" rel="noopener"><b data-to="19">19</b><span>technology providers now designated critical to the EU financial system and placed under direct supervision.</span><small>European Supervisory Authorities, under DORA, November 2025 ↗</small></a>
+  </div>
+  <p class="st-q">For European banks, cyber and ICT risk is “by far the most prominent driver of operational risk”. <a href="https://www.eba.europa.eu/publications-and-media/publications/risk-assessment-report-december-2025" target="_blank" rel="noopener">EBA Risk Assessment Report, December 2025 ↗</a></p>
+ </div></section>
+
+<div class="wrap">
+ <section class="sec" id="why" aria-labelledby="why-h"><p class="k">Where it comes from</p>
   <h2 id="why-h">Fragmented oversight is <span>expensive.</span></h2>
   <p class="intro">When technology risk lives in spreadsheets, vendor emails and separate monitoring tools, nobody sees the whole picture until something breaks.</p>
   <div class="pts"><div class="pt"><span class="n">01</span><h3>Hidden exposure</h3><p>Systems past end of life or end of support keep running unnoticed, carrying security and resilience risk that nobody has signed off.</p></div><div class="pt"><span class="n">02</span><h3>Outages</h3><p>Incidents surface through customers and branches first, and the same failures recur because no one sees the pattern behind them.</p></div><div class="pt"><span class="n">03</span><h3>Wasted spend</h3><p>Licences, contracts and renewals for technology no one tracks keep rolling over, and duplicate tools go unchallenged.</p></div><div class="pt"><span class="n">04</span><h3>Unmanaged third-party risk</h3><p>Critical services rest on providers, and their providers, with no view of concentration, materiality or contract gaps.</p></div></div>
-  <h3 class="subh" id="stakes">Technology risk is now <span>a balance-sheet risk.</span></h3>
-  <p class="intro">These are not our numbers. They come from the industry’s own annual studies and from supervisors, and every one links to its source.</p>
-  <div class="evg">
-   <a class="ev" href="https://www.oxfordeconomics.com/resource/the-hidden-costs-of-downtime-2026/" target="_blank" rel="noopener"><b>$600B</b><span>a year lost to unplanned downtime by the world’s 2,000 largest companies, up 50% in two years.</span><small>Splunk &amp; Oxford Economics, <i>The Hidden Costs of Downtime</i>, 2026 ↗</small></a>
-   <a class="ev" href="https://parametrixinsurance.com/in-the-news/crowdstrike-to-cost-fortune-500-5-4-billion-insured-loss-range-of-540-million-to-1-08-billion" target="_blank" rel="noopener"><b>$5.4B</b><span>estimated direct loss to US Fortune 500 companies from one faulty security-software update on 19 July 2024. About 8.5 million Windows devices failed worldwide.</span><small>Parametrix estimate, July 2024 ↗</small></a>
-   <a class="ev" href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener"><b>$6.29M</b><span>average cost of a data breach in financial services, against $4.99M across all industries.</span><small>IBM, <i>Cost of a Data Breach Report</i>, 2026 ↗</small></a>
-   <a class="ev" href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener"><b>48%</b><span>of data breaches involved a third party, up from 30% a year earlier.</span><small>Verizon, <i>Data Breach Investigations Report</i>, 2026 ↗</small></a>
-   <a class="ev" href="https://intelligence.uptimeinstitute.com/resource/annual-outage-analysis-2026" target="_blank" rel="noopener"><b>57%</b><span>of organisations said their last major outage cost more than $100,000; one in five, more than $1 million.</span><small>Uptime Institute, <i>Annual Outage Analysis</i>, 2026 ↗</small></a>
-   <a class="ev" href="https://www.esma.europa.eu/press-news/esma-news/european-supervisory-authorities-designate-critical-ict-third-party-providers" target="_blank" rel="noopener"><b>19</b><span>technology providers now designated critical to the EU financial system and placed under direct supervision.</span><small>European Supervisory Authorities, under DORA, November 2025 ↗</small></a>
-  </div>
-  <p class="evfoot">For European banks, cyber and ICT risk is “by far the most prominent driver of operational risk”. <a href="https://www.eba.europa.eu/publications-and-media/publications/risk-assessment-report-december-2025" target="_blank" rel="noopener">EBA Risk Assessment Report, December 2025 ↗</a></p>
  </section>
 
  <section class="sec" id="scenarios" aria-labelledby="sc-h"><p class="k">See it in action</p>
@@ -392,6 +412,7 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
    <a class="more" href="https://about.pulsus.tech/">Explore the suite →</a> &nbsp; <a class="more" href="https://about.pulsus.tech/demo/">See it in the Pulsus Platform demo →</a></div>
   <ul class="flow"><li class="hl2">Pulsus Tech · availability, end of support, incidents, third parties</li><span class="arr">↓</span><li>Technology driver · read beside service, quality, risk and people</li><span class="arr">↓</span><li>Pulsus Platform · Operational Health</li></ul>
  </section>
+</div>
 </main>
 
 <footer class="suitefoot"><div class="wrap">
@@ -517,6 +538,14 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
   let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(!build())return;hold=false;if(reduce)still();else{stop();say('','','');if(running)play();}},200);});
  })();
 
+ /* the so-what band: figures count up once, when they come into view */
+ const sfs=[...document.querySelectorAll('.sf2 b')];
+ if(!reduce){const fmt=(b,v)=>(b.dataset.pre||'')+v.toFixed(+(b.dataset.dec||0))+(b.dataset.suf||'');
+  sfs.forEach(b=>b.textContent=fmt(b,0));
+  const sio=new IntersectionObserver((es,o)=>{es.forEach(e=>{if(!e.isIntersecting)return;o.unobserve(e.target);const b=e.target,to=+b.dataset.to,t0=performance.now()+(sfs.indexOf(b)%3)*120;
+   const step=t=>{const k=Math.max(0,Math.min(1,(t-t0)/1500)),q=1-Math.pow(1-k,3);b.textContent=fmt(b,to*q);if(k<1)requestAnimationFrame(step);};requestAnimationFrame(step);});},{threshold:.4});
+  sfs.forEach(b=>sio.observe(b));
+ }
  /* what leadership sees: the command center counts up and its feed moves once it is in view */
  const con=$('.console'),feed=$('#feed');let fi=0;
  new IntersectionObserver((es,o)=>{if(!es[0].isIntersecting)return;o.disconnect();con.classList.add('in');
