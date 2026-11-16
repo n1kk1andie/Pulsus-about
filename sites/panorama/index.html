@@ -2,15 +2,16 @@
 <title>Pulsus Panorama — Strategy in the boardroom. Performance on the floor.</title>
 <meta name="description" content="Pulsus Panorama is the balanced scorecard and OKRs in one place: objectives, measures, targets and initiatives on a live strategy map, cascading from the board to every unit.">
 <link rel="canonical" href="https://aboutpanorama.pulsus.tech/">
+<link rel="alternate" hreflang="en" href="https://aboutpanorama.pulsus.tech/"><link rel="alternate" hreflang="es" href="https://aboutpanorama.pulsus.tech/es/"><link rel="alternate" hreflang="x-default" href="https://aboutpanorama.pulsus.tech/">
 <link rel="icon" href="/sites/panorama/assets/emblem.webp">
-<meta property="og:type" content="website"><meta property="og:url" content="https://aboutpanorama.pulsus.tech/">
+<meta property="og:type" content="website"><meta property="og:url" content="https://aboutpanorama.pulsus.tech/"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="es_ES">
 <meta property="og:title" content="Pulsus Panorama — Strategy in the boardroom. Performance on the floor.">
 <meta property="og:description" content="The balanced scorecard on a live strategy map, from the board to every unit.">
 <meta property="og:image" content="https://aboutpanorama.pulsus.tech/sites/panorama/assets/og.png"><meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#f3f1ec">
+<meta name="theme-color" content="#f3f5f1">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f3f1ec;--paper2:#e9e5db;--ink:#0b1f4d;--body:#3c4256;--mute:#5f6474;--red:#c8102e;--green:#1d7a46;--hl:#fff1a8;--line:#dcd6c8;
+:root{--paper:#f3f5f1;--paper2:#e6ebe3;--ink:#0b1f4d;--body:#3c4256;--mute:#5f6474;--red:#c8102e;--green:#1d7a46;--hl:#fff1a8;--line:#dcd6c8;
  --wc:#16A34A;--st:#22C55E;--he:#86EFAC;--wa:#EAB308;--at:#F97316;--es:#DC2626;
  --pF:#1f5fbf;--pC:#14804a;--pP:#a2620b;--pL:#6d3fc0}
 *{box-sizing:border-box}html,body{margin:0}
@@ -269,10 +270,15 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
 .mnav a{display:block;padding:13px 4px;border-bottom:1px solid var(--line,#ddd4c2);color:var(--ink,#0b1f4d);font:600 17px 'IBM Plex Sans',sans-serif;text-decoration:none}
 .mnav a[aria-current]{color:var(--red,#c8102e)}.mnav a.msign{border-bottom:0;margin-top:10px;text-align:center;border:1.5px solid var(--ink,#0b1f4d);border-radius:10px}
 .mnav .mlang{display:flex;gap:18px;padding:12px 4px 0}.mnav .mlang a{border:0;padding:6px 0;font-weight:500}
+.langs{display:flex;align-items:center;gap:2px;font:600 13px 'IBM Plex Mono',monospace;color:var(--mute)}
+.langs a{color:var(--ink);text-decoration:none;padding:6px 6px;border-radius:6px}.langs a[aria-current]{color:var(--red);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:1180px){header nav a:not([href*="plans"]){display:none}}@media(max-width:940px){header nav,header .btn.line{display:none}}header .btn{white-space:nowrap}
+@media(max-width:760px){header .langs{display:none}}
 </style></head><body>
 <div class="suitebar"><div class="wrap"><a href="https://about.pulsus.tech/">Part of the <b>Pulsus Intelligence Suite</b> →</a></div></div>
 <header><div class="wrap nav"><a class="lockup" href="/" aria-label="Pulsus Panorama"><span class="wm">PULS<span class="u">U</span>S</span><span class="prod"><span>PANORAMA</span></span><span class="tag">Live. <b>Signal</b>. Clarity.</span></a>
 <nav><a href="#cascade">How it cascades</a><a href="#weights">Weights</a><a href="#forecast">Forecast</a><a href="#suite-h">The suite</a><a href="/plans/">Plans &amp; features</a></nav>
+<span class="langs"><a href="/" hreflang="en" lang="en" aria-current="true">EN</a><span aria-hidden="true">|</span><a href="/es/" hreflang="es" lang="es">ES</a></span>
 <a class="btn line" href="https://panorama.pulsus.tech/login">Sign in</a><button class="mtoggle" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="btn red" href="https://executive.pulsus.tech/demo/register?app=panorama&amp;next=https%3A%2F%2Fdemo-panorama.pulsus.tech%2F">Try Demo →</a></div></header>
 <svg class="beat" id="beat" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 13 H640 l14 0 8 -11 10 22 9 -17 7 6 H1440"/></svg>
 
