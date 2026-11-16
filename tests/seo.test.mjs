@@ -108,8 +108,16 @@ for (const [key, host] of SITEMAPS) {
       assert.equal(r?.destination, `/seo/${key}/${f}`);
     }
     const robots = read(`seo/${key}/robots.txt`);
-    assert.match(robots, /User-agent: \*\nAllow: \//);
-    assert.ok(!/Disallow: \//.test(robots));
+    // Search engines and everyone else: every page; only the API is kept out.
+    const everyone = robots.slice(robots.indexOf("User-agent: *"));
+    assert.match(everyone, /^User-agent: \*\nAllow: \/\nDisallow: \/api\/\n/);
+    assert.ok(!/Disallow: \/\n/.test(everyone));
+    // AI training crawlers: nowhere on the site (the list Astrum and GeoATM publish).
+    const training = robots.slice(0, robots.indexOf("User-agent: *"));
+    for (const ua of ["GPTBot", "CCBot", "ClaudeBot", "Google-Extended", "Applebot-Extended", "Bytespider", "meta-externalagent"])
+      assert.ok(training.includes(`User-agent: ${ua}\n`), `${host} refuses ${ua}`);
+    assert.match(training, /Disallow: \/\n/);
+    for (const ua of ["Googlebot", "Bingbot", "OAI-SearchBot", "PerplexityBot"]) assert.ok(!robots.includes(`User-agent: ${ua}`), ua);
     assert.ok(robots.includes(`Sitemap: https://${host}/sitemap.xml`));
     const xml = read(`seo/${key}/sitemap.xml`);
     const urls = [...xml.matchAll(/<url>(.*?)<\/url>/gs)].map((m) => m[1]);
