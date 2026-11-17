@@ -262,6 +262,15 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
    GeoATM's "ATM" in red and GeoEV's "EV" in green, as in their own logos. */
 .cap .ic img.geo{width:46px;height:46px;padding:0;border:0;background:none;border-radius:0}
 .cap b .atm,.cap b .ev{display:inline;font:inherit;margin:0;padding:0}.cap b .atm{color:var(--red)}.cap b .ev{color:#2f9a45}
+/* The add-in cards carry the same weight as Pulsus Platform's and Explore's cards above:
+   the same card, name type, description and link styles (assets/clusters.css .cl-base). */
+.caps.addins .cap{padding:18px 22px;border:1px solid #e3e6ee;border-radius:16px;
+  box-shadow:0 1px 2px rgba(11,31,77,.06),0 12px 30px -14px rgba(11,31,77,.22)}
+.caps.addins .cap b{font:800 18px/1.2 var(--sora);color:#0B1F4D;letter-spacing:0}
+.caps.addins .cap b .atm{color:#C8102E}
+.caps.addins .cap span{font:400 14px/1.45 var(--plex);color:#5a6072;margin-top:4px}
+.caps.addins .cap .more{font:700 14px/1.2 var(--plex);color:#C8102E;margin-top:12px}
+.caps.addins .cap b span{display:inline;font:inherit;margin:0}.caps.addins .cap b .atm{color:#C8102E}.caps.addins .cap b .ev{color:#2f9a45}
 @media(max-width:1000px){ .caps{grid-template-columns:repeat(3,1fr)} }
 @media(max-width:560px){ .caps{grid-template-columns:repeat(2,1fr)} }
 
