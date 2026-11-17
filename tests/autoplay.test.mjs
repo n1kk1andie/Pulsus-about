@@ -8,7 +8,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
 const ROOT = new URL("../", import.meta.url);
-const STORY = ["tech", "accord", "cash", "cx", "cx/en", "panorama", "panorama/es", "quality", "recon", "risk", "talent", "talent/es"];
+const STORY = ["tech", "accord", "cash", "cx", "cx/es", "panorama", "panorama/es", "quality", "recon", "risk", "talent", "talent/es"];
 const PAGES = [...STORY, ...STORY.map((p) => p.replace(/^(\w+)(\/(en|es))?$/, "$1$2/plans"))];
 const read = (p) => readFileSync(new URL(`sites/${p}/index.html`, ROOT), "utf8");
 const helperOf = (html) => {

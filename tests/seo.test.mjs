@@ -11,8 +11,8 @@ const vercel = JSON.parse(read("vercel.json"));
 const APPS = ["quality", "cash", "panorama", "risk", "accord", "cx", "talent", "recon", "tech", "communique"];
 const NAMES = { quality: "Quality", cash: "Cash", panorama: "Panorama", risk: "Risk", accord: "Accord", cx: "CX", talent: "Talent", recon: "Recon", tech: "Tech", communique: "Communiqué" };
 // [site folder, language, path on its host]
-const PAGES = APPS.flatMap((a) => [[a, a === "cx" ? "es" : "en", ""]])
-  .concat([["cx/en", "en", "en/"], ["panorama/es", "es", "es/"], ["talent/es", "es", "es/"]]);
+const PAGES = APPS.flatMap((a) => [[a, "en", ""]])
+  .concat([["cx/es", "es", "es/"], ["panorama/es", "es", "es/"], ["talent/es", "es", "es/"]]);
 
 const ENT = { amp: "&", quot: '"', lt: "<", gt: ">", nbsp: " ", rsquo: "’", lsquo: "‘", ldquo: "“", rdquo: "”", mdash: "—", ndash: "–", hellip: "…", rarr: "→", larr: "←", times: "×", middot: "·" };
 const unescape = (s) => s.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (m, e) => (e[0] === "#" ? String.fromCodePoint(e[1] === "x" ? parseInt(e.slice(2), 16) : +e.slice(1)) : ENT[e] ?? m));

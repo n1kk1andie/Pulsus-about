@@ -255,6 +255,50 @@
       "source": "/systems/talent/",
       "destination": "https://abouttalent.pulsus.tech/",
       "permanent": true
+    },
+    {
+      "source": "/en/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/plans/",
+      "permanent": true
+    },
+    {
+      "source": "/en/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/plans/",
+      "permanent": true
+    },
+    {
+      "source": "/en/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/en",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -559,26 +603,6 @@
       "destination": "/sites/cx/index.html"
     },
     {
-      "source": "/en",
-      "has": [
-        {
-          "type": "host",
-          "value": "aboutcx.pulsus.tech"
-        }
-      ],
-      "destination": "/sites/cx/en/index.html"
-    },
-    {
-      "source": "/en/",
-      "has": [
-        {
-          "type": "host",
-          "value": "aboutcx.pulsus.tech"
-        }
-      ],
-      "destination": "/sites/cx/en/index.html"
-    },
-    {
       "source": "/plans",
       "has": [
         {
@@ -599,24 +623,64 @@
       "destination": "/sites/cx/plans/index.html"
     },
     {
-      "source": "/en/plans",
+      "source": "/es",
       "has": [
         {
           "type": "host",
           "value": "aboutcx.pulsus.tech"
         }
       ],
-      "destination": "/sites/cx/en/plans/index.html"
+      "destination": "/sites/cx/es/index.html"
     },
     {
-      "source": "/en/plans/",
+      "source": "/es/",
       "has": [
         {
           "type": "host",
           "value": "aboutcx.pulsus.tech"
         }
       ],
-      "destination": "/sites/cx/en/plans/index.html"
+      "destination": "/sites/cx/es/index.html"
+    },
+    {
+      "source": "/es/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/cx/es/plans/index.html"
+    },
+    {
+      "source": "/es/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/cx/es/plans/index.html"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutcx/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutcx/sitemap.xml"
     },
     {
       "source": "/",
@@ -849,26 +913,6 @@
         }
       ],
       "destination": "/seo/aboutaccord/sitemap.xml"
-    },
-    {
-      "source": "/robots.txt",
-      "has": [
-        {
-          "type": "host",
-          "value": "aboutcx.pulsus.tech"
-        }
-      ],
-      "destination": "/seo/aboutcx/robots.txt"
-    },
-    {
-      "source": "/sitemap.xml",
-      "has": [
-        {
-          "type": "host",
-          "value": "aboutcx.pulsus.tech"
-        }
-      ],
-      "destination": "/seo/aboutcx/sitemap.xml"
     },
     {
       "source": "/robots.txt",
