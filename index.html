@@ -258,6 +258,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 .addins-head b{font:700 11.5px var(--plex);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .addins-head span{font-size:13.5px;color:var(--muted)}
 .caps.addins{margin-top:16px}
+/* The add-ins' own marks, at the size of Pulsus Platform's and Explore's above, without the frame;
+   GeoATM's "ATM" in red and GeoEV's "EV" in green, as in their own logos. */
+.cap .ic img.geo{width:46px;height:46px;padding:0;border:0;background:none;border-radius:0}
+.cap b .atm,.cap b .ev{display:inline;font:inherit;margin:0;padding:0}.cap b .atm{color:var(--red)}.cap b .ev{color:#2f9a45}
 @media(max-width:1000px){ .caps{grid-template-columns:repeat(3,1fr)} }
 @media(max-width:560px){ .caps{grid-template-columns:repeat(2,1fr)} }
 
@@ -616,8 +620,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,21,54,.96);backdrop-f
 <script src="/assets/clusters.js"></script>
     <div class="addins-head"><b>Platform add-ins</b><span>Separate products that work alongside the platform.</span></div>
     <div class="caps addins">
-      <a class="cap" href="https://home.geoatm.app/" target="_blank" rel="noopener"><div class="ic"><img src="/img/icons/geoatm.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>GeoATM</b><span>Nearby cash &amp; ATM availability&nbsp;· ATM telemetry&nbsp;· industry and regulatory oversight</span><span class="more">Visit GeoATM <span class="arw">↗</span></span></a>
-      <a class="cap" href="https://home.geoev.app/" target="_blank" rel="noopener"><div class="ic"><img src="/img/icons/geoev.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>GeoEV</b><span>EV charging near you, anywhere&nbsp;· connectors &amp; charging speed&nbsp;· price and opening hours</span><span class="more">Visit GeoEV <span class="arw">↗</span></span></a>
+      <a class="cap" href="https://home.geoatm.app/" target="_blank" rel="noopener"><div class="ic"><img class="geo" src="/img/icons/geoatm.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Geo<span class="atm">ATM</span></b><span>Nearby cash &amp; ATM availability&nbsp;· ATM telemetry&nbsp;· industry and regulatory oversight</span><span class="more">Visit GeoATM <span class="arw">↗</span></span></a>
+      <a class="cap" href="https://home.geoev.app/" target="_blank" rel="noopener"><div class="ic"><img class="geo" src="/img/icons/geoev.webp" width="48" height="48" alt="" loading="lazy" decoding="async"></div><b>Geo<span class="ev">EV</span></b><span>EV charging near you, anywhere&nbsp;· connectors &amp; charging speed&nbsp;· price and opening hours</span><span class="more">Visit GeoEV <span class="arw">↗</span></span></a>
     </div>
   </div>
 </section>
