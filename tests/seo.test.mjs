@@ -85,7 +85,7 @@ for (const [dir, lang, sub] of PAGES) {
       assert.equal(o.priceSpecification.price, o.price);
       const shown = Number(o.price).toLocaleString(lang === "es" ? "de-DE" : "en-US");
       assert.ok(html.includes(`$${shown}`), `price $${shown} is on the page`);
-      assert.equal(o.url, app === "accord" ? "https://aboutpanorama.pulsus.tech/plans/" : `${host}${sub}plans/`);
+      assert.equal(o.url, `${host}${sub}plans/`);
       const faq = all.find((n) => n["@type"] === "FAQPage");
       const onPage = [...html.matchAll(/<details[^>]*>\s*<summary[^>]*>(.*?)<\/summary>(.*?)<\/details>/gs)].map((m) => [text(m[1]), text(m[2])]);
       assert.ok(onPage.length >= 5);
