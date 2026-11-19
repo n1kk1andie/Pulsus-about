@@ -66,7 +66,13 @@ for (const [dir, lang, sub] of PAGES) {
       assert.equal(app_.url, host + sub);
       assert.equal(app_.image, meta(html, /<meta property="og:image" content="([^"]+)"/));
       assert.ok(app_.description.length > 50);
-      assert.deepEqual(app_.publisher, { "@type": "Organization", name: "Tumblehill Labs", parentOrganization: { "@type": "Organization", name: "Tumblehill Holdings LLC" } });
+      const creator = { "@type": "Person", "@id": "https://about.pulsus.tech/#creator", name: "Nicola Anderson", jobTitle: "Founder" };
+      // creator and owner live in the metadata only: search engines read them, visitors never see them
+      assert.deepEqual(app_.publisher, { "@type": "Organization", name: "Tumblehill Labs", founder: creator, parentOrganization: { "@type": "Organization", name: "Tumblehill Holdings LLC", founder: creator } });
+      assert.deepEqual(app_.creator, creator);
+      assert.equal(app_.copyrightHolder.name, "Tumblehill Holdings LLC");
+      assert.ok(html.includes('<meta name="author" content="Nicola Anderson">'));
+      assert.equal(html.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<meta[^>]*>/g, "").includes("Nicola Anderson"), false, "not shown on the page");
       assert.ok(!/aggregateRating|"review/i.test(JSON.stringify(all)), "no ratings or reviews");
       if (!plans) {
         assert.equal(app_.offers, undefined, "prices only on the plans page");
