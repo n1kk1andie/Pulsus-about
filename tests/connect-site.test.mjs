@@ -1,7 +1,8 @@
 // Pulsus Connect's story site (aboutconnect.pulsus.tech → /sites/connect/).
-// Connect is sold by walkthrough, so the site has no plans page; otherwise it
-// follows the product-site rules: its own assets, Try Demo, Sign in, search
-// metadata, robots and sitemap, the host routing and the suite footer.
+// It follows the product-site rules (its own assets, Try Demo, Sign in, search
+// metadata, robots and sitemap, the host routing and the suite footer), and its
+// prices live only on /plans/ (sites/connect/plans/), checked below and in
+// product-sites.test.mjs and seo.test.mjs.
 // Run: node --test tests/*.test.mjs
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -14,7 +15,7 @@ const vercel = JSON.parse(read("vercel.json"));
 const meta = (re) => html.match(re)?.[1] ?? "";
 
 test("every local asset is in the site's own folder", () => {
-  const refs = [...html.matchAll(/(?:src|href|content)="(\/[^"#?]*)"/g)].map((m) => m[1]).filter((p) => p !== "/");
+  const refs = [...html.matchAll(/(?:src|href|content)="(\/[^"#?]*)"/g)].map((m) => m[1]).filter((p) => p !== "/" && p !== "/plans/");
   assert.ok(refs.length >= 1);
   for (const p of refs) {
     assert.ok(p.startsWith("/sites/connect/assets/"), p);
@@ -73,4 +74,23 @@ test("the suite footer links to Connect everywhere", () => {
   assert.ok(html.includes('<a href="/" aria-current="page" style="color:#fff">Pulsus Connect</a>'));
   assert.ok(html.includes("Pulsus Connect · Part of the Pulsus Intelligence Suite"));
   assert.ok(read("sites/quality/index.html").includes('<a href="https://aboutconnect.pulsus.tech/">Pulsus Connect</a>'));
+});
+
+test("plans page: three editions in Connect's look, US dollars, the agreed figures", () => {
+  const plans = read("sites/connect/plans/index.html");
+  assert.ok(html.includes('<a href="/plans/">Pricing</a></nav>'), "Pricing in the story's nav");
+  assert.match(plans, /:root\{--paper:#f5f6f8;--ink:#0b1f4d;--night:#071538/, "Connect's own colours");
+  assert.match(plans, /<span class="prod"><span>CONNECT<\/span><\/span>/);
+  assert.match(plans, /header\{position:sticky;top:0/);
+  assert.doesNotMatch(plans, /member/i, "customers, never members");
+  assert.doesNotMatch(plans, /€|£|EUR|GBP|JMD|TTD|J\$/, "USD only");
+  for (const p of ["US$15,000", "US$1,250 a month", "US$25,000", "US$2,083.33 a month", "US$12,000", "US$1</p>"]) assert.ok(plans.includes(p), p);
+  assert.ok(plans.includes('href="https://executive.pulsus.tech/signup?product=connect"'));
+  assert.ok(plans.includes('href="https://executive.pulsus.tech/signup?product=connectpro"'));
+  assert.ok(plans.includes('href="mailto:support@pulsus.tech?subject=Pulsus%20Connect%20Enterprise">Contact sales'));
+  assert.match(plans, /<article class="ed hi"[^>]*>\s*<p class="badge">Recommended<\/p>\s*<p class="ename" id="ed-pro">Professional/, "Professional highlighted");
+  // worked example: Essential, 8 users, 2 connections, 1,500 payments a month
+  const lic = 1250 * 12, extra = (8 - 5) * 50 * 12, pay = 1500 * 12, setup = 2 * 12000;
+  const usd = (n) => `US$${n.toLocaleString("en-US")}`;
+  for (const n of [lic, extra, pay, setup, lic + extra + pay + setup, lic + extra + pay]) assert.ok(plans.includes(`<dd>${usd(n)}</dd>`), usd(n));
 });

@@ -413,6 +413,26 @@
       "destination": "/sites/connect/index.html"
     },
     {
+      "source": "/plans",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutconnect.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/connect/plans/index.html"
+    },
+    {
+      "source": "/plans/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutconnect.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/connect/plans/index.html"
+    },
+    {
       "source": "/",
       "has": [
         {
