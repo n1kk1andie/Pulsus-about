@@ -262,22 +262,24 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset
 @media(prefers-reduced-motion:reduce){.fog:before,.fog:after,.halo.on,.bub.show:before{animation:none}.route.done{stroke-dashoffset:0}}
 
 /* ── the story: one payment, one week, told by scrolling ── */
-.scrollcue{margin:26px 0 0;font:600 14px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:#9aa6c9}.scrollcue span{display:inline-block;animation:cue 1.6s ease-in-out infinite;color:var(--pink)}
-@keyframes cue{50%{transform:translateY(6px)}}
-
 header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:var(--hh,80px);z-index:39}html{scroll-padding-top:var(--hh,80px)}
-.story{position:relative;height:360vh}
-.sstage{position:sticky;top:var(--hh,92px);height:calc(100vh - var(--hh,92px));display:flex;flex-direction:column;justify-content:center;gap:10px;overflow:hidden}
-.caps{position:relative;min-height:220px;width:100%}
-.cap{position:absolute;left:24px;right:24px;top:0;max-width:760px;opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s;pointer-events:none}
+.hero{padding-top:44px;padding-bottom:0}
+.hgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+.hgrid .htext h1{font-size:clamp(34px,4.2vw,60px)}.hgrid .lede{font-size:18px}
+.story{position:relative;padding-bottom:34px}.story .map{margin-top:44px;height:clamp(210px,calc(100vh - 470px),300px)}
+.pctl{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:44px}
+.pp{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;cursor:pointer;display:grid;place-items:center;margin-right:6px}.pp:hover{border-color:#fff}
+.pp svg{width:16px;height:16px;fill:currentColor}.pp .i-play,.pp .i-replay{display:none}.pp.paused .i-pause,.pp.ended .i-pause{display:none}.pp.paused .i-play{display:inline}.pp.ended .i-replay{display:inline}
+.pdot{border:0;background:rgba(255,255,255,.07);color:#8f9bbf;font:500 12.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;padding:8px 12px;border-radius:999px;cursor:pointer}
+.pdot:hover{color:#fff}.pdot.past{color:#c3cae0}.pdot.on{color:#fff;background:rgba(255,90,115,.25)}.pdot[data-go="5"].on{background:rgba(52,211,153,.22)}
+.pctl .sprog{flex-basis:100%;position:relative;height:3px;margin-top:8px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}.pctl .sprog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--mint))}
+.caps{position:relative;min-height:250px;margin-top:30px}
+.cap{position:absolute;left:0;right:0;top:0;opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s;pointer-events:none}
 .cap.on{opacity:1;transform:none;pointer-events:auto}
 .cap .day{margin:0;font:500 13px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--pink)}
-.cap h2{font:800 clamp(32px,4.4vw,58px)/1.04 Sora;letter-spacing:-.03em;color:#fff;margin:8px 0 0}.cap h2 span{color:var(--mint)}
-.cap p{margin:12px 0 0;color:#c3cae0;font-size:18px;max-width:680px}.cap p b{color:#fff;font-weight:600}
+.cap h2{font:800 clamp(28px,3.2vw,44px)/1.06 Sora;letter-spacing:-.03em;color:#fff;margin:8px 0 0}.cap h2 span{color:var(--mint)}
+.cap p{margin:12px 0 0;color:#c3cae0;font-size:17px}.cap p b{color:#fff;font-weight:600}
 .cap .cta{margin-top:18px}
-.sstage>.wrap{width:100%}.sstage .map{margin-top:0}
-.skip{position:absolute;right:18px;bottom:14px;z-index:5;color:#aeb6cf;font:500 13px 'IBM Plex Sans';text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 12px;background:rgba(7,21,56,.6)}.skip:hover{color:#fff;border-color:#fff}
-.sprog{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08)}.sprog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--mint))}
 .bub.mail:before{background-color:#5b6b9a;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.2'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Cpath d='M3 7l9 6 9-6'/%3E%3C/svg%3E")}
 .qmark{transition:opacity .8s,transform .8s}.map[data-ch="3"] .qmark{transform:translateY(-50%) scale(1.35);color:rgba(255,255,255,.2)}
 .lift .fog{opacity:0;transform:translateX(30%)}.lift .qmark{opacity:0}.lift .bub{opacity:0!important;transform:translateY(-14px)!important}.lift .missed{opacity:0}
@@ -286,8 +288,14 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
 .lift .stop.later circle{stroke:#fff}.lift .stop.later text{fill:#fff}.lift .stop.later text.t{fill:#c3cae0}
 .on .stop.later circle{stroke:var(--mint)}.on .stop.later text.t{fill:var(--mint)}
 .lift .mroute li.later{color:#fff}.lift .mroute li.later small:after{content:none}.lift .mroute li.later small span{display:inline}
-@media(max-width:760px){.story{height:330vh}.sstage{justify-content:flex-start;padding-top:22px}.caps{min-height:300px}.cap .cta{margin-top:12px}.cap .cta .btn{padding:9px 14px;font-size:14px}.cap p{font-size:15.5px}.cap h2{font-size:30px}.bub,.done-card{display:none!important}.mroute li{padding-bottom:10px}.missed{position:static;display:block;margin:6px 0 0}}
-@media(prefers-reduced-motion:reduce){.cap{transition:none}.scrollcue span{animation:none}}
+@media(max-width:860px){.hgrid{grid-template-columns:1fr;gap:0}.caps{min-height:270px;margin-top:26px}}
+@media(max-width:760px){.story .map{height:auto;margin-top:8px}.pctl{margin-top:18px}.pdot{padding:7px 9px;font-size:11.5px}.cap .cta{margin-top:12px}.cap .cta .btn{padding:9px 14px;font-size:14px}.cap p{font-size:15.5px}.cap h2{font-size:30px}.bub,.done-card{display:none!important}.mroute li{padding-bottom:10px}.missed{position:static;display:block;margin:6px 0 0}}
+@media(prefers-reduced-motion:reduce){.cap{transition:none}}
+/* plans band: the way to pricing (prices themselves live on /plans/ only) */
+.pband{margin-top:96px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-left:6px solid var(--red);border-radius:14px;padding:30px 34px;box-shadow:0 30px 60px -40px rgba(11,31,77,.45)}
+.pband h2{font:800 clamp(26px,3vw,38px)/1.1 Sora;letter-spacing:-.02em;color:var(--ink);margin:8px 0 0}.pband h2 span{color:var(--red)}.pband p{margin:8px 0 0;max-width:640px}
+.pbcta{display:flex;gap:12px;flex-wrap:wrap}
+@media(max-width:760px){.pband{padding:24px 20px}}
 /* start band */
 .startb{margin-top:96px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px 38px;box-shadow:0 30px 60px -44px rgba(11,31,77,.55);position:relative;overflow:hidden}
 .startb:after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;border:2px dashed rgba(200,16,46,.25)}
@@ -299,19 +307,18 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
 </head><body>
 <div class="suitebar"><div class="wrap"><a href="https://about.pulsus.tech/">Part of the <b>Pulsus Intelligence Suite</b> →</a></div></div>
 <header><div class="wrap nav"><a class="lockup" href="/" aria-label="Pulsus Connect"><span class="wm">PULS<span class="u">U</span>S</span><span class="prod"><span>CONNECT</span></span><span class="tag">Live. <b>Signal</b>. Clarity.</span></a>
-<nav><a href="#story">The story</a><a href="#member">Customers track it</a><a href="#views">One reference</a><a href="#keys">Three keys</a></nav>
+<nav><a href="#story">The story</a><a href="#member">Customers track it</a><a href="#views">One reference</a><a href="#keys">Three keys</a><a href="/plans/">Pricing</a></nav>
 <a class="btn line" href="https://connect.pulsus.tech/">Sign in</a><button class="mtoggle" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="btn red" href="https://executive.pulsus.tech/demo/register?app=connect&amp;next=https%3A%2F%2Fdemo-connect.pulsus.tech%2F">Try Demo →</a></div></header>
 
 <section class="night" aria-labelledby="hero-h">
  <div class="wrap hero" id="hero">
+ <div class="hgrid">
+  <div class="htext">
   <p class="k">One payment · one week</p>
   <h1 id="hero-h">The payment was approved. <span>So where is it?</span></h1>
   <p class="lede">From the branch counter to the beneficiary's account, a payment passes through people, systems and institutions. Somewhere along the way, everyone loses sight of it.</p>
-  <p class="scrollcue" aria-hidden="true">Scroll to follow one payment <span>↓</span></p>
- </div>
- <div class="story" id="story">
-  <div class="sstage">
-   <div class="wrap caps" id="caps">
+  </div>
+  <div class="caps" id="caps" aria-live="polite">
     <div class="cap" data-ch="0"><p class="day">Monday · 10:40</p><h2>Approved.</h2><p>Inside the bank, the screen says approved. The request was raised, checked and signed off. Then it leaves the building.</p></div>
     <div class="cap" data-ch="1"><p class="day">Tuesday · 09:12</p><h2>The customer calls.</h2><p>"Has my payment gone through?" The branch can see it was approved. Nothing more.</p></div>
     <div class="cap" data-ch="2"><p class="day">Wednesday · 14:05</p><h2>The chase begins.</h2><p>The beneficiary says nothing has arrived. The branch emails Payments. Payments emails the correspondent bank. Everyone waits.</p></div>
@@ -319,7 +326,10 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
     <div class="cap" data-ch="4"><p class="day">What actually happened</p><h2>It arrived on Tuesday. <span>Nobody could see it.</span></h2><p>The money was credited to the beneficiary at 13:22 on Tuesday, before most of those calls were made. The problem was never the payment. It was visibility.</p></div>
     <div class="cap" data-ch="5"><p class="day">With Pulsus Connect</p><h2>Everyone could have.</h2><p>Pulsus Connect brings requests, approvals, processing and payment tracking into one controlled journey. <b>One reference. Clear accountability. Visibility from initiation to delivery.</b></p>
      <div class="cta"><a class="btn red" href="https://executive.pulsus.tech/demo/register?app=connect&amp;next=https%3A%2F%2Fdemo-connect.pulsus.tech%2F">Try Demo →</a><a class="btn ghost" href="https://about.pulsus.tech/walkthrough/?app=Connect">Book a walkthrough</a></div></div>
-   </div>
+  </div>
+ </div>
+ </div>
+ <div class="story" id="story">
    <div class="wrap">
    <div class="map" id="map" aria-label="A payment's route: branch, verified, authorised, released, then correspondent bank and beneficiary" role="img">
    <svg viewBox="0 0 1130 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
@@ -348,9 +358,11 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
    <div class="done-card"><b>Delivered · Tue 13:22</b>The customer was told at every step. The branch, the contact centre and Payments all see the same answer.</div>
   </div>
    </div>
-   <a class="skip" href="#member">Skip the story ↓</a>
-   <div class="sprog" aria-hidden="true"><i id="sprog"></i></div>
-  </div>
+   <div class="wrap pctl" role="group" aria-label="Play the story">
+    <button class="pp" id="pp" type="button" aria-label="Pause"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M7 5h3v14H7zM14 5h3v14h-3z"/><path class="i-play" d="M8 5l11 7-11 7z"/><path class="i-replay" d="M12 5a7 7 0 1 1-7 7h2a5 5 0 1 0 5-5v3L7 6l5-4z"/></svg></button>
+    <button class="pdot" type="button" data-go="0">Mon</button><button class="pdot" type="button" data-go="1">Tue</button><button class="pdot" type="button" data-go="2">Wed</button><button class="pdot" type="button" data-go="3">Thu</button><button class="pdot" type="button" data-go="4">What happened</button><button class="pdot" type="button" data-go="5">With Connect</button>
+    <div class="sprog" aria-hidden="true"><i id="sprog"></i></div>
+   </div>
  </div>
 </section>
 
@@ -409,6 +421,8 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
   </div></div>
 </section>
 
+<section class="pband" aria-labelledby="pband-h"><div><p class="k">Plans &amp; pricing</p><h2 id="pband-h">Three editions. <span>One clear bill.</span></h2><p>Essential, Professional and Enterprise: what each includes, how connections and payments are charged, the 14-day free trial, and answers to common questions.</p></div><div class="pbcta"><a class="btn red" href="/plans/">See plans &amp; pricing →</a></div></section>
+
 <section class="startb" id="start" aria-labelledby="start-h"><div><p class="k">Get started</p><h2 id="start-h">Set up around your branches. <span>And your rules.</span></h2><p>Your channels, your approval rules, your currencies. See it in the demo, then walk it through with your payments team.</p></div><div class="sbtns"><a class="btn red" href="https://about.pulsus.tech/walkthrough/?app=Connect">Book a walkthrough →</a><a class="btn line" href="https://executive.pulsus.tech/demo/register?app=connect&amp;next=https%3A%2F%2Fdemo-connect.pulsus.tech%2F">Try Demo</a></div></section>
  <section class="suite" aria-labelledby="suite-h">
   <div><p class="k">Part of the Pulsus Intelligence Suite</p>
@@ -429,7 +443,7 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
 <script>
 (function(){
  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
- /* ── the story: scroll drives one payment's week ── */
+ /* ── the story: one payment's week plays by itself, in the opening screen ── */
  const map=document.getElementById('map'), dot=document.getElementById('dot'), halo=document.getElementById('halo');
  const done=map.querySelector('.route.done'), found=document.getElementById('found');
  const D=done.getTotalLength(), L=found.getTotalLength();
@@ -438,7 +452,7 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
  const near=(path,len,g)=>{const c=g.querySelector('circle'),x=+c.getAttribute('cx'),y=+c.getAttribute('cy');let best=0,bd=1e9;for(let i=0;i<=200;i++){const q=path.getPointAtLength(len*i/200),d=(q.x-x)**2+(q.y-y)**2;if(d<bd){bd=d;best=i/200;}}return best;};
  const at=stops.map(g=>near(done,D,g)), atL=later.map(g=>near(found,L,g));
  const bubs=[...map.querySelectorAll('.bub')], missed=document.getElementById('missed'), flash=document.getElementById('flash');
- const caps=[...document.querySelectorAll('.cap')], story=document.getElementById('story'), bar=document.getElementById('sprog');
+ const caps=[...document.querySelectorAll('.cap')], story=document.getElementById('story'), bar=document.getElementById('sprog'), pp=document.getElementById('pp'), pdots=[...document.querySelectorAll('.pdot')];
  const COUNT=['','1 call about one payment','2 calls · 1 email · no answer','5 calls · 7 emails · 3 teams · 0 answers'];
  const put=(path,len,t)=>{const p=path.getPointAtLength(len*t);dot.setAttribute('cx',p.x);dot.setAttribute('cy',p.y);halo.setAttribute('cx',p.x);halo.setAttribute('cy',p.y);};
  const pop=(g,lit)=>{if(lit&&g.classList.contains('dim')){g.classList.remove('dim','pop');void g.getBoundingClientRect();g.classList.add('pop');}if(!lit)g.classList.add('dim');};
@@ -446,11 +460,10 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
  let lastCh=-1, wasOn=false, hh=0;
  const hdr=document.querySelector('header'), setHH=()=>{hh=hdr?hdr.offsetHeight:0;document.documentElement.style.setProperty('--hh',hh+'px');};
  setHH(); addEventListener('resize',setHH);
- function frame(){
-  const r=story.getBoundingClientRect(), span=r.height-(innerHeight-hh), p=cl((hh-r.top)/Math.max(1,span));
-  bar.style.width=(p*100)+'%';
-  const ch=Math.min(5,Math.floor(p*6)), f=p*6-ch;
-  if(ch!==lastCh){caps.forEach(c=>c.classList.toggle('on',+c.dataset.ch===ch));map.dataset.ch=ch;lastCh=ch;}
+ const DUR=[5200,4200,4400,4600,5600,7000], TOT=DUR.reduce((a,b)=>a+b,0);
+ function render(ch,f){
+  bar.style.width=((DUR.slice(0,ch).reduce((a,b)=>a+b,0)+f*DUR[ch])/TOT*100)+'%';
+  if(ch!==lastCh){caps.forEach(c=>c.classList.toggle('on',+c.dataset.ch===ch));map.dataset.ch=ch;lastCh=ch;pdots.forEach((d,i)=>{d.classList.toggle('on',i===ch);d.classList.toggle('past',i<ch);d.setAttribute('aria-pressed',i===ch);});}
   /* Monday: the route draws to "Released" */
   const t0=ch===0?cl(f*1.4):1; done.style.strokeDashoffset=D*(1-t0); stops.forEach((g,i)=>pop(g,t0>=at[i]-.005));
   /* Tuesday–Thursday: the calls and emails pile up in the fog */
@@ -466,8 +479,22 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
   const on=ch>=5; map.classList.toggle('on',on);
   if(on&&!wasOn){flash.classList.remove('go');void flash.offsetWidth;flash.classList.add('go');} wasOn=on;
  }
- let ticking=false; const req=()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{ticking=false;frame();});}};
- addEventListener('scroll',req,{passive:true}); addEventListener('resize',req); frame();
+ let cur=0, el0=0, start=0, playing=false, userPaused=!!reduce, seen=true, ended=false;
+ const btn=()=>{pp.classList.toggle('paused',!playing&&!ended);pp.classList.toggle('ended',ended);pp.setAttribute('aria-label',ended?'Play again':playing?'Pause':'Play');};
+ function tick(now){if(!playing)return;let e=el0+now-start;
+  while(e>=DUR[cur]&&cur<5){e-=DUR[cur];cur++;el0=e;start=now;}
+  if(cur===5&&e>=DUR[5]){e=DUR[5];playing=false;ended=true;btn();}
+  render(cur,Math.min(1,e/DUR[cur]));if(playing)requestAnimationFrame(tick);}
+ function splay(){if(playing||!seen)return;if(ended){ended=false;cur=0;el0=0;}playing=true;start=performance.now();btn();requestAnimationFrame(tick);}
+ function spause(){if(!playing)return;el0+=performance.now()-start;playing=false;btn();}
+ function go(i){const was=playing||!userPaused;spause();ended=false;cur=i;el0=reduce?DUR[i]-1:0;render(i,reduce?1:0);btn();if(was&&!reduce){userPaused=false;splay();}}
+ pp.addEventListener('click',()=>{if(playing){userPaused=true;spause();}else{userPaused=false;splay();}});
+ pdots.forEach(d=>d.addEventListener('click',()=>go(+d.dataset.go)));
+ /* pause while the story is off screen or the tab is hidden; carry on when it comes back */
+ const vis=()=>{if(seen&&!document.hidden&&!userPaused)splay();else spause();};
+ if('IntersectionObserver' in window)new IntersectionObserver(es=>{seen=es[0].isIntersecting;vis();},{threshold:.05}).observe(map.closest('.night'));
+ document.addEventListener('visibilitychange',vis);
+ if(reduce){render(0,1);btn();}else{render(0,0);splay();}
 
  /* ── customers track it ── */
  const MS=[
