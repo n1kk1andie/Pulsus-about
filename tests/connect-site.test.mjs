@@ -30,9 +30,10 @@ test("Try Demo registers for Connect's demo; Sign in goes to Connect", () => {
 });
 
 test("leads with the unspoken need: approved, but where is it?", () => {
-  assert.match(html, /<h1>Approved\.<\/h1>/);
-  assert.match(html, /<p class="h1">But where<br>is it\?<\/p>/);
-  for (const id of ["how", "track", "control", "start"]) assert.match(html, new RegExp(`id="${id}"`));
+  assert.match(html, /<h1 id="hero-h">The payment was approved\. <span>So where is it\?<\/span><\/h1>/);
+  assert.match(html, /role="switch" aria-checked="false"><i><\/i>With Pulsus Connect<\/button>/);
+  for (const id of ["views", "keys", "route", "start"]) assert.match(html, new RegExp(`id="${id}"`));
+  assert.doesNotMatch(html, /class="stage"|id="grip"/, "its own design, not another product site's");
   assert.doesNotMatch(html, /\$\d/, "no prices on the story page");
 });
 
