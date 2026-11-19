@@ -31,8 +31,13 @@ test("Try Demo registers for Connect's demo; Sign in goes to Connect", () => {
 
 test("leads with the unspoken need: approved, but where is it?", () => {
   assert.match(html, /<h1 id="hero-h">The payment was approved\. <span>So where is it\?<\/span><\/h1>/);
-  assert.match(html, /role="switch" aria-checked="false"><i><\/i>With Pulsus Connect<\/button>/);
-  for (const id of ["views", "keys", "route", "start"]) assert.match(html, new RegExp(`id="${id}"`));
+  // the pain first: one payment's week, scroll by scroll; the product arrives only as the answer
+  const caps = [...html.matchAll(/<div class="cap" data-ch="(\d)"><p class="day">([^<]*)<\/p><h2>([\s\S]*?)<\/h2>/g)].map((m) => [m[2], m[3].replace(/<[^>]+>/g, "")]);
+  assert.deepEqual(caps.map((c) => c[0]), ["Monday · 10:40", "Tuesday · 09:12", "Wednesday · 14:05", "Thursday · 16:30", "What actually happened", "With Pulsus Connect"]);
+  assert.equal(caps[4][1], "It arrived on Tuesday. Nobody could see it.");
+  assert.ok(!/Pulsus Connect/.test(caps.slice(0, 5).map((c) => c[1]).join(" ")), "the product is not named before the answer");
+  assert.match(html, /\.story\{position:relative;height:640vh\}/);
+  for (const id of ["story", "member", "views", "keys", "route", "start"]) assert.match(html, new RegExp(`id="${id}"`));
   assert.doesNotMatch(html, /class="stage"|id="grip"/, "its own design, not another product site's");
   assert.doesNotMatch(html, /\$\d/, "no prices on the story page");
 });
