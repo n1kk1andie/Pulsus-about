@@ -79,7 +79,7 @@ const PLANS = [
   { key: "talent", dir: "talent/es", price: ["US$11"] },
   { key: "tech", dir: "tech", price: ["$750", "$75", "base:750", "extra:75", "$1,275"], gone: ["$500", "$50 each", "base:500"] },
   { key: "communique", dir: "communique", price: ["$500 a month", "+$50 a month", "$20 a block", "$15 each"], gone: ["$200", "users are $20"] },
-  { key: "connect", dir: "connect", price: ["US$15,000", "US$1,250 a month", "US$50 per extra user", "US$25,000", "US$2,083.33 a month", "US$40 per extra user", "US$12,000", "US$1", "Contact sales", "signup?product=connect\"", "signup?product=connectpro\"", "US$46,800", "US$34,800"] },
+  { key: "connect", dir: "connect", price: ["US$15,000", "US$1,250 a month", "US$50 per extra user", "US$25,000", "US$2,083.33 a month", "US$40 per extra user", "US$12,000", "US$1", "Contact sales", "signup?product=connect\"", "signup?product=connectpro\"", "US$34,800", "US$34,800"] },
 ];
 for (const { key, dir, price, gone = [] } of PLANS) {
   const html = readFileSync(new URL(`sites/${dir}/plans/index.html`, ROOT), "utf8");
