@@ -90,7 +90,7 @@ test("plans page: three editions in Connect's look, US dollars, the agreed figur
   for (const p of ["US$15,000", "US$1,250 a month", "US$25,000", "US$2,083.33 a month", "US$12,000", "US$1</p>", "500 payments a month included", "1,000 payments a month included", "US$0.90", "From US$21,000 a year", "From US$37,000 a year", "unused payments expire", "Do we need an integration to use Connect?", "authorised in Connect", "Imports and exports", "Audit trail", "Advanced controls and reporting", "Delivered by Pulsus where special", "Self-service where standard", "How are integrations set up?"]) assert.ok(plans.includes(p), p);
   assert.ok(plans.includes('href="https://executive.pulsus.tech/signup?product=connect"'));
   assert.ok(plans.includes('href="https://executive.pulsus.tech/signup?product=connectpro"'));
-  assert.ok(plans.includes('href="mailto:support@pulsus.tech?subject=Pulsus%20Connect%20Enterprise">Contact sales'));
+  assert.ok(plans.includes('href="mailto:sales@pulsus.tech?subject=Pulsus%20Connect%20Enterprise">Contact sales'));
   assert.match(plans, /<article class="ed hi"[^>]*>\s*<p class="badge">Recommended<\/p>\s*<p class="ename" id="ed-pro">Professional/, "Professional highlighted");
   // worked example: Essential, 8 users, 3 connections (the starter pack), 1,500 payments a month
   const lic = 1250 * 12, extra = (8 - 5) * 50 * 12, minimum = 500 * 12, over = (1500 - 500) * 1 * 12, pay = minimum + over, setup = 0;   // no integrations: Connect works on its own
