@@ -36,7 +36,9 @@ test("leads with the unspoken need: approved, but where is it?", () => {
   assert.deepEqual(caps.map((c) => c[0]), ["Monday · 10:40", "Tuesday · 09:12", "Wednesday · 14:05", "Thursday · 16:30", "What actually happened", "With Pulsus Connect"]);
   assert.equal(caps[4][1], "It arrived on Tuesday. Nobody could see it.");
   assert.ok(!/Pulsus Connect/.test(caps.slice(0, 5).map((c) => c[1]).join(" ")), "the product is not named before the answer");
-  assert.match(html, /\.story\{position:relative;height:640vh\}/);
+  assert.match(html, /\.story\{position:relative;height:360vh\}/);
+  assert.match(html, /header\{position:sticky;top:0/, "the Pulsus header stays on screen during the story");
+  assert.match(html, /<a class="skip" href="#member">/);
   for (const id of ["story", "member", "views", "keys", "route", "start"]) assert.match(html, new RegExp(`id="${id}"`));
   assert.doesNotMatch(html, /class="stage"|id="grip"/, "its own design, not another product site's");
   assert.doesNotMatch(html, /\$\d/, "no prices on the story page");
