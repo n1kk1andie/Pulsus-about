@@ -85,7 +85,7 @@ test("plans page: three editions in Connect's look, US dollars, the agreed figur
   assert.doesNotMatch(plans, /member/i, "customers, never members");
   assert.doesNotMatch(plans, /fiserv|signature \(cif/i, "no vendor or bank system named on a public page");
   assert.doesNotMatch(plans, /€|£|EUR|GBP|JMD|TTD|J\$/, "USD only");
-  for (const p of ["US$15,000", "US$1,250 a month", "US$25,000", "US$2,083.33 a month", "US$12,000", "US$1</p>", "500 payments a month included", "1,000 payments a month included", "US$0.90", "From US$21,000 a year", "From US$37,000 a year", "unused payments expire", "Do we need an integration to use Connect?", "authorised in Connect", "Imports and exports", "Audit trail", "Advanced controls and reporting"]) assert.ok(plans.includes(p), p);
+  for (const p of ["US$15,000", "US$1,250 a month", "US$25,000", "US$2,083.33 a month", "US$12,000", "US$1</p>", "500 payments a month included", "1,000 payments a month included", "US$0.90", "From US$21,000 a year", "From US$37,000 a year", "unused payments expire", "Do we need an integration to use Connect?", "authorised in Connect", "Imports and exports", "Audit trail", "Advanced controls and reporting", "Delivered by Pulsus where special", "Self-service where standard", "How are integrations set up?"]) assert.ok(plans.includes(p), p);
   assert.ok(plans.includes('href="https://executive.pulsus.tech/signup?product=connect"'));
   assert.ok(plans.includes('href="https://executive.pulsus.tech/signup?product=connectpro"'));
   assert.ok(plans.includes('href="mailto:support@pulsus.tech?subject=Pulsus%20Connect%20Enterprise">Contact sales'));
