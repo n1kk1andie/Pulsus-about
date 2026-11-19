@@ -89,8 +89,9 @@ test("plans page: three editions in Connect's look, US dollars, the agreed figur
   assert.ok(plans.includes('href="https://executive.pulsus.tech/signup?product=connectpro"'));
   assert.ok(plans.includes('href="mailto:support@pulsus.tech?subject=Pulsus%20Connect%20Enterprise">Contact sales'));
   assert.match(plans, /<article class="ed hi"[^>]*>\s*<p class="badge">Recommended<\/p>\s*<p class="ename" id="ed-pro">Professional/, "Professional highlighted");
-  // worked example: Essential, 8 users, 2 connections, 1,500 payments a month
-  const lic = 1250 * 12, extra = (8 - 5) * 50 * 12, pay = 1500 * 12, setup = 2 * 12000;
+  // worked example: Essential, 8 users, 3 connections (the starter pack), 1,500 payments a month
+  const lic = 1250 * 12, extra = (8 - 5) * 50 * 12, pay = 1500 * 12, setup = 12000;
+  for (const p of ["US$5,000 each for the 4th to 6th", "US$4,500 each from the 7th", "first 3"]) assert.ok(plans.includes(p), p);
   const usd = (n) => `US$${n.toLocaleString("en-US")}`;
   for (const n of [lic, extra, pay, setup, lic + extra + pay + setup, lic + extra + pay]) assert.ok(plans.includes(`<dd>${usd(n)}</dd>`), usd(n));
 });
