@@ -296,6 +296,25 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
 .pband h2{font:800 clamp(26px,3vw,38px)/1.1 Sora;letter-spacing:-.02em;color:var(--ink);margin:8px 0 0}.pband h2 span{color:var(--red)}.pband p{margin:8px 0 0;max-width:640px}
 .pbcta{display:flex;gap:12px;flex-wrap:wrap}
 @media(max-width:760px){.pband{padding:24px 20px}}
+/* the opening: a light card like every Pulsus site; the payment's route plays on a dark screen inside it */
+.beat{display:block;width:100%;height:26px;margin-top:-13px;position:relative;z-index:41;pointer-events:none}
+.beat path{fill:none;stroke:var(--red);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2400;stroke-dashoffset:2400;animation:trace 2.4s ease-out .3s forwards}
+@keyframes trace{to{stroke-dashoffset:0}}
+.opening{padding-top:22px}
+.hcard{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 30px 60px -36px rgba(11,31,77,.45);padding:34px 36px 26px}
+.hcard .hero{padding:0}
+.hcard .hero h1{color:var(--ink)}.hcard .hero h1 span{color:var(--red)}.hcard .hero .k{color:var(--red)}.hcard .hero .lede{color:#4a5675}
+.hcard .cap .day{color:var(--red)}.hcard .cap h2{color:var(--ink)}.hcard .cap h2 span{color:var(--green)}.hcard .cap p{color:#4a5675}.hcard .cap p b{color:var(--ink)}
+.hcard .btn.ghost{border-color:var(--ink);color:var(--ink)}
+.hcard .story{padding-bottom:0}
+.rscreen{margin-top:26px;border-radius:10px;padding:46px 26px 40px}
+.rscreen .map{margin-top:0!important}
+.hcard .pctl{margin-top:16px}
+.hcard .pp{border-color:rgba(11,31,77,.3);color:var(--ink)}.hcard .pp:hover{border-color:var(--ink)}
+.hcard .pdot{background:#eef1f6;color:#5a6788}.hcard .pdot:hover{color:var(--ink)}.hcard .pdot.past{color:var(--ink)}.hcard .pdot.on{background:rgba(200,16,46,.12);color:var(--red)}.hcard .pdot[data-go="5"].on{background:rgba(22,163,74,.14);color:var(--green)}
+.hcard .pctl .sprog{background:#e6e9f0}
+@media(max-width:760px){.hcard{padding:24px 18px 18px}.rscreen{padding:20px 16px}}
+@media(prefers-reduced-motion:reduce){.beat path{animation:none;stroke-dashoffset:0}}
 /* start band */
 .startb{margin-top:96px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px 38px;box-shadow:0 30px 60px -44px rgba(11,31,77,.55);position:relative;overflow:hidden}
 .startb:after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;border:2px dashed rgba(200,16,46,.25)}
@@ -307,11 +326,13 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
 </head><body>
 <div class="suitebar"><div class="wrap"><a href="https://about.pulsus.tech/">Part of the <b>Pulsus Intelligence Suite</b> →</a></div></div>
 <header><div class="wrap nav"><a class="lockup" href="/" aria-label="Pulsus Connect"><span class="wm">PULS<span class="u">U</span>S</span><span class="prod"><span>CONNECT</span></span><span class="tag">Live. <b>Signal</b>. Clarity.</span></a>
-<nav><a href="#story">The story</a><a href="#member">Customers track it</a><a href="#views">One reference</a><a href="#keys">Three keys</a><a href="/plans/">Pricing</a></nav>
+<nav><a href="#story">The story</a><a href="#member">Customers track it</a><a href="#views">One reference</a><a href="#keys">Three keys</a><a href="/plans/">Plans &amp; features</a></nav>
 <a class="btn line" href="https://connect.pulsus.tech/">Sign in</a><button class="mtoggle" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="btn red" href="https://executive.pulsus.tech/demo/register?app=connect&amp;next=https%3A%2F%2Fdemo-connect.pulsus.tech%2F">Try Demo →</a></div></header>
+<svg class="beat" id="beat" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 13 H640 l14 0 8 -11 10 22 9 -17 7 6 H1440"/></svg>
 
-<section class="night" aria-labelledby="hero-h">
- <div class="wrap hero" id="hero">
+<section class="opening" aria-labelledby="hero-h">
+ <div class="wrap"><div class="hcard">
+ <div class="hero" id="hero">
  <div class="hgrid">
   <div class="htext">
   <p class="k">One payment · one week</p>
@@ -330,7 +351,7 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
  </div>
  </div>
  <div class="story" id="story">
-   <div class="wrap">
+   <div class="rscreen night">
    <div class="map" id="map" aria-label="A payment's route: branch, verified, authorised, released, then correspondent bank and beneficiary" role="img">
    <svg viewBox="0 0 1130 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
     <path class="route done" d="M30 210 C 140 210 160 120 270 120 S 420 200 520 190"/>
@@ -358,12 +379,13 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
    <div class="done-card"><b>Delivered · Tue 13:22</b>The customer was told at every step. The branch, the contact centre and Payments all see the same answer.</div>
   </div>
    </div>
-   <div class="wrap pctl" role="group" aria-label="Play the story">
+   <div class="pctl" role="group" aria-label="Play the story">
     <button class="pp" id="pp" type="button" aria-label="Pause"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M7 5h3v14H7zM14 5h3v14h-3z"/><path class="i-play" d="M8 5l11 7-11 7z"/><path class="i-replay" d="M12 5a7 7 0 1 1-7 7h2a5 5 0 1 0 5-5v3L7 6l5-4z"/></svg></button>
     <button class="pdot" type="button" data-go="0">Mon</button><button class="pdot" type="button" data-go="1">Tue</button><button class="pdot" type="button" data-go="2">Wed</button><button class="pdot" type="button" data-go="3">Thu</button><button class="pdot" type="button" data-go="4">What happened</button><button class="pdot" type="button" data-go="5">With Connect</button>
     <div class="sprog" aria-hidden="true"><i id="sprog"></i></div>
    </div>
  </div>
+</div></div>
 </section>
 
 <main class="wrap">
@@ -492,7 +514,7 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
  pdots.forEach(d=>d.addEventListener('click',()=>go(+d.dataset.go)));
  /* pause while the story is off screen or the tab is hidden; carry on when it comes back */
  const vis=()=>{if(seen&&!document.hidden&&!userPaused)splay();else spause();};
- if('IntersectionObserver' in window)new IntersectionObserver(es=>{seen=es[0].isIntersecting;vis();},{threshold:.05}).observe(map.closest('.night'));
+ if('IntersectionObserver' in window)new IntersectionObserver(es=>{seen=es[0].isIntersecting;vis();},{threshold:.05}).observe(map.closest('.hcard'));
  document.addEventListener('visibilitychange',vis);
  if(reduce){render(0,1);btn();}else{render(0,0);splay();}
 

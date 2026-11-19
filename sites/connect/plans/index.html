@@ -27,7 +27,7 @@
 .suitebar{background:var(--ink);color:#cfd6ea;font:500 12.5px/1 'IBM Plex Sans';letter-spacing:.04em}
 .suitebar .wrap{display:flex;justify-content:flex-end;align-items:center;height:32px;gap:8px}
 .suitebar a{color:#fff;text-decoration:none}.suitebar a b{color:#ff5a73;font-weight:600}
-.beat{display:block;width:100%;height:26px;margin-top:-13px;position:relative;z-index:2;pointer-events:none}
+.beat{display:block;width:100%;height:26px;margin-top:-13px;position:relative;z-index:41;pointer-events:none}
 .beat path{fill:none;stroke:var(--red);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:2400;stroke-dashoffset:2400;animation:trace 2.4s ease-out .3s forwards}
 .beat.pulse path{animation:none;stroke-dashoffset:0}
 .beat.pulse{animation:blip .5s ease-out}
@@ -162,6 +162,12 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
 .qa .ans{padding:0 0 18px;max-width:820px}.qa .ans p{margin:0 0 10px}
 @media(max-width:1000px){.eds{grid-template-columns:1fr;max-width:560px}.ed.hi{transform:none}.bill{min-height:0}.exw{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.sec{padding-top:72px}.phero{padding-top:36px;padding-bottom:40px}.phero .lede{font-size:17px}.tiles,.kinds,.steps3{grid-template-columns:1fr}.ex,.calc{padding:20px 18px}.rows div{flex-wrap:wrap}.qa summary{font-size:16.5px}.phero .back{margin-left:0}}
+.opening{padding-top:22px}
+.hcard{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 30px 60px -36px rgba(11,31,77,.45);padding:40px 40px 34px}
+.hcard.phero h1{color:var(--ink)}.hcard.phero h1 span{color:var(--red)}.hcard.phero .k{color:var(--red)}.hcard.phero .lede{color:#4a5675}
+.hcard.phero .back{color:#4a5675}.hcard.phero .back:hover{color:var(--ink)}.hcard .btn.ghost{border-color:var(--ink);color:var(--ink)}
+.hcard .facts li{border-color:var(--line);background:#f7f8fb;color:#5a6788}.hcard .facts b{color:var(--green)}
+@media(max-width:760px){.hcard{padding:26px 20px 22px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"Pulsus Connect","description":"Payment request software for banks and credit unions: branch requests with signed mandates, dual-control approval, and tracking to the beneficiary.","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://aboutconnect.pulsus.tech/","image":"https://aboutconnect.pulsus.tech/sites/connect/assets/og.png","inLanguage":"en","publisher":{"@type":"Organization","name":"Tumblehill Labs","parentOrganization":{"@type":"Organization","name":"Tumblehill Holdings LLC"}},"offers":{"@type":"Offer","name":"Essential","price":"1250","priceCurrency":"USD","url":"https://aboutconnect.pulsus.tech/plans/","description":"Essential edition: annual licence of US$15,000, billed monthly at US$1,250 a month, with 5 users included. Extra users are US$50 each a month. Connection setup and US$1 per payment processed are charged on top.","priceSpecification":{"@type":"UnitPriceSpecification","price":"1250","priceCurrency":"USD","unitText":"per company per month, billed monthly on an annual licence","referenceQuantity":{"@type":"QuantitativeValue","value":1,"unitCode":"MON"}}}},{"@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"What is Pulsus Connect?","acceptedAnswer":{"@type":"Answer","text":"Pulsus Connect is payment request and tracking software for banks and credit unions. Branch staff raise a payment request once with the signed mandate attached, three different people raise, verify and authorise it, and the customer can follow the payment to the beneficiary with one reference."}},{"@type":"Question","name":"What counts as a connection?","acceptedAnswer":{"@type":"Answer","text":"A connection is one configured integration with an external system or payment endpoint: a payment connection (RTGS, ACH, SWIFT or an international wire gateway), a core banking connection (Fiserv Signature or another core banking interface) or a tracking connection (SWIFT gpi or a bank acknowledgement feed). Microsoft Entra ID sign-in, email, SMS, document reading (OCR) and customer tracking are never counted; they are included."}},{"@type":"Question","name":"What is billed, and when?","acceptedAnswer":{"@type":"Answer","text":"On Essential and Professional, the annual licence is billed monthly: US$1,250 a month for Essential, US$2,083.33 a month for Professional. Extra users are US$50 (Essential) or US$40 (Professional) per user a month. The US$12,000 setup for each connection you switch on, charged once per connection, and US$1 per payment processed are billed after the month, on your next invoice. Third-party service charges are separate."}},{"@type":"Question","name":"Can we switch edition?","acceptedAnswer":{"@type":"Answer","text":"Yes. A company runs one edition at a time, so moving between Essential and Professional replaces the edition you have rather than adding a second one. Email support@pulsus.tech to arrange it, or to talk about Enterprise."}},{"@type":"Question","name":"Is tracking free for our customers?","acceptedAnswer":{"@type":"Answer","text":"Yes. Customers who track their payments never pay and need no account. Customer tracking is never counted as a connection."}},{"@type":"Question","name":"What currency are the prices in?","acceptedAnswer":{"@type":"Answer","text":"US dollars (USD). Every price on this page is in US dollars."}},{"@type":"Question","name":"How does the free trial work?","acceptedAnswer":{"@type":"Answer","text":"You get 14 days free with no card needed. Sign up with the link for the edition you want: each trial covers only that edition."}},{"@type":"Question","name":"Do we pay per branch?","acceptedAnswer":{"@type":"Answer","text":"No. There are no per-branch charges."}}]}]}</script>
 </head><body>
@@ -169,9 +175,10 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
 <header><div class="wrap nav"><a class="lockup" href="/" aria-label="Pulsus Connect"><span class="wm">PULS<span class="u">U</span>S</span><span class="prod"><span>CONNECT</span></span><span class="tag">Live. <b>Signal</b>. Clarity.</span></a>
 <nav><a href="/">The story</a><a href="#editions">Editions</a><a href="#connections">Connections</a><a href="#example">Example</a><a href="#faq">FAQ</a><a href="/plans/" aria-current="page">Pricing</a></nav>
 <a class="btn line" href="https://connect.pulsus.tech/">Sign in</a><button class="mtoggle" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="btn red" href="https://executive.pulsus.tech/demo/register?app=connect&amp;next=https%3A%2F%2Fdemo-connect.pulsus.tech%2F">Try Demo →</a></div></header>
+<svg class="beat" id="beat" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 13 H640 l14 0 8 -11 10 22 9 -17 7 6 H1440"/></svg>
 
-<section class="night" aria-labelledby="ph-h">
- <div class="wrap phero">
+<section class="opening" aria-labelledby="ph-h">
+ <div class="wrap"><div class="hcard phero">
   <p class="k">Plans &amp; pricing</p>
   <h1 id="ph-h">Pulsus Connect pricing. <span>No surprises on the invoice.</span></h1>
   <p class="lede">Three editions. An annual licence billed monthly, a one-time setup fee for each banking connection you switch on, and US$1 for each payment processed. No per-branch charges. Try Essential or Professional free for 14 days, no card needed.</p>
@@ -182,7 +189,7 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
    <li><b>US$0</b>For customers who track their payments</li>
    <li><b>US$0</b>Per branch</li>
   </ul>
- </div>
+ </div></div>
 </section>
 
 <main class="wrap">

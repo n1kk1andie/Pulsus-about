@@ -78,7 +78,7 @@ test("the suite footer links to Connect everywhere", () => {
 
 test("plans page: three editions in Connect's look, US dollars, the agreed figures", () => {
   const plans = read("sites/connect/plans/index.html");
-  assert.ok(html.includes('<a href="/plans/">Pricing</a></nav>'), "Pricing in the story's nav");
+  assert.ok(html.includes('<a href="/plans/">Plans &amp; features</a></nav>'), "Pricing in the story's nav");
   assert.match(plans, /:root\{--paper:#f5f6f8;--ink:#0b1f4d;--night:#071538/, "Connect's own colours");
   assert.match(plans, /<span class="prod"><span>CONNECT<\/span><\/span>/);
   assert.match(plans, /header\{position:sticky;top:0/);
