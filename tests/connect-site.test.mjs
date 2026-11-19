@@ -31,7 +31,9 @@ test("Try Demo registers for Connect's demo; Sign in goes to Connect", () => {
 });
 
 test("leads with the unspoken need: approved, but where is it?", () => {
-  assert.match(html, /<h1 id="hero-h">The payment was approved\. <span>So where is it\?<\/span><\/h1>/);
+  assert.match(html, /<h1 class="k" id="hero-h">Pulsus Connect · Enterprise payment orchestration<\/h1>/);
+  assert.match(html, /<p class="hl">The payment was approved\. <span>So where is it\?<\/span><\/p>/);
+  assert.match(html, /id="platform"[\s\S]*Raise\. Authorise\. Route\./);
   // the pain first: one payment's week, scroll by scroll; the product arrives only as the answer
   const caps = [...html.matchAll(/<div class="cap" data-ch="(\d)"><p class="day">([^<]*)<\/p><h2>([\s\S]*?)<\/h2>/g)].map((m) => [m[2], m[3].replace(/<[^>]+>/g, "")]);
   assert.deepEqual(caps.map((c) => c[0]), ["Monday · 10:40", "Tuesday · 09:12", "Wednesday · 14:05", "Thursday · 16:30", "What actually happened", "With Pulsus Connect"]);
