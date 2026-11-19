@@ -197,7 +197,6 @@ header{border-bottom:1px solid var(--line);background:#fff}
 @media(max-width:900px){.views{grid-template-columns:1fr}.vpick{grid-template-columns:repeat(3,1fr)}.vbtn{flex-direction:column;align-items:flex-start;padding:12px}.vbtn small{display:none}.locks{grid-template-columns:1fr}.lcards{grid-template-columns:1fr}.ltrack{display:none}.lc{opacity:1}.fld{grid-template-columns:1fr 1fr}}
 
 /* customers track it */
-.trklink{color:#fff;font:600 15px 'IBM Plex Sans';text-decoration:underline;text-underline-offset:4px;margin-left:6px}
 .mem{margin-top:30px;display:grid;grid-template-columns:1fr auto auto auto;gap:26px;align-items:center}
 .mlist{list-style:none;margin:0;padding:0}
 .mlist li{padding:12px 0 12px 36px;position:relative;border-bottom:1px dashed var(--line)}
@@ -265,7 +264,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset
 /* ── the story: one payment, one week, told by scrolling ── */
 .scrollcue{margin:26px 0 0;font:600 14px 'IBM Plex Mono',monospace;letter-spacing:.06em;color:#9aa6c9}.scrollcue span{display:inline-block;animation:cue 1.6s ease-in-out infinite;color:var(--pink)}
 @keyframes cue{50%{transform:translateY(6px)}}
-.trklink{display:inline-block;margin-top:12px}
+
 header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:var(--hh,80px);z-index:39}html{scroll-padding-top:var(--hh,80px)}
 .story{position:relative;height:360vh}
 .sstage{position:sticky;top:var(--hh,92px);height:calc(100vh - var(--hh,92px));display:flex;flex-direction:column;justify-content:center;gap:10px;overflow:hidden}
@@ -309,7 +308,6 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
   <h1 id="hero-h">The payment was approved. <span>So where is it?</span></h1>
   <p class="lede">From the branch counter to the beneficiary's account, a payment passes through people, systems and institutions. Somewhere along the way, everyone loses sight of it.</p>
   <p class="scrollcue" aria-hidden="true">Scroll to follow one payment <span>↓</span></p>
-  <a class="trklink" href="https://track.pulsus.tech/">Have a reference? Track your payment →</a>
  </div>
  <div class="story" id="story">
   <div class="sstage">
@@ -365,7 +363,7 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
     <li><b>One link, no app, no password</b><span>The reference opens the tracking page straight away.</span></li>
     <li><b>A clear answer in plain words</b><span>Where it is, when it was last updated, when to expect it.</span></li>
     <li><b>Nothing sensitive, ever</b><span>No amount, account, beneficiary or staff names on the page or in the text.</span></li></ul>
-   <a class="btn red" href="https://track.pulsus.tech/">Track a payment →</a></div>
+   <button class="btn red" type="button" id="trkplay">See it work ▶</button></div>
   <div class="ph" aria-label="The customer's text messages"><div class="top">Messages<small>Your bank</small></div><div class="thread" id="thread"></div></div>
   <div class="arrow" aria-hidden="true">→<small>one tap</small></div>
   <div class="ph" aria-live="polite" aria-label="The tracking page"><div class="top">Track my payment<small>track.pulsus.tech</small></div><div class="tp" id="tp"></div></div>
@@ -496,6 +494,9 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
  th.addEventListener('keydown',e=>{const a=e.target.closest('a[data-i]');if(a&&(e.key==='Enter'||e.key===' ')){e.preventDefault();track(+a.dataset.i);}});
  track(0);
  window.__connectTrack=track;
+ const play=document.getElementById('trkplay');let pt=[];
+ play&&play.addEventListener('click',()=>{pt.forEach(clearTimeout);pt=[];th.closest('.mem').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+  MS.forEach((_,i)=>pt.push(setTimeout(()=>track(i),300+i*(reduce?600:2800))));});
 
  /* ── one reference, three views ── */
  const VIEWS={
