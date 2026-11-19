@@ -16,6 +16,7 @@ const SITES = {
   aboutrecon: "recon",
   abouttech: "tech",
   aboutcommunique: "communique",
+  aboutconnect: "connect",
 };
 
 export function siteFor(hostname) {
