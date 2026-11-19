@@ -198,13 +198,13 @@
     },
     {
       "source": "/systems/connect/",
-      "destination": "/#contact",
-      "permanent": false
+      "destination": "https://aboutconnect.pulsus.tech/",
+      "permanent": true
     },
     {
       "source": "/systems/connect",
-      "destination": "/#contact",
-      "permanent": false
+      "destination": "https://aboutconnect.pulsus.tech/",
+      "permanent": true
     },
     {
       "source": "/systems/quality",
@@ -401,6 +401,16 @@
         }
       ],
       "destination": "/sites/panorama/es/plans/index.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutconnect.pulsus.tech"
+        }
+      ],
+      "destination": "/sites/connect/index.html"
     },
     {
       "source": "/",
@@ -813,6 +823,26 @@
         }
       ],
       "destination": "/seo/about/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutconnect.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutconnect/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutconnect.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutconnect/sitemap.xml"
     },
     {
       "source": "/robots.txt",

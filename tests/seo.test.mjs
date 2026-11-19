@@ -155,7 +155,7 @@ test("each product site links to every other in its footer; the suite home links
     const html = read(`sites/${dir}/${p}index.html`);
     const foot = html.match(/<footer class="suitefoot".*?<\/footer>/s)[0];
     for (const a of APPS) if (a !== dir.split("/")[0]) assert.ok(foot.includes(`href="https://about${a}.pulsus.tech/"`), `${dir}/${p} → ${a}`);
-    assert.ok(/<span class="np">Pulsus Connect<\/span>/.test(foot) && /<span class="np">Pulsus Credit Insight<\/span>/.test(foot));
+    assert.ok(foot.includes('href="https://aboutconnect.pulsus.tech/"') && /<span class="np">Pulsus Credit Insight<\/span>/.test(foot));
   }
-  for (const f of ["index.html", "products/index.html"]) for (const a of APPS) assert.ok(read(f).includes(`href="https://about${a}.pulsus.tech/"`), `${f} → ${a}`);
+  for (const f of ["index.html", "products/index.html"]) for (const a of [...APPS, "connect"]) assert.ok(read(f).includes(`href="https://about${a}.pulsus.tech/"`), `${f} → ${a}`);
 });
