@@ -1,11 +1,11 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pulsus Connect · Payment request tracking software</title>
-<meta name="description" content="Payment request software for banks and credit unions: branch requests with signed mandates, dual-control approval, and tracking to the beneficiary.">
+<title>Pulsus Connect · Payment orchestration &amp; connectivity software</title>
+<meta name="description" content="Enterprise payment orchestration and connectivity. Raise, authorise, route and track every payment, from initiation to settlement, in one controlled journey.">
 <link rel="canonical" href="https://aboutconnect.pulsus.tech/">
 <link rel="icon" href="/sites/connect/assets/emblem.webp">
 <meta property="og:type" content="website"><meta property="og:url" content="https://aboutconnect.pulsus.tech/">
-<meta property="og:title" content="Pulsus Connect · Payment request tracking software">
-<meta property="og:description" content="Payment request software for banks and credit unions: branch requests with signed mandates, dual-control approval, and tracking to the beneficiary.">
+<meta property="og:title" content="Pulsus Connect · Payment orchestration &amp; connectivity software">
+<meta property="og:description" content="Enterprise payment orchestration and connectivity. Raise, authorise, route and track every payment, from initiation to settlement, in one controlled journey.">
 <meta property="og:image" content="https://aboutconnect.pulsus.tech/sites/connect/assets/og.png"><meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#071538">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@ header.has-m .mtoggle{display:inline-flex}header.has-m .nav{gap:12px}
 .mnav a[aria-current]{color:var(--red,#c8102e)}.mnav a.msign{border-bottom:0;margin-top:10px;text-align:center;border:1.5px solid var(--ink,#0b1f4d);border-radius:10px}
 .mnav .mlang{display:flex;gap:18px;padding:12px 4px 0}.mnav .mlang a{border:0;padding:6px 0;font-weight:500}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Pulsus Connect","description":"Payment request software for banks and credit unions: branch requests with signed mandates, dual-control approval, and tracking to the beneficiary.","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://aboutconnect.pulsus.tech/","image":"https://aboutconnect.pulsus.tech/sites/connect/assets/og.png","inLanguage":"en","publisher":{"@type":"Organization","name":"Tumblehill Labs","parentOrganization":{"@type":"Organization","name":"Tumblehill Holdings LLC"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Pulsus Connect","description":"Enterprise payment orchestration and connectivity software: payment initiation, multi-level authorisation, connectivity to payment systems, routing and end-to-end tracking, with one reference from initiation to settlement.","applicationCategory":"BusinessApplication","applicationSubCategory":"Payment orchestration","featureList":["Payment initiation","Multi-level authorisation and dual control","Connectivity to payment systems and core platforms","Payment routing","End-to-end payment tracking","Customer payment tracking by reference"],"operatingSystem":"Web","url":"https://aboutconnect.pulsus.tech/","image":"https://aboutconnect.pulsus.tech/sites/connect/assets/og.png","inLanguage":"en","publisher":{"@type":"Organization","name":"Tumblehill Labs","parentOrganization":{"@type":"Organization","name":"Tumblehill Holdings LLC"}}}</script>
 <style>
 :root{--paper:#f5f6f8;--ink:#0b1f4d;--night:#071538;--night2:#0d2259;--body:#3c4256;--mute:#6b6f7c;--red:#c8102e;--pink:#ff5a73;--green:#1d9a5b;--mint:#5ee0a0;--line:#dfe3ea}
 *{box-sizing:border-box}html,body{margin:0}
@@ -80,8 +80,8 @@ header{border-bottom:1px solid var(--line);background:#fff}
 .night{background:radial-gradient(1200px 520px at 75% 30%,#15307a 0,var(--night2) 45%,var(--night) 100%);color:#dfe4f2;overflow:clip;position:relative}
 .night:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:26px 26px;opacity:.6;pointer-events:none}
 .hero{position:relative;padding-top:56px;padding-bottom:40px}
-.hero h1{font:800 clamp(38px,5vw,68px)/1.02 Sora;letter-spacing:-.03em;color:#fff;margin:12px 0 0;max-width:900px}
-.hero h1 span{color:var(--pink);display:inline-block}
+.hero .hl{font:800 clamp(38px,5vw,68px)/1.02 Sora;letter-spacing:-.03em;color:#fff;margin:12px 0 0;max-width:900px}
+.hero .hl span{color:var(--pink);display:inline-block}
 .hero .k{color:var(--pink)}
 .hero .lede{max-width:720px;margin:18px 0 0;color:#c3cae0;font-size:19px}
 .hero .cta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;align-items:center}
@@ -265,7 +265,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset
 header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:var(--hh,80px);z-index:39}html{scroll-padding-top:var(--hh,80px)}
 .hero{padding-top:44px;padding-bottom:0}
 .hgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
-.hgrid .htext h1{font-size:clamp(34px,4.2vw,60px)}.hgrid .lede{font-size:18px}
+.hgrid .htext .hl{font-size:clamp(34px,4.2vw,60px)}.hgrid .lede{font-size:18px}
 .story{position:relative;padding-bottom:34px}.story .map{margin-top:44px;height:clamp(210px,calc(100vh - 470px),300px)}
 .pctl{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:44px}
 .pp{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;cursor:pointer;display:grid;place-items:center;margin-right:6px}.pp:hover{border-color:#fff}
@@ -303,7 +303,7 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
 .opening{padding-top:22px}
 .hcard{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 30px 60px -36px rgba(11,31,77,.45);padding:34px 36px 26px}
 .hcard .hero{padding:0}
-.hcard .hero h1{color:var(--ink)}.hcard .hero h1 span{color:var(--red)}.hcard .hero .k{color:var(--red)}.hcard .hero .lede{color:#4a5675}
+.hcard .hero .hl{color:var(--ink)}.hcard .hero .hl span{color:var(--red)}.hcard .hero .k{color:var(--red)}.hcard .hero .lede{color:#4a5675}
 .hcard .cap .day{color:var(--red)}.hcard .cap h2{color:var(--ink)}.hcard .cap h2 span{color:var(--green)}.hcard .cap p{color:#4a5675}.hcard .cap p b{color:var(--ink)}
 .hcard .btn.ghost{border-color:var(--ink);color:var(--ink)}
 .hcard .story{padding-bottom:0}
@@ -315,6 +315,13 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
 .hcard .pctl .sprog{background:#e6e9f0}
 @media(max-width:760px){.hcard{padding:24px 18px 18px}.rscreen{padding:20px 16px}}
 @media(prefers-reduced-motion:reduce){.beat path{animation:none;stroke-dashoffset:0}}
+.pillars{list-style:none;padding:0;margin:30px 0 0;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.pillars li{background:#fff;border:1px solid var(--line);border-top:3px solid var(--red);border-radius:10px;padding:18px 18px 20px;font-size:15px;color:var(--mute)}
+.pillars b{display:block;font:700 17px/1.25 Sora;color:var(--ink);margin-bottom:6px}
+.configs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.configs>div{background:var(--ink);color:#c3cae0;border-radius:10px;padding:20px 22px}.configs .k{color:#ff8a9c}.configs p{margin:6px 0 0}
+@media(max-width:1100px){.pillars{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.pillars,.configs{grid-template-columns:1fr}}
 /* start band */
 .startb{margin-top:96px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px 38px;box-shadow:0 30px 60px -44px rgba(11,31,77,.55);position:relative;overflow:hidden}
 .startb:after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;border:2px dashed rgba(200,16,46,.25)}
@@ -326,7 +333,7 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
 </head><body>
 <div class="suitebar"><div class="wrap"><a href="https://about.pulsus.tech/">Part of the <b>Pulsus Intelligence Suite</b> →</a></div></div>
 <header><div class="wrap nav"><a class="lockup" href="/" aria-label="Pulsus Connect"><span class="wm">PULS<span class="u">U</span>S</span><span class="prod"><span>CONNECT</span></span><span class="tag">Live. <b>Signal</b>. Clarity.</span></a>
-<nav><a href="#story">The story</a><a href="#member">Customers track it</a><a href="#views">One reference</a><a href="#keys">Three keys</a><a href="/plans/">Plans &amp; features</a></nav>
+<nav><a href="#story">The story</a><a href="#platform">What it does</a><a href="#member">Customers track it</a><a href="#views">One reference</a><a href="#keys">Three keys</a><a href="/plans/">Plans &amp; features</a></nav>
 <a class="btn line" href="https://connect.pulsus.tech/">Sign in</a><button class="mtoggle" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="m1" d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="btn red" href="https://executive.pulsus.tech/demo/register?app=connect&amp;next=https%3A%2F%2Fdemo-connect.pulsus.tech%2F">Try Demo →</a></div></header>
 <svg class="beat" id="beat" viewBox="0 0 1440 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 13 H640 l14 0 8 -11 10 22 9 -17 7 6 H1440"/></svg>
 
@@ -335,12 +342,12 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
  <div class="hero" id="hero">
  <div class="hgrid">
   <div class="htext">
-  <p class="k">One payment · one week</p>
-  <h1 id="hero-h">The payment was approved. <span>So where is it?</span></h1>
+  <h1 class="k" id="hero-h">Pulsus Connect · Enterprise payment orchestration</h1>
+  <p class="hl">The payment was approved. <span>So where is it?</span></p>
   <p class="lede">From the branch counter to the beneficiary's account, a payment passes through people, systems and institutions. Somewhere along the way, everyone loses sight of it.</p>
   </div>
   <div class="caps" id="caps" aria-live="polite">
-    <div class="cap" data-ch="0"><p class="day">Monday · 10:40</p><h2>Approved.</h2><p>Inside the bank, the screen says approved. The request was raised, checked and signed off. Then it leaves the building.</p></div>
+    <div class="cap" data-ch="0"><p class="day">Monday · 10:40</p><h2>Approved.</h2><p>Inside, the screen says approved. The request was raised, checked and signed off. Then it leaves the building.</p></div>
     <div class="cap" data-ch="1"><p class="day">Tuesday · 09:12</p><h2>The customer calls.</h2><p>"Has my payment gone through?" The branch can see it was approved. Nothing more.</p></div>
     <div class="cap" data-ch="2"><p class="day">Wednesday · 14:05</p><h2>The chase begins.</h2><p>The beneficiary says nothing has arrived. The branch emails Payments. Payments emails the correspondent bank. Everyone waits.</p></div>
     <div class="cap" data-ch="3"><p class="day">Thursday · 16:30</p><h2>Nobody can say where it is.</h2><p>Four days. Five calls. Seven emails. Three teams. One question nobody can answer.</p></div>
@@ -389,7 +396,22 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
 </section>
 
 <main class="wrap">
-<section class="sec" id="member"><p class="k">Customers track it themselves</p><h2>Like tracking a parcel. <span>No phone call.</span></h2>
+<section class="sec" id="platform" aria-labelledby="pf-h"><p class="k">Enterprise payment orchestration and connectivity</p><h2 id="pf-h">Raise. Authorise. Route. <span>Track.</span></h2>
+  <p class="intro">Pulsus Connect is one controlled journey for moving money. Requests are raised with their documents, approved under your rules, sent out through the connections you set up, and followed with one reference until they settle.</p>
+  <ul class="pillars">
+   <li><b>Payment initiation</b><span>Requests raised at the counter or by your teams, with the signed mandate and documents attached.</span></li>
+   <li><b>Multi-level authorisation</b><span>Approval limits and dual control. Nobody approves their own request, and every decision is on record.</span></li>
+   <li><b>Connectivity</b><span>Connections to the payment systems you use, such as RTGS, ACH, SWIFT or a wire gateway, and to your core platform. Each is set up and tested with you.</span></li>
+   <li><b>Routing</b><span>Each payment goes out through the right channel under rules you control. Advanced routing comes with Professional.</span></li>
+   <li><b>End-to-end tracking</b><span>One reference from initiation to settlement, for your teams and, if you choose, for your customers.</span></li>
+  </ul>
+  <div class="configs">
+   <div><p class="k">Financial institutions</p><p>Connect to payment rails and your core platform, and give customers a way to follow their payment.</p></div>
+   <div><p class="k">Enterprises and treasury teams</p><p>Bring requests, approvals and outgoing payments from every entity into one journey, with the controls your auditors expect.</p></div>
+  </div>
+  <p class="note2">Both are the same platform, configured connection by connection. What each connection covers is agreed and tested before it goes live.</p>
+ </section>
+ <section class="sec" id="member"><p class="k">Customers track it themselves</p><h2>Like tracking a parcel. <span>No phone call.</span></h2>
  <p class="intro">Your customer gets a text and an email at each step, with their reference and a link. One tap shows where their payment is and when to expect it, on any phone, with nothing to download and no sign-in.</p>
  <div class="mem">
   <div><ul class="mlist">
@@ -398,7 +420,7 @@ header{position:sticky;top:0;z-index:40}.mnav{position:fixed;left:0;right:0;top:
     <li><b>A clear answer in plain words</b><span>Where it is, when it was last updated, when to expect it.</span></li>
     <li><b>Nothing sensitive, ever</b><span>No amount, account, beneficiary or staff names on the page or in the text.</span></li></ul>
    <button class="btn red" type="button" id="trkplay">See it work ▶</button></div>
-  <div class="ph" aria-label="The customer's text messages"><div class="top">Messages<small>Your bank</small></div><div class="thread" id="thread"></div></div>
+  <div class="ph" aria-label="The customer's text messages"><div class="top">Messages<small>Payments</small></div><div class="thread" id="thread"></div></div>
   <div class="arrow" aria-hidden="true">→<small>one tap</small></div>
   <div class="ph" aria-live="polite" aria-label="The tracking page"><div class="top">Track my payment<small>track.pulsus.tech</small></div><div class="tp" id="tp"></div></div>
  </div>
