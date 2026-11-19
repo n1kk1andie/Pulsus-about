@@ -83,6 +83,7 @@ test("plans page: three editions in Connect's look, US dollars, the agreed figur
   assert.match(plans, /<span class="prod"><span>CONNECT<\/span><\/span>/);
   assert.match(plans, /header\{position:sticky;top:0/);
   assert.doesNotMatch(plans, /member/i, "customers, never members");
+  assert.doesNotMatch(plans, /fiserv|signature \(cif/i, "no vendor or bank system named on a public page");
   assert.doesNotMatch(plans, /€|£|EUR|GBP|JMD|TTD|J\$/, "USD only");
   for (const p of ["US$15,000", "US$1,250 a month", "US$25,000", "US$2,083.33 a month", "US$12,000", "US$1</p>"]) assert.ok(plans.includes(p), p);
   assert.ok(plans.includes('href="https://executive.pulsus.tech/signup?product=connect"'));
