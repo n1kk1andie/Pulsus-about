@@ -8,8 +8,8 @@ import { existsSync, readFileSync } from "node:fs";
 const ROOT = new URL("../", import.meta.url);
 const read = (p) => readFileSync(new URL(p, ROOT), "utf8");
 const vercel = JSON.parse(read("vercel.json"));
-const APPS = ["quality", "cash", "panorama", "risk", "accord", "cx", "talent", "recon", "tech", "communique"];
-const NAMES = { quality: "Quality", cash: "Cash", panorama: "Panorama", risk: "Risk", accord: "Accord", cx: "CX", talent: "Talent", recon: "Recon", tech: "Tech", communique: "Communiqué" };
+const APPS = ["quality", "cash", "panorama", "risk", "accord", "cx", "talent", "recon", "tech", "communique", "connect"];
+const NAMES = { quality: "Quality", cash: "Cash", panorama: "Panorama", risk: "Risk", accord: "Accord", cx: "CX", talent: "Talent", recon: "Recon", tech: "Tech", communique: "Communiqué", connect: "Connect" };
 // [site folder, language, path on its host]
 const PAGES = APPS.flatMap((a) => [[a, "en", ""]])
   .concat([["cx/es", "es", "es/"], ["panorama/es", "es", "es/"], ["talent/es", "es", "es/"]]);
@@ -96,6 +96,8 @@ test("about.pulsus.tech home: Organization and WebSite", () => {
   assert.equal(all.find((n) => n["@type"] === "WebSite")?.url, "https://about.pulsus.tech/");
 });
 
+// Connect's pages were published after the 2026-11-16 refresh of the others.
+const LASTMOD = { aboutconnect: "2026-11-19" };
 const SITEMAPS = [["about", "about.pulsus.tech"], ...APPS.map((a) => [`about${a}`, `about${a}.pulsus.tech`])];
 test("no robots.txt or sitemap.xml at the root, where it would answer for every host", () => {
   assert.ok(!existsSync(new URL("robots.txt", ROOT)) && !existsSync(new URL("sitemap.xml", ROOT)));
@@ -125,7 +127,7 @@ for (const [key, host] of SITEMAPS) {
     for (const u of urls) {
       const loc = u.match(/<loc>(.*?)<\/loc>/)[1];
       assert.ok(loc.startsWith(`https://${host}/`), loc);
-      assert.ok(u.includes("<lastmod>2026-11-16</lastmod>"));
+      assert.ok(u.includes(`<lastmod>${LASTMOD[key] ?? "2026-11-16"}</lastmod>`));
       const path = new URL(loc).pathname;
       const file = key === "about" ? `${path.slice(1)}index.html` : `sites/${key.slice(5)}/${path.slice(1)}index.html`;
       const html = read(file);
@@ -155,7 +157,9 @@ test("each product site links to every other in its footer; the suite home links
     const html = read(`sites/${dir}/${p}index.html`);
     const foot = html.match(/<footer class="suitefoot".*?<\/footer>/s)[0];
     for (const a of APPS) if (a !== dir.split("/")[0]) assert.ok(foot.includes(`href="https://about${a}.pulsus.tech/"`), `${dir}/${p} → ${a}`);
-    assert.ok(foot.includes('href="https://aboutconnect.pulsus.tech/"') && /<span class="np">Pulsus Credit Insight<\/span>/.test(foot));
+    // Connect's own footer marks itself as the current site instead of linking out to itself
+    const toConnect = dir === "connect" ? 'href="/" aria-current="page" style="color:#fff">Pulsus Connect<' : 'href="https://aboutconnect.pulsus.tech/"';
+    assert.ok(foot.includes(toConnect) && /<span class="np">Pulsus Credit Insight<\/span>/.test(foot));
   }
-  for (const f of ["index.html", "products/index.html"]) for (const a of [...APPS, "connect"]) assert.ok(read(f).includes(`href="https://about${a}.pulsus.tech/"`), `${f} → ${a}`);
+  for (const f of ["index.html", "products/index.html"]) for (const a of APPS) assert.ok(read(f).includes(`href="https://about${a}.pulsus.tech/"`), `${f} → ${a}`);
 });
