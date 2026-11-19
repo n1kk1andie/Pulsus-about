@@ -85,14 +85,14 @@ test("plans page: three editions in Connect's look, US dollars, the agreed figur
   assert.doesNotMatch(plans, /member/i, "customers, never members");
   assert.doesNotMatch(plans, /fiserv|signature \(cif/i, "no vendor or bank system named on a public page");
   assert.doesNotMatch(plans, /€|£|EUR|GBP|JMD|TTD|J\$/, "USD only");
-  for (const p of ["US$15,000", "US$1,250 a month", "US$25,000", "US$2,083.33 a month", "US$12,000", "US$1</p>"]) assert.ok(plans.includes(p), p);
+  for (const p of ["US$15,000", "US$1,250 a month", "US$25,000", "US$2,083.33 a month", "US$12,000", "US$1</p>", "500 payments a month included", "1,000 payments a month included", "US$0.90", "From US$21,000 a year", "From US$37,000 a year", "unused payments expire"]) assert.ok(plans.includes(p), p);
   assert.ok(plans.includes('href="https://executive.pulsus.tech/signup?product=connect"'));
   assert.ok(plans.includes('href="https://executive.pulsus.tech/signup?product=connectpro"'));
   assert.ok(plans.includes('href="mailto:support@pulsus.tech?subject=Pulsus%20Connect%20Enterprise">Contact sales'));
   assert.match(plans, /<article class="ed hi"[^>]*>\s*<p class="badge">Recommended<\/p>\s*<p class="ename" id="ed-pro">Professional/, "Professional highlighted");
   // worked example: Essential, 8 users, 3 connections (the starter pack), 1,500 payments a month
-  const lic = 1250 * 12, extra = (8 - 5) * 50 * 12, pay = 1500 * 12, setup = 12000;
+  const lic = 1250 * 12, extra = (8 - 5) * 50 * 12, minimum = 500 * 12, over = (1500 - 500) * 1 * 12, pay = minimum + over, setup = 12000;
   for (const p of ["US$5,000 each for the 4th to 6th", "US$4,500 each from the 7th", "first 3"]) assert.ok(plans.includes(p), p);
   const usd = (n) => `US$${n.toLocaleString("en-US")}`;
-  for (const n of [lic, extra, pay, setup, lic + extra + pay + setup, lic + extra + pay]) assert.ok(plans.includes(`<dd>${usd(n)}</dd>`), usd(n));
+  for (const n of [lic, extra, minimum, over, setup, lic + extra + pay + setup, lic + extra + pay]) assert.ok(plans.includes(`<dd>${usd(n)}</dd>`), usd(n));
 });
