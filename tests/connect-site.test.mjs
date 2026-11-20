@@ -24,8 +24,9 @@ test("every local asset is in the site's own folder", () => {
   assert.ok(existsSync(new URL("sites/connect/assets/og.png", ROOT)));
 });
 
-test("Try Demo registers for Connect's demo; Sign in goes to Connect", () => {
-  assert.ok(html.includes('href="https://executive.pulsus.tech/demo/register?app=connect&amp;next=https%3A%2F%2Fdemo-connect.pulsus.tech%2F"'));
+test("Try Demo opens Connect's demo straight away (no registration); Sign in goes to Connect", () => {
+  assert.ok(html.includes('href="https://demo-connect.pulsus.tech/"'));
+  assert.ok(!html.includes("demo/register?app=connect"));
   assert.ok(html.includes('href="https://connect.pulsus.tech/">Sign in</a>'));
   assert.ok(html.includes("https://about.pulsus.tech/walkthrough/?app=Connect"));
 });
