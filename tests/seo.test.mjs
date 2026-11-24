@@ -75,8 +75,13 @@ for (const [dir, lang, sub] of PAGES) {
       assert.equal(html.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<meta[^>]*>/g, "").includes("Nicola Anderson"), false, "not shown on the page");
       assert.ok(!/aggregateRating|"review/i.test(JSON.stringify(all)), "no ratings or reviews");
       if (!plans) {
-        assert.equal(app_.offers, undefined, "prices only on the plans page");
-        assert.ok(!/\$\d|price/i.test(JSON.stringify(all)));
+        // Visible prices stay on the plans page; the home page carries the same
+        // offer in its metadata only, so search engines and AI assistants find it.
+        const plansHtml = read(`sites/${dir}/plans/index.html`);
+        const plansApp = nodes(plansHtml).find((n) => n["@type"] === "SoftwareApplication");
+        assert.deepEqual(app_.offers, plansApp.offers, "same offer as the plans page");
+        const visible = html.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<meta[^>]*>/g, "");
+        assert.ok(!/\$\s?\d[^<]{0,40}\b(a|per) (month|employee|user)/i.test(visible), "no price shown on the home page");
         return;
       }
       const o = app_.offers;
