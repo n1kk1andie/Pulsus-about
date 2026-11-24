@@ -62,3 +62,8 @@ Each application works on its own, and each has its own official website with it
 - [Explore](https://about.pulsus.tech/explore/)
 - [Book a demo or guided walkthrough](https://about.pulsus.tech/walkthrough/)
 - Contact: support@pulsus.tech
+
+## Creator
+
+Created by Nicola Anderson, founder of Tumblehill Labs: https://www.linkedin.com/in/nicolaanderson/
+Published by Tumblehill Labs, part of Tumblehill Holdings LLC.

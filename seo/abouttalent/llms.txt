@@ -36,3 +36,8 @@ Pulsus Talent is performance appraisal and 360 feedback software. It runs perfor
 - [Start a free trial](https://talent.pulsus.tech/signup)
 - [Sign in to Pulsus Talent](https://talent.pulsus.tech/login) (the app, for customers)
 - [Pulsus Intelligence Suite](https://about.pulsus.tech/)
+
+## Creator
+
+Created by Nicola Anderson, founder of Tumblehill Labs: https://www.linkedin.com/in/nicolaanderson/
+Published by Tumblehill Labs, part of Tumblehill Holdings LLC.

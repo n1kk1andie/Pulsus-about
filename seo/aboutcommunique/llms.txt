@@ -30,3 +30,8 @@ Pulsus Communiqué is customer correspondence management software. It creates, p
 - [Start a free trial](https://letters.pulsus.tech/signup)
 - [Sign in to Pulsus Communiqué](https://letters.pulsus.tech/signin) (the app, for customers)
 - [Pulsus Intelligence Suite](https://about.pulsus.tech/)
+
+## Creator
+
+Created by Nicola Anderson, founder of Tumblehill Labs: https://www.linkedin.com/in/nicolaanderson/
+Published by Tumblehill Labs, part of Tumblehill Holdings LLC.
