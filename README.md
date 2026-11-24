@@ -134,3 +134,17 @@ the Command Center sends from it). Replies go straight to the visitor.
 
 Pulsus is developed by Tumblehill Labs, a product studio of Tumblehill
 Holdings LLC.
+
+## IndexNow (Bing, Yandex and other search engines)
+
+IndexNow key: `6589a70edefc060c8df79e5dc92e2882`. The file
+`6589a70edefc060c8df79e5dc92e2882.txt` at the repo root holds it and answers at
+`https://<host>/6589a70edefc060c8df79e5dc92e2882.txt` on every host this project
+serves (about, pulsus.tech and every about<app> host); `explore.pulsus.tech`
+serves the same key from `pulsus-explore`. After pages change, resubmit every
+Pulsus host from its live sitemap:
+
+```sh
+NODE_USE_ENV_PROXY=1 node scripts/indexnow.mjs             # all hosts
+node scripts/indexnow.mjs aboutcx.pulsus.tech --dry-run    # one host, no POST
+```
