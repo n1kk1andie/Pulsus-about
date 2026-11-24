@@ -1,0 +1,36 @@
+# Pulsus CX
+
+> Customer experience software: NPS, CSAT and CES surveys by link, QR code or spreadsheet, results by channel and location, and closed-loop follow-up.
+
+This is the official website of Pulsus CX: https://aboutcx.pulsus.tech/
+Pulsus CX is part of the Pulsus Intelligence Suite (https://about.pulsus.tech/), made by Tumblehill Labs, a product studio of Tumblehill Holdings LLC. It works on its own.
+
+## What it is
+
+Pulsus CX is customer experience and NPS survey software. It measures what your customers think and feel (NPS, CSAT and CES), shows where their experience gets worse, by channel and by location, and tracks whether the follow-up helped.
+
+## Key features
+
+- Pulse: How the customer feels, today
+- Listen: Ask, and collect
+- Channels: Where the experience gets worse
+- Loyalty: Protect the relationship
+- Actions: Close the loop
+- Insights: What customers are telling us
+
+## Price
+
+- US$149 a month includes your first survey point and 5 users; each extra point, whether a branch or a channel such as the mobile app or contact centre, is US$49 a month, and each extra user US$15. View-only users are free. With more than 25 survey points or 50 users, talk to us for an Enterprise quotation.
+- Prices in US dollars, as shown on the plans page: https://aboutcx.pulsus.tech/plans/
+- 14-day free trial, no card needed.
+
+## Links
+
+- [Pulsus CX overview](https://aboutcx.pulsus.tech/)
+- [Plans, pricing and features](https://aboutcx.pulsus.tech/plans/)
+- [Pulsus CX en español](https://aboutcx.pulsus.tech/es/)
+- [Precios y planes](https://aboutcx.pulsus.tech/es/plans/)
+- [Try the demo](https://executive.pulsus.tech/demo/register?app=cx&next=https%3A%2F%2Fdemo-cx.pulsus.tech%2F)
+- [Start a free trial](https://cx.pulsus.tech/signup)
+- [Sign in to Pulsus CX](https://cx.pulsus.tech/login) (the app, for customers)
+- [Pulsus Intelligence Suite](https://about.pulsus.tech/)

@@ -1,0 +1,33 @@
+# Pulsus Accord
+
+> Service level (SLA) tracking software for internal, customer and supplier commitments: monthly results with an approval trail, attainment and recurring shortfalls.
+
+This is the official website of Pulsus Accord: https://aboutaccord.pulsus.tech/
+Pulsus Accord is part of the Pulsus Intelligence Suite (https://about.pulsus.tech/), made by Tumblehill Labs, a product studio of Tumblehill Holdings LLC. It works on its own.
+
+## What it is
+
+Pulsus Accord is SLA and service level tracking software. It keeps the service levels your departments promise, to each other, to customers and from suppliers, written the way staff talk. Each month the owners enter what happened, someone else approves it, and Accord shows what was kept, what broke and what keeps breaking, with a heat-map, insights and three reports.
+
+## Key features
+
+- Pulse: The month at a glance
+- Commitments: Services and their standards
+- Performance: Enter, approve, see the year
+- Insights: Trends and patterns
+- Reports: A monthly pack, ready to send
+
+## Price
+
+- $500 a month, including 5 users; extra users are $50 each a month. For more than 50 users, talk to us.
+- Prices in US dollars, as shown on the plans page: https://aboutaccord.pulsus.tech/plans/
+- 14-day free trial, no card needed.
+
+## Links
+
+- [Pulsus Accord overview](https://aboutaccord.pulsus.tech/)
+- [Plans, pricing and features](https://aboutaccord.pulsus.tech/plans/)
+- [Try the demo](https://executive.pulsus.tech/demo/register?app=accord&next=https%3A%2F%2Fdemo-stats.pulsus.tech%2F)
+- [Start a free trial](https://stats.pulsus.tech/signup)
+- [Sign in to Pulsus Accord](https://stats.pulsus.tech/login) (the app, for customers)
+- [Pulsus Intelligence Suite](https://about.pulsus.tech/)

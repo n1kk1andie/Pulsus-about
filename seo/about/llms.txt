@@ -1,0 +1,64 @@
+# Pulsus Platform
+
+> Enterprise intelligence for what's next. Pulsus reads your organisation's operational data, assesses institutional health, diagnoses underlying causes, recommends corrective treatments and measures recovery. Use Pulsus applications, connect your existing systems, or both.
+
+This is the official website of the Pulsus Intelligence Suite and Pulsus Platform: https://about.pulsus.tech/ (also served at https://pulsus.tech/).
+Pulsus is developed by Tumblehill Labs, a product studio of Tumblehill Holdings LLC.
+
+## What it is
+
+Pulsus Platform is the intelligence layer that reads every application you run. It reads Pulsus applications and the systems you already run alike, diagnoses what is wrong and recommends what to do, without leadership assembling separate reports. No Pulsus application is required; each one you add simply gives it more to read. Your other systems connect by API, by CSV upload, or by importing the Excel scorecard you already keep.
+
+Built in financial services. The engine works wherever operations run across many systems, sites and service levels.
+
+## What you see
+
+- Pulse: Operational Health and Organisational Health, and how both have moved month by month.
+- Diagnose: readings that turned worse, linked into cause chains and traced back to the underlying cause.
+- Treat: treatments for each cause, ranked by Treatment Impact, cost and risk, then adopted with an owner and a deadline.
+- Recover: each treatment monitored against its starting position, so improvement is shown, not assumed.
+- Calibrate: your health placed among institutions by sector, region and size.
+- Explore: sector intelligence: health distributions, regional patterns and trends.
+- Board Pack: the whole reading as a print-ready document for the board, as at any month, saved as a PDF in one click.
+
+## Solutions
+
+- Enterprise health assessment: a health score, the causes behind it and a ranked treatment plan.
+- Continuous performance monitoring: every measure read each month or as it arrives.
+- Transformation oversight: each initiative tracked as a treatment with an owner and a date.
+- M&A due diligence: a target's operational health assessed from its own records, at any point in time.
+
+## Governance
+
+Role-based access, maker-checker controls, controlled approvals, audit trails, enterprise authentication, data isolation and institution-controlled deployment options.
+
+## Price
+
+Pulsus Platform has no public price. Book a guided walkthrough: https://about.pulsus.tech/walkthrough/
+
+## Pulsus applications
+
+Each application works on its own, and each has its own official website with its plans and prices.
+
+- [Pulsus Cash](https://aboutcash.pulsus.tech/): every till, ATM and vault in one daily cash position.
+- [Pulsus Recon](https://aboutrecon.pulsus.tech/): every account reconciled. Every break explained.
+- [Pulsus Connect](https://aboutconnect.pulsus.tech/): enterprise payment orchestration: raise, authorise, route and track every payment.
+- [Pulsus Risk](https://aboutrisk.pulsus.tech/): risks, findings and key risk indicators in one register.
+- [Pulsus Quality](https://aboutquality.pulsus.tech/): inspections, defects and corrective actions across every site.
+- [Pulsus Tech](https://abouttech.pulsus.tech/): see the risk. Know the impact.
+- [Pulsus Communiqué](https://aboutcommunique.pulsus.tech/): every customer letter drafted, approved and accounted for.
+- [Pulsus CX](https://aboutcx.pulsus.tech/): NPS, CSAT and CES: where the customer experience is slipping, and whether follow-up worked.
+- [Pulsus Panorama](https://aboutpanorama.pulsus.tech/): balanced scorecards across every entity, measured every month.
+- [Pulsus Accord](https://aboutaccord.pulsus.tech/): service commitments made, met and accounted for.
+- [Pulsus Talent](https://abouttalent.pulsus.tech/): appraisals, calibration and succession on one scale.
+- Pulsus Credit Insight: delinquency intelligence, predictive insights and arrears management. Talk to us.
+- [Pulsus Explore](https://explore.pulsus.tech/): free: how your sector and region are doing, from public data.
+
+## Links
+
+- [Pulsus Intelligence Suite home](https://about.pulsus.tech/)
+- [Products](https://about.pulsus.tech/products/)
+- [How it works](https://about.pulsus.tech/how-it-works/)
+- [Explore](https://about.pulsus.tech/explore/)
+- [Book a demo or guided walkthrough](https://about.pulsus.tech/walkthrough/)
+- Contact: support@pulsus.tech

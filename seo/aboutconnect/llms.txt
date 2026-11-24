@@ -1,0 +1,40 @@
+# Pulsus Connect
+
+> Enterprise payment orchestration
+
+Raise, authorise, route and track every payment, from initiation to settlement, in one controlled journey.
+
+This is the official website of Pulsus Connect: https://aboutconnect.pulsus.tech/
+Pulsus Connect is part of the Pulsus Intelligence Suite (https://about.pulsus.tech/), made by Tumblehill Labs, a product studio of Tumblehill Holdings LLC. It works on its own.
+
+## What it is
+
+Pulsus Connect is enterprise payment orchestration software: it handles payment requests and tracking for banks, credit unions and other organisations that pay out on others' behalf. Branch staff raise a payment request once with the signed mandate attached, three different people raise, verify and authorise it, and the customer can follow the payment to the beneficiary with one reference.
+
+## Key features
+
+- Approvals: raise, verify and authorise by three different people, with the signed mandate attached
+- Imports and exports: bring payments and bank status files in, take payment files and reports out; no integration needed
+- Customer tracking: your customers follow their payment with one reference, at no charge and without an account
+- Audit trail: every step recorded: who, what and when
+- Optional integrations: payment (RTGS, ACH, SWIFT or an international wire gateway), core banking, and tracking (SWIFT gpi or a bank acknowledgement feed)
+- Professional and Enterprise: advanced controls, reporting and routing; Enterprise adds custom workflows and a dedicated deployment if you need one
+
+## Price
+
+- Three editions, each an annual licence billed monthly:
+  - Essential: US$15,000 a year (US$1,250 a month). 5 users included, then US$50 per extra user a month. 500 payments a month included as a minimum volume (US$500 a month), then US$1 per payment.
+  - Professional: US$25,000 a year (US$2,083.33 a month). 10 users included, then US$40 per extra user a month. 1,000 payments a month included as a minimum volume (US$1,000 a month), then US$0.90 per payment.
+  - Enterprise: custom quote, for 25 or more users.
+- Optional integrations: US$12,000 one-time setup for the first 3, then US$5,000 each for the 4th to 6th and US$4,500 each from the 7th.
+- No per-branch charges. Customers never pay to track their payments.
+- Pulsus Connect has no free trial. Open the live demo instead: the real product with example data.
+- Prices in US dollars, as shown on the plans page: https://aboutconnect.pulsus.tech/plans/
+
+## Links
+
+- [Pulsus Connect overview](https://aboutconnect.pulsus.tech/)
+- [Plans, pricing and features](https://aboutconnect.pulsus.tech/plans/)
+- [Try the demo](https://demo-connect.pulsus.tech/)
+- [Sign in to Pulsus Connect](https://connect.pulsus.tech/) (the app, for customers)
+- [Pulsus Intelligence Suite](https://about.pulsus.tech/)

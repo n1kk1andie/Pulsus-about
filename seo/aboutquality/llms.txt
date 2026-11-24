@@ -1,0 +1,34 @@
+# Pulsus Quality
+
+> Quality management software for multi-site organisations: phone inspections, findings with owners and deadlines, verified corrective actions, recurring defects.
+
+This is the official website of Pulsus Quality: https://aboutquality.pulsus.tech/
+Pulsus Quality is part of the Pulsus Intelligence Suite (https://about.pulsus.tech/), made by Tumblehill Labs, a product studio of Tumblehill Holdings LLC. It works on its own.
+
+## What it is
+
+Pulsus Quality is quality management and defect tracking software. It brings your quality reviews into one place. Inspectors carry out reviews on a phone; supervisors approve them. You see the defect, resolution and recurring rates for every site and process area, an Operational Standard scorecard you set up yourself, and a register of corrective and preventive actions followed through to a verified close.
+
+## Key features
+
+- Pulse: Defect, resolution and recurring rates
+- Register: Every figure, and where it came from
+- Reviews: On a phone, with an approval queue
+- Insights: Watchlist, resolution gap, repeats
+- Actions: Corrective and preventive, verified
+- Executive report: Prints to PDF, with exports
+
+## Price
+
+- $500 a month, including 5 users; extra users are $50 each a month. For a larger organisation, talk to us.
+- Prices in US dollars, as shown on the plans page: https://aboutquality.pulsus.tech/plans/
+- 14-day free trial, no card needed.
+
+## Links
+
+- [Pulsus Quality overview](https://aboutquality.pulsus.tech/)
+- [Plans, pricing and features](https://aboutquality.pulsus.tech/plans/)
+- [Try the demo](https://executive.pulsus.tech/demo/register?app=quality&next=https%3A%2F%2Fdemo-quality.pulsus.tech%2F)
+- [Start a free trial](https://quality.pulsus.tech/signup)
+- [Sign in to Pulsus Quality](https://quality.pulsus.tech/login) (the app, for customers)
+- [Pulsus Intelligence Suite](https://about.pulsus.tech/)

@@ -1,0 +1,38 @@
+# Pulsus Talent
+
+> Performance appraisal software for the whole organisation: goals, reviews, calibration, the 9-box, anonymous 360 feedback, development plans and succession.
+
+This is the official website of Pulsus Talent: https://abouttalent.pulsus.tech/
+Pulsus Talent is part of the Pulsus Intelligence Suite (https://about.pulsus.tech/), made by Tumblehill Labs, a product studio of Tumblehill Holdings LLC. It works on its own.
+
+## What it is
+
+Pulsus Talent is performance appraisal and 360 feedback software. It runs performance appraisals for a whole organisation: Balanced Scorecard objectives and behaviours rated 1 to 5, goals, calibration and the 9-box, 360 feedback, development plans and succession, with reports for each person and for the group.
+
+## Key features
+
+- Pulse: The team score, at a glance
+- Team: Every review, and where it has got to
+- Goals: Measured, weighted, linked
+- Calibration: Fair ratings, reasons on file
+- 9-box: Performance across, potential up
+- 360 feedback: Honest views, nobody exposed
+- Succession: Cover for the roles you can't leave empty
+- Reports: PDF, Excel and an organisation chart
+
+## Price
+
+- $11 per employee a month, with every feature included. For more than 50 people, talk to us about Enterprise.
+- Prices in US dollars, as shown on the plans page: https://abouttalent.pulsus.tech/plans/
+- 14-day free trial, no card needed.
+
+## Links
+
+- [Pulsus Talent overview](https://abouttalent.pulsus.tech/)
+- [Plans, pricing and features](https://abouttalent.pulsus.tech/plans/)
+- [Pulsus Talent en español](https://abouttalent.pulsus.tech/es/)
+- [Precios y planes](https://abouttalent.pulsus.tech/es/plans/)
+- [Try the demo](https://executive.pulsus.tech/demo/register?app=talent&next=https%3A%2F%2Fdemo-talent.pulsus.tech%2F)
+- [Start a free trial](https://talent.pulsus.tech/signup)
+- [Sign in to Pulsus Talent](https://talent.pulsus.tech/login) (the app, for customers)
+- [Pulsus Intelligence Suite](https://about.pulsus.tech/)
