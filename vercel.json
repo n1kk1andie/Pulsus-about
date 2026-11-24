@@ -1053,6 +1053,146 @@
         }
       ],
       "destination": "/seo/about/sitemap-index.xml"
+    },
+    {
+      "source": "/llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "about.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/about/llms.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutaccord.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutaccord/llms.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcash.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutcash/llms.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcommunique.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutcommunique/llms.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutconnect.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutconnect/llms.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutcx.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutcx/llms.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutpanorama.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutpanorama/llms.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutquality.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutquality/llms.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutrecon.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutrecon/llms.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "aboutrisk.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/aboutrisk/llms.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttalent.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/abouttalent/llms.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "abouttech.pulsus.tech"
+        }
+      ],
+      "destination": "/seo/abouttech/llms.txt"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "pulsus.tech"
+        }
+      ],
+      "destination": "/seo/pulsus/robots.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "pulsus.tech"
+        }
+      ],
+      "destination": "/seo/about/llms.txt"
     }
   ]
 }

@@ -1,0 +1,37 @@
+# Pulsus Panorama
+
+> Balanced scorecard and OKR software: objectives, measures, targets and initiatives on a live strategy map, cascaded from the board to every department and branch.
+
+This is the official website of Pulsus Panorama: https://aboutpanorama.pulsus.tech/
+Pulsus Panorama is part of the Pulsus Intelligence Suite (https://about.pulsus.tech/), made by Tumblehill Labs, a product studio of Tumblehill Holdings LLC. It works on its own.
+
+## What it is
+
+Pulsus Panorama is balanced scorecard and OKR software. It is a balanced scorecard management system. It connects strategic objectives, measures, targets and initiatives on a live strategy map, adds the quarter's OKRs, and cascades the scorecard from the board to every department, branch, hospital or campus that has its own.
+
+## Key features
+
+- Pulse: The month at a glance
+- Details: Every measure, and where you enter it
+- Strategy map: Objectives, cause and effect, initiatives
+- OKRs: Quarterly objectives and key results
+- Performance: A heat-map of every measure, every month
+- Insights & forecast: The first read, done for you
+- Reports & board pack: PDF, PowerPoint and Excel
+
+## Price
+
+- $750 a month, with no charge per person for up to 50 people. For more than 50 people, talk to us.
+- Prices in US dollars, as shown on the plans page: https://aboutpanorama.pulsus.tech/plans/
+- 14-day free trial, no card needed.
+
+## Links
+
+- [Pulsus Panorama overview](https://aboutpanorama.pulsus.tech/)
+- [Plans, pricing and features](https://aboutpanorama.pulsus.tech/plans/)
+- [Pulsus Panorama en español](https://aboutpanorama.pulsus.tech/es/)
+- [Precios y planes](https://aboutpanorama.pulsus.tech/es/plans/)
+- [Try the demo](https://executive.pulsus.tech/demo/register?app=panorama&next=https%3A%2F%2Fdemo-panorama.pulsus.tech%2F)
+- [Start a free trial](https://panorama.pulsus.tech/signup)
+- [Sign in to Pulsus Panorama](https://panorama.pulsus.tech/login) (the app, for customers)
+- [Pulsus Intelligence Suite](https://about.pulsus.tech/)

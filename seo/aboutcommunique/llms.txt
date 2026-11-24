@@ -1,0 +1,32 @@
+# Pulsus Communiqué
+
+> Customer correspondence software: letters generated from a spreadsheet, maker–checker approval, bulk email or print and post, delivery tracking and certificates.
+
+This is the official website of Pulsus Communiqué: https://aboutcommunique.pulsus.tech/
+Pulsus Communiqué is part of the Pulsus Intelligence Suite (https://about.pulsus.tech/), made by Tumblehill Labs, a product studio of Tumblehill Holdings LLC. It works on its own.
+
+## What it is
+
+Pulsus Communiqué is customer correspondence management software. It creates, personalises, approves, issues and tracks customer correspondence at scale. You import a spreadsheet, generate one letter per row from an approved template, have a second person approve the batch, send it by email or print & post, and reconcile every recipient. A certificate records what was sent, how and when.
+
+## Key features
+
+- Correspondence Studio: design, personalise and generate customer letters from reusable templates; CSV and Excel import
+- Governance & Control: maker–checker approval for batches and campaigns, no self-approval, locked and versioned templates, roles and a full audit trail
+- Dispatch Operations: send by email or post from the same batch: bulk email with secure, expiring letter links, your own sending domain, print-ready PDFs
+- Correspondence Intelligence: delivery events, recipient-level reconciliation for each batch, and certificates per letter and batch, checked at /verify
+
+## Price
+
+- $500 a month, including 5 users, 1,000 letters a month and 3 custom templates. Extra users are $50 each a month; extra letters are $20 for each block of 1,000; extra custom templates are $15 each a month. More than 50 users is Enterprise: talk to us.
+- Prices in US dollars, as shown on the plans page: https://aboutcommunique.pulsus.tech/plans/
+- 14-day free trial, no card needed.
+
+## Links
+
+- [Pulsus Communiqué overview](https://aboutcommunique.pulsus.tech/)
+- [Plans, pricing and features](https://aboutcommunique.pulsus.tech/plans/)
+- [Try the demo](https://demo-letters.pulsus.tech/)
+- [Start a free trial](https://letters.pulsus.tech/signup)
+- [Sign in to Pulsus Communiqué](https://letters.pulsus.tech/signin) (the app, for customers)
+- [Pulsus Intelligence Suite](https://about.pulsus.tech/)

@@ -1,0 +1,33 @@
+# Pulsus Recon
+
+> Reconciliation software for bank, ATM, card and securities accounts: reads MT940, camt.053 and BAI2, proves every file, matches, and gives each break an owner.
+
+This is the official website of Pulsus Recon: https://aboutrecon.pulsus.tech/
+Pulsus Recon is part of the Pulsus Intelligence Suite (https://about.pulsus.tech/), made by Tumblehill Labs, a product studio of Tumblehill Holdings LLC. It works on its own.
+
+## What it is
+
+Pulsus Recon is bank, ATM and card reconciliation software. It brings in the files from both sides, proves each one against its own totals, matches what agrees and keeps every break in view with an owner and a reason. Bank, ATM cash, securities and any reconciliation you run are closed, reviewed and signed off in one place.
+
+## Key features
+
+- Pulse: Money at risk, today
+- Reconciliations: Every reconciliation, one list
+- Sources & sign-off: Nothing closes on a missing file
+- Obligations: Money you are still owed
+- Audit: A trail your auditors can open
+
+## Price
+
+- Processes are priced in graduated bands, like tax bands: the 1st to 5th at $500 each a month, the 6th to 20th at $400 each and the 21st to 50th at $300 each. Five users are included; extra users are $50 each a month. For example, 8 processes and 7 users: 5 × $500 + 3 × $400 + 2 × $50 = $3,800 a month. More than 50 processes or 50 users is an Enterprise quotation.
+- Prices in US dollars, as shown on the plans page: https://aboutrecon.pulsus.tech/plans/
+- 14-day free trial, no card needed.
+
+## Links
+
+- [Pulsus Recon overview](https://aboutrecon.pulsus.tech/)
+- [Plans, pricing and features](https://aboutrecon.pulsus.tech/plans/)
+- [Try the demo](https://executive.pulsus.tech/demo/register?app=recon&next=https%3A%2F%2Fdemo-recon.pulsus.tech%2F)
+- [Start a free trial](https://recon.pulsus.tech/signup)
+- [Sign in to Pulsus Recon](https://recon.pulsus.tech/login) (the app, for customers)
+- [Pulsus Intelligence Suite](https://about.pulsus.tech/)

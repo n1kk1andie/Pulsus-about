@@ -102,6 +102,37 @@ test("about.pulsus.tech home: Organization and WebSite", () => {
   assert.equal(all.find((n) => n["@type"] === "WebSite")?.url, "https://about.pulsus.tech/");
 });
 
+// Public marketing pages are open to search engines and AI assistants, so they can
+// read and describe the products correctly. Only bulk scrapers are refused, and the
+// API, the demo proxy and the Webby links stay out of every crawler's reach.
+const WELCOME = ["Googlebot", "Bingbot", "Google-Extended", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "anthropic-ai", "PerplexityBot", "Perplexity-User", "Applebot", "Applebot-Extended", "DuckAssistBot", "meta-externalagent"];
+const PRIVATE = ["/api/", "/demo", "/webby/", "/_next/", "/config.js"];
+function groups(robots) {
+  const out = [];
+  let cur = null;
+  for (const line of robots.split("\n").map((l) => l.replace(/#.*/, "").trim()).filter(Boolean)) {
+    const [k, ...v] = line.split(":");
+    const key = k.trim().toLowerCase(), val = v.join(":").trim();
+    if (key === "user-agent") {
+      if (!cur || cur.rules.length) out.push((cur = { agents: [], rules: [] }));
+      cur.agents.push(val.toLowerCase());
+    } else if (key === "allow" || key === "disallow") cur.rules.push([key, val]);
+  }
+  return out;
+}
+function checkRobots(robots, host) {
+  const g = groups(robots);
+  const named = (ua) => g.find((x) => x.agents.includes(ua.toLowerCase()));
+  for (const ua of ["CCBot", "Bytespider"]) assert.deepEqual(named(ua)?.rules, [["disallow", "/"]], `${host} refuses ${ua}`);
+  for (const ua of [...WELCOME, "*"]) {
+    const rules = named(ua)?.rules;
+    assert.ok(rules, `${host} names ${ua}`);
+    assert.deepEqual(rules[0], ["allow", "/"], `${host} welcomes ${ua}`);
+    assert.ok(!rules.some(([k, v]) => k === "disallow" && v === "/"), `${host} does not block ${ua}`);
+    for (const p of PRIVATE) assert.ok(rules.some(([k, v]) => k === "disallow" && v === p), `${host} keeps ${ua} off ${p}`);
+  }
+}
+
 // Connect's pages were published after the 2026-11-16 refresh of the others.
 const LASTMOD = { aboutconnect: "2026-11-19" };
 const SITEMAPS = [["about", "about.pulsus.tech"], ...APPS.map((a) => [`about${a}`, `about${a}.pulsus.tech`])];
@@ -116,16 +147,7 @@ for (const [key, host] of SITEMAPS) {
       assert.equal(r?.destination, `/seo/${key}/${f}`);
     }
     const robots = read(`seo/${key}/robots.txt`);
-    // Search engines and everyone else: every page; only the API is kept out.
-    const everyone = robots.slice(robots.indexOf("User-agent: *"));
-    assert.match(everyone, /^User-agent: \*\nAllow: \/\nDisallow: \/api\/\n/);
-    assert.ok(!/Disallow: \/\n/.test(everyone));
-    // AI training crawlers: nowhere on the site (the list Astrum and GeoATM publish).
-    const training = robots.slice(0, robots.indexOf("User-agent: *"));
-    for (const ua of ["GPTBot", "CCBot", "ClaudeBot", "Google-Extended", "Applebot-Extended", "Bytespider", "meta-externalagent"])
-      assert.ok(training.includes(`User-agent: ${ua}\n`), `${host} refuses ${ua}`);
-    assert.match(training, /Disallow: \/\n/);
-    for (const ua of ["Googlebot", "Bingbot", "OAI-SearchBot", "PerplexityBot"]) assert.ok(!robots.includes(`User-agent: ${ua}`), ua);
+    checkRobots(robots, host);
     assert.ok(robots.includes(`Sitemap: https://${host}/sitemap.xml`));
     const xml = read(`seo/${key}/sitemap.xml`);
     const urls = [...xml.matchAll(/<url>(.*?)<\/url>/gs)].map((m) => m[1]);
@@ -168,4 +190,57 @@ test("each product site links to every other in its footer; the suite home links
     assert.ok(foot.includes(toConnect) && /<span class="np">Pulsus Credit Insight<\/span>/.test(foot));
   }
   for (const f of ["index.html", "products/index.html"]) for (const a of APPS) assert.ok(read(f).includes(`href="https://about${a}.pulsus.tech/"`), `${f} → ${a}`);
+});
+
+test("pulsus.tech serves its own robots.txt (same policy) and the suite's llms.txt", () => {
+  const r = vercel.rewrites.find((x) => x.source === "/robots.txt" && x.has?.[0]?.value === "pulsus.tech");
+  assert.equal(r?.destination, "/seo/pulsus/robots.txt");
+  const robots = read("seo/pulsus/robots.txt");
+  checkRobots(robots, "pulsus.tech");
+  assert.ok(robots.includes("Sitemap: https://about.pulsus.tech/sitemap.xml"));
+  assert.equal(vercel.rewrites.find((x) => x.source === "/llms.txt" && x.has?.[0]?.value === "pulsus.tech")?.destination, "/seo/about/llms.txt");
+});
+
+for (const [key, host] of SITEMAPS) {
+  test(`${host}: llms.txt is routed and describes the product from its own pages`, () => {
+    const r = vercel.rewrites.find((x) => x.source === "/llms.txt" && x.has?.[0]?.type === "host" && x.has[0].value === host);
+    assert.equal(r?.destination, `/seo/${key}/llms.txt`);
+    const llms = read(`seo/${key}/llms.txt`);
+    const app = key.slice(5);
+    const name = key === "about" ? "Pulsus Platform" : `Pulsus ${NAMES[app]}`;
+    assert.ok(llms.startsWith(`# ${name}\n\n> `), "title, then a one-line summary");
+    assert.ok(llms.includes(`official website of ${key === "about" ? "the Pulsus Intelligence Suite" : name}`));
+    assert.ok(llms.includes(`https://${host}/`));
+    assert.ok(!/\b(\d+|eleven|twelve|thirteen) (applications|apps)\b/i.test(llms), "no app count");
+    assert.ok(!/Nicola|Meridian/.test(llms), "no names");
+    if (key === "about") {
+      assert.ok(/no public price/i.test(llms));
+      for (const a of APPS) assert.ok(llms.includes(`](https://about${a}.pulsus.tech/)`), `links to ${a}`);
+      return;
+    }
+    assert.ok(llms.includes(`https://${host}/plans/`));
+    const plans = read(`sites/${app}/plans/index.html`);
+    const offer = nodes(plans).find((n) => n["@type"] === "SoftwareApplication").offers;
+    if (app === "connect") {
+      assert.ok(llms.includes("> Enterprise payment orchestration\n"));
+      assert.ok(/no free trial/i.test(llms) && !/14-day/.test(llms));
+      assert.ok(llms.includes("US$15,000 a year") && plans.includes("US$15,000 a year"));
+      return;
+    }
+    const shown = Number(offer.price).toLocaleString("en-US");
+    assert.ok(llms.includes(`$${shown}`), `price $${shown} as on the plans page`);
+    assert.ok(llms.includes("14-day free trial"));
+  });
+}
+
+test("product sites say which site is the official one for each product", () => {
+  for (const [dir] of PAGES) {
+    const app = dir.split("/")[0];
+    const site = nodes(read(`sites/${dir}/index.html`)).find((n) => n["@type"] === "WebSite");
+    assert.equal(site?.url, `https://about${app}.pulsus.tech/`);
+    assert.equal(site.about.url, `https://about${app}.pulsus.tech/`);
+    assert.equal(site.isPartOf.url, "https://about.pulsus.tech/");
+  }
+  const list = nodes(read("index.html")).find((n) => n["@type"] === "ItemList");
+  assert.deepEqual(new Set(list.itemListElement.map((i) => i.url)), new Set(APPS.map((a) => `https://about${a}.pulsus.tech/`)));
 });

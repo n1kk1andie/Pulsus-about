@@ -1,0 +1,40 @@
+# Pulsus Tech
+
+> Technology risk software: applications, infrastructure, vendors, end-of-support dates, incidents and third-party risk in one live view, for management and the board.
+
+This is the official website of Pulsus Tech: https://abouttech.pulsus.tech/
+Pulsus Tech is part of the Pulsus Intelligence Suite (https://about.pulsus.tech/), made by Tumblehill Labs, a product studio of Tumblehill Holdings LLC. It works on its own.
+
+## What it is
+
+Pulsus Tech is technology risk and third-party risk software. It brings your applications, infrastructure, vendors, outages and contracts into one view, so leaders can see technology risk and its business impact before it becomes disruption.
+
+## Key features
+
+- Six connected views: applications, network & incidents, lifecycle, third parties, dependencies, resilience
+- Connectors: outages and availability pulled in every day from ServiceNow, Datadog, ManageEngine ServiceDesk Plus and OpManager, Freshservice and Zabbix
+- Open API & webhooks: read services, availability, outages and platforms, and record outages from your own systems
+- Software licences & renewals: what you pay for, when each renews and by when to give notice
+- Repeat outages: a service that keeps failing is flagged automatically
+- Security posture: vulnerabilities past your patching policy and how current each platform is, beside its end-of-support date
+- Capacity & discovery: capacity heading for its limit, and devices on your network that aren't in the register yet
+- Problems, changes & approvals: a maker-checker step on every change, with a full history
+- Alerts where you work: by email, Microsoft Teams or Slack
+- Board-ready reports: availability, lifecycle, outsourcing and disruption reports
+- Start from a spreadsheet: a starter workbook; upload it and your dashboards fill in the same day
+- English & Spanish: every screen, message and report in both languages
+
+## Price
+
+- US$750 per company per month, including 5 users. Each further user is US$75 a month, and people who only view are free. Above 50 editors in a company we set you up on an enterprise agreement: talk to us.
+- Prices in US dollars, as shown on the plans page: https://abouttech.pulsus.tech/plans/
+- 14-day free trial, no card needed.
+
+## Links
+
+- [Pulsus Tech overview](https://abouttech.pulsus.tech/)
+- [Plans, pricing and features](https://abouttech.pulsus.tech/plans/)
+- [Try the demo](https://executive.pulsus.tech/demo/register?app=tech&next=https%3A%2F%2Fdemo-ict.pulsus.tech%2F)
+- [Start a free trial](https://tech.pulsus.tech/signup)
+- [Sign in to Pulsus Tech](https://tech.pulsus.tech/login) (the app, for customers)
+- [Pulsus Intelligence Suite](https://about.pulsus.tech/)
