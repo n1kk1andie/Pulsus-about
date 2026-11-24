@@ -66,7 +66,7 @@ for (const [dir, lang, sub] of PAGES) {
       assert.equal(app_.url, host + sub);
       assert.equal(app_.image, meta(html, /<meta property="og:image" content="([^"]+)"/));
       assert.ok(app_.description.length > 50);
-      const creator = { "@type": "Person", "@id": "https://about.pulsus.tech/#creator", name: "Nicola Anderson", jobTitle: "Founder", sameAs: ["https://www.linkedin.com/in/nicolaanderson/"] };
+      const creator = { "@type": "Person", "@id": "https://about.pulsus.tech/#creator", name: "Nicola Anderson", alternateName: ["Nicola Onju Isak", "Nicola (Anderson) Onju Isak"], jobTitle: "Founder", sameAs: ["https://www.linkedin.com/in/nicolaanderson/"] };
       // creator and owner live in the metadata only: search engines read them, visitors never see them
       assert.deepEqual(app_.publisher, { "@type": "Organization", name: "Tumblehill Labs", founder: creator, parentOrganization: { "@type": "Organization", name: "Tumblehill Holdings LLC", founder: creator } });
       assert.deepEqual(app_.creator, creator);
