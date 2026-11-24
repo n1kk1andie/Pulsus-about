@@ -65,5 +65,6 @@ Each application works on its own, and each has its own official website with it
 
 ## Creator
 
-Created by Nicola Anderson, founder of Tumblehill Labs: https://www.linkedin.com/in/nicolaanderson/
-Published by Tumblehill Labs, part of Tumblehill Holdings LLC.
+Developed by Tumblehill Labs, founded by Nicola Anderson, researcher, former PwC Director, former financial services Chief Operating Officer and institutional transformation executive.
+
+LinkedIn: https://linkedin.com/in/nicolaanderson

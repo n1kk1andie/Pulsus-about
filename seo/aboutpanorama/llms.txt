@@ -38,5 +38,6 @@ Pulsus Panorama is balanced scorecard and OKR software. It is a balanced scoreca
 
 ## Creator
 
-Created by Nicola Anderson, founder of Tumblehill Labs: https://www.linkedin.com/in/nicolaanderson/
-Published by Tumblehill Labs, part of Tumblehill Holdings LLC.
+Developed by Tumblehill Labs, founded by Nicola Anderson, researcher, former PwC Director, former financial services Chief Operating Officer and institutional transformation executive.
+
+LinkedIn: https://linkedin.com/in/nicolaanderson
