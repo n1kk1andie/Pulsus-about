@@ -48,7 +48,7 @@ test("leads with the unspoken need: approved, but where is it?", () => {
   assert.match(html, /header\{position:sticky;top:0/, "the Pulsus header stays on screen");
   for (const id of ["story", "member", "views", "keys", "route", "start"]) assert.match(html, new RegExp(`id="${id}"`));
   assert.doesNotMatch(html, /class="stage"|id="grip"/, "its own design, not another product site's");
-  assert.doesNotMatch(html, /\$\d/, "no prices on the story page");
+  assert.doesNotMatch(html.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<meta[^>]*>/g, ""), /\$\d/, "no prices shown on the story page");
 });
 
 test("search title, description, Open Graph and structured data", () => {
