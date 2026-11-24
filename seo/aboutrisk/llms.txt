@@ -32,3 +32,8 @@ Pulsus Risk is risk register, audit findings and KRI software. It keeps one regi
 - [Start a free trial](https://risk.pulsus.tech/signup)
 - [Sign in to Pulsus Risk](https://risk.pulsus.tech/login) (the app, for customers)
 - [Pulsus Intelligence Suite](https://about.pulsus.tech/)
+
+## Creator
+
+Created by Nicola Anderson, founder of Tumblehill Labs: https://www.linkedin.com/in/nicolaanderson/
+Published by Tumblehill Labs, part of Tumblehill Holdings LLC.

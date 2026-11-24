@@ -217,7 +217,9 @@ for (const [key, host] of SITEMAPS) {
     assert.ok(llms.includes(`official website of ${key === "about" ? "the Pulsus Intelligence Suite" : name}`));
     assert.ok(llms.includes(`https://${host}/`));
     assert.ok(!/\b(\d+|eleven|twelve|thirteen) (applications|apps)\b/i.test(llms), "no app count");
-    assert.ok(!/Nicola|Meridian/.test(llms), "no names");
+    assert.ok(!/Meridian/.test(llms), "no client names");
+    assert.ok(llms.includes("Created by Nicola Anderson, founder of Tumblehill Labs: https://www.linkedin.com/in/nicolaanderson/"), "names its creator");
+    assert.equal((llms.match(/Nicola/g) || []).length, 1, "creator named once, in the Creator section");
     if (key === "about") {
       assert.ok(/no public price/i.test(llms));
       for (const a of APPS) assert.ok(llms.includes(`](https://about${a}.pulsus.tech/)`), `links to ${a}`);

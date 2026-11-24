@@ -35,3 +35,8 @@ Pulsus Panorama is balanced scorecard and OKR software. It is a balanced scoreca
 - [Start a free trial](https://panorama.pulsus.tech/signup)
 - [Sign in to Pulsus Panorama](https://panorama.pulsus.tech/login) (the app, for customers)
 - [Pulsus Intelligence Suite](https://about.pulsus.tech/)
+
+## Creator
+
+Created by Nicola Anderson, founder of Tumblehill Labs: https://www.linkedin.com/in/nicolaanderson/
+Published by Tumblehill Labs, part of Tumblehill Holdings LLC.

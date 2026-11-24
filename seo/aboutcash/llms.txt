@@ -32,3 +32,8 @@ Pulsus Cash is cash management software for tills, vaults and treasury. It bring
 - [Start a free trial](https://cash.pulsus.tech/signup)
 - [Sign in to Pulsus Cash](https://cash.pulsus.tech/login) (the app, for customers)
 - [Pulsus Intelligence Suite](https://about.pulsus.tech/)
+
+## Creator
+
+Created by Nicola Anderson, founder of Tumblehill Labs: https://www.linkedin.com/in/nicolaanderson/
+Published by Tumblehill Labs, part of Tumblehill Holdings LLC.

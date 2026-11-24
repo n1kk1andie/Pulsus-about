@@ -38,3 +38,8 @@ Pulsus Tech is technology risk and third-party risk software. It brings your app
 - [Start a free trial](https://tech.pulsus.tech/signup)
 - [Sign in to Pulsus Tech](https://tech.pulsus.tech/login) (the app, for customers)
 - [Pulsus Intelligence Suite](https://about.pulsus.tech/)
+
+## Creator
+
+Created by Nicola Anderson, founder of Tumblehill Labs: https://www.linkedin.com/in/nicolaanderson/
+Published by Tumblehill Labs, part of Tumblehill Holdings LLC.
