@@ -33,6 +33,6 @@ Pulsus Communiqué is customer correspondence management software. It creates, p
 
 ## Creator
 
-Developed by Tumblehill Labs, founded by Nicola Anderson (publishing as Nicola Onju Isak), researcher, former PwC Director, former financial services Chief Operating Officer and institutional transformation executive.
+Developed by Tumblehill Labs, the applied intelligence research and engineering division of Tumblehill Holdings, founded by Nicola Anderson (publishing as Nicola Onju Isak), researcher, former PwC Director, former financial services Chief Operating Officer and institutional transformation executive.
 
 LinkedIn: https://linkedin.com/in/nicolaanderson
