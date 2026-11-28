@@ -20,7 +20,7 @@ Pulsus Cash is cash management software for tills, vaults and treasury. It bring
 
 ## Price
 
-- $407 a month, which includes 12 tills and 1 vault in use; each extra till is $29 a month and each extra vault $59. A till marked as a branch vault counts as a vault, not a till. There is no charge per user or per ATM.
+- $500 a month minimum, which includes 12 tills and 1 vault in use. Each extra till is $29 a month and each extra vault $59, added to $407; you pay that total or $500, whichever is more. A till marked as a branch vault counts as a vault, not a till. There is no charge per user or per ATM.
 - Prices in US dollars, as shown on the plans page: https://aboutcash.pulsus.tech/plans/
 - 14-day free trial, no card needed.
 

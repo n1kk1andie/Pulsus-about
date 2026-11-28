@@ -67,7 +67,7 @@ for (const s of SITES) {
 // Plans & features: the second page of a product site (Quality first).
 const PLANS = [
   { key: "quality", dir: "quality", price: ["$500 a month", "$50 each", "Assurance", "$1,000 a month"], gone: ["$250", "$30 each"] },
-  { key: "cash", dir: "cash", price: ["$407", "$29", "$59"] },
+  { key: "cash", dir: "cash", price: ["$500", "$29", "$59"], gone: ["$407 a month"] },
   { key: "panorama", dir: "panorama", price: ["$750 a month", "Includes 5 users. Extra users $50 each a month.", "Pulsus Panorama + Accord", "Pulsus Panorama and Pulsus Accord together for $1,100 a month with 5 users, then $100 for each extra user."], gone: ["$500", "up to 50 people", "$1,000 a month", "Accord included", "covers both"] },
   { key: "risk", dir: "risk", price: ["$750 a month", "$75 each", "Assurance", "$1,000 a month"], gone: ["$350", "$40 each", "$500"] },
   { key: "accord", dir: "accord", price: ["$500 a month", "$50 each", "Pulsus Panorama + Accord", "Pulsus Panorama and Pulsus Accord together for $1,100 a month with 5 users, then $100 for each extra user."], gone: ["$1,000 a month", "More than 50 users", "included with Pulsus Panorama", "comes with", "for both products together"] },
